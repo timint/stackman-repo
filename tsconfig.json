@@ -4,7 +4,7 @@
     "module": "ESNext",
     "moduleResolution": "Node",
     "outDir": "dist",
-    "rootDir": "src",
+    "rootDir": "./",
     "strict": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
@@ -12,5 +12,5 @@
     "skipLibCheck": true
   },
   "include": ["src", "types", "index.ts", "releases"],
-  "exclude": ["node_modules", "dist", "tests"]
+  "exclude": ["node_modules", "public", "tests"]
 }

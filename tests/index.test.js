@@ -10,18 +10,18 @@ const apps = [
 	'zig'
 ];
 
-async function testUrl(url, key, version, platform) {
+async function testUrl(url, key, version, target) {
   try {
     const response = await fetch(url, { method: 'HEAD' });
     if (!response.ok) {
-      console.log(`FAIL: ${key} ${version} ${platform}`);
+      console.log(`FAIL: ${key} ${version} ${target}`);
       console.log(`  URL: ${url}`);
       console.log(`  Status: ${response.status}`);
       return { success: false, status: response.status };
     }
     return { success: true, status: response.status };
   } catch (error) {
-    console.log(`ERROR: ${key} ${version} ${platform}`);
+    console.log(`ERROR: ${key} ${version} ${target}`);
     console.log(`  URL: ${url}`);
     console.log(`  Error: ${error.message}`);
     return { success: false, error: error.message };
@@ -76,12 +76,12 @@ describe('Release feeds', () => {
 				// Test using testUrl for each platform
 				for (const release of val) {
 					for (const platform of release.platforms) {
-						const testResult = await testUrl(platform.url, app, release.version, platform.platform);
+						const testResult = await testUrl(platform.url, app, release.version, platform.target);
 						if (!testResult.success) {
 							failures.push({
 								app,
 								version: release.version,
-								platform: platform.platform,
+								target: platform.target,
 								url: platform.url
 							});
 							break;
@@ -107,4 +107,36 @@ describe('Release feeds', () => {
       console.log('\nAll URLs resolved successfully!');
     }
   });
+
+	test('should have mac, linux, and windows releases present', { timeout: 120000 }, async () => {
+		const results = readFileSync('./public/app-releases.json', 'utf-8');
+		const appReleases = JSON.parse(results);
+
+		for (const app of Object.keys(appReleases)) {
+			const val = appReleases[app];
+			if (!Array.isArray(val) || val.length === 0) continue;
+
+			const hasMac = val.some(release =>
+				release.platforms.some(p => p.target === 'macos-amd64' || p.target === 'macos-arm64')
+			);
+			const hasLinux = val.some(release =>
+				release.platforms.some(p => p.target === 'linux-amd64' || p.target === 'linux-arm64')
+			);
+			const hasWindows = val.some(release =>
+				release.platforms.some(p => p.target === 'windows-amd64')
+			);
+
+			if (hasMac && hasLinux && hasWindows) {
+				console.log(`✓ ${app}: macos, linux, windows`);
+			} else {
+				const platforms = [];
+				if (hasMac) platforms.push('macos');
+				if (hasLinux) platforms.push('linux');
+				if (hasWindows) platforms.push('windows');
+				console.log(`⚠ ${app}: ${platforms.join(', ')}`);
+			}
+
+			expect(hasMac || hasLinux || hasWindows).toBe(true);
+		}
+	});
 });

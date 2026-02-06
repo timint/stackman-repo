@@ -1,24 +1,18 @@
-export enum Platform {
-  linux = 'linux',
-  windows = 'windows',
-  macos = 'macos',
-}
-
-export enum Architecture {
-  x86 = 'x86',
-  amd64 = 'amd64',
-  aarch64 = 'aarch64',
+export enum PlatformTarget {
+	windows_amd64 = 'windows-amd64',
+	linux_amd64 = 'linux-amd64',
+	linux_arm64 = 'linux-arm64',
+	macos_amd64 = 'macos-amd64',
+	macos_arm64 = 'macos-arm64',
 }
 
 export interface Release {
-  name: string
-  version: string
-  era: string
-  release_date: string
-  platforms: Array<{
-    platform: Platform | string
-    architecture: Architecture | string
-    url: string
-    size: number
-  }>
+	name: string
+	version: string
+	era: string
+	release_date: string
+	platforms: Array<{
+		target: PlatformTarget | string
+		url: string
+	}>
 }

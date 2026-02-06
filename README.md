@@ -27,7 +27,7 @@ The generator currently supports 21 applications:
 
 ## Prerequisites
 
-- **Bun** >= 1.3.0
+- **Bun** >= 1.3.x
 - **Node.js** (optional, for running Node-based scripts)
 
 ## Installation
@@ -101,17 +101,14 @@ The generated `public/app-releases.json` file contains a JSON object with applic
 {
   "apache": [
     {
-      "name": "Apache 2.4.66",
+      "name": "Apache 2.4",
       "version": "2.4.66",
       "era": "2.4",
       "release_date": "",
-      "description": "Apache HTTP Server",
       "platforms": [
         {
-          "platform": "linux",
-          "architecture": "x64",
+          "target": "linux-amd64",
           "url": "https://downloads.apache.org/httpd/httpd-2.4.66.tar.gz",
-          "size": 0
         }
       ]
     }

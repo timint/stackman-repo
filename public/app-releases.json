@@ -1,6 +1,84 @@
 {
 	"apache": [
 		{
+			"name": "Apache 2.0",
+			"version": "2.0.65",
+			"era": "2.0",
+			"release_date": "",
+			"platforms": [
+				{
+					"platform": "linux",
+					"architecture": "amd64",
+					"url": "https://archive.apache.org/dist/httpd/httpd-2.0.65.tar.gz",
+					"size": 0
+				},
+				{
+					"platform": "macos",
+					"architecture": "amd64",
+					"url": "https://archive.apache.org/dist/httpd/httpd-2.0.65.tar.gz",
+					"size": 0
+				},
+				{
+					"platform": "macos",
+					"architecture": "aarch64",
+					"url": "https://archive.apache.org/dist/httpd/httpd-2.0.65.tar.gz",
+					"size": 0
+				}
+			]
+		},
+		{
+			"name": "Apache 2.2",
+			"version": "2.2.34",
+			"era": "2.2",
+			"release_date": "",
+			"platforms": [
+				{
+					"platform": "linux",
+					"architecture": "amd64",
+					"url": "https://archive.apache.org/dist/httpd/httpd-2.2.34.tar.gz",
+					"size": 0
+				},
+				{
+					"platform": "macos",
+					"architecture": "amd64",
+					"url": "https://archive.apache.org/dist/httpd/httpd-2.2.34.tar.gz",
+					"size": 0
+				},
+				{
+					"platform": "macos",
+					"architecture": "aarch64",
+					"url": "https://archive.apache.org/dist/httpd/httpd-2.2.34.tar.gz",
+					"size": 0
+				}
+			]
+		},
+		{
+			"name": "Apache 2.3",
+			"version": "2.3.8",
+			"era": "2.3",
+			"release_date": "",
+			"platforms": [
+				{
+					"platform": "linux",
+					"architecture": "amd64",
+					"url": "https://archive.apache.org/dist/httpd/httpd-2.3.8.tar.gz",
+					"size": 0
+				},
+				{
+					"platform": "macos",
+					"architecture": "amd64",
+					"url": "https://archive.apache.org/dist/httpd/httpd-2.3.8.tar.gz",
+					"size": 0
+				},
+				{
+					"platform": "macos",
+					"architecture": "aarch64",
+					"url": "https://archive.apache.org/dist/httpd/httpd-2.3.8.tar.gz",
+					"size": 0
+				}
+			]
+		},
+		{
 			"name": "Apache 2.4",
 			"version": "2.4.66",
 			"era": "2.4",
@@ -10,12 +88,6 @@
 					"platform": "linux",
 					"architecture": "amd64",
 					"url": "https://downloads.apache.org/httpd/httpd-2.4.66.tar.gz",
-					"size": 0
-				},
-				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://www.apachelounge.com/download/VS17/binaries/httpd-2.4.66-win64-VS17.zip",
 					"size": 0
 				},
 				{
@@ -148,16 +220,19 @@
 				{
 					"platform": "macos",
 					"architecture": "amd64",
+					"url": "https://go.dev/dl/go1.24.13.darwin-amd64.tar.gz",
 					"size": 80145725
 				},
 				{
 					"platform": "macos",
 					"architecture": "aarch64",
+					"url": "https://go.dev/dl/go1.24.13.darwin-arm64.tar.gz",
 					"size": 76442495
 				},
 				{
 					"platform": "linux",
 					"architecture": "amd64",
+					"url": "https://go.dev/dl/go1.24.13.linux-amd64.tar.gz",
 					"size": 78709986
 				}
 			]
@@ -177,49 +252,25 @@
 				{
 					"platform": "macos",
 					"architecture": "amd64",
+					"url": "https://go.dev/dl/go1.25.7.darwin-amd64.tar.gz",
 					"size": 60496692
 				},
 				{
 					"platform": "macos",
 					"architecture": "aarch64",
+					"url": "https://go.dev/dl/go1.25.7.darwin-arm64.tar.gz",
 					"size": 58034655
 				},
 				{
 					"platform": "linux",
 					"architecture": "amd64",
+					"url": "https://go.dev/dl/go1.25.7.linux-amd64.tar.gz",
 					"size": 59768749
 				}
 			]
 		}
 	],
-	"java": [
-		{
-			"name": "Java 1",
-			"version": "1.1",
-			"era": "1",
-			"release_date": "",
-			"platforms": [
-				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://download.java.net/java/GA/jdk1.1/binaries/openjdk-1.1_windows-x64_bin.zip",
-					"size": 0
-				},
-				{
-					"platform": "linux",
-					"architecture": "amd64",
-					"url": "https://download.java.net/java/GA/jdk1.1/binaries/openjdk-1.1_linux-x64_bin.tar.gz",
-					"size": 0
-				},
-				{
-					"platform": "macos",
-					"architecture": "aarch64",
-					"url": "https://download.java.net/java/GA/jdk1.1/binaries/openjdk-1.1_macos-aarch64_bin.tar.gz",
-					"size": 0
-				}
-			]
-		}
-	],
+	"java": [],
 	"kotlin": [
 		{
 			"name": "Kotlin 2.1",
@@ -547,40 +598,7 @@
 	"mongodb": {
 		"error": "Failed to fetch MongoDB download page"
 	},
-	"mysql": [
-		{
-			"name": "MySQL 9.6",
-			"version": "9.6.0",
-			"era": "9.6",
-			"release_date": "",
-			"platforms": [
-				{
-					"platform": "linux",
-					"architecture": "amd64",
-					"url": "https://dev.mysql.com/get/Downloads/MySQL-9.6/mysql-9.6.0-linux-glibc2.12-x86_64.tar.xz",
-					"size": 0
-				},
-				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://dev.mysql.com/get/Downloads/MySQL-9.6/mysql-9.6.0-winx64.zip",
-					"size": 0
-				},
-				{
-					"platform": "macos",
-					"architecture": "amd64",
-					"url": "https://dev.mysql.com/get/Downloads/MySQL-9.6/mysql-9.6.0-macos13-x86_64.tar.gz",
-					"size": 0
-				},
-				{
-					"platform": "macos",
-					"architecture": "aarch64",
-					"url": "https://dev.mysql.com/get/Downloads/MySQL-9.6/mysql-9.6.0-macos13-arm64.tar.gz",
-					"size": 0
-				}
-			]
-		}
-	],
+	"mysql": [],
 	"nginx": [
 		{
 			"name": "Nginx 0.5",
@@ -592,12 +610,6 @@
 					"platform": "linux",
 					"architecture": "amd64",
 					"url": "https://nginx.org/download/nginx-0.5.38.tar.gz",
-					"size": 0
-				},
-				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://nginx.org/download/nginx-0.5.38.win64.zip",
 					"size": 0
 				},
 				{
@@ -627,12 +639,6 @@
 					"size": 0
 				},
 				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://nginx.org/download/nginx-0.6.39.win64.zip",
-					"size": 0
-				},
-				{
 					"platform": "macos",
 					"architecture": "amd64",
 					"url": "https://nginx.org/download/nginx-0.6.39.tar.gz",
@@ -659,12 +665,6 @@
 					"size": 0
 				},
 				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://nginx.org/download/nginx-0.7.69.win64.zip",
-					"size": 0
-				},
-				{
 					"platform": "macos",
 					"architecture": "amd64",
 					"url": "https://nginx.org/download/nginx-0.7.69.tar.gz",
@@ -674,6 +674,12 @@
 					"platform": "macos",
 					"architecture": "aarch64",
 					"url": "https://nginx.org/download/nginx-0.7.69.tar.gz",
+					"size": 0
+				},
+				{
+					"platform": "windows",
+					"architecture": "amd64",
+					"url": "https://nginx.org/download/nginx-0.7.69.zip",
 					"size": 0
 				}
 			]
@@ -691,12 +697,6 @@
 					"size": 0
 				},
 				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://nginx.org/download/nginx-0.8.55.win64.zip",
-					"size": 0
-				},
-				{
 					"platform": "macos",
 					"architecture": "amd64",
 					"url": "https://nginx.org/download/nginx-0.8.55.tar.gz",
@@ -706,6 +706,12 @@
 					"platform": "macos",
 					"architecture": "aarch64",
 					"url": "https://nginx.org/download/nginx-0.8.55.tar.gz",
+					"size": 0
+				},
+				{
+					"platform": "windows",
+					"architecture": "amd64",
+					"url": "https://nginx.org/download/nginx-0.8.55.zip",
 					"size": 0
 				}
 			]
@@ -723,12 +729,6 @@
 					"size": 0
 				},
 				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://nginx.org/download/nginx-1.0.15.win64.zip",
-					"size": 0
-				},
-				{
 					"platform": "macos",
 					"architecture": "amd64",
 					"url": "https://nginx.org/download/nginx-1.0.15.tar.gz",
@@ -738,6 +738,12 @@
 					"platform": "macos",
 					"architecture": "aarch64",
 					"url": "https://nginx.org/download/nginx-1.0.15.tar.gz",
+					"size": 0
+				},
+				{
+					"platform": "windows",
+					"architecture": "amd64",
+					"url": "https://nginx.org/download/nginx-1.0.15.zip",
 					"size": 0
 				}
 			]
@@ -755,12 +761,6 @@
 					"size": 0
 				},
 				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://nginx.org/download/nginx-1.10.3.win64.zip",
-					"size": 0
-				},
-				{
 					"platform": "macos",
 					"architecture": "amd64",
 					"url": "https://nginx.org/download/nginx-1.10.3.tar.gz",
@@ -770,6 +770,12 @@
 					"platform": "macos",
 					"architecture": "aarch64",
 					"url": "https://nginx.org/download/nginx-1.10.3.tar.gz",
+					"size": 0
+				},
+				{
+					"platform": "windows",
+					"architecture": "amd64",
+					"url": "https://nginx.org/download/nginx-1.10.3.zip",
 					"size": 0
 				}
 			]
@@ -787,12 +793,6 @@
 					"size": 0
 				},
 				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://nginx.org/download/nginx-1.12.2.win64.zip",
-					"size": 0
-				},
-				{
 					"platform": "macos",
 					"architecture": "amd64",
 					"url": "https://nginx.org/download/nginx-1.12.2.tar.gz",
@@ -802,6 +802,12 @@
 					"platform": "macos",
 					"architecture": "aarch64",
 					"url": "https://nginx.org/download/nginx-1.12.2.tar.gz",
+					"size": 0
+				},
+				{
+					"platform": "windows",
+					"architecture": "amd64",
+					"url": "https://nginx.org/download/nginx-1.12.2.zip",
 					"size": 0
 				}
 			]
@@ -819,12 +825,6 @@
 					"size": 0
 				},
 				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://nginx.org/download/nginx-1.14.2.win64.zip",
-					"size": 0
-				},
-				{
 					"platform": "macos",
 					"architecture": "amd64",
 					"url": "https://nginx.org/download/nginx-1.14.2.tar.gz",
@@ -834,6 +834,12 @@
 					"platform": "macos",
 					"architecture": "aarch64",
 					"url": "https://nginx.org/download/nginx-1.14.2.tar.gz",
+					"size": 0
+				},
+				{
+					"platform": "windows",
+					"architecture": "amd64",
+					"url": "https://nginx.org/download/nginx-1.14.2.zip",
 					"size": 0
 				}
 			]
@@ -851,12 +857,6 @@
 					"size": 0
 				},
 				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://nginx.org/download/nginx-1.16.1.win64.zip",
-					"size": 0
-				},
-				{
 					"platform": "macos",
 					"architecture": "amd64",
 					"url": "https://nginx.org/download/nginx-1.16.1.tar.gz",
@@ -866,6 +866,12 @@
 					"platform": "macos",
 					"architecture": "aarch64",
 					"url": "https://nginx.org/download/nginx-1.16.1.tar.gz",
+					"size": 0
+				},
+				{
+					"platform": "windows",
+					"architecture": "amd64",
+					"url": "https://nginx.org/download/nginx-1.16.1.zip",
 					"size": 0
 				}
 			]
@@ -883,12 +889,6 @@
 					"size": 0
 				},
 				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://nginx.org/download/nginx-1.18.0.win64.zip",
-					"size": 0
-				},
-				{
 					"platform": "macos",
 					"architecture": "amd64",
 					"url": "https://nginx.org/download/nginx-1.18.0.tar.gz",
@@ -898,6 +898,12 @@
 					"platform": "macos",
 					"architecture": "aarch64",
 					"url": "https://nginx.org/download/nginx-1.18.0.tar.gz",
+					"size": 0
+				},
+				{
+					"platform": "windows",
+					"architecture": "amd64",
+					"url": "https://nginx.org/download/nginx-1.18.0.zip",
 					"size": 0
 				}
 			]
@@ -915,12 +921,6 @@
 					"size": 0
 				},
 				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://nginx.org/download/nginx-1.2.9.win64.zip",
-					"size": 0
-				},
-				{
 					"platform": "macos",
 					"architecture": "amd64",
 					"url": "https://nginx.org/download/nginx-1.2.9.tar.gz",
@@ -930,6 +930,12 @@
 					"platform": "macos",
 					"architecture": "aarch64",
 					"url": "https://nginx.org/download/nginx-1.2.9.tar.gz",
+					"size": 0
+				},
+				{
+					"platform": "windows",
+					"architecture": "amd64",
+					"url": "https://nginx.org/download/nginx-1.2.9.zip",
 					"size": 0
 				}
 			]
@@ -947,12 +953,6 @@
 					"size": 0
 				},
 				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://nginx.org/download/nginx-1.20.2.win64.zip",
-					"size": 0
-				},
-				{
 					"platform": "macos",
 					"architecture": "amd64",
 					"url": "https://nginx.org/download/nginx-1.20.2.tar.gz",
@@ -962,6 +962,12 @@
 					"platform": "macos",
 					"architecture": "aarch64",
 					"url": "https://nginx.org/download/nginx-1.20.2.tar.gz",
+					"size": 0
+				},
+				{
+					"platform": "windows",
+					"architecture": "amd64",
+					"url": "https://nginx.org/download/nginx-1.20.2.zip",
 					"size": 0
 				}
 			]
@@ -979,12 +985,6 @@
 					"size": 0
 				},
 				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://nginx.org/download/nginx-1.22.1.win64.zip",
-					"size": 0
-				},
-				{
 					"platform": "macos",
 					"architecture": "amd64",
 					"url": "https://nginx.org/download/nginx-1.22.1.tar.gz",
@@ -994,6 +994,12 @@
 					"platform": "macos",
 					"architecture": "aarch64",
 					"url": "https://nginx.org/download/nginx-1.22.1.tar.gz",
+					"size": 0
+				},
+				{
+					"platform": "windows",
+					"architecture": "amd64",
+					"url": "https://nginx.org/download/nginx-1.22.1.zip",
 					"size": 0
 				}
 			]
@@ -1011,12 +1017,6 @@
 					"size": 0
 				},
 				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://nginx.org/download/nginx-1.24.0.win64.zip",
-					"size": 0
-				},
-				{
 					"platform": "macos",
 					"architecture": "amd64",
 					"url": "https://nginx.org/download/nginx-1.24.0.tar.gz",
@@ -1026,6 +1026,12 @@
 					"platform": "macos",
 					"architecture": "aarch64",
 					"url": "https://nginx.org/download/nginx-1.24.0.tar.gz",
+					"size": 0
+				},
+				{
+					"platform": "windows",
+					"architecture": "amd64",
+					"url": "https://nginx.org/download/nginx-1.24.0.zip",
 					"size": 0
 				}
 			]
@@ -1043,12 +1049,6 @@
 					"size": 0
 				},
 				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://nginx.org/download/nginx-1.26.3.win64.zip",
-					"size": 0
-				},
-				{
 					"platform": "macos",
 					"architecture": "amd64",
 					"url": "https://nginx.org/download/nginx-1.26.3.tar.gz",
@@ -1058,6 +1058,12 @@
 					"platform": "macos",
 					"architecture": "aarch64",
 					"url": "https://nginx.org/download/nginx-1.26.3.tar.gz",
+					"size": 0
+				},
+				{
+					"platform": "windows",
+					"architecture": "amd64",
+					"url": "https://nginx.org/download/nginx-1.26.3.zip",
 					"size": 0
 				}
 			]
@@ -1075,12 +1081,6 @@
 					"size": 0
 				},
 				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://nginx.org/download/nginx-1.28.2.win64.zip",
-					"size": 0
-				},
-				{
 					"platform": "macos",
 					"architecture": "amd64",
 					"url": "https://nginx.org/download/nginx-1.28.2.tar.gz",
@@ -1090,6 +1090,12 @@
 					"platform": "macos",
 					"architecture": "aarch64",
 					"url": "https://nginx.org/download/nginx-1.28.2.tar.gz",
+					"size": 0
+				},
+				{
+					"platform": "windows",
+					"architecture": "amd64",
+					"url": "https://nginx.org/download/nginx-1.28.2.zip",
 					"size": 0
 				}
 			]
@@ -1107,12 +1113,6 @@
 					"size": 0
 				},
 				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://nginx.org/download/nginx-1.29.5.win64.zip",
-					"size": 0
-				},
-				{
 					"platform": "macos",
 					"architecture": "amd64",
 					"url": "https://nginx.org/download/nginx-1.29.5.tar.gz",
@@ -1122,6 +1122,12 @@
 					"platform": "macos",
 					"architecture": "aarch64",
 					"url": "https://nginx.org/download/nginx-1.29.5.tar.gz",
+					"size": 0
+				},
+				{
+					"platform": "windows",
+					"architecture": "amd64",
+					"url": "https://nginx.org/download/nginx-1.29.5.zip",
 					"size": 0
 				}
 			]
@@ -1139,12 +1145,6 @@
 					"size": 0
 				},
 				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://nginx.org/download/nginx-1.4.7.win64.zip",
-					"size": 0
-				},
-				{
 					"platform": "macos",
 					"architecture": "amd64",
 					"url": "https://nginx.org/download/nginx-1.4.7.tar.gz",
@@ -1154,6 +1154,12 @@
 					"platform": "macos",
 					"architecture": "aarch64",
 					"url": "https://nginx.org/download/nginx-1.4.7.tar.gz",
+					"size": 0
+				},
+				{
+					"platform": "windows",
+					"architecture": "amd64",
+					"url": "https://nginx.org/download/nginx-1.4.7.zip",
 					"size": 0
 				}
 			]
@@ -1171,12 +1177,6 @@
 					"size": 0
 				},
 				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://nginx.org/download/nginx-1.6.3.win64.zip",
-					"size": 0
-				},
-				{
 					"platform": "macos",
 					"architecture": "amd64",
 					"url": "https://nginx.org/download/nginx-1.6.3.tar.gz",
@@ -1186,6 +1186,12 @@
 					"platform": "macos",
 					"architecture": "aarch64",
 					"url": "https://nginx.org/download/nginx-1.6.3.tar.gz",
+					"size": 0
+				},
+				{
+					"platform": "windows",
+					"architecture": "amd64",
+					"url": "https://nginx.org/download/nginx-1.6.3.zip",
 					"size": 0
 				}
 			]
@@ -1203,12 +1209,6 @@
 					"size": 0
 				},
 				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://nginx.org/download/nginx-1.8.1.win64.zip",
-					"size": 0
-				},
-				{
 					"platform": "macos",
 					"architecture": "amd64",
 					"url": "https://nginx.org/download/nginx-1.8.1.tar.gz",
@@ -1218,6 +1218,12 @@
 					"platform": "macos",
 					"architecture": "aarch64",
 					"url": "https://nginx.org/download/nginx-1.8.1.tar.gz",
+					"size": 0
+				},
+				{
+					"platform": "windows",
+					"architecture": "amd64",
+					"url": "https://nginx.org/download/nginx-1.8.1.zip",
 					"size": 0
 				}
 			]
@@ -1435,12 +1441,6 @@
 					"size": 0
 				},
 				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://strawberryperl.com/download/5.10.1/strawberry-perl-5.10.1-64bit-portable.zip",
-					"size": 0
-				},
-				{
 					"platform": "macos",
 					"architecture": "amd64",
 					"url": "https://www.cpan.org/src/5.0/perl-5.10.1.tar.gz",
@@ -1464,12 +1464,6 @@
 					"platform": "linux",
 					"architecture": "amd64",
 					"url": "https://www.cpan.org/src/5.0/perl-5.11.5.tar.gz",
-					"size": 0
-				},
-				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://strawberryperl.com/download/5.11.5/strawberry-perl-5.11.5-64bit-portable.zip",
 					"size": 0
 				},
 				{
@@ -1499,12 +1493,6 @@
 					"size": 0
 				},
 				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://strawberryperl.com/download/5.12.5/strawberry-perl-5.12.5-64bit-portable.zip",
-					"size": 0
-				},
-				{
 					"platform": "macos",
 					"architecture": "amd64",
 					"url": "https://www.cpan.org/src/5.0/perl-5.12.5.tar.gz",
@@ -1528,12 +1516,6 @@
 					"platform": "linux",
 					"architecture": "amd64",
 					"url": "https://www.cpan.org/src/5.0/perl-5.13.11.tar.gz",
-					"size": 0
-				},
-				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://strawberryperl.com/download/5.13.11/strawberry-perl-5.13.11-64bit-portable.zip",
 					"size": 0
 				},
 				{
@@ -1563,12 +1545,6 @@
 					"size": 0
 				},
 				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://strawberryperl.com/download/5.14.4/strawberry-perl-5.14.4-64bit-portable.zip",
-					"size": 0
-				},
-				{
 					"platform": "macos",
 					"architecture": "amd64",
 					"url": "https://www.cpan.org/src/5.0/perl-5.14.4.tar.gz",
@@ -1592,12 +1568,6 @@
 					"platform": "linux",
 					"architecture": "amd64",
 					"url": "https://www.cpan.org/src/5.0/perl-5.15.9.tar.gz",
-					"size": 0
-				},
-				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://strawberryperl.com/download/5.15.9/strawberry-perl-5.15.9-64bit-portable.zip",
 					"size": 0
 				},
 				{
@@ -1627,12 +1597,6 @@
 					"size": 0
 				},
 				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://strawberryperl.com/download/5.16.3/strawberry-perl-5.16.3-64bit-portable.zip",
-					"size": 0
-				},
-				{
 					"platform": "macos",
 					"architecture": "amd64",
 					"url": "https://www.cpan.org/src/5.0/perl-5.16.3.tar.gz",
@@ -1648,32 +1612,26 @@
 		},
 		{
 			"name": "Perl 5.17",
-			"version": "5.17.11",
+			"version": "5.17.9",
 			"era": "5.17",
 			"release_date": "",
 			"platforms": [
 				{
 					"platform": "linux",
 					"architecture": "amd64",
-					"url": "https://www.cpan.org/src/5.0/perl-5.17.11.tar.gz",
-					"size": 0
-				},
-				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://strawberryperl.com/download/5.17.11/strawberry-perl-5.17.11-64bit-portable.zip",
+					"url": "https://www.cpan.org/src/5.0/perl-5.17.9.tar.gz",
 					"size": 0
 				},
 				{
 					"platform": "macos",
 					"architecture": "amd64",
-					"url": "https://www.cpan.org/src/5.0/perl-5.17.11.tar.gz",
+					"url": "https://www.cpan.org/src/5.0/perl-5.17.9.tar.gz",
 					"size": 0
 				},
 				{
 					"platform": "macos",
 					"architecture": "aarch64",
-					"url": "https://www.cpan.org/src/5.0/perl-5.17.11.tar.gz",
+					"url": "https://www.cpan.org/src/5.0/perl-5.17.9.tar.gz",
 					"size": 0
 				}
 			]
@@ -1688,12 +1646,6 @@
 					"platform": "linux",
 					"architecture": "amd64",
 					"url": "https://www.cpan.org/src/5.0/perl-5.18.4.tar.gz",
-					"size": 0
-				},
-				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://strawberryperl.com/download/5.18.4/strawberry-perl-5.18.4-64bit-portable.zip",
 					"size": 0
 				},
 				{
@@ -1723,12 +1675,6 @@
 					"size": 0
 				},
 				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://strawberryperl.com/download/5.19.11/strawberry-perl-5.19.11-64bit-portable.zip",
-					"size": 0
-				},
-				{
 					"platform": "macos",
 					"architecture": "amd64",
 					"url": "https://www.cpan.org/src/5.0/perl-5.19.11.tar.gz",
@@ -1752,12 +1698,6 @@
 					"platform": "linux",
 					"architecture": "amd64",
 					"url": "https://www.cpan.org/src/5.0/perl-5.20.3.tar.gz",
-					"size": 0
-				},
-				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://strawberryperl.com/download/5.20.3/strawberry-perl-5.20.3-64bit-portable.zip",
 					"size": 0
 				},
 				{
@@ -1787,12 +1727,6 @@
 					"size": 0
 				},
 				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://strawberryperl.com/download/5.21.11/strawberry-perl-5.21.11-64bit-portable.zip",
-					"size": 0
-				},
-				{
 					"platform": "macos",
 					"architecture": "amd64",
 					"url": "https://www.cpan.org/src/5.0/perl-5.21.11.tar.gz",
@@ -1816,12 +1750,6 @@
 					"platform": "linux",
 					"architecture": "amd64",
 					"url": "https://www.cpan.org/src/5.0/perl-5.22.4.tar.gz",
-					"size": 0
-				},
-				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://strawberryperl.com/download/5.22.4/strawberry-perl-5.22.4-64bit-portable.zip",
 					"size": 0
 				},
 				{
@@ -1851,12 +1779,6 @@
 					"size": 0
 				},
 				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://strawberryperl.com/download/5.23.9/strawberry-perl-5.23.9-64bit-portable.zip",
-					"size": 0
-				},
-				{
 					"platform": "macos",
 					"architecture": "amd64",
 					"url": "https://www.cpan.org/src/5.0/perl-5.23.9.tar.gz",
@@ -1883,12 +1805,6 @@
 					"size": 0
 				},
 				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://strawberryperl.com/download/5.24.4/strawberry-perl-5.24.4-64bit-portable.zip",
-					"size": 0
-				},
-				{
 					"platform": "macos",
 					"architecture": "amd64",
 					"url": "https://www.cpan.org/src/5.0/perl-5.24.4.tar.gz",
@@ -1904,32 +1820,26 @@
 		},
 		{
 			"name": "Perl 5.25",
-			"version": "5.25.12",
+			"version": "5.25.10",
 			"era": "5.25",
 			"release_date": "",
 			"platforms": [
 				{
 					"platform": "linux",
 					"architecture": "amd64",
-					"url": "https://www.cpan.org/src/5.0/perl-5.25.12.tar.gz",
-					"size": 0
-				},
-				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://strawberryperl.com/download/5.25.12/strawberry-perl-5.25.12-64bit-portable.zip",
+					"url": "https://www.cpan.org/src/5.0/perl-5.25.10.tar.gz",
 					"size": 0
 				},
 				{
 					"platform": "macos",
 					"architecture": "amd64",
-					"url": "https://www.cpan.org/src/5.0/perl-5.25.12.tar.gz",
+					"url": "https://www.cpan.org/src/5.0/perl-5.25.10.tar.gz",
 					"size": 0
 				},
 				{
 					"platform": "macos",
 					"architecture": "aarch64",
-					"url": "https://www.cpan.org/src/5.0/perl-5.25.12.tar.gz",
+					"url": "https://www.cpan.org/src/5.0/perl-5.25.10.tar.gz",
 					"size": 0
 				}
 			]
@@ -1944,12 +1854,6 @@
 					"platform": "linux",
 					"architecture": "amd64",
 					"url": "https://www.cpan.org/src/5.0/perl-5.26.3.tar.gz",
-					"size": 0
-				},
-				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://strawberryperl.com/download/5.26.3/strawberry-perl-5.26.3-64bit-portable.zip",
 					"size": 0
 				},
 				{
@@ -1979,12 +1883,6 @@
 					"size": 0
 				},
 				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://strawberryperl.com/download/5.27.11/strawberry-perl-5.27.11-64bit-portable.zip",
-					"size": 0
-				},
-				{
 					"platform": "macos",
 					"architecture": "amd64",
 					"url": "https://www.cpan.org/src/5.0/perl-5.27.11.tar.gz",
@@ -2008,12 +1906,6 @@
 					"platform": "linux",
 					"architecture": "amd64",
 					"url": "https://www.cpan.org/src/5.0/perl-5.28.3.tar.gz",
-					"size": 0
-				},
-				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://strawberryperl.com/download/5.28.3/strawberry-perl-5.28.3-64bit-portable.zip",
 					"size": 0
 				},
 				{
@@ -2043,12 +1935,6 @@
 					"size": 0
 				},
 				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://strawberryperl.com/download/5.29.10/strawberry-perl-5.29.10-64bit-portable.zip",
-					"size": 0
-				},
-				{
 					"platform": "macos",
 					"architecture": "amd64",
 					"url": "https://www.cpan.org/src/5.0/perl-5.29.10.tar.gz",
@@ -2072,12 +1958,6 @@
 					"platform": "linux",
 					"architecture": "amd64",
 					"url": "https://www.cpan.org/src/5.0/perl-5.30.3.tar.gz",
-					"size": 0
-				},
-				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://strawberryperl.com/download/5.30.3/strawberry-perl-5.30.3-64bit-portable.zip",
 					"size": 0
 				},
 				{
@@ -2107,12 +1987,6 @@
 					"size": 0
 				},
 				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://strawberryperl.com/download/5.31.11/strawberry-perl-5.31.11-64bit-portable.zip",
-					"size": 0
-				},
-				{
 					"platform": "macos",
 					"architecture": "amd64",
 					"url": "https://www.cpan.org/src/5.0/perl-5.31.11.tar.gz",
@@ -2136,12 +2010,6 @@
 					"platform": "linux",
 					"architecture": "amd64",
 					"url": "https://www.cpan.org/src/5.0/perl-5.32.1.tar.gz",
-					"size": 0
-				},
-				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://strawberryperl.com/download/5.32.1/strawberry-perl-5.32.1-64bit-portable.zip",
 					"size": 0
 				},
 				{
@@ -2171,12 +2039,6 @@
 					"size": 0
 				},
 				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://strawberryperl.com/download/5.33.9/strawberry-perl-5.33.9-64bit-portable.zip",
-					"size": 0
-				},
-				{
 					"platform": "macos",
 					"architecture": "amd64",
 					"url": "https://www.cpan.org/src/5.0/perl-5.33.9.tar.gz",
@@ -2200,12 +2062,6 @@
 					"platform": "linux",
 					"architecture": "amd64",
 					"url": "https://www.cpan.org/src/5.0/perl-5.34.3.tar.gz",
-					"size": 0
-				},
-				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://strawberryperl.com/download/5.34.3/strawberry-perl-5.34.3-64bit-portable.zip",
 					"size": 0
 				},
 				{
@@ -2235,12 +2091,6 @@
 					"size": 0
 				},
 				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://strawberryperl.com/download/5.35.11/strawberry-perl-5.35.11-64bit-portable.zip",
-					"size": 0
-				},
-				{
 					"platform": "macos",
 					"architecture": "amd64",
 					"url": "https://www.cpan.org/src/5.0/perl-5.35.11.tar.gz",
@@ -2264,12 +2114,6 @@
 					"platform": "linux",
 					"architecture": "amd64",
 					"url": "https://www.cpan.org/src/5.0/perl-5.36.3.tar.gz",
-					"size": 0
-				},
-				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://strawberryperl.com/download/5.36.3/strawberry-perl-5.36.3-64bit-portable.zip",
 					"size": 0
 				},
 				{
@@ -2299,12 +2143,6 @@
 					"size": 0
 				},
 				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://strawberryperl.com/download/5.37.11/strawberry-perl-5.37.11-64bit-portable.zip",
-					"size": 0
-				},
-				{
 					"platform": "macos",
 					"architecture": "amd64",
 					"url": "https://www.cpan.org/src/5.0/perl-5.37.11.tar.gz",
@@ -2328,12 +2166,6 @@
 					"platform": "linux",
 					"architecture": "amd64",
 					"url": "https://www.cpan.org/src/5.0/perl-5.38.5.tar.gz",
-					"size": 0
-				},
-				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://strawberryperl.com/download/5.38.5/strawberry-perl-5.38.5-64bit-portable.zip",
 					"size": 0
 				},
 				{
@@ -2363,12 +2195,6 @@
 					"size": 0
 				},
 				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://strawberryperl.com/download/5.39.10/strawberry-perl-5.39.10-64bit-portable.zip",
-					"size": 0
-				},
-				{
 					"platform": "macos",
 					"architecture": "amd64",
 					"url": "https://www.cpan.org/src/5.0/perl-5.39.10.tar.gz",
@@ -2392,12 +2218,6 @@
 					"platform": "linux",
 					"architecture": "amd64",
 					"url": "https://www.cpan.org/src/5.0/perl-5.40.3.tar.gz",
-					"size": 0
-				},
-				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://strawberryperl.com/download/5.40.3/strawberry-perl-5.40.3-64bit-portable.zip",
 					"size": 0
 				},
 				{
@@ -2427,12 +2247,6 @@
 					"size": 0
 				},
 				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://strawberryperl.com/download/5.41.13/strawberry-perl-5.41.13-64bit-portable.zip",
-					"size": 0
-				},
-				{
 					"platform": "macos",
 					"architecture": "amd64",
 					"url": "https://www.cpan.org/src/5.0/perl-5.41.13.tar.gz",
@@ -2456,12 +2270,6 @@
 					"platform": "linux",
 					"architecture": "amd64",
 					"url": "https://www.cpan.org/src/5.0/perl-5.42.0.tar.gz",
-					"size": 0
-				},
-				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://strawberryperl.com/download/5.42.0/strawberry-perl-5.42.0-64bit-portable.zip",
 					"size": 0
 				},
 				{
@@ -2491,12 +2299,6 @@
 					"size": 0
 				},
 				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://strawberryperl.com/download/5.43.7/strawberry-perl-5.43.7-64bit-portable.zip",
-					"size": 0
-				},
-				{
 					"platform": "macos",
 					"architecture": "amd64",
 					"url": "https://www.cpan.org/src/5.0/perl-5.43.7.tar.gz",
@@ -2520,12 +2322,6 @@
 					"platform": "linux",
 					"architecture": "amd64",
 					"url": "https://www.cpan.org/src/5.0/perl-5.6.2.tar.gz",
-					"size": 0
-				},
-				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://strawberryperl.com/download/5.6.2/strawberry-perl-5.6.2-64bit-portable.zip",
 					"size": 0
 				},
 				{
@@ -2555,12 +2351,6 @@
 					"size": 0
 				},
 				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://strawberryperl.com/download/5.7.3/strawberry-perl-5.7.3-64bit-portable.zip",
-					"size": 0
-				},
-				{
 					"platform": "macos",
 					"architecture": "amd64",
 					"url": "https://www.cpan.org/src/5.0/perl-5.7.3.tar.gz",
@@ -2584,12 +2374,6 @@
 					"platform": "linux",
 					"architecture": "amd64",
 					"url": "https://www.cpan.org/src/5.0/perl-5.8.9.tar.gz",
-					"size": 0
-				},
-				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://strawberryperl.com/download/5.8.9/strawberry-perl-5.8.9-64bit-portable.zip",
 					"size": 0
 				},
 				{
@@ -2619,12 +2403,6 @@
 					"size": 0
 				},
 				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://strawberryperl.com/download/5.9.5/strawberry-perl-5.9.5-64bit-portable.zip",
-					"size": 0
-				},
-				{
 					"platform": "macos",
 					"architecture": "amd64",
 					"url": "https://www.cpan.org/src/5.0/perl-5.9.5.tar.gz",
@@ -2645,23 +2423,109 @@
 	"postgresql": [],
 	"python": [
 		{
-			"name": "Python 2.7.18",
-			"version": "2.7.18",
-			"era": "2",
+			"name": "Python 2.0",
+			"version": "2.0.1",
+			"era": "2.0",
 			"release_date": "",
 			"platforms": [
 				{
-					"platform": "windows",
+					"platform": "linux",
 					"architecture": "amd64",
-					"url": "https://www.python.org/ftp/python/2.7.18/python-2.7.18-embed-amd64.zip",
+					"url": "https://www.python.org/ftp/python/2.0.1/Python-2.0.1.tgz",
 					"size": 0
-				},
+				}
+			]
+		},
+		{
+			"name": "Python 2.1",
+			"version": "2.1.3",
+			"era": "2.1",
+			"release_date": "",
+			"platforms": [
 				{
-					"platform": "macos",
-					"architecture": "aarch64",
-					"url": "https://www.python.org/ftp/python/2.7.18/python-2.7.18-macos11.pkg",
+					"platform": "linux",
+					"architecture": "amd64",
+					"url": "https://www.python.org/ftp/python/2.1.3/Python-2.1.3.tgz",
 					"size": 0
-				},
+				}
+			]
+		},
+		{
+			"name": "Python 2.2",
+			"version": "2.2.3",
+			"era": "2.2",
+			"release_date": "",
+			"platforms": [
+				{
+					"platform": "linux",
+					"architecture": "amd64",
+					"url": "https://www.python.org/ftp/python/2.2.3/Python-2.2.3.tgz",
+					"size": 0
+				}
+			]
+		},
+		{
+			"name": "Python 2.3",
+			"version": "2.3.7",
+			"era": "2.3",
+			"release_date": "",
+			"platforms": [
+				{
+					"platform": "linux",
+					"architecture": "amd64",
+					"url": "https://www.python.org/ftp/python/2.3.7/Python-2.3.7.tgz",
+					"size": 0
+				}
+			]
+		},
+		{
+			"name": "Python 2.4",
+			"version": "2.4.6",
+			"era": "2.4",
+			"release_date": "",
+			"platforms": [
+				{
+					"platform": "linux",
+					"architecture": "amd64",
+					"url": "https://www.python.org/ftp/python/2.4.6/Python-2.4.6.tgz",
+					"size": 0
+				}
+			]
+		},
+		{
+			"name": "Python 2.5",
+			"version": "2.5.6",
+			"era": "2.5",
+			"release_date": "",
+			"platforms": [
+				{
+					"platform": "linux",
+					"architecture": "amd64",
+					"url": "https://www.python.org/ftp/python/2.5.6/Python-2.5.6.tgz",
+					"size": 0
+				}
+			]
+		},
+		{
+			"name": "Python 2.6",
+			"version": "2.6.9",
+			"era": "2.6",
+			"release_date": "",
+			"platforms": [
+				{
+					"platform": "linux",
+					"architecture": "amd64",
+					"url": "https://www.python.org/ftp/python/2.6.9/Python-2.6.9.tgz",
+					"size": 0
+				}
+			]
+		},
+		{
+			"name": "Python 2.7",
+			"version": "2.7.18",
+			"era": "2.7",
+			"release_date": "",
+			"platforms": [
 				{
 					"platform": "linux",
 					"architecture": "amd64",
@@ -2671,27 +2535,230 @@
 			]
 		},
 		{
-			"name": "Python 3.15.0",
-			"version": "3.15.0",
-			"era": "3",
+			"name": "Python 3.0",
+			"version": "3.0.1",
+			"era": "3.0",
 			"release_date": "",
 			"platforms": [
 				{
-					"platform": "windows",
+					"platform": "linux",
 					"architecture": "amd64",
-					"url": "https://www.python.org/ftp/python/3.15.0/python-3.15.0-embed-amd64.zip",
+					"url": "https://www.python.org/ftp/python/3.0.1/Python-3.0.1.tgz",
 					"size": 0
-				},
-				{
-					"platform": "macos",
-					"architecture": "aarch64",
-					"url": "https://www.python.org/ftp/python/3.15.0/python-3.15.0-macos11.pkg",
-					"size": 0
-				},
+				}
+			]
+		},
+		{
+			"name": "Python 3.1",
+			"version": "3.1.5",
+			"era": "3.1",
+			"release_date": "",
+			"platforms": [
 				{
 					"platform": "linux",
 					"architecture": "amd64",
-					"url": "https://www.python.org/ftp/python/3.15.0/Python-3.15.0.tgz",
+					"url": "https://www.python.org/ftp/python/3.1.5/Python-3.1.5.tgz",
+					"size": 0
+				}
+			]
+		},
+		{
+			"name": "Python 3.10",
+			"version": "3.10.19",
+			"era": "3.10",
+			"release_date": "",
+			"platforms": [
+				{
+					"platform": "linux",
+					"architecture": "amd64",
+					"url": "https://www.python.org/ftp/python/3.10.19/Python-3.10.19.tgz",
+					"size": 0
+				}
+			]
+		},
+		{
+			"name": "Python 3.11",
+			"version": "3.11.14",
+			"era": "3.11",
+			"release_date": "",
+			"platforms": [
+				{
+					"platform": "linux",
+					"architecture": "amd64",
+					"url": "https://www.python.org/ftp/python/3.11.14/Python-3.11.14.tgz",
+					"size": 0
+				}
+			]
+		},
+		{
+			"name": "Python 3.12",
+			"version": "3.12.12",
+			"era": "3.12",
+			"release_date": "",
+			"platforms": [
+				{
+					"platform": "linux",
+					"architecture": "amd64",
+					"url": "https://www.python.org/ftp/python/3.12.12/Python-3.12.12.tgz",
+					"size": 0
+				}
+			]
+		},
+		{
+			"name": "Python 3.13",
+			"version": "3.13.12",
+			"era": "3.13",
+			"release_date": "",
+			"platforms": [
+				{
+					"platform": "linux",
+					"architecture": "amd64",
+					"url": "https://www.python.org/ftp/python/3.13.12/Python-3.13.12.tgz",
+					"size": 0
+				},
+				{
+					"platform": "windows",
+					"architecture": "amd64",
+					"url": "https://www.python.org/ftp/python/3.13.12/python-3.13.12-embed-amd64.zip",
+					"size": 0
+				}
+			]
+		},
+		{
+			"name": "Python 3.14",
+			"version": "3.14.3",
+			"era": "3.14",
+			"release_date": "",
+			"platforms": [
+				{
+					"platform": "linux",
+					"architecture": "amd64",
+					"url": "https://www.python.org/ftp/python/3.14.3/Python-3.14.3.tgz",
+					"size": 0
+				},
+				{
+					"platform": "windows",
+					"architecture": "amd64",
+					"url": "https://www.python.org/ftp/python/3.14.3/python-3.14.3-embed-amd64.zip",
+					"size": 0
+				}
+			]
+		},
+		{
+			"name": "Python 3.15",
+			"version": "3.15.0",
+			"era": "3.15",
+			"release_date": "",
+			"platforms": []
+		},
+		{
+			"name": "Python 3.2",
+			"version": "3.2.6",
+			"era": "3.2",
+			"release_date": "",
+			"platforms": [
+				{
+					"platform": "linux",
+					"architecture": "amd64",
+					"url": "https://www.python.org/ftp/python/3.2.6/Python-3.2.6.tgz",
+					"size": 0
+				}
+			]
+		},
+		{
+			"name": "Python 3.3",
+			"version": "3.3.7",
+			"era": "3.3",
+			"release_date": "",
+			"platforms": [
+				{
+					"platform": "linux",
+					"architecture": "amd64",
+					"url": "https://www.python.org/ftp/python/3.3.7/Python-3.3.7.tgz",
+					"size": 0
+				}
+			]
+		},
+		{
+			"name": "Python 3.4",
+			"version": "3.4.10",
+			"era": "3.4",
+			"release_date": "",
+			"platforms": [
+				{
+					"platform": "linux",
+					"architecture": "amd64",
+					"url": "https://www.python.org/ftp/python/3.4.10/Python-3.4.10.tgz",
+					"size": 0
+				}
+			]
+		},
+		{
+			"name": "Python 3.5",
+			"version": "3.5.10",
+			"era": "3.5",
+			"release_date": "",
+			"platforms": [
+				{
+					"platform": "linux",
+					"architecture": "amd64",
+					"url": "https://www.python.org/ftp/python/3.5.10/Python-3.5.10.tgz",
+					"size": 0
+				}
+			]
+		},
+		{
+			"name": "Python 3.6",
+			"version": "3.6.15",
+			"era": "3.6",
+			"release_date": "",
+			"platforms": [
+				{
+					"platform": "linux",
+					"architecture": "amd64",
+					"url": "https://www.python.org/ftp/python/3.6.15/Python-3.6.15.tgz",
+					"size": 0
+				}
+			]
+		},
+		{
+			"name": "Python 3.7",
+			"version": "3.7.17",
+			"era": "3.7",
+			"release_date": "",
+			"platforms": [
+				{
+					"platform": "linux",
+					"architecture": "amd64",
+					"url": "https://www.python.org/ftp/python/3.7.17/Python-3.7.17.tgz",
+					"size": 0
+				}
+			]
+		},
+		{
+			"name": "Python 3.8",
+			"version": "3.8.20",
+			"era": "3.8",
+			"release_date": "",
+			"platforms": [
+				{
+					"platform": "linux",
+					"architecture": "amd64",
+					"url": "https://www.python.org/ftp/python/3.8.20/Python-3.8.20.tgz",
+					"size": 0
+				}
+			]
+		},
+		{
+			"name": "Python 3.9",
+			"version": "3.9.25",
+			"era": "3.9",
+			"release_date": "",
+			"platforms": [
+				{
+					"platform": "linux",
+					"architecture": "amd64",
+					"url": "https://www.python.org/ftp/python/3.9.25/Python-3.9.25.tgz",
 					"size": 0
 				}
 			]
@@ -2704,12 +2771,6 @@
 			"era": "1.6",
 			"release_date": "",
 			"platforms": [
-				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://cache.ruby-lang.org/pub/ruby/1.6/ruby-1.6.7-x64-mingw32.7z",
-					"size": 0
-				},
 				{
 					"platform": "linux",
 					"architecture": "amd64",
@@ -2731,12 +2792,6 @@
 			"release_date": "",
 			"platforms": [
 				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://cache.ruby-lang.org/pub/ruby/1.8/ruby-1.8.7-x64-mingw32.7z",
-					"size": 0
-				},
-				{
 					"platform": "linux",
 					"architecture": "amd64",
 					"url": "https://cache.ruby-lang.org/pub/ruby/1.8/ruby-1.8.7.tar.gz",
@@ -2757,21 +2812,15 @@
 			"release_date": "",
 			"platforms": [
 				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://cache.ruby-lang.org/pub/ruby/1.9/ruby-1.9.3-x64-mingw32.7z",
-					"size": 0
-				},
-				{
 					"platform": "linux",
 					"architecture": "amd64",
-					"url": "https://cache.ruby-lang.org/pub/ruby/1.9/ruby-1.9.3.tar.gz",
+					"url": "https://cache.ruby-lang.org/pub/ruby/1.9/ruby-1.9.3-p551.tar.gz",
 					"size": 0
 				},
 				{
 					"platform": "macos",
 					"architecture": "aarch64",
-					"url": "https://cache.ruby-lang.org/pub/ruby/1.9/ruby-1.9.3.tar.gz",
+					"url": "https://cache.ruby-lang.org/pub/ruby/1.9/ruby-1.9.3-p551.tar.gz",
 					"size": 0
 				}
 			]
@@ -2783,21 +2832,15 @@
 			"release_date": "",
 			"platforms": [
 				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://cache.ruby-lang.org/pub/ruby/2.0/ruby-2.0.0-x64-mingw32.7z",
-					"size": 0
-				},
-				{
 					"platform": "linux",
 					"architecture": "amd64",
-					"url": "https://cache.ruby-lang.org/pub/ruby/2.0/ruby-2.0.0.tar.gz",
+					"url": "https://cache.ruby-lang.org/pub/ruby/2.0/ruby-2.0.0-p648.tar.gz",
 					"size": 0
 				},
 				{
 					"platform": "macos",
 					"architecture": "aarch64",
-					"url": "https://cache.ruby-lang.org/pub/ruby/2.0/ruby-2.0.0.tar.gz",
+					"url": "https://cache.ruby-lang.org/pub/ruby/2.0/ruby-2.0.0-p648.tar.gz",
 					"size": 0
 				}
 			]
@@ -2808,12 +2851,6 @@
 			"era": "2.1",
 			"release_date": "",
 			"platforms": [
-				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://cache.ruby-lang.org/pub/ruby/2.1/ruby-2.1.10-x64-mingw32.7z",
-					"size": 0
-				},
 				{
 					"platform": "linux",
 					"architecture": "amd64",
@@ -2835,12 +2872,6 @@
 			"release_date": "",
 			"platforms": [
 				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://cache.ruby-lang.org/pub/ruby/2.2/ruby-2.2.10-x64-mingw32.7z",
-					"size": 0
-				},
-				{
 					"platform": "linux",
 					"architecture": "amd64",
 					"url": "https://cache.ruby-lang.org/pub/ruby/2.2/ruby-2.2.10.tar.gz",
@@ -2860,12 +2891,6 @@
 			"era": "2.3",
 			"release_date": "",
 			"platforms": [
-				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://cache.ruby-lang.org/pub/ruby/2.3/ruby-2.3.8-x64-mingw32.7z",
-					"size": 0
-				},
 				{
 					"platform": "linux",
 					"architecture": "amd64",
@@ -2887,12 +2912,6 @@
 			"release_date": "",
 			"platforms": [
 				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://cache.ruby-lang.org/pub/ruby/2.4/ruby-2.4.10-x64-mingw32.7z",
-					"size": 0
-				},
-				{
 					"platform": "linux",
 					"architecture": "amd64",
 					"url": "https://cache.ruby-lang.org/pub/ruby/2.4/ruby-2.4.10.tar.gz",
@@ -2912,12 +2931,6 @@
 			"era": "2.5",
 			"release_date": "",
 			"platforms": [
-				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://cache.ruby-lang.org/pub/ruby/2.5/ruby-2.5.9-x64-mingw32.7z",
-					"size": 0
-				},
 				{
 					"platform": "linux",
 					"architecture": "amd64",
@@ -2939,12 +2952,6 @@
 			"release_date": "",
 			"platforms": [
 				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://cache.ruby-lang.org/pub/ruby/2.6/ruby-2.6.10-x64-mingw32.7z",
-					"size": 0
-				},
-				{
 					"platform": "linux",
 					"architecture": "amd64",
 					"url": "https://cache.ruby-lang.org/pub/ruby/2.6/ruby-2.6.10.tar.gz",
@@ -2964,12 +2971,6 @@
 			"era": "2.7",
 			"release_date": "",
 			"platforms": [
-				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://cache.ruby-lang.org/pub/ruby/2.7/ruby-2.7.8-x64-mingw32.7z",
-					"size": 0
-				},
 				{
 					"platform": "linux",
 					"architecture": "amd64",
@@ -2991,12 +2992,6 @@
 			"release_date": "",
 			"platforms": [
 				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://cache.ruby-lang.org/pub/ruby/3.0/ruby-3.0.7-x64-mingw32.7z",
-					"size": 0
-				},
-				{
 					"platform": "linux",
 					"architecture": "amd64",
 					"url": "https://cache.ruby-lang.org/pub/ruby/3.0/ruby-3.0.7.tar.gz",
@@ -3016,12 +3011,6 @@
 			"era": "3.1",
 			"release_date": "",
 			"platforms": [
-				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://cache.ruby-lang.org/pub/ruby/3.1/ruby-3.1.7-x64-mingw32.7z",
-					"size": 0
-				},
 				{
 					"platform": "linux",
 					"architecture": "amd64",
@@ -3043,12 +3032,6 @@
 			"release_date": "",
 			"platforms": [
 				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://cache.ruby-lang.org/pub/ruby/3.2/ruby-3.2.10-x64-mingw32.7z",
-					"size": 0
-				},
-				{
 					"platform": "linux",
 					"architecture": "amd64",
 					"url": "https://cache.ruby-lang.org/pub/ruby/3.2/ruby-3.2.10.tar.gz",
@@ -3068,12 +3051,6 @@
 			"era": "3.3",
 			"release_date": "",
 			"platforms": [
-				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://cache.ruby-lang.org/pub/ruby/3.3/ruby-3.3.10-x64-mingw32.7z",
-					"size": 0
-				},
 				{
 					"platform": "linux",
 					"architecture": "amd64",
@@ -3095,12 +3072,6 @@
 			"release_date": "",
 			"platforms": [
 				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://cache.ruby-lang.org/pub/ruby/3.4/ruby-3.4.8-x64-mingw32.7z",
-					"size": 0
-				},
-				{
 					"platform": "linux",
 					"architecture": "amd64",
 					"url": "https://cache.ruby-lang.org/pub/ruby/3.4/ruby-3.4.8.tar.gz",
@@ -3120,12 +3091,6 @@
 			"era": "4.0",
 			"release_date": "",
 			"platforms": [
-				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://cache.ruby-lang.org/pub/ruby/4.0/ruby-4.0.1-x64-mingw32.7z",
-					"size": 0
-				},
 				{
 					"platform": "linux",
 					"architecture": "amd64",
@@ -3210,453 +3175,33 @@
 	"swift": [],
 	"zig": [
 		{
-			"name": "Zig 0.1",
-			"version": "0.1.1",
-			"era": "0.1",
+			"name": "Zig",
+			"version": "0.16.0-dev.2510+bcb5218a2",
+			"era": "1",
 			"release_date": "",
 			"platforms": [
 				{
 					"platform": "windows",
 					"architecture": "amd64",
-					"url": "https://ziglang.org/download/0.1.1/zig-win64-0.1.1.zip",
-					"size": 0
-				}
-			]
-		},
-		{
-			"name": "Zig 0.10",
-			"version": "0.10.1",
-			"era": "0.10",
-			"release_date": "",
-			"platforms": [
-				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://ziglang.org/download/0.10.1/zig-windows-x86_64-0.10.1.zip",
+					"url": "https://ziglang.org/builds/zig-x86_64-windows-0.16.0-dev.2510+bcb5218a2.zip",
 					"size": 0
 				},
 				{
 					"platform": "linux",
 					"architecture": "amd64",
-					"url": "https://ziglang.org/download/0.10.1/zig-linux-x86_64-0.10.1.tar.xz",
+					"url": "https://ziglang.org/builds/zig-x86_64-linux-0.16.0-dev.2510+bcb5218a2.tar.xz",
 					"size": 0
 				},
 				{
 					"platform": "macos",
 					"architecture": "amd64",
-					"url": "https://ziglang.org/download/0.10.1/zig-macos-x86_64-0.10.1.tar.xz",
+					"url": "https://ziglang.org/builds/zig-x86_64-macos-0.16.0-dev.2510+bcb5218a2.tar.xz",
 					"size": 0
 				},
 				{
 					"platform": "macos",
 					"architecture": "aarch64",
-					"url": "https://ziglang.org/download/0.10.1/zig-macos-aarch64-0.10.1.tar.xz",
-					"size": 0
-				}
-			]
-		},
-		{
-			"name": "Zig 0.11",
-			"version": "0.11.0",
-			"era": "0.11",
-			"release_date": "",
-			"platforms": [
-				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://ziglang.org/download/0.11.0/zig-windows-x86_64-0.11.0.zip",
-					"size": 0
-				},
-				{
-					"platform": "linux",
-					"architecture": "amd64",
-					"url": "https://ziglang.org/download/0.11.0/zig-linux-x86_64-0.11.0.tar.xz",
-					"size": 0
-				},
-				{
-					"platform": "macos",
-					"architecture": "amd64",
-					"url": "https://ziglang.org/download/0.11.0/zig-macos-x86_64-0.11.0.tar.xz",
-					"size": 0
-				},
-				{
-					"platform": "macos",
-					"architecture": "aarch64",
-					"url": "https://ziglang.org/download/0.11.0/zig-macos-aarch64-0.11.0.tar.xz",
-					"size": 0
-				}
-			]
-		},
-		{
-			"name": "Zig 0.12",
-			"version": "0.12.1",
-			"era": "0.12",
-			"release_date": "",
-			"platforms": [
-				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://ziglang.org/download/0.12.1/zig-windows-x86_64-0.12.1.zip",
-					"size": 0
-				},
-				{
-					"platform": "linux",
-					"architecture": "amd64",
-					"url": "https://ziglang.org/download/0.12.1/zig-linux-x86_64-0.12.1.tar.xz",
-					"size": 0
-				},
-				{
-					"platform": "macos",
-					"architecture": "amd64",
-					"url": "https://ziglang.org/download/0.12.1/zig-macos-x86_64-0.12.1.tar.xz",
-					"size": 0
-				},
-				{
-					"platform": "macos",
-					"architecture": "aarch64",
-					"url": "https://ziglang.org/download/0.12.1/zig-macos-aarch64-0.12.1.tar.xz",
-					"size": 0
-				}
-			]
-		},
-		{
-			"name": "Zig 0.13",
-			"version": "0.13.0",
-			"era": "0.13",
-			"release_date": "",
-			"platforms": [
-				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://ziglang.org/download/0.13.0/zig-windows-x86_64-0.13.0.zip",
-					"size": 0
-				},
-				{
-					"platform": "linux",
-					"architecture": "amd64",
-					"url": "https://ziglang.org/download/0.13.0/zig-linux-x86_64-0.13.0.tar.xz",
-					"size": 0
-				},
-				{
-					"platform": "macos",
-					"architecture": "amd64",
-					"url": "https://ziglang.org/download/0.13.0/zig-macos-x86_64-0.13.0.tar.xz",
-					"size": 0
-				},
-				{
-					"platform": "macos",
-					"architecture": "aarch64",
-					"url": "https://ziglang.org/download/0.13.0/zig-macos-aarch64-0.13.0.tar.xz",
-					"size": 0
-				}
-			]
-		},
-		{
-			"name": "Zig 0.14",
-			"version": "0.14.1",
-			"era": "0.14",
-			"release_date": "",
-			"platforms": [
-				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://ziglang.org/download/0.14.1/zig-x86_64-windows-0.14.1.zip",
-					"size": 0
-				},
-				{
-					"platform": "linux",
-					"architecture": "amd64",
-					"url": "https://ziglang.org/download/0.14.1/zig-x86_64-linux-0.14.1.tar.xz",
-					"size": 0
-				},
-				{
-					"platform": "macos",
-					"architecture": "amd64",
-					"url": "https://ziglang.org/download/0.14.1/zig-x86_64-macos-0.14.1.tar.xz",
-					"size": 0
-				},
-				{
-					"platform": "macos",
-					"architecture": "aarch64",
-					"url": "https://ziglang.org/download/0.14.1/zig-aarch64-macos-0.14.1.tar.xz",
-					"size": 0
-				}
-			]
-		},
-		{
-			"name": "Zig 0.15",
-			"version": "0.15.2",
-			"era": "0.15",
-			"release_date": "",
-			"platforms": [
-				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://ziglang.org/download/0.15.2/zig-x86_64-windows-0.15.2.zip",
-					"size": 0
-				},
-				{
-					"platform": "linux",
-					"architecture": "amd64",
-					"url": "https://ziglang.org/download/0.15.2/zig-x86_64-linux-0.15.2.tar.xz",
-					"size": 0
-				},
-				{
-					"platform": "macos",
-					"architecture": "amd64",
-					"url": "https://ziglang.org/download/0.15.2/zig-x86_64-macos-0.15.2.tar.xz",
-					"size": 0
-				},
-				{
-					"platform": "macos",
-					"architecture": "aarch64",
-					"url": "https://ziglang.org/download/0.15.2/zig-aarch64-macos-0.15.2.tar.xz",
-					"size": 0
-				}
-			]
-		},
-		{
-			"name": "Zig 0.16",
-			"version": "0.16.0-dev.2490+fce7878a9",
-			"era": "0.16",
-			"release_date": "",
-			"platforms": [
-				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://ziglang.org/builds/zig-x86_64-windows-0.16.0-dev.2490+fce7878a9.zip",
-					"size": 0
-				},
-				{
-					"platform": "linux",
-					"architecture": "amd64",
-					"url": "https://ziglang.org/builds/zig-x86_64-linux-0.16.0-dev.2490+fce7878a9.tar.xz",
-					"size": 0
-				},
-				{
-					"platform": "macos",
-					"architecture": "amd64",
-					"url": "https://ziglang.org/builds/zig-x86_64-macos-0.16.0-dev.2490+fce7878a9.tar.xz",
-					"size": 0
-				},
-				{
-					"platform": "macos",
-					"architecture": "aarch64",
-					"url": "https://ziglang.org/builds/zig-aarch64-macos-0.16.0-dev.2490+fce7878a9.tar.xz",
-					"size": 0
-				}
-			]
-		},
-		{
-			"name": "Zig 0.2",
-			"version": "0.2.0",
-			"era": "0.2",
-			"release_date": "",
-			"platforms": [
-				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://ziglang.org/download/0.2.0/zig-win64-0.2.0.zip",
-					"size": 0
-				},
-				{
-					"platform": "linux",
-					"architecture": "amd64",
-					"url": "https://ziglang.org/download/0.2.0/zig-linux-x86_64-0.2.0.tar.xz",
-					"size": 0
-				}
-			]
-		},
-		{
-			"name": "Zig 0.3",
-			"version": "0.3.0",
-			"era": "0.3",
-			"release_date": "",
-			"platforms": [
-				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://ziglang.org/download/0.3.0/zig-windows-x86_64-0.3.0.zip",
-					"size": 0
-				},
-				{
-					"platform": "linux",
-					"architecture": "amd64",
-					"url": "https://ziglang.org/download/0.3.0/zig-linux-x86_64-0.3.0.tar.xz",
-					"size": 0
-				},
-				{
-					"platform": "macos",
-					"architecture": "amd64",
-					"url": "https://ziglang.org/download/0.3.0/zig-macos-x86_64-0.3.0.tar.xz",
-					"size": 0
-				}
-			]
-		},
-		{
-			"name": "Zig 0.4",
-			"version": "0.4.0",
-			"era": "0.4",
-			"release_date": "",
-			"platforms": [
-				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://ziglang.org/download/0.4.0/zig-windows-x86_64-0.4.0.zip",
-					"size": 0
-				},
-				{
-					"platform": "linux",
-					"architecture": "amd64",
-					"url": "https://ziglang.org/download/0.4.0/zig-linux-x86_64-0.4.0.tar.xz",
-					"size": 0
-				},
-				{
-					"platform": "macos",
-					"architecture": "amd64",
-					"url": "https://ziglang.org/download/0.4.0/zig-macos-x86_64-0.4.0.tar.xz",
-					"size": 0
-				}
-			]
-		},
-		{
-			"name": "Zig 0.5",
-			"version": "0.5.0",
-			"era": "0.5",
-			"release_date": "",
-			"platforms": [
-				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://ziglang.org/download/0.5.0/zig-windows-x86_64-0.5.0.zip",
-					"size": 0
-				},
-				{
-					"platform": "linux",
-					"architecture": "amd64",
-					"url": "https://ziglang.org/download/0.5.0/zig-linux-x86_64-0.5.0.tar.xz",
-					"size": 0
-				},
-				{
-					"platform": "macos",
-					"architecture": "amd64",
-					"url": "https://ziglang.org/download/0.5.0/zig-macos-x86_64-0.5.0.tar.xz",
-					"size": 0
-				}
-			]
-		},
-		{
-			"name": "Zig 0.6",
-			"version": "0.6.0",
-			"era": "0.6",
-			"release_date": "",
-			"platforms": [
-				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://ziglang.org/download/0.6.0/zig-windows-x86_64-0.6.0.zip",
-					"size": 0
-				},
-				{
-					"platform": "linux",
-					"architecture": "amd64",
-					"url": "https://ziglang.org/download/0.6.0/zig-linux-x86_64-0.6.0.tar.xz",
-					"size": 0
-				},
-				{
-					"platform": "macos",
-					"architecture": "amd64",
-					"url": "https://ziglang.org/download/0.6.0/zig-macos-x86_64-0.6.0.tar.xz",
-					"size": 0
-				}
-			]
-		},
-		{
-			"name": "Zig 0.7",
-			"version": "0.7.1",
-			"era": "0.7",
-			"release_date": "",
-			"platforms": [
-				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://ziglang.org/download/0.7.1/zig-windows-x86_64-0.7.1.zip",
-					"size": 0
-				},
-				{
-					"platform": "linux",
-					"architecture": "amd64",
-					"url": "https://ziglang.org/download/0.7.1/zig-linux-x86_64-0.7.1.tar.xz",
-					"size": 0
-				},
-				{
-					"platform": "macos",
-					"architecture": "amd64",
-					"url": "https://ziglang.org/download/0.7.1/zig-macos-x86_64-0.7.1.tar.xz",
-					"size": 0
-				}
-			]
-		},
-		{
-			"name": "Zig 0.8",
-			"version": "0.8.1",
-			"era": "0.8",
-			"release_date": "",
-			"platforms": [
-				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://ziglang.org/download/0.8.1/zig-windows-x86_64-0.8.1.zip",
-					"size": 0
-				},
-				{
-					"platform": "linux",
-					"architecture": "amd64",
-					"url": "https://ziglang.org/download/0.8.1/zig-linux-x86_64-0.8.1.tar.xz",
-					"size": 0
-				},
-				{
-					"platform": "macos",
-					"architecture": "amd64",
-					"url": "https://ziglang.org/download/0.8.1/zig-macos-x86_64-0.8.1.tar.xz",
-					"size": 0
-				},
-				{
-					"platform": "macos",
-					"architecture": "aarch64",
-					"url": "https://ziglang.org/download/0.8.1/zig-macos-aarch64-0.8.1.tar.xz",
-					"size": 0
-				}
-			]
-		},
-		{
-			"name": "Zig 0.9",
-			"version": "0.9.1",
-			"era": "0.9",
-			"release_date": "",
-			"platforms": [
-				{
-					"platform": "windows",
-					"architecture": "amd64",
-					"url": "https://ziglang.org/download/0.9.1/zig-windows-x86_64-0.9.1.zip",
-					"size": 0
-				},
-				{
-					"platform": "linux",
-					"architecture": "amd64",
-					"url": "https://ziglang.org/download/0.9.1/zig-linux-x86_64-0.9.1.tar.xz",
-					"size": 0
-				},
-				{
-					"platform": "macos",
-					"architecture": "amd64",
-					"url": "https://ziglang.org/download/0.9.1/zig-macos-x86_64-0.9.1.tar.xz",
-					"size": 0
-				},
-				{
-					"platform": "macos",
-					"architecture": "aarch64",
-					"url": "https://ziglang.org/download/0.9.1/zig-macos-aarch64-0.9.1.tar.xz",
+					"url": "https://ziglang.org/builds/zig-aarch64-macos-0.16.0-dev.2510+bcb5218a2.tar.xz",
 					"size": 0
 				}
 			]
