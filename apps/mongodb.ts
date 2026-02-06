@@ -22,10 +22,9 @@ export async function getReleases(): Promise<Release[]> {
 		const era = `${major}.${minor}`;
 
 		releases.push({
-			name: `MongoDB ${era}`,
+			name: `MongoDB Server`,
 			version,
 			era,
-			release_date: '',
 			platforms: [
 				{
 					target: PlatformTarget.linux_amd64,

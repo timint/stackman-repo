@@ -23,10 +23,9 @@ export async function getReleases(): Promise<Release[]> {
 		const era = `${major}.${minor}`;
 
 		releases.push({
-			name: `D ${era}`,
+			name: `D`,
 			version,
 			era,
-			release_date: '',
 			platforms: [
 				{
 					target: PlatformTarget.linux_amd64,

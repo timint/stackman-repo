@@ -19,10 +19,9 @@ export async function getReleases(): Promise<Release[]> {
 		const era = `${major}`;
 
 		releases.push({
-			name: `Caddy ${era}`,
+			name: `Caddy`,
 			version,
 			era,
-			release_date: release.published_at || '',
 			platforms: [
 				{
 					target: PlatformTarget.linux_amd64,

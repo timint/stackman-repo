@@ -89,10 +89,9 @@ export async function getReleases(): Promise<Release[]> {
 		});
 
 		releases.push({
-			name: `Ruby ${era}`,
+			name: `Ruby`,
 			version,
 			era,
-			release_date: '',
 			platforms
 		});
 	}

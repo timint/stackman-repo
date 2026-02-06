@@ -38,10 +38,9 @@ export async function getReleases(): Promise<Release[]> {
 			const era = `${major}.${minor}`;
 
 			releases.push({
-				name: `MariaDB ${era}`,
+				name: `MariaDB Server`,
 				version: numericVersion,
 				era,
-				release_date: pointRelease.date_of_release || '',
 				platforms: [
 					{
 						target: PlatformTarget.linux_amd64,

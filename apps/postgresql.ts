@@ -20,18 +20,13 @@ export async function getReleases(): Promise<Release[]> {
 		const era = `${major}`;
 
 		releases.push({
-			name: `PostgreSQL ${era}`,
+			name: `PostgreSQL Server`,
 			version,
 			era,
-			release_date: '',
 			platforms: [
 				{
 					target: PlatformTarget.linux_amd64,
 					url: `https://ftp.postgresql.org/pub/source/v${version}/postgresql-${version}.tar.gz`
-				},
-				{
-					target: PlatformTarget.windows_amd64,
-					url: `https://get.enterprisedb.com/postgresql/postgresql-${version}-windows-x64-binaries.zip`
 				},
 				{
 					target: PlatformTarget.macos_amd64,
@@ -40,6 +35,10 @@ export async function getReleases(): Promise<Release[]> {
 				{
 					target: PlatformTarget.macos_arm64,
 					url: `https://ftp.postgresql.org/pub/source/v${version}/postgresql-${version}.tar.gz`
+				},
+				{
+					target: PlatformTarget.windows_amd64,
+					url: `https://get.enterprisedb.com/postgresql/postgresql-${version}-windows-x64-binaries.zip`
 				}
 			]
 		});

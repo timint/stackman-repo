@@ -50,10 +50,9 @@ export async function getReleases(): Promise<Release[]> {
 		});
 
 		releases.push({
-			name: `Nginx ${era}`,
+			name: `Nginx`,
 			version,
 			era,
-			release_date: '',
 			platforms
 		});
 	}

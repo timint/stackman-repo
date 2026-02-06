@@ -70,10 +70,9 @@ export async function getReleases(): Promise<Release[]> {
 		];
 
 		releases.push({
-			name: `Apache ${era}`,
+			name: `Apache HTTP Server`,
 			version,
 			era,
-			release_date: '',
 			platforms
 		});
 	}
@@ -110,10 +109,9 @@ export async function getReleases(): Promise<Release[]> {
 			];
 
 			releases.push({
-				name: `Apache ${era}`,
+				name: `Apache HTTP Server`,
 				version,
 				era,
-				release_date: '',
 				platforms
 			});
 		}

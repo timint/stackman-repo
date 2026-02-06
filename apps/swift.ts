@@ -21,10 +21,9 @@ export async function getReleases(): Promise<Release[]> {
 		const era = `${version.split('.')[0]}.${version.split('.')[1]}`;
 
 		releases.push({
-			name: `Swift ${era}`,
+			name: `Swift`,
 			version,
 			era,
-			release_date: '',
 			platforms: []
 		});
 

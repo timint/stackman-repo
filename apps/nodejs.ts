@@ -20,7 +20,6 @@ export async function getReleases(): Promise<Release[]> {
 			name: `Node.js ${version}`,
 			version,
 			era,
-			release_date: release.date || '',
 			platforms: []
 		});
 

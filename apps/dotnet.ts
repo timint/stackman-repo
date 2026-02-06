@@ -28,10 +28,9 @@ export async function getReleases(): Promise<Release[]> {
 			const era = `${major}.${minor}`;
 
 			releases.push({
-				name: `.NET ${era}`,
+				name: `.NET`,
 				version,
 				era,
-				release_date: '',
 				platforms: [
 					{
 						target: PlatformTarget.linux_amd64,

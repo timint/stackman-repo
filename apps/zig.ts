@@ -21,17 +21,14 @@ export async function getReleases(): Promise<Release[]> {
 
 		if (major === 0) {
 			era = '1';
-			name = `Zig`;
 		} else {
 			era = `${major}.${minor}`;
-			name = `Zig ${era}`;
 		}
 
 		releases.push({
-			name,
+			name: 'Zig',
 			version,
 			era,
-			release_date: '',
 			platforms: []
 		});
 

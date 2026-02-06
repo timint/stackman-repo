@@ -12,17 +12,15 @@ export async function getReleases(): Promise<Release[]> {
 	for (const release of data) {
 		const version = release.tag_name.replace('bun-v', '');
 		const era = version.split('.')[0];
-		const releaseDate = release.published_at || '';
 
 		const windowsAsset = release.assets?.find((a: any) => a.name.includes('windows-x64'));
 		const macosAsset = release.assets?.find((a: any) => a.name.includes('darwin-aarch64') || a.name.includes('macos-aarch64'));
 		const linuxAsset = release.assets?.find((a: any) => a.name.includes('linux-x64'));
 
 		releases.push({
-			name: `Bun ${version}`,
+			name: `Bun`,
 			version,
 			era,
-			release_date: releaseDate,
 			platforms: []
 		});
 

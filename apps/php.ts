@@ -3,8 +3,8 @@ import { Release, PlatformTarget } from '../types/release';
 // Fetches available PHP versions from the official Windows PHP releases feed
 export async function getReleases(): Promise<Release[]> {
 
-	const res = await fetch('https://windows.php.net/downloads/releases/app-releases.json');
-	if (!res.ok) throw new Error('Failed to fetch PHP app-releases.json');
+	const res = await fetch('https://windows.php.net/downloads/releases/releases.json');
+	if (!res.ok) throw new Error('Failed to fetch PHP releases.json');
 
 	const releasesData = await res.json();
 	const releases: Release[] = [];
@@ -49,10 +49,9 @@ export async function getReleases(): Promise<Release[]> {
 			const era = actualVersion.split('.')[0];
 
 			releases.push({
-				name: `PHP ${era}`,
+				name: `PHP`,
 				version: actualVersion,
 				era,
-				release_date: '', // Not available from feed
 				platforms: []
 			});
 

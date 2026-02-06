@@ -17,7 +17,6 @@ export async function getReleases(): Promise<Release[]> {
 			name: `Go ${version}`,
 			version,
 			era,
-			release_date: release.release_date || '',
 			platforms: []
 		});
 

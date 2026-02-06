@@ -19,10 +19,9 @@ export async function getReleases(): Promise<Release[]> {
 			if (parseInt(era) < 8) continue;
 
 			releases.push({
-				name: `Java ${era}`,
+				name: `Java`,
 				version,
 				era,
-				release_date: '',
 				platforms: []
 			});
 

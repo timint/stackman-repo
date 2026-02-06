@@ -35,10 +35,9 @@ export async function getReleases(): Promise<Release[]> {
 		if (!checkRes.ok) continue;
 
 		releases.push({
-			name: `Perl ${era}`,
+			name: `Perl`,
 			version,
 			era,
-			release_date: '',
 			platforms: [
 				{
 					target: PlatformTarget.linux_amd64,

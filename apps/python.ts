@@ -64,10 +64,9 @@ export async function getReleases(): Promise<Release[]> {
 		}
 
 		releases.push({
-			name: `Python ${era}`,
+			name: `Python`,
 			version,
 			era,
-			release_date: '',
 			platforms
 		});
 	}

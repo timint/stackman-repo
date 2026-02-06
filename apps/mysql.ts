@@ -22,10 +22,9 @@ export async function getReleases(): Promise<Release[]> {
 		const era = `${major}.${minor}`;
 
 		releases.push({
-			name: `MySQL ${era}`,
+			name: `MySQL Server (Community Edition)`,
 			version,
 			era,
-			release_date: '',
 			platforms: [
 			{
 				target: PlatformTarget.linux_amd64,

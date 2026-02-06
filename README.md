@@ -104,7 +104,6 @@ The generated `public/app-releases.json` file contains a JSON object with applic
       "name": "Apache 2.4",
       "version": "2.4.66",
       "era": "2.4",
-      "release_date": "",
       "platforms": [
         {
           "target": "linux-amd64",
@@ -125,16 +124,12 @@ Each release object contains:
 - `name`: Full name of the release (e.g., "Apache 2.4.66")
 - `version`: Version string (e.g., "2.4.66")
 - `era`: Major/minor version (e.g., "2.4")
-- `release_date`: ISO 8601 date string (if available)
-- `description`: Brief description of the software
 - `platforms`: Array of platform-specific download information
 
 ### Platform Object Structure
 
-- `platform`: Operating system (linux, windows, macos)
-- `architecture`: CPU architecture (x86, x64, arm64)
+- `target`: Operating system and architecture (linux-arm64, linux-amd64, windows-amd64, macos-amd64)
 - `url`: Download URL for the release
-- `size`: File size in bytes (0 if not available)
 
 ## Adding a New Fetcher
 
@@ -154,17 +149,14 @@ export async function getReleases(): Promise<Release[]> {
   const data = await res.json();
 
   return data.map(release => ({
-    name: `NewApp ${release.version}`,
+    name: 'App Name',
     version: release.version,
     era: release.version.split('.').slice(0, 2).join('.'),
-    release_date: release.date,
     description: 'NewApp Description',
     platforms: [
       {
-        platform: 'linux',
-        architecture: 'x64',
+        target: 'linux-arm64',
         url: release.download_url,
-        size: release.size
       }
     ]
   }));

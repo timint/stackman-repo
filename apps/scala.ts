@@ -69,10 +69,9 @@ export async function getReleases(): Promise<Release[]> {
 		}
 
 		releases.push({
-			name: `Scala ${era}`,
+			name: `Scala`,
 			version,
 			era,
-			release_date: '',
 			platforms
 		});
 
