@@ -45,15 +45,16 @@ export async function generateFeeds() {
     }
   });
 
-  // Write results to JSON file
-  let feed = join(appsDir, '..', 'public', 'app-releases.json');
-  await Bun.write(feed, JSON.stringify(sortedResults, null, 2));
-
   return sortedResults;
 }
 
 // Execute the feed generation when run directly
-generateFeeds().then(() => {
+generateFeeds().then((results) => {
+
+  // Write results to JSON file
+  const feedPath = join(appsDir, '..', 'public', 'app-releases.json');
+  Bun.write(feedPath, JSON.stringify(results, null, 2));
+
   console.log('Feed generated successfully at public/app-releases.json');
 }).catch((error) => {
   console.error('Error generating feed:', error);
