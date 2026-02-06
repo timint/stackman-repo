@@ -1,0 +1,78 @@
+import { Release } from '../types/release';
+
+// Fetches available PHP versions from the official Windows PHP releases feed
+export async function getReleases(): Promise<Release[]> {
+
+  const res = await fetch('https://windows.php.net/downloads/releases/app-releases.json');
+  if (!res.ok) throw new Error('Failed to fetch PHP app-releases.json');
+
+  const releasesData = await res.json();
+  const releases: Release[] = [];
+
+  for (const version in releasesData) {
+    const releaseData = releasesData[version];
+    const actualVersion = releaseData.version || version;
+    let bestZip = '';
+    let bestScore = -1;
+
+    for (const buildName in releaseData) {
+      const buildData = releaseData[buildName];
+      let zipPath = (buildData?.zip?.path || buildData?.zip || '') as string;
+      let zipUrl = '';
+
+      if (typeof zipPath === 'string' && (zipPath.startsWith('http://') || zipPath.startsWith('https://'))) {
+        zipUrl = zipPath;
+      } else if (zipPath) {
+        zipUrl = `https://windows.php.net/downloads/releases/${zipPath}`;
+      }
+
+      if (!zipUrl || !zipUrl.toLowerCase().includes('x64')) continue;
+
+      let score = 0;
+      const bn = buildName.toLowerCase();
+      const zu = zipUrl.toLowerCase();
+
+      if (bn.includes('nts') || zu.includes('nts')) score += 3;
+      else if (bn.includes('ts') || zu.includes('ts')) score += 2;
+
+      if (bn.includes('vs17') || zu.includes('vs17')) score += 2;
+      else if (bn.includes('vs16') || zu.includes('vs16')) score += 1;
+      else if (bn.includes('vc15') || zu.includes('vc15')) score += 1;
+
+      if (score > bestScore) {
+        bestScore = score;
+        bestZip = zipUrl;
+      }
+    }
+
+    if (bestZip) {
+      const era = actualVersion.split('.').slice(0,2).join('.');
+
+      releases.push({
+        name: `PHP ${era}`,
+        version: actualVersion,
+        era,
+        release_date: '', // Not available from feed
+        description: 'PHP for Windows',
+        platforms: [
+          {
+            platform: 'windows',
+            architecture: 'x86',
+            url: bestZip,
+            size: 0 // Not available from feed
+          },
+          {
+            platform: 'windows',
+            architecture: 'x64',
+            url: bestZip,
+            size: 0 // Not available from feed
+          }
+        ]
+      });
+    }
+  }
+
+  releases.sort((a, b) => b.version.localeCompare(a.version, undefined, { numeric: true }));
+
+  return releases;
+}
