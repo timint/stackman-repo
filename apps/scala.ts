@@ -2,36 +2,91 @@ import { Release, Platform, Architecture } from '../types/release';
 
 // Fetches available Scala versions from the official Scala download page
 export async function getReleases(): Promise<Release[]> {
-  // Scala does not provide a public API for all versions; this is a placeholder
-  const versions = ['3.3.1', '2.13.12', '2.12.18'];
+
+	const res = await fetch('https://www.scala-lang.org/download/');
+  if (!res.ok) throw new Error('Failed to fetch Scala download page');
+
+  const html = await res.text();
+  const regex = /(\d+\.\d+\.\d+)["<\s]/g;
+  const seen = new Set<string>();
 
   const releases: Release[] = [];
 
-  for (const version of versions) {
-    // Add both x86 and x64 architectures for each version
-    releases.push({
-      name: `Scala ${version}`,
-      version,
-      era: version.split('.').slice(0, 2).join('.'),
-      release_date: '',
-      description: 'Scala',
-      platforms: [
+  let match: RegExpExecArray | null;
+  while ((match = regex.exec(html))) {
+    const version = match[1];
+    if (seen.has(version)) continue;
+    seen.add(version);
+
+    const [major, minor] = version.split('.').map(Number);
+    const era = `${major}.${minor}`;
+
+    const linuxUrl = `https://downloads.lightbend.com/scala/${version}/scala-${version}.tgz`;
+    const windowsUrl = `https://downloads.lightbend.com/scala/${version}/scala-${version}.zip`;
+
+    // Verify URLs exist before adding
+    let linuxExists = false;
+    let windowsExists = false;
+
+    try {
+      const linuxResponse = await fetch(linuxUrl, { method: 'HEAD' });
+      linuxExists = linuxResponse.ok;
+    } catch {}
+
+    try {
+      const windowsResponse = await fetch(windowsUrl, { method: 'HEAD' });
+      windowsExists = windowsResponse.ok;
+    } catch {}
+
+    if (!linuxExists && !windowsExists) {
+      continue;
+    }
+
+    const platforms = [];
+
+    if (linuxExists) {
+      platforms.push(
         {
           platform: Platform.linux,
-          architecture: Architecture.x86,
-          url: '',
+          architecture: Architecture.amd64,
+          url: linuxUrl,
           size: 0
         },
         {
-          platform: Platform.linux,
-          architecture: Architecture.x64,
-          url: '',
+          platform: Platform.macos,
+          architecture: Architecture.amd64,
+          url: linuxUrl,
+          size: 0
+        },
+        {
+          platform: Platform.macos,
+          architecture: Architecture.aarch64,
+          url: linuxUrl,
           size: 0
         }
-      ]
+      );
+    }
+
+    if (windowsExists) {
+      platforms.push({
+        platform: Platform.windows,
+        architecture: Architecture.amd64,
+        url: windowsUrl,
+        size: 0
+      });
+    }
+
+    releases.push({
+      name: `Scala ${era}`,
+      version,
+      era,
+      release_date: '',
+      platforms
     });
 
   }
+
+  releases.sort((a, b) => b.version.localeCompare(a.version, undefined, { numeric: true }));
 
   return releases;
 }

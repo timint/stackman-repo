@@ -3,36 +3,50 @@ import { Release, Platform, Architecture } from '../types/release';
 // Fetches available Java versions from the official Adoptium API
 export async function getReleases(): Promise<Release[]> {
 
-  const res = await fetch('https://api.adoptium.net/v3/info/release_names?feature_version=17&release_type=ga');
+  const res = await fetch('https://data.javaalmanac.io/v1/jdk/vendors/oracle');
   if (!res.ok) throw new Error('Failed to fetch Java releases');
 
   const data = await res.json();
-
   const releases: Release[] = [];
 
-  for (const version of data.releases || []) {
-    // Add both x86 and x64 architectures for each version
-    releases.push({
-      name: `Java ${version}`,
-      version,
-      era: version.split('.').slice(0, 2).join('.'),
-      release_date: '',
-      description: 'Java',
-      platforms: [
-        {
-          platform: Platform.linux,
-          architecture: Architecture.x86,
-          url: '',
-          size: 0
-        },
-        {
-          platform: Platform.linux,
-          architecture: Architecture.x64,
-          url: '',
-          size: 0
-        }
-      ]
-    });
+  if (data.products && data.products[0] && data.products[0].versions) {
+    const seen = new Set<string>();
+    for (const version of data.products[0].versions) {
+      if (seen.has(version)) continue;
+      seen.add(version);
+
+      const era = version.split('.')[0];
+      if (parseInt(era) < 8) continue;
+
+      releases.push({
+        name: `Java ${era}`,
+        version,
+        era,
+        release_date: '',
+        platforms: []
+      });
+
+      releases[releases.length - 1].platforms.push({
+        platform: Platform.windows,
+        architecture: Architecture.amd64,
+        url: `https://download.java.net/java/GA/jdk${version}/binaries/openjdk-${version}_windows-x64_bin.zip`,
+        size: 0
+      });
+
+      releases[releases.length - 1].platforms.push({
+        platform: Platform.linux,
+        architecture: Architecture.amd64,
+        url: `https://download.java.net/java/GA/jdk${version}/binaries/openjdk-${version}_linux-x64_bin.tar.gz`,
+        size: 0
+      });
+
+      releases[releases.length - 1].platforms.push({
+        platform: Platform.macos,
+        architecture: Architecture.aarch64,
+        url: `https://download.java.net/java/GA/jdk${version}/binaries/openjdk-${version}_macos-aarch64_bin.tar.gz`,
+        size: 0
+      });
+    }
   }
 
   // Sort by version descending for convenience

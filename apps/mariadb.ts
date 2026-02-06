@@ -8,6 +8,7 @@ export async function getReleases(): Promise<Release[]> {
 
   const data = await res.json();
   const releases: Release[] = [];
+  const seen = new Set<string>();
 
   // Get major releases
   const majorReleases = data.major_releases || [];
@@ -26,32 +27,45 @@ export async function getReleases(): Promise<Release[]> {
       const pointRelease = releaseDataReleases[pointReleaseId];
       const version = pointRelease.release_name;
 
-      // Find a suitable tar.gz file for Linux
-      const tarFile = pointRelease.files?.find((f: any) =>
-        f.package_type === 'tar.gz' && f.os === 'Linux'
-      );
+      if (seen.has(version)) continue;
+      seen.add(version);
 
-      const url = tarFile?.file_download_url || '';
-      const size = 0; // Size not readily available from API
+      const versionMatch = version.match(/(\d+\.\d+\.\d+)/);
+      if (!versionMatch) continue;
+      const numericVersion = versionMatch[1];
+
+      const [major, minor] = numericVersion.split('.').map(Number);
+      const era = `${major}.${minor}`;
 
       releases.push({
-        name: `MariaDB ${version}`,
-        version,
-        era: version.split('.').slice(0, 2).join('.'),
+        name: `MariaDB ${era}`,
+        version: numericVersion,
+        era,
         release_date: pointRelease.date_of_release || '',
-        description: 'MariaDB Server',
         platforms: [
           {
             platform: Platform.linux,
-            architecture: Architecture.x86,
-            url,
-            size
+            architecture: Architecture.amd64,
+            url: `https://downloads.mariadb.org/f/mariadb-${numericVersion}/bintar-linux-systemd-x86_64/mariadb-${numericVersion}-linux-systemd-x86_64.tar.gz`,
+            size: 0
           },
           {
-            platform: Platform.linux,
-            architecture: Architecture.x64,
-            url,
-            size
+            platform: Platform.windows,
+            architecture: Architecture.amd64,
+            url: `https://downloads.mariadb.org/f/mariadb-${numericVersion}/winx64-packages/mariadb-${numericVersion}-winx64.zip`,
+            size: 0
+          },
+          {
+            platform: Platform.macos,
+            architecture: Architecture.amd64,
+            url: `https://downloads.mariadb.org/f/mariadb-${numericVersion}/macos-system-x86_64/mariadb-${numericVersion}-macos10.14-x86_64.tar.gz`,
+            size: 0
+          },
+          {
+            platform: Platform.macos,
+            architecture: Architecture.aarch64,
+            url: `https://downloads.mariadb.org/f/mariadb-${numericVersion}/macos-system-arm64/mariadb-${numericVersion}-macos13-arm64.tar.gz`,
+            size: 0
           }
         ]
       });

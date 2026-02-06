@@ -2,7 +2,8 @@ import { Release, Architecture, Platform } from '../types/release';
 
 // Fetches available MySQL versions from the official MySQL download page
 export async function getReleases(): Promise<Release[]> {
-  const res = await fetch('https://dev.mysql.com/downloads/mysql/');
+
+	const res = await fetch('https://dev.mysql.com/downloads/mysql/');
   if (!res.ok) throw new Error('Failed to fetch MySQL download page');
 
   const html = await res.text();
@@ -17,24 +18,37 @@ export async function getReleases(): Promise<Release[]> {
     if (seen.has(version)) continue;
     seen.add(version);
 
-    // Add both x86 and x64 architectures for each version
+    const [major, minor] = version.split('.').map(Number);
+    const era = `${major}.${minor}`;
+
     releases.push({
-      name: `MySQL ${version}`,
+      name: `MySQL ${era}`,
       version,
-      era: version.split('.').slice(0, 2).join('.'),
-      release_date: '', // Not available from listing
-      description: 'MySQL Community Server',
+      era,
+      release_date: '',
       platforms: [
         {
           platform: Platform.linux,
-          architecture: Architecture.x86,
-          url: '', // Not available from listing
+          architecture: Architecture.amd64,
+          url: `https://dev.mysql.com/get/Downloads/MySQL-${era}/mysql-${version}-linux-glibc2.12-x86_64.tar.xz`,
           size: 0
         },
         {
-          platform: Platform.linux,
-          architecture: Architecture.x64,
-          url: '',
+          platform: Platform.windows,
+          architecture: Architecture.amd64,
+          url: `https://dev.mysql.com/get/Downloads/MySQL-${era}/mysql-${version}-winx64.zip`,
+          size: 0
+        },
+        {
+          platform: Platform.macos,
+          architecture: Architecture.amd64,
+          url: `https://dev.mysql.com/get/Downloads/MySQL-${era}/mysql-${version}-macos13-x86_64.tar.gz`,
+          size: 0
+        },
+        {
+          platform: Platform.macos,
+          architecture: Architecture.aarch64,
+          url: `https://dev.mysql.com/get/Downloads/MySQL-${era}/mysql-${version}-macos13-arm64.tar.gz`,
           size: 0
         }
       ]

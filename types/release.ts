@@ -6,8 +6,8 @@ export enum Platform {
 
 export enum Architecture {
   x86 = 'x86',
-  x64 = 'x64',
-  arm64 = 'arm64',
+  amd64 = 'amd64',
+  aarch64 = 'aarch64',
 }
 
 export interface Release {
@@ -15,7 +15,6 @@ export interface Release {
   version: string
   era: string
   release_date: string
-  description: string
   platforms: Array<{
     platform: Platform | string
     architecture: Architecture | string

@@ -1,4 +1,4 @@
-import { Release } from '../types/release';
+import { Release, Platform, Architecture } from '../types/release';
 
 // Fetches available PHP versions from the official Windows PHP releases feed
 export async function getReleases(): Promise<Release[]> {
@@ -46,28 +46,35 @@ export async function getReleases(): Promise<Release[]> {
     }
 
     if (bestZip) {
-      const era = actualVersion.split('.').slice(0,2).join('.');
+      const era = actualVersion.split('.')[0];
 
       releases.push({
         name: `PHP ${era}`,
         version: actualVersion,
         era,
         release_date: '', // Not available from feed
-        description: 'PHP for Windows',
-        platforms: [
-          {
-            platform: 'windows',
-            architecture: 'x86',
-            url: bestZip,
-            size: 0 // Not available from feed
-          },
-          {
-            platform: 'windows',
-            architecture: 'x64',
-            url: bestZip,
-            size: 0 // Not available from feed
-          }
-        ]
+        platforms: []
+      });
+
+      releases[releases.length - 1].platforms.push({
+        platform: Platform.windows,
+        architecture: Architecture.amd64,
+        url: bestZip,
+        size: 0
+      });
+
+      releases[releases.length - 1].platforms.push({
+        platform: Platform.linux,
+        architecture: Architecture.amd64,
+        url: `https://www.php.net/distributions/php-${actualVersion}.tar.gz`,
+        size: 0
+      });
+
+      releases[releases.length - 1].platforms.push({
+        platform: Platform.macos,
+        architecture: Architecture.aarch64,
+        url: `https://www.php.net/distributions/php-${actualVersion}.tar.gz`,
+        size: 0
       });
     }
   }

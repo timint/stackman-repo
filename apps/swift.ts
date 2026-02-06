@@ -2,35 +2,45 @@ import { Release, Platform, Architecture } from '../types/release';
 
 // Fetches available Swift versions from the official Swift download page
 export async function getReleases(): Promise<Release[]> {
-  // Swift does not provide a public API for all versions; this is a placeholder
-  const versions = ['5.9.2', '5.8.1', '5.7.3'];
+
+	const res = await fetch('https://www.swift.org/download/');
+  if (!res.ok) throw new Error('Failed to fetch Swift download page');
+
+  const html = await res.text();
+  const regex = /Swift\s+(\d+\.\d+(?:\.\d+)?)/g;
+  const seen = new Set<string>();
 
   const releases: Release[] = [];
 
-  for (const version of versions) {
-    // Add both x86 and x64 architectures for each version
+  let match: RegExpExecArray | null;
+  while ((match = regex.exec(html))) {
+    const version = match[1];
+    if (seen.has(version)) continue;
+    seen.add(version);
+
+    const era = `${version.split('.')[0]}.${version.split('.')[1]}`;
+
     releases.push({
-      name: `Swift ${version}`,
+      name: `Swift ${era}`,
       version,
-      era: version.split('.').slice(0, 2).join('.'),
+      era,
       release_date: '',
-      description: 'Swift',
-      platforms: [
-        {
-          platform: Platform.macos,
-          architecture: Architecture.x86,
-          url: '',
-          size: 0
-        },
-        {
-          platform: Platform.macos,
-          architecture: Architecture.x64,
-          url: '',
-          size: 0
-        }
-      ]
+      platforms: []
     });
 
+    releases[releases.length - 1].platforms.push({
+      platform: Platform.macos,
+      architecture: Architecture.aarch64,
+      url: `https://download.swift.org/swift-${version}-release/swift-${version}-RELEASE/swift-${version}-RELEASE-osx.pkg`,
+      size: 0
+    });
+
+    releases[releases.length - 1].platforms.push({
+      platform: Platform.linux,
+      architecture: Architecture.amd64,
+      url: `https://download.swift.org/swift-${version}-release/swift-${version}-RELEASE/swift-${version}-RELEASE-ubuntu22.04.tar.gz`,
+      size: 0
+    });
   }
 
   return releases;

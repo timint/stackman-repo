@@ -7,30 +7,45 @@ export async function getReleases(): Promise<Release[]> {
   if (!res.ok) throw new Error('Failed to fetch Caddy releases');
 
   const data = await res.json();
-
   const releases: Release[] = [];
+  const seen = new Set<string>();
 
   for (const release of data) {
     const version = release.tag_name.replace(/^v/, '');
+    if (seen.has(version)) continue;
+    seen.add(version);
 
-    // Add both x86 and x64 architectures for each version
+    const [major] = version.split('.').map(Number);
+    const era = `${major}`;
+
     releases.push({
-      name: `Caddy ${version}`,
+      name: `Caddy ${era}`,
       version,
-      era: version.split('.').slice(0, 2).join('.'),
+      era,
       release_date: release.published_at || '',
-      description: 'Caddy Web Server',
       platforms: [
         {
           platform: Platform.linux,
-          architecture: Architecture.x86,
-          url: '', // Asset URL parsing can be added
+          architecture: Architecture.amd64,
+          url: `https://github.com/caddyserver/caddy/releases/download/v${version}/caddy_${version}_linux_amd64.tar.gz`,
           size: 0
         },
         {
-          platform: Platform.linux,
-          architecture: Architecture.x64,
-          url: '',
+          platform: Platform.windows,
+          architecture: Architecture.amd64,
+          url: `https://github.com/caddyserver/caddy/releases/download/v${version}/caddy_${version}_windows_amd64.zip`,
+          size: 0
+        },
+        {
+          platform: Platform.macos,
+          architecture: Architecture.amd64,
+          url: `https://github.com/caddyserver/caddy/releases/download/v${version}/caddy_${version}_mac_amd64.tar.gz`,
+          size: 0
+        },
+        {
+          platform: Platform.macos,
+          architecture: Architecture.aarch64,
+          url: `https://github.com/caddyserver/caddy/releases/download/v${version}/caddy_${version}_mac_arm64.tar.gz`,
           size: 0
         }
       ]

@@ -18,27 +18,35 @@ export async function getReleases(): Promise<Release[]> {
     if (seen.has(version)) continue;
     seen.add(version);
 
-    // Add both x86 and x64 architectures for each version
+    const era = version.split('.')[0];
+
     releases.push({
       name: `Python ${version}`,
       version,
-      era: version.split('.').slice(0, 2).join('.'),
+      era,
       release_date: '', // Not available from listing
-      description: 'Python',
-      platforms: [
-        {
-          platform: Platform.linux,
-          architecture: Architecture.x86,
-          url: `https://www.python.org/ftp/python/${version}/Python-${version}.tgz`,
-          size: 0
-        },
-        {
-          platform: Platform.linux,
-          architecture: Architecture.x64,
-          url: `https://www.python.org/ftp/python/${version}/Python-${version}.tgz`,
-          size: 0
-        }
-      ]
+      platforms: []
+    });
+
+    releases[releases.length - 1].platforms.push({
+      platform: Platform.windows,
+      architecture: Architecture.amd64,
+      url: `https://www.python.org/ftp/python/${version}/python-${version}-embed-amd64.zip`,
+      size: 0
+    });
+
+    releases[releases.length - 1].platforms.push({
+      platform: Platform.macos,
+      architecture: Architecture.aarch64,
+      url: `https://www.python.org/ftp/python/${version}/python-${version}-macos11.pkg`,
+      size: 0
+    });
+
+    releases[releases.length - 1].platforms.push({
+      platform: Platform.linux,
+      architecture: Architecture.amd64,
+      url: `https://www.python.org/ftp/python/${version}/Python-${version}.tgz`,
+      size: 0
     });
   }
 

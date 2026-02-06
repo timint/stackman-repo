@@ -11,32 +11,47 @@ export async function getReleases(): Promise<Release[]> {
 
   for (const release of data) {
     const version = release.tag_name.replace('bun-v', '');
-    const asset = release.assets?.find((a: any) => a.name.endsWith('.tar.gz'));
-    const url = asset?.browser_download_url || '';
-    const size = asset?.size || 0;
+    const era = version.split('.')[0];
+    const releaseDate = release.published_at || '';
 
-    // Add both x86 and x64 architectures for each version
+    const windowsAsset = release.assets?.find((a: any) => a.name.includes('windows-x64'));
+    const macosAsset = release.assets?.find((a: any) => a.name.includes('darwin-aarch64') || a.name.includes('macos-aarch64'));
+    const linuxAsset = release.assets?.find((a: any) => a.name.includes('linux-x64'));
+
     releases.push({
       name: `Bun ${version}`,
       version,
-      era: version.split('.').slice(0, 2).join('.'),
-      release_date: release.published_at || '',
-      description: 'Bun JavaScript Runtime',
-      platforms: [
-        {
-          platform: Platform.linux,
-          architecture: Architecture.x86,
-          url,
-          size
-        },
-        {
-          platform: Platform.linux,
-          architecture: Architecture.x64,
-          url,
-          size
-        }
-      ]
+      era,
+      release_date: releaseDate,
+      platforms: []
     });
+
+    if (windowsAsset) {
+      releases[releases.length - 1].platforms.push({
+        platform: Platform.windows,
+        architecture: Architecture.amd64,
+        url: `https://github.com/oven-sh/bun/releases/download/bun-v${version}/bun-windows-x64.zip`,
+        size: windowsAsset.size || 0
+      });
+    }
+
+    if (macosAsset) {
+      releases[releases.length - 1].platforms.push({
+        platform: Platform.macos,
+        architecture: Architecture.aarch64,
+        url: macosAsset.browser_download_url,
+        size: macosAsset.size || 0
+      });
+    }
+
+    if (linuxAsset) {
+      releases[releases.length - 1].platforms.push({
+        platform: Platform.linux,
+        architecture: Architecture.amd64,
+        url: linuxAsset.browser_download_url,
+        size: linuxAsset.size || 0
+      });
+    }
   }
 
   // Sort by version descending for convenience

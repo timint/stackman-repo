@@ -2,35 +2,61 @@ import { Release, Platform, Architecture } from '../types/release';
 
 // Fetches available MongoDB versions from the official MongoDB download center
 export async function getReleases(): Promise<Release[]> {
-  // In reality, MongoDB does not provide a public API for all versions; this is a placeholder
-  const versions = ['7.0.5', '6.0.13', '5.0.21'];
+
+	const res = await fetch('https://fastdl.mongodb.org/windows/');
+  if (!res.ok) throw new Error('Failed to fetch MongoDB download page');
+
+  const html = await res.text();
+  const regex = /mongodb-windows-x86_64-(\d+\.\d+\.\d+)\.zip/g;
+  const seen = new Set<string>();
 
   const releases: Release[] = [];
 
-  for (const version of versions) {
+  let match: RegExpExecArray | null;
+  while ((match = regex.exec(html))) {
+    const version = match[1];
+    if (seen.has(version)) continue;
+    seen.add(version);
+
+    const [major, minor] = version.split('.').map(Number);
+    const era = `${major}.${minor}`;
+
     releases.push({
-      name: `MongoDB ${version}`,
+      name: `MongoDB ${era}`,
       version,
-      era: version.split('.').slice(0, 2).join('.'),
+      era,
       release_date: '',
-      description: 'MongoDB',
       platforms: [
         {
           platform: Platform.linux,
-          architecture: Architecture.x86,
+          architecture: Architecture.amd64,
           url: `https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-${version}.tgz`,
           size: 0
         },
         {
-          platform: Platform.linux,
-          architecture: Architecture.x64,
-          url: `https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-${version}.tgz`,
+          platform: Platform.windows,
+          architecture: Architecture.amd64,
+          url: `https://fastdl.mongodb.org/windows/mongodb-windows-x86_64-${version}.zip`,
+          size: 0
+        },
+        {
+          platform: Platform.macos,
+          architecture: Architecture.amd64,
+          url: `https://fastdl.mongodb.org/osx/mongodb-macos-x86_64-${version}.tgz`,
+          size: 0
+        },
+        {
+          platform: Platform.macos,
+          architecture: Architecture.aarch64,
+          url: `https://fastdl.mongodb.org/osx/mongodb-macos-arm64-${version}.tgz`,
           size: 0
         }
       ]
     });
 
   }
+
+  releases.sort((a, b) => b.version.localeCompare(a.version, undefined, { numeric: true }));
 
   return releases;
 }

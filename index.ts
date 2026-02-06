@@ -36,6 +36,20 @@ export async function generateFeeds() {
     })
   );
 
+  // Filter to keep only latest release for each era
+  for (const key in results) {
+    if (Array.isArray(results[key])) {
+      const eraMap = new Map<string, any>();
+      for (const release of results[key]) {
+        const current = eraMap.get(release.era);
+        if (!current || release.version.localeCompare(current.version, undefined, { numeric: true }) > 0) {
+          eraMap.set(release.era, release);
+        }
+      }
+      results[key] = Array.from(eraMap.values());
+    }
+  }
+
   // Sort results by key (module name) ascending
   const sortedResults: Record<string, any> = {};
   Object.keys(results).sort().forEach(key => {
@@ -53,7 +67,7 @@ generateFeeds().then((results) => {
 
   // Write results to JSON file
   const feedPath = join(appsDir, '..', 'public', 'app-releases.json');
-  Bun.write(feedPath, JSON.stringify(results, null, 2));
+  Bun.write(feedPath, JSON.stringify(results, null, '\t'));
 
   console.log('Feed generated successfully at public/app-releases.json');
 }).catch((error) => {

@@ -19,24 +19,37 @@ export async function getReleases(): Promise<Release[]> {
     if (seen.has(version)) continue;
     seen.add(version);
 
-    // Add both x86 and x64 architectures for each version
+    const [major, minor] = version.split('.').map(Number);
+    const era = `${major}.${minor}`;
+
     releases.push({
-      name: `Apache ${version}`,
+      name: `Apache ${era}`,
       version,
-      era: version.split('.').slice(0, 2).join('.'),
-      release_date: '', // Not available from listing
-      description: 'Apache HTTP Server',
+      era,
+      release_date: '',
       platforms: [
         {
           platform: Platform.linux,
-          architecture: Architecture.x86,
-          url: `https://downloads.apache.org/httpd/httpd-${version}.tar.gz`,
-          size: 0 // Not available from listing
+          architecture: Architecture.amd64,
+          url: testUrl,
+          size: 0
         },
         {
-          platform: Platform.linux,
-          architecture: Architecture.x64,
-          url: `https://downloads.apache.org/httpd/httpd-${version}.tar.gz`,
+          platform: Platform.windows,
+          architecture: Architecture.amd64,
+          url: `https://www.apachelounge.com/download/VS17/binaries/httpd-${version}-win64-VS17.zip`,
+          size: 0
+        },
+        {
+          platform: Platform.macos,
+          architecture: Architecture.amd64,
+          url: testUrl,
+          size: 0
+        },
+        {
+          platform: Platform.macos,
+          architecture: Architecture.aarch64,
+          url: testUrl,
           size: 0
         }
       ]

@@ -1,8 +1,6 @@
 import { Release, Architecture, Platform } from '../types/release';
 
-// Fetches available Nginx versions from the official Nginx download page
 export async function getReleases(): Promise<Release[]> {
-
   const res = await fetch('https://nginx.org/en/download.html');
   if (!res.ok) throw new Error('Failed to fetch Nginx download page');
 
@@ -18,23 +16,36 @@ export async function getReleases(): Promise<Release[]> {
     if (seen.has(version)) continue;
     seen.add(version);
 
-    // Add both x86 and x64 architectures for each version
+    const [major, minor] = version.split('.').map(Number);
+    const era = `${major}.${minor}`;
+
     releases.push({
-      name: `Nginx ${version}`,
+      name: `Nginx ${era}`,
       version,
-      era: version.split('.').slice(0, 2).join('.'),
-      release_date: '', // Not available from listing
-      description: 'Nginx Web Server',
+      era,
+      release_date: '',
       platforms: [
         {
           platform: Platform.linux,
-          architecture: Architecture.x86,
+          architecture: Architecture.amd64,
           url: `https://nginx.org/download/nginx-${version}.tar.gz`,
           size: 0
         },
         {
-          platform: Platform.linux,
-          architecture: Architecture.x64,
+          platform: Platform.windows,
+          architecture: Architecture.amd64,
+          url: `https://nginx.org/download/nginx-${version}.win64.zip`,
+          size: 0
+        },
+        {
+          platform: Platform.macos,
+          architecture: Architecture.amd64,
+          url: `https://nginx.org/download/nginx-${version}.tar.gz`,
+          size: 0
+        },
+        {
+          platform: Platform.macos,
+          architecture: Architecture.aarch64,
           url: `https://nginx.org/download/nginx-${version}.tar.gz`,
           size: 0
         }
@@ -42,7 +53,6 @@ export async function getReleases(): Promise<Release[]> {
     });
   }
 
-  // Sort by version descending for convenience
   releases.sort((a, b) => b.version.localeCompare(a.version, undefined, { numeric: true }));
 
   return releases;
