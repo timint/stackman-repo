@@ -73,7 +73,7 @@ bun test
 ## Project Structure
 
 ```
-repository-(repo)/
+stackman-repo/
 ├── apps/                    # Individual fetcher modules
 │   ├── apache.ts            # Apache HTTP Server fetcher
 │   ├── bun.ts               # Bun runtime fetcher
