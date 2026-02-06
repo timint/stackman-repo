@@ -12,14 +12,18 @@ const apps = [
 
 async function testUrl(url, key, version, target) {
   try {
+
     const response = await fetch(url, { method: 'HEAD' });
+
     if (!response.ok) {
       console.log(`FAIL: ${key} ${version} ${target}`);
       console.log(`  URL: ${url}`);
       console.log(`  Status: ${response.status}`);
       return { success: false, status: response.status };
     }
+
     return { success: true, status: response.status };
+
   } catch (error) {
     console.log(`ERROR: ${key} ${version} ${target}`);
     console.log(`  URL: ${url}`);
@@ -137,6 +141,57 @@ describe('Release feeds', () => {
 			}
 
 			expect(hasMac || hasLinux || hasWindows).toBe(true);
+		}
+	});
+
+	test('should have urls that are archives and not installers or .deb files', { timeout: 120000 }, async () => {
+		const results = readFileSync('./public/app-releases.json', 'utf-8');
+		const appReleases = JSON.parse(results);
+		const failures = [];
+
+		const allowedExtensions = [
+			'.tar.gz', '.tgz', '.tar.bz2', '.tbz2', '.tar.xz', '.txz',
+			'.zip', '.7z', '.rar', '.tar', '.zst', '.tar.zst'
+		];
+		const forbiddenExtensions = ['.exe', '.msi', '.appimage', '.deb', '.rpm', '.dmg'];
+
+		for (const app of Object.keys(appReleases)) {
+			const val = appReleases[app];
+			if (!Array.isArray(val) || val.length === 0) continue;
+
+			for (const release of val) {
+				for (const platform of release.platforms) {
+					const url = platform.url.toLowerCase();
+
+					const hasAllowedExtension = allowedExtensions.some(ext => url.endsWith(ext));
+					const hasForbiddenExtension = forbiddenExtensions.some(ext => url.endsWith(ext));
+
+					if (!hasAllowedExtension || hasForbiddenExtension) {
+						failures.push({
+							app,
+							version: release.version,
+							target: platform.target,
+							url: platform.url,
+							reason: hasForbiddenExtension
+								? 'has forbidden extension (installer or .deb)'
+								: 'does not have an archive extension'
+						});
+					}
+				}
+			}
+		}
+
+		expect(failures.length).toBe(0);
+
+		console.log(`\n\nTotal URL format failures: ${failures.length}`);
+		if (failures.length > 0) {
+			console.log('\nFailed URLs (not archives or are installers/.deb):');
+			for (const failure of failures) {
+				console.log(`  ${failure.app} ${failure.version} ${failure.target}: ${failure.reason}`);
+				console.log(`    URL: ${failure.url}`);
+			}
+		} else {
+			console.log('\nAll URLs are archives (not installers or .deb files)!');
 		}
 	});
 });
