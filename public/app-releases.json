@@ -148,9 +148,6 @@
 			]
 		}
 	],
-	"dotnet": {
-		"error": "Failed to fetch .NET versions"
-	},
 	"go": [
 		{
 			"name": "Go 1.24.13",
@@ -199,7 +196,77 @@
 			]
 		}
 	],
-	"java": [],
+	"java": [
+		{
+			"name": "OpenJDK",
+			"version": "25.0.2+10-LTS",
+			"era": "25",
+			"platforms": [
+				{
+					"target": "windows-amd64",
+					"url": "https://github.com/adoptium/temurin25-binaries/releases/latest/download/OpenJDK25U-jdk_x64_windows_hotspot_25.0.2+10-LTS.zip"
+				},
+				{
+					"target": "linux-amd64",
+					"url": "https://github.com/adoptium/temurin25-binaries/releases/latest/download/OpenJDK25U-jdk_x64_linux_hotspot_25.0.2+10-LTS.tar.gz"
+				},
+				{
+					"target": "macos-amd64",
+					"url": "https://github.com/adoptium/temurin25-binaries/releases/latest/download/OpenJDK25U-jdk_x64_mac_hotspot_25.0.2+10-LTS.tar.gz"
+				},
+				{
+					"target": "macos-arm64",
+					"url": "https://github.com/adoptium/temurin25-binaries/releases/latest/download/OpenJDK25U-jdk_aarch64_mac_hotspot_25.0.2+10-LTS.tar.gz"
+				}
+			]
+		},
+		{
+			"name": "OpenJDK",
+			"version": "24.0.2+12",
+			"era": "24",
+			"platforms": [
+				{
+					"target": "windows-amd64",
+					"url": "https://github.com/adoptium/temurin24-binaries/releases/latest/download/OpenJDK24U-jdk_x64_windows_hotspot_24.0.2+12.zip"
+				},
+				{
+					"target": "linux-amd64",
+					"url": "https://github.com/adoptium/temurin24-binaries/releases/latest/download/OpenJDK24U-jdk_x64_linux_hotspot_24.0.2+12.tar.gz"
+				},
+				{
+					"target": "macos-amd64",
+					"url": "https://github.com/adoptium/temurin24-binaries/releases/latest/download/OpenJDK24U-jdk_x64_mac_hotspot_24.0.2+12.tar.gz"
+				},
+				{
+					"target": "macos-arm64",
+					"url": "https://github.com/adoptium/temurin24-binaries/releases/latest/download/OpenJDK24U-jdk_aarch64_mac_hotspot_24.0.2+12.tar.gz"
+				}
+			]
+		},
+		{
+			"name": "OpenJDK",
+			"version": "23.0.2+7",
+			"era": "23",
+			"platforms": [
+				{
+					"target": "windows-amd64",
+					"url": "https://github.com/adoptium/temurin23-binaries/releases/latest/download/OpenJDK23U-jdk_x64_windows_hotspot_23.0.2+7.zip"
+				},
+				{
+					"target": "linux-amd64",
+					"url": "https://github.com/adoptium/temurin23-binaries/releases/latest/download/OpenJDK23U-jdk_x64_linux_hotspot_23.0.2+7.tar.gz"
+				},
+				{
+					"target": "macos-amd64",
+					"url": "https://github.com/adoptium/temurin23-binaries/releases/latest/download/OpenJDK23U-jdk_x64_mac_hotspot_23.0.2+7.tar.gz"
+				},
+				{
+					"target": "macos-arm64",
+					"url": "https://github.com/adoptium/temurin23-binaries/releases/latest/download/OpenJDK23U-jdk_aarch64_mac_hotspot_23.0.2+7.tar.gz"
+				}
+			]
+		}
+	],
 	"kotlin": [
 		{
 			"name": "Kotlin",
@@ -435,29 +502,424 @@
 		}
 	],
 	"mongodb": {
-		"error": "Failed to fetch MongoDB download page"
+		"error": "Could not find window.__STATE__ JSON in page"
 	},
 	"mysql": [
 		{
 			"name": "MySQL Server (Community Edition)",
-			"version": "9.6.0",
-			"era": "9.6",
+			"version": "33",
+			"era": "33.0",
 			"platforms": [
 				{
-					"target": "linux-amd64",
-					"url": "https://dev.mysql.com/get/Downloads/MySQL-9.6/mysql-9.6.0-linux-glibc2.12-x86_64.tar.xz"
-				},
-				{
 					"target": "windows-amd64",
-					"url": "https://dev.mysql.com/get/Downloads/MySQL-9.6/mysql-9.6.0-winx64.zip"
+					"url": "https://downloads.mysql.com/archives/get/p/33/file/mysql-33-winx64.zip"
 				},
 				{
 					"target": "macos-amd64",
-					"url": "https://dev.mysql.com/get/Downloads/MySQL-9.6/mysql-9.6.0-macos13-x86_64.tar.gz"
+					"url": "https://downloads.mysql.com/archives/get/p/33/file/mysql-33-macos13-x86_64.tar.gz"
 				},
 				{
 					"target": "macos-arm64",
-					"url": "https://dev.mysql.com/get/Downloads/MySQL-9.6/mysql-9.6.0-macos13-arm64.tar.gz"
+					"url": "https://downloads.mysql.com/archives/get/p/33/file/mysql-33-macos13-arm64.tar.gz"
+				}
+			]
+		},
+		{
+			"name": "MySQL Server (Community Edition)",
+			"version": "31",
+			"era": "31.0",
+			"platforms": [
+				{
+					"target": "windows-amd64",
+					"url": "https://downloads.mysql.com/archives/get/p/31/file/mysql-31-winx64.zip"
+				},
+				{
+					"target": "macos-amd64",
+					"url": "https://downloads.mysql.com/archives/get/p/31/file/mysql-31-macos13-x86_64.tar.gz"
+				},
+				{
+					"target": "macos-arm64",
+					"url": "https://downloads.mysql.com/archives/get/p/31/file/mysql-31-macos13-arm64.tar.gz"
+				}
+			]
+		},
+		{
+			"name": "MySQL Server (Community Edition)",
+			"version": "22",
+			"era": "22.0",
+			"platforms": [
+				{
+					"target": "windows-amd64",
+					"url": "https://downloads.mysql.com/archives/get/p/22/file/mysql-22-winx64.zip"
+				},
+				{
+					"target": "macos-amd64",
+					"url": "https://downloads.mysql.com/archives/get/p/22/file/mysql-22-macos13-x86_64.tar.gz"
+				},
+				{
+					"target": "macos-arm64",
+					"url": "https://downloads.mysql.com/archives/get/p/22/file/mysql-22-macos13-arm64.tar.gz"
+				}
+			]
+		},
+		{
+			"name": "MySQL Server (Community Edition)",
+			"version": "21",
+			"era": "21.0",
+			"platforms": [
+				{
+					"target": "windows-amd64",
+					"url": "https://downloads.mysql.com/archives/get/p/21/file/mysql-21-winx64.zip"
+				},
+				{
+					"target": "macos-amd64",
+					"url": "https://downloads.mysql.com/archives/get/p/21/file/mysql-21-macos13-x86_64.tar.gz"
+				},
+				{
+					"target": "macos-arm64",
+					"url": "https://downloads.mysql.com/archives/get/p/21/file/mysql-21-macos13-arm64.tar.gz"
+				}
+			]
+		},
+		{
+			"name": "MySQL Server (Community Edition)",
+			"version": "20",
+			"era": "20.0",
+			"platforms": [
+				{
+					"target": "windows-amd64",
+					"url": "https://downloads.mysql.com/archives/get/p/20/file/mysql-20-winx64.zip"
+				},
+				{
+					"target": "macos-amd64",
+					"url": "https://downloads.mysql.com/archives/get/p/20/file/mysql-20-macos13-x86_64.tar.gz"
+				},
+				{
+					"target": "macos-arm64",
+					"url": "https://downloads.mysql.com/archives/get/p/20/file/mysql-20-macos13-arm64.tar.gz"
+				}
+			]
+		},
+		{
+			"name": "MySQL Server (Community Edition)",
+			"version": "9.5.0",
+			"era": "9.5",
+			"platforms": [
+				{
+					"target": "windows-amd64",
+					"url": "https://downloads.mysql.com/archives/get/p/9.5.0/file/mysql-9.5.0-winx64.zip"
+				},
+				{
+					"target": "macos-amd64",
+					"url": "https://downloads.mysql.com/archives/get/p/9.5.0/file/mysql-9.5.0-macos13-x86_64.tar.gz"
+				},
+				{
+					"target": "macos-arm64",
+					"url": "https://downloads.mysql.com/archives/get/p/9.5.0/file/mysql-9.5.0-macos13-arm64.tar.gz"
+				}
+			]
+		},
+		{
+			"name": "MySQL Server (Community Edition)",
+			"version": "9.4.0",
+			"era": "9.4",
+			"platforms": [
+				{
+					"target": "windows-amd64",
+					"url": "https://downloads.mysql.com/archives/get/p/9.4.0/file/mysql-9.4.0-winx64.zip"
+				},
+				{
+					"target": "macos-amd64",
+					"url": "https://downloads.mysql.com/archives/get/p/9.4.0/file/mysql-9.4.0-macos13-x86_64.tar.gz"
+				},
+				{
+					"target": "macos-arm64",
+					"url": "https://downloads.mysql.com/archives/get/p/9.4.0/file/mysql-9.4.0-macos13-arm64.tar.gz"
+				}
+			]
+		},
+		{
+			"name": "MySQL Server (Community Edition)",
+			"version": "9.3.0",
+			"era": "9.3",
+			"platforms": [
+				{
+					"target": "windows-amd64",
+					"url": "https://downloads.mysql.com/archives/get/p/9.3.0/file/mysql-9.3.0-winx64.zip"
+				},
+				{
+					"target": "macos-amd64",
+					"url": "https://downloads.mysql.com/archives/get/p/9.3.0/file/mysql-9.3.0-macos13-x86_64.tar.gz"
+				},
+				{
+					"target": "macos-arm64",
+					"url": "https://downloads.mysql.com/archives/get/p/9.3.0/file/mysql-9.3.0-macos13-arm64.tar.gz"
+				}
+			]
+		},
+		{
+			"name": "MySQL Server (Community Edition)",
+			"version": "9.2.0",
+			"era": "9.2",
+			"platforms": [
+				{
+					"target": "windows-amd64",
+					"url": "https://downloads.mysql.com/archives/get/p/9.2.0/file/mysql-9.2.0-winx64.zip"
+				},
+				{
+					"target": "macos-amd64",
+					"url": "https://downloads.mysql.com/archives/get/p/9.2.0/file/mysql-9.2.0-macos13-x86_64.tar.gz"
+				},
+				{
+					"target": "macos-arm64",
+					"url": "https://downloads.mysql.com/archives/get/p/9.2.0/file/mysql-9.2.0-macos13-arm64.tar.gz"
+				}
+			]
+		},
+		{
+			"name": "MySQL Server (Community Edition)",
+			"version": "9.1.0",
+			"era": "9.1",
+			"platforms": [
+				{
+					"target": "windows-amd64",
+					"url": "https://downloads.mysql.com/archives/get/p/9.1.0/file/mysql-9.1.0-winx64.zip"
+				},
+				{
+					"target": "macos-amd64",
+					"url": "https://downloads.mysql.com/archives/get/p/9.1.0/file/mysql-9.1.0-macos13-x86_64.tar.gz"
+				},
+				{
+					"target": "macos-arm64",
+					"url": "https://downloads.mysql.com/archives/get/p/9.1.0/file/mysql-9.1.0-macos13-arm64.tar.gz"
+				}
+			]
+		},
+		{
+			"name": "MySQL Server (Community Edition)",
+			"version": "9.0.1",
+			"era": "9.0",
+			"platforms": [
+				{
+					"target": "windows-amd64",
+					"url": "https://downloads.mysql.com/archives/get/p/9.0.1/file/mysql-9.0.1-winx64.zip"
+				},
+				{
+					"target": "macos-amd64",
+					"url": "https://downloads.mysql.com/archives/get/p/9.0.1/file/mysql-9.0.1-macos13-x86_64.tar.gz"
+				},
+				{
+					"target": "macos-arm64",
+					"url": "https://downloads.mysql.com/archives/get/p/9.0.1/file/mysql-9.0.1-macos13-arm64.tar.gz"
+				}
+			]
+		},
+		{
+			"name": "MySQL Server (Community Edition)",
+			"version": "8.4.7",
+			"era": "8.4",
+			"platforms": [
+				{
+					"target": "windows-amd64",
+					"url": "https://downloads.mysql.com/archives/get/p/8.4.7/file/mysql-8.4.7-winx64.zip"
+				},
+				{
+					"target": "macos-amd64",
+					"url": "https://downloads.mysql.com/archives/get/p/8.4.7/file/mysql-8.4.7-macos13-x86_64.tar.gz"
+				},
+				{
+					"target": "macos-arm64",
+					"url": "https://downloads.mysql.com/archives/get/p/8.4.7/file/mysql-8.4.7-macos13-arm64.tar.gz"
+				}
+			]
+		},
+		{
+			"name": "MySQL Server (Community Edition)",
+			"version": "8.3.0",
+			"era": "8.3",
+			"platforms": [
+				{
+					"target": "windows-amd64",
+					"url": "https://downloads.mysql.com/archives/get/p/8.3.0/file/mysql-8.3.0-winx64.zip"
+				},
+				{
+					"target": "macos-amd64",
+					"url": "https://downloads.mysql.com/archives/get/p/8.3.0/file/mysql-8.3.0-macos13-x86_64.tar.gz"
+				},
+				{
+					"target": "macos-arm64",
+					"url": "https://downloads.mysql.com/archives/get/p/8.3.0/file/mysql-8.3.0-macos13-arm64.tar.gz"
+				}
+			]
+		},
+		{
+			"name": "MySQL Server (Community Edition)",
+			"version": "8.2.0",
+			"era": "8.2",
+			"platforms": [
+				{
+					"target": "windows-amd64",
+					"url": "https://downloads.mysql.com/archives/get/p/8.2.0/file/mysql-8.2.0-winx64.zip"
+				},
+				{
+					"target": "macos-amd64",
+					"url": "https://downloads.mysql.com/archives/get/p/8.2.0/file/mysql-8.2.0-macos13-x86_64.tar.gz"
+				},
+				{
+					"target": "macos-arm64",
+					"url": "https://downloads.mysql.com/archives/get/p/8.2.0/file/mysql-8.2.0-macos13-arm64.tar.gz"
+				}
+			]
+		},
+		{
+			"name": "MySQL Server (Community Edition)",
+			"version": "8.1.0",
+			"era": "8.1",
+			"platforms": [
+				{
+					"target": "windows-amd64",
+					"url": "https://downloads.mysql.com/archives/get/p/8.1.0/file/mysql-8.1.0-winx64.zip"
+				},
+				{
+					"target": "macos-amd64",
+					"url": "https://downloads.mysql.com/archives/get/p/8.1.0/file/mysql-8.1.0-macos13-x86_64.tar.gz"
+				},
+				{
+					"target": "macos-arm64",
+					"url": "https://downloads.mysql.com/archives/get/p/8.1.0/file/mysql-8.1.0-macos13-arm64.tar.gz"
+				}
+			]
+		},
+		{
+			"name": "MySQL Server (Community Edition)",
+			"version": "8.0.44",
+			"era": "8.0",
+			"platforms": [
+				{
+					"target": "windows-amd64",
+					"url": "https://downloads.mysql.com/archives/get/p/8.0.44/file/mysql-8.0.44-winx64.zip"
+				},
+				{
+					"target": "macos-amd64",
+					"url": "https://downloads.mysql.com/archives/get/p/8.0.44/file/mysql-8.0.44-macos13-x86_64.tar.gz"
+				},
+				{
+					"target": "macos-arm64",
+					"url": "https://downloads.mysql.com/archives/get/p/8.0.44/file/mysql-8.0.44-macos13-arm64.tar.gz"
+				}
+			]
+		},
+		{
+			"name": "MySQL Server (Community Edition)",
+			"version": "6",
+			"era": "6.0",
+			"platforms": [
+				{
+					"target": "windows-amd64",
+					"url": "https://downloads.mysql.com/archives/get/p/6/file/mysql-6-winx64.zip"
+				},
+				{
+					"target": "macos-amd64",
+					"url": "https://downloads.mysql.com/archives/get/p/6/file/mysql-6-macos13-x86_64.tar.gz"
+				},
+				{
+					"target": "macos-arm64",
+					"url": "https://downloads.mysql.com/archives/get/p/6/file/mysql-6-macos13-arm64.tar.gz"
+				}
+			]
+		},
+		{
+			"name": "MySQL Server (Community Edition)",
+			"version": "5.7.44",
+			"era": "5.7",
+			"platforms": [
+				{
+					"target": "windows-amd64",
+					"url": "https://downloads.mysql.com/archives/get/p/5.7.44/file/mysql-5.7.44-winx64.zip"
+				},
+				{
+					"target": "macos-amd64",
+					"url": "https://downloads.mysql.com/archives/get/p/5.7.44/file/mysql-5.7.44-macos13-x86_64.tar.gz"
+				},
+				{
+					"target": "macos-arm64",
+					"url": "https://downloads.mysql.com/archives/get/p/5.7.44/file/mysql-5.7.44-macos13-arm64.tar.gz"
+				}
+			]
+		},
+		{
+			"name": "MySQL Server (Community Edition)",
+			"version": "5.6.51",
+			"era": "5.6",
+			"platforms": [
+				{
+					"target": "windows-amd64",
+					"url": "https://downloads.mysql.com/archives/get/p/5.6.51/file/mysql-5.6.51-winx64.zip"
+				},
+				{
+					"target": "macos-amd64",
+					"url": "https://downloads.mysql.com/archives/get/p/5.6.51/file/mysql-5.6.51-macos13-x86_64.tar.gz"
+				},
+				{
+					"target": "macos-arm64",
+					"url": "https://downloads.mysql.com/archives/get/p/5.6.51/file/mysql-5.6.51-macos13-arm64.tar.gz"
+				}
+			]
+		},
+		{
+			"name": "MySQL Server (Community Edition)",
+			"version": "5.5.62",
+			"era": "5.5",
+			"platforms": [
+				{
+					"target": "windows-amd64",
+					"url": "https://downloads.mysql.com/archives/get/p/5.5.62/file/mysql-5.5.62-winx64.zip"
+				},
+				{
+					"target": "macos-amd64",
+					"url": "https://downloads.mysql.com/archives/get/p/5.5.62/file/mysql-5.5.62-macos13-x86_64.tar.gz"
+				},
+				{
+					"target": "macos-arm64",
+					"url": "https://downloads.mysql.com/archives/get/p/5.5.62/file/mysql-5.5.62-macos13-arm64.tar.gz"
+				}
+			]
+		},
+		{
+			"name": "MySQL Server (Community Edition)",
+			"version": "5.1.73",
+			"era": "5.1",
+			"platforms": [
+				{
+					"target": "windows-amd64",
+					"url": "https://downloads.mysql.com/archives/get/p/5.1.73/file/mysql-5.1.73-winx64.zip"
+				},
+				{
+					"target": "macos-amd64",
+					"url": "https://downloads.mysql.com/archives/get/p/5.1.73/file/mysql-5.1.73-macos13-x86_64.tar.gz"
+				},
+				{
+					"target": "macos-arm64",
+					"url": "https://downloads.mysql.com/archives/get/p/5.1.73/file/mysql-5.1.73-macos13-arm64.tar.gz"
+				}
+			]
+		},
+		{
+			"name": "MySQL Server (Community Edition)",
+			"version": "5.0.96",
+			"era": "5.0",
+			"platforms": [
+				{
+					"target": "windows-amd64",
+					"url": "https://downloads.mysql.com/archives/get/p/5.0.96/file/mysql-5.0.96-winx64.zip"
+				},
+				{
+					"target": "macos-amd64",
+					"url": "https://downloads.mysql.com/archives/get/p/5.0.96/file/mysql-5.0.96-macos13-x86_64.tar.gz"
+				},
+				{
+					"target": "macos-arm64",
+					"url": "https://downloads.mysql.com/archives/get/p/5.0.96/file/mysql-5.0.96-macos13-arm64.tar.gz"
 				}
 			]
 		}
@@ -2411,7 +2873,6 @@
 			]
 		}
 	],
-	"swift": [],
 	"zig": [
 		{
 			"name": "Zig",

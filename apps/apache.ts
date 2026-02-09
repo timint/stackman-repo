@@ -13,22 +13,16 @@ export async function getReleases(): Promise<Release[]> {
 
 	// Fetch Apache Lounge page for Windows binaries
 	let loungeHtml = '';
-	try {
-		const loungeRes = await fetch('https://www.apachelounge.com/download/');
-		if (loungeRes.ok) {
-			loungeHtml = await loungeRes.text();
-		}
-	} catch {
+	const loungeRes = await fetch('https://www.apachelounge.com/download/');
+	if (loungeRes.ok) {
+		loungeHtml = await loungeRes.text();
 	}
 
 	// Also fetch archive for older versions
 	let archiveHtml = '';
-	try {
-		const archiveRes = await fetch('https://archive.apache.org/dist/httpd/');
-		if (archiveRes.ok) {
-			archiveHtml = await archiveRes.text();
-		}
-	} catch {
+	const archiveRes = await fetch('https://archive.apache.org/dist/httpd/');
+	if (archiveRes.ok) {
+		archiveHtml = await archiveRes.text();
 	}
 
 	const releases: Release[] = [];
@@ -44,6 +38,7 @@ export async function getReleases(): Promise<Release[]> {
 
 		let linuxUrl = `https://downloads.apache.org/httpd/httpd-${version}.tar.gz`;
 		let linuxRes = await fetch(linuxUrl, { method: 'HEAD' });
+
 		if (!linuxRes.ok && archiveHtml) {
 			const archiveRegex = new RegExp(`httpd-${version.replace(/\./g, '\\\\.')}\\.tar\\.gz`);
 			if (archiveRegex.test(archiveHtml)) {
@@ -69,6 +64,21 @@ export async function getReleases(): Promise<Release[]> {
 			}
 		];
 
+		// Try to find a Windows binary for this version from Apache Lounge
+		if (loungeHtml) {
+
+			// Look for a link like: href="/download/VS17/binaries/httpd-2.4.66-win64-VS17.zip"
+			const winRegex = new RegExp(`href=\"(/download/[^\"]*httpd-${version.replace(/\./g, '\\.')}-win64-[^\"]*\\.zip)\"`, 'i');
+			const winMatch = loungeHtml.match(winRegex);
+
+			if (winMatch) {
+				platforms.push({
+					target: PlatformTarget.windows_amd64,
+					url: `https://www.apachelounge.com${winMatch[1]}`
+				});
+			}
+		}
+
 		releases.push({
 			name: `Apache HTTP Server`,
 			version,
@@ -79,9 +89,12 @@ export async function getReleases(): Promise<Release[]> {
 
 	// Also parse archive for older versions not found on main download page
 	if (archiveHtml) {
+
 		const archiveRegex = /httpd-([\d.]+)\.tar\.gz/g;
 		let archiveMatch: RegExpExecArray | null;
+
 		while ((archiveMatch = archiveRegex.exec(archiveHtml))) {
+
 			const version = archiveMatch[1];
 			if (seen.has(version)) continue;
 			seen.add(version);
@@ -107,6 +120,18 @@ export async function getReleases(): Promise<Release[]> {
 					url: linuxUrl
 				}
 			];
+
+			// Try to find a Windows binary for this version from Apache Lounge
+			if (loungeHtml) {
+				const winRegex = new RegExp(`href=\"(/download/[^\"]*httpd-${version.replace(/\./g, '\\.')}-win64-[^\"]*\\.zip)\"`, 'i');
+				const winMatch = loungeHtml.match(winRegex);
+				if (winMatch) {
+					platforms.push({
+						target: PlatformTarget.windows_amd64,
+						url: `https://www.apachelounge.com${winMatch[1]}`
+					});
+				}
+			}
 
 			releases.push({
 				name: `Apache HTTP Server`,

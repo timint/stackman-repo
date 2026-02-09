@@ -15,7 +15,9 @@ export async function getReleases(): Promise<Release[]> {
 		if (seen.has(version)) continue;
 		seen.add(version);
 
-		const [major, minor] = version.split('.').map(Number);
+		const versionParts = version.split('.').map(Number);
+		const major = versionParts[0];
+		const minor = versionParts[1] !== undefined ? versionParts[1] : 0;
 		let era: string;
 		let name: string;
 

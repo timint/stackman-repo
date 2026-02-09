@@ -1,6 +1,9 @@
-# Releases Feed Generator
+# StackMan Repo
 
 A unified feed generator that aggregates release information from multiple software projects into a single JSON file. Built with Bun and TypeScript for high performance and type safety.
+
+The feed is being updated daily by Github Actions, available here:
+https://timint.github.io/stackman-repo/app-releases.json
 
 ## Overview
 
@@ -8,12 +11,14 @@ This project automatically fetches the latest version information from various s
 
 ## Supported Applications
 
-The generator currently supports 21 applications:
+
+
+The generator currently supports 19 applications:
 
 - **Web Servers**: Apache HTTP Server, Nginx, Caddy
-- **Runtimes & Languages**: Bun, Node.js, Python, PHP, Ruby, Go, Java, Kotlin, Scala, Swift, Zig, DLang, Perl
+- **Runtimes & Languages**: Bun, Node.js, Python, PHP, Ruby, Go, Java, Kotlin, Scala, Zig, DLang, Perl
 - **Databases**: MariaDB, MySQL, PostgreSQL, MongoDB
-- **Frameworks**: .NET
+
 
 ## Features
 

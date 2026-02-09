@@ -3,46 +3,49 @@ import { Release, PlatformTarget } from '../types/release';
 // Fetches available Java versions from the official Adoptium API
 export async function getReleases(): Promise<Release[]> {
 
-	const res = await fetch('https://data.javaalmanac.io/v1/jdk/vendors/oracle');
+	// Use Adoptium API for OpenJDK releases (LTS and latest)
+	const res = await fetch('https://api.adoptium.net/v3/info/release_versions?release_type=ga&jvm_impl=hotspot&heap_size=normal&vendor=eclipse');
+
 	if (!res.ok) throw new Error('Failed to fetch Java releases');
 
 	const data = await res.json();
+	const versions: any[] = data.versions || [];
 	const releases: Release[] = [];
 
-	if (data.products && data.products[0] && data.products[0].versions) {
-		const seen = new Set<string>();
-		for (const version of data.products[0].versions) {
-			if (seen.has(version)) continue;
-			seen.add(version);
+	for (const v of versions) {
 
-			const era = version.split('.')[0];
-			if (parseInt(era) < 8) continue;
+		const version = v.openjdk_version || v.semver || v.version || v;
+		if (typeof version !== 'string') continue;
 
-			releases.push({
-				name: `Java`,
-				version,
-				era,
-				platforms: []
-			});
+		const major = parseInt(version.split('.')[0], 10);
+		if (isNaN(major) || major < 8) continue;
 
-			releases[releases.length - 1].platforms.push({
-				target: PlatformTarget.windows_amd64,
-				url: `https://download.java.net/java/GA/jdk${version}/binaries/openjdk-${version}_windows-x64_bin.zip`
-			});
-
-			releases[releases.length - 1].platforms.push({
-				target: PlatformTarget.linux_amd64,
-				url: `https://download.java.net/java/GA/jdk${version}/binaries/openjdk-${version}_linux-x64_bin.tar.gz`
-			});
-
-			releases[releases.length - 1].platforms.push({
-				target: PlatformTarget.macos_arm64,
-				url: `https://download.java.net/java/GA/jdk${version}/binaries/openjdk-${version}_macos-aarch64_bin.tar.gz`
-			});
-		}
+		const era = `${major}`;
+		releases.push({
+			name: 'OpenJDK',
+			version,
+			era,
+			platforms: [
+				{
+					target: PlatformTarget.windows_amd64,
+					url: `https://github.com/adoptium/temurin${major}-binaries/releases/latest/download/OpenJDK${major}U-jdk_x64_windows_hotspot_${version}.zip`
+				},
+				{
+					target: PlatformTarget.linux_amd64,
+					url: `https://github.com/adoptium/temurin${major}-binaries/releases/latest/download/OpenJDK${major}U-jdk_x64_linux_hotspot_${version}.tar.gz`
+				},
+				{
+					target: PlatformTarget.macos_amd64,
+					url: `https://github.com/adoptium/temurin${major}-binaries/releases/latest/download/OpenJDK${major}U-jdk_x64_mac_hotspot_${version}.tar.gz`
+				},
+				{
+					target: PlatformTarget.macos_arm64,
+					url: `https://github.com/adoptium/temurin${major}-binaries/releases/latest/download/OpenJDK${major}U-jdk_aarch64_mac_hotspot_${version}.tar.gz`
+				}
+			]
+		});
 	}
 
-	// Sort by version descending for convenience
 	releases.sort((a, b) => b.version.localeCompare(a.version, undefined, { numeric: true }));
 
 	return releases;

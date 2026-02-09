@@ -1,3 +1,5 @@
+/// <reference types="bun" />
+
 import { readdir } from 'fs/promises';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
@@ -74,11 +76,11 @@ export async function generateFeeds() {
 			try {
 				results[name] = await fn();
 				successCount[name] = 1;
-				process.stdout.write('.');
+				process.stdout.write(`✓ ${name}\n`);
 			} catch (e) {
 				results[name] = { error: (e as Error).message };
 				errorCount[name] = 1;
-				process.stdout.write('✗');
+				process.stdout.write(`✗ ${name}\n`);
 			}
 		})
 	);
@@ -138,14 +140,23 @@ export async function generateFeeds() {
 }
 
 // Execute the feed generation when run directly
-generateFeeds().then((results) => {
+// Run only if this is the main entry (works for Bun and Node.js, including after bun build)
+const isMain = (() => {
+	// Bun: process.argv[1] is the entry file, import.meta.path is the file path
+	// Node: import.meta.url is file://... and process.argv[1] is the entry file
+	const entry = process.argv[1] ? fileURLToPath(`file://${process.argv[1]}`) : '';
+	const current = fileURLToPath(import.meta.url);
+	return entry && current && entry === current;
+})();
 
-	// Write results to JSON file
-	const feedPath = join(appsDir, '..', 'public', 'app-releases.json');
-	Bun.write(feedPath, JSON.stringify(results, null, '\t'));
-
-	console.log('Feed generated successfully at public/app-releases.json');
-}).catch((error) => {
-	console.error('Error generating feed:', error);
-	process.exit(1);
-});
+if (isMain) {
+	generateFeeds().then((results) => {
+		// Write results to JSON file
+		const feedPath = join(appsDir, '..', 'public', 'app-releases.json');
+		Bun.write(feedPath, JSON.stringify(results, null, '\t'));
+		console.log('Feed generated successfully at public/app-releases.json');
+	}).catch((error) => {
+		console.error('Error generating feed:', error);
+		process.exit(1);
+	});
+}

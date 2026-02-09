@@ -11,6 +11,6 @@
     "resolveJsonModule": true,
     "skipLibCheck": true
   },
-  "include": ["src", "types", "index.ts", "releases"],
+  "include": ["src", "types", "index.ts", "releases", "apps"],
   "exclude": ["node_modules", "public", "tests"]
 }
