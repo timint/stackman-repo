@@ -11,50 +11,53 @@ export async function getReleases(): Promise<Release[]> {
 	const releases: Release[] = [];
 
 	let match: RegExpExecArray | null;
+	const latestByEra: Record<string, string> = {};
 	while ((match = regex.exec(html))) {
 		const version = match[1];
+		if (/preview|rc|alpha|beta|nightly/i.test(version)) continue;
 		if (seen.has(version)) continue;
 		seen.add(version);
-
 		const [major, minor] = version.split('.').map(Number);
 		const era = `${major}.${minor}`;
-
-		const linuxUrl = `https://nginx.org/download/nginx-${version}.tar.gz`;
-		const linuxRes = await fetch(linuxUrl, { method: 'HEAD' });
-		if (!linuxRes.ok) continue;
-
-		const platforms = [];
-
-		const windowsUrl = `https://nginx.org/download/nginx-${version}.zip`;
-		const windowsRes = await fetch(windowsUrl, { method: 'HEAD' });
-		if (windowsRes.ok) {
-			platforms.push({
-				target: PlatformTarget.windows_amd64,
-				url: windowsUrl
-			});
+		if (!latestByEra[era] || version.localeCompare(latestByEra[era], undefined, { numeric: true }) > 0) {
+			latestByEra[era] = version;
 		}
-
-		platforms.push({
-			target: PlatformTarget.linux_amd64,
-			url: linuxUrl
-		});
-
-		platforms.push({
-			target: PlatformTarget.macos_amd64,
-			url: linuxUrl
-		});
-
-		platforms.push({
-			target: PlatformTarget.macos_arm64,
-			url: linuxUrl
-		});
-
+	}
+	for (const era in latestByEra) {
+		const version = latestByEra[era];
 		releases.push({
+			id: `nginx-${era}`,
 			name: `Nginx`,
 			version,
 			era,
-			platforms
+			endoflife: null,
+			platforms: [
+				{
+					target: PlatformTarget.linux_amd64,
+					url: `https://nginx.org/download/nginx-${version}.tar.gz`
+				},
+				{
+					target: PlatformTarget.linux_arm64,
+					url: `https://nginx.org/download/nginx-${version}.tar.gz`
+				},
+				{
+					target: PlatformTarget.macos_amd64,
+					url: `https://nginx.org/download/nginx-${version}.tar.gz`
+				},
+				{
+					target: PlatformTarget.macos_arm64,
+					url: `https://nginx.org/download/nginx-${version}.tar.gz`
+				},
+				{
+					target: PlatformTarget.windows_amd64,
+					url: `https://nginx.org/download/nginx-${version}.zip`
+				},
+			]
 		});
+	}
+
+	if (!releases) {
+		throw new Error('Failed to fetch Nginx releases');
 	}
 
 	releases.sort((a, b) => b.version.localeCompare(a.version, undefined, { numeric: true }));

@@ -12,6 +12,9 @@ export async function getReleases(): Promise<Release[]> {
 
 	for (const release of data) {
 		const version = release.tag_name.replace(/^v/, '');
+
+		if (/preview|rc|alpha|beta|nightly/i.test(version)) continue;
+
 		if (seen.has(version)) continue;
 		seen.add(version);
 
@@ -19,12 +22,18 @@ export async function getReleases(): Promise<Release[]> {
 		const era = `${major}.${minor}`;
 
 		releases.push({
+			id: `kotlin-${era}`,
 			name: `Kotlin`,
 			version,
 			era,
+			endoflife: null,
 			platforms: [
 				{
 					target: PlatformTarget.linux_amd64,
+					url: `https://github.com/JetBrains/kotlin/releases/download/v${version}/kotlin-compiler-${version}.zip`
+				},
+				{
+					target: PlatformTarget.linux_arm64,
 					url: `https://github.com/JetBrains/kotlin/releases/download/v${version}/kotlin-compiler-${version}.zip`
 				},
 				{
@@ -41,6 +50,10 @@ export async function getReleases(): Promise<Release[]> {
 				}
 			]
 		});
+	}
+
+	if (!releases) {
+		throw new Error('Failed to fetch Kotlin releases');
 	}
 
 	releases.sort((a, b) => b.version.localeCompare(a.version, undefined, { numeric: true }));

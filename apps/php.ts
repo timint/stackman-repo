@@ -1,75 +1,66 @@
 import { Release, PlatformTarget } from '../types/release';
 
-// Fetches available PHP versions from the official Windows PHP releases feed
 export async function getReleases(): Promise<Release[]> {
+	const res = await fetch('https://www.php.net/releases/index.php?json');
 
-	const res = await fetch('https://windows.php.net/downloads/releases/releases.json');
-	if (!res.ok) throw new Error('Failed to fetch PHP releases.json');
+	if (!res.ok) {
+		throw new Error('Failed to fetch PHP releases');
+	}
 
-	const releasesData = await res.json();
+	const data = await res.json();
 	const releases: Release[] = [];
+	const latestByEra: Record<string, { version: string; releaseData: any }> = {};
 
-	for (const version in releasesData) {
-		const releaseData = releasesData[version];
-		const actualVersion = releaseData.version || version;
-		let bestZip = '';
-		let bestScore = -1;
+	for (const majorVersion in data) {
+		const releaseData = data[majorVersion];
+		const version = releaseData.version;
 
-		for (const buildName in releaseData) {
-			const buildData = releaseData[buildName];
-			let zipPath = (buildData?.zip?.path || buildData?.zip || '') as string;
-			let zipUrl = '';
-
-			if (typeof zipPath === 'string' && (zipPath.startsWith('http://') || zipPath.startsWith('https://'))) {
-				zipUrl = zipPath;
-			} else if (zipPath) {
-				zipUrl = `https://windows.php.net/downloads/releases/${zipPath}`;
-			}
-
-			if (!zipUrl || !zipUrl.toLowerCase().includes('x64')) continue;
-
-			let score = 0;
-			const bn = buildName.toLowerCase();
-			const zu = zipUrl.toLowerCase();
-
-			if (bn.includes('nts') || zu.includes('nts')) score += 3;
-			else if (bn.includes('ts') || zu.includes('ts')) score += 2;
-
-			if (bn.includes('vs17') || zu.includes('vs17')) score += 2;
-			else if (bn.includes('vs16') || zu.includes('vs16')) score += 1;
-			else if (bn.includes('vc15') || zu.includes('vc15')) score += 1;
-
-			if (score > bestScore) {
-				bestScore = score;
-				bestZip = zipUrl;
-			}
+		if (version < '5.6') {
+			continue; // Skip older versions
 		}
 
-		if (bestZip) {
-			const era = actualVersion.split('.')[0];
-
-			releases.push({
-				name: `PHP`,
-				version: actualVersion,
-				era,
-				platforms: []
-			});
-
-			releases[releases.length - 1].platforms.push({
-				target: PlatformTarget.windows_amd64,
-				url: bestZip
-			});
-
-			releases[releases.length - 1].platforms.push({
-				target: PlatformTarget.linux_amd64,
-				url: `https://www.php.net/distributions/php-${actualVersion}.tar.gz`
-			});
-
-			releases[releases.length - 1].platforms.push({
-				target: PlatformTarget.macos_arm64,
-				url: `https://www.php.net/distributions/php-${actualVersion}.tar.gz`
-			});
+		if (version.match(/(alpha|beta|rc|dev|snapshot|a\d+|b\d+|rc\d+)/i)) {
+			continue;
 		}
+
+		const era = `${version.split('.')[0]}.${version.split('.')[1]}`;
+
+		if (!latestByEra[era] || version.localeCompare(latestByEra[era].version, undefined, { numeric: true }) > 0) {
+			latestByEra[era] = { version, releaseData };
+		}
+	}
+
+	for (const era in latestByEra) {
+		const { version, releaseData } = latestByEra[era];
+		releases.push({
+			id: `php-${era}`,
+			name: `PHP`,
+			version,
+			era,
+			endoflife: null,
+			platforms: [
+				{
+					target: PlatformTarget.linux_amd64,
+					url: `https://www.php.net/distributions/php-${version}.tar.gz`
+				},
+				{
+					target: PlatformTarget.linux_arm64,
+					url: `https://www.php.net/distributions/php-${version}.tar.gz`
+				},
+				{
+					target: PlatformTarget.macos_amd64,
+					url: `https://www.php.net/distributions/php-${version}.tar.gz`
+				},
+				{
+					target: PlatformTarget.macos_arm64,
+					url: `https://www.php.net/distributions/php-${version}.tar.gz`
+				}
+			]
+		});
+	}
+
+	if (!releases) {
+		throw new Error('Failed to fetch PHP releases');
 	}
 
 	releases.sort((a, b) => b.version.localeCompare(a.version, undefined, { numeric: true }));

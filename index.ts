@@ -3,6 +3,7 @@
 import { readdir } from 'fs/promises';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
+import { PlatformTarget } from './types/release';
 
 type ReleaseFetcher = () => Promise<any[]>;
 
@@ -45,7 +46,7 @@ export function compareVersions(a: string, b: string): number {
 
 export const releaseFetchers: Record<string, ReleaseFetcher> = {};
 
-await (async function loadInstanceModules() {
+await (async function loadReleaseFetchers() {
 	const files = await readdir(appsDir);
 	const tsFiles = files.filter(file => file.endsWith('.ts') && file !== 'index.ts');
 
@@ -64,23 +65,30 @@ await (async function loadInstanceModules() {
 })();
 
 // Example: fetch all
-export async function generateFeeds() {
+export async function generateFeeds(targetApp?: string) {
 	const results: Record<string, any> = {};
 	const successCount: Record<string, number> = {};
 	const errorCount: Record<string, number> = {};
 
-	console.log('🔄 Fetching releases from all sources...\n');
+	const fetchersToUse = targetApp
+		? [[targetApp, releaseFetchers[targetApp]] as const].filter(([, fn]) => fn)
+		: Object.entries(releaseFetchers);
+
+	console.log(`🔄 Fetching releases from ${targetApp ? targetApp : 'all sources'}...\n`);
 
 	await Promise.all(
-		Object.entries(releaseFetchers).map(async ([name, fn]) => {
+		fetchersToUse.map(async ([name, fn]) => {
+			const start = Date.now();
 			try {
 				results[name] = await fn();
+				const duration = Date.now() - start;
 				successCount[name] = 1;
-				process.stdout.write(`✓ ${name}\n`);
+				process.stdout.write(`✅ ${name} [${duration.toLocaleString()} ms] ${results[name].length} release(s)\n`);
 			} catch (e) {
-				results[name] = { error: (e as Error).message };
+				const duration = Date.now() - start;
+				results[name] = [];
 				errorCount[name] = 1;
-				process.stdout.write(`✗ ${name}\n`);
+				process.stdout.write(`❌ ${name} [${duration.toLocaleString()} ms] Error: ${(e as Error).message}\n`);
 			}
 		})
 	);
@@ -91,30 +99,8 @@ export async function generateFeeds() {
 	console.log(`  ✓ Success: ${Object.keys(successCount).length} apps`);
 	console.log(`  ✗ Errors: ${Object.keys(errorCount).length} apps\n`);
 
-	if (Object.keys(errorCount).length > 0) {
-		console.log('❌ Failed apps:');
-		for (const [name] of Object.entries(errorCount)) {
-			console.log(`  - ${name}: ${(results[name] as any).error}`);
-		}
-		console.log();
-	}
-
-	// Filter to keep only latest release for each era
-	console.log('🔍 Filtering to latest release per era...\n');
-	for (const key in results) {
-		if (Array.isArray(results[key])) {
-			const eraMap = new Map<string, any>();
-			for (const release of results[key]) {
-				const current = eraMap.get(release.era);
-				if (!current || compareVersions(release.version, current.version) > 0) {
-					eraMap.set(release.era, release);
-				}
-			}
-			results[key] = Array.from(eraMap.values());
-		}
-	}
-
 	// Sort results by key (module name) ascending
+	console.log('📱Sorting results...\n');
 	const sortedResults: Record<string, any> = {};
 	Object.keys(results).sort().forEach(key => {
 		sortedResults[key] = results[key];
@@ -123,20 +109,67 @@ export async function generateFeeds() {
 		}
 	});
 
+	// Filter to only target app if specified
+	const finalResults = targetApp
+		? { [targetApp]: sortedResults[targetApp] }
+		: sortedResults;
+
+	// Test targets for every release
+	for (const [key, value] of Object.entries(finalResults)) {
+		if (Array.isArray(value)) {
+			for (const release of value) {
+				if (!release.platforms || release.platforms.length === 0) {
+					console.warn(`⚠️ Release ${release.id} has no platforms!`);
+					continue;
+				}
+				// Check if all targets are present
+				const allTargets = [
+					PlatformTarget.linux_amd64,
+					PlatformTarget.linux_arm64,
+					PlatformTarget.macos_amd64,
+					PlatformTarget.macos_arm64,
+					PlatformTarget.windows_amd64,
+				];
+				const presentTargets = release.platforms.map(platform => platform.target);
+				const missingTargets = allTargets.filter(target => !presentTargets.includes(target));
+				if (missingTargets.length > 0) {
+					console.warn(`⚠️ Release ${release.id} is missing targets: ${missingTargets.join(', ')}!`);
+					continue;
+				}
+				// Check if all targets have a valid url
+				for (const platform of release.platforms) {
+					if (!platform.url) {
+						console.warn(`⚠️ Release ${release.id} has no url for target ${platform.target}!`);
+						continue;
+					}
+					// Test if url is reachable with HEAD
+					try {
+						const res = await fetch(platform.url, { method: 'HEAD' });
+						if (!res.ok) {
+							console.warn(`⚠️ Release ${release.id} has unreachable target ${platform.target} with url ${platform.url} (${res.status} ${res.statusText})!`);
+							continue;
+						}
+					} catch (e) {
+						console.warn(`⚠️ Release ${release.id} has unreachable target ${platform.target} with url ${platform.url} (${(e as Error).message})!`);
+						continue;
+					}
+					console.log(`✅ Release ${release.id} has reachable target ${platform.target} with url ${platform.url}!`);
+				}
+			}
+		}
+	}
+
 	// Print summary
-	console.log('📋 Final Summary:');
+	console.log('\n📋 Final Summary:');
 	let totalReleases = 0;
-	for (const [key, value] of Object.entries(sortedResults)) {
+	for (const [key, value] of Object.entries(finalResults)) {
 		if (Array.isArray(value)) {
 			totalReleases += value.length;
-			console.log(`  ${key}: ${value.length} release(s)`);
-		} else {
-			console.log(`  ${key}: ERROR`);
 		}
 	}
 	console.log(`\n  Total releases: ${totalReleases}\n`);
 
-	return sortedResults;
+	return finalResults;
 }
 
 // Execute the feed generation when run directly

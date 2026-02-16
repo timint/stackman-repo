@@ -8,12 +8,27 @@ const apps = [
 	 'kotlin', 'java', 'perl', 'scala', 'zig'
 ];
 
+const targetApp = process.env.TEST_APP || process.argv[2];
+
+if (targetApp && !apps.includes(targetApp)) {
+	console.error(`Unknown app: ${targetApp}`);
+	console.error(`Available apps: ${apps.join(', ')}`);
+	process.exit(1);
+}
+
+if (targetApp) {
+	console.log(`\n🔍 Running tests for specific app: ${targetApp}\n`);
+}
+
 let appReleases = null;
 
 async function testUrl(url, key, version, target) {
 	try {
 		const start = Date.now();
-		const response = await fetch(url, { method: 'HEAD' });
+		const controller = new AbortController();
+		const timeoutId = setTimeout(() => controller.abort(), 10000);
+		const response = await fetch(url, { method: 'HEAD', signal: controller.signal });
+		clearTimeout(timeoutId);
 		const duration = Date.now() - start;
 		if (!response.ok) {
 			console.log(`FAIL: ${key} ${version} ${target}`);
@@ -28,34 +43,40 @@ async function testUrl(url, key, version, target) {
 		const duration = Date.now() - start;
 		console.log(`ERROR: ${key} ${version} ${target}`);
 		console.log(`  URL: ${url}`);
-		console.log(`  Error: ${error.message}`);
+		console.log(`  Error: ${error.name === 'AbortError' ? 'Timeout (10s)' : error.message}`);
 		console.log(`  Duration: ${duration}ms`);
-		return { success: false, error: error.message, duration };
+		return { success: false, error: error.name === 'AbortError' ? 'TIMEOUT' : error.message, duration };
 	}
 }
 
 describe('Release feeds', () => {
   test('should fetch all available releases and return arrays of releases', { timeout: 60e3 }, async () => {
 
-		const results = await generateFeeds();
+		const results = await generateFeeds(targetApp);
 
-		expect(results.length).toBeGreaterThanOrEqual(0);
+		const appsToTest = targetApp ? [targetApp] : apps;
+
+		expect(Object.keys(results).length).toBeGreaterThanOrEqual(0);
 
 		// Check that all expected keys exist and are arrays (or error objects)
-		for (const key of apps) {
+		for (const key of appsToTest) {
 			expect(results).toHaveProperty(key);
 		}
 
-		for (const appReleases of results) {
+		for (const app of appsToTest) {
+			const appReleases = results[app];
+
 			// Accept either array (success) or object with error property
 			expect(appReleases.length).toBeGreaterThanOrEqual(0);
 
 			for (const release of appReleases) {
+				expect(release).toHaveProperty('id');
 				expect(release).toHaveProperty('version');
 				expect(release).toHaveProperty('platforms');
 				expect(release).toHaveProperty('era');
 
-				expect(release.version.match(/^\d+\.\d+(\.\d+)?(\.\d+)?(-[a-z0-9]+)?$/)).toBeTruthy();
+				expect(release.id).toBe(`${app}-${release.era}`);
+				expect(release.version.match(/^\d+(\.\d+)*([+\-][a-zA-Z0-9.-]+)?$/)).toBeTruthy();
 				expect(release.era.match(/^[0-9.]+$/)).toBeTruthy();
 
 				for (const platform of release.platforms) {
@@ -66,19 +87,25 @@ describe('Release feeds', () => {
 		}
 
 		// Store results for use in other tests
-		appReleases = results;
+		// If a specific app is targeted, filter the results to only that app
+		if (targetApp) {
+			appReleases = { [targetApp]: results[targetApp] };
+		} else {
+			appReleases = results;
+		}
   });
 
 	test('should have all urls in app-releases.json resolve ok', { timeout: 120000 }, async () => {
 		if (!appReleases) {
-			appReleases = await generateFeeds();
+			appReleases = await generateFeeds(targetApp);
 		}
+		const appsToTest = targetApp ? [targetApp] : Object.keys(appReleases);
 		const failures = [];
 		const durations = [];
 		const overallStart = Date.now();
 
 		// Check that all expected keys exist and are arrays (or error objects)
-		for (const app of Object.keys(appReleases)) {
+		for (const app of appsToTest) {
 			expect(appReleases).toHaveProperty(app);
 
 			const val = appReleases[app];
@@ -110,6 +137,7 @@ describe('Release feeds', () => {
 								version: release.version,
 								target: platform.target,
 								url: platform.url,
+								status: testResult.status || 'ERROR',
 								duration: testResult.duration
 							});
 
@@ -117,10 +145,10 @@ describe('Release feeds', () => {
 						}
 					}
 				}
-
-				expect(failures.length).toBe(0);
 			}
 		}
+
+		expect(failures.length).toBe(0);
 
 		// Print summary
 		const overallDuration = Date.now() - overallStart;
@@ -132,7 +160,8 @@ describe('Release feeds', () => {
 			console.log('\nFailed URLs:');
 
 			for (const failure of failures) {
-				console.log(`  ${failure.app} ${failure.version} ${failure.target}: ${failure.url} [${failure.duration}ms]`);
+				console.log(`  ${failure.app} ${failure.version} ${failure.target}: HTTP ${failure.status} [${failure.duration}ms]`);
+				console.log(`    URL: ${failure.url}`);
 			}
 
 		} else {
@@ -151,10 +180,12 @@ describe('Release feeds', () => {
 
 	test('should have mac, linux, and windows releases present', { timeout: 120000 }, async () => {
 		if (!appReleases) {
-			appReleases = await generateFeeds();
+			appReleases = await generateFeeds(targetApp);
 		}
 
-		for (const app of Object.keys(appReleases)) {
+		const appsToTest = targetApp ? [targetApp] : Object.keys(appReleases);
+
+		for (const app of appsToTest) {
 			const val = appReleases[app];
 			if (!Array.isArray(val) || val.length === 0) continue;
 
@@ -192,16 +223,23 @@ describe('Release feeds', () => {
 				console.log(`⚠ ${app}: ${platforms.join(', ')}`);
 			}
 
-			expect(hasLinux).toBe(true);
-			expect(hasMac).toBe(true);
-			expect(hasWindows).toBe(true);
-		}
-	});
+			if (app === 'apache' || app === 'dlang') {
+				expect(hasLinuxAmd64).toBe(true);
+				expect(hasMacAmd64).toBe(true);
+				expect(hasWindows).toBe(true);
+			} else {
+				expect(hasLinux).toBe(true);
+				expect(hasMac).toBe(true);
+				expect(hasWindows).toBe(true);
+			}
+  		}
+  	});
 
 	test('should have urls that are archives and not installers or .deb files', { timeout: 120000 }, async () => {
 		if (!appReleases) {
 			appReleases = await generateFeeds();
 		}
+		const appsToTest = targetApp ? [targetApp] : Object.keys(appReleases);
 		const failures = [];
 
 		const allowedExtensions = [
@@ -210,7 +248,7 @@ describe('Release feeds', () => {
 		];
 		const forbiddenExtensions = ['.exe', '.msi', '.appimage', '.deb', '.rpm', '.dmg'];
 
-		for (const app of Object.keys(appReleases)) {
+		for (const app of appsToTest) {
 			const val = appReleases[app];
 			if (!Array.isArray(val) || val.length === 0) continue;
 

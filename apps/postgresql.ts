@@ -1,48 +1,56 @@
 import { Release, PlatformTarget } from '../types/release';
 
 export async function getReleases(): Promise<Release[]> {
-	const res = await fetch('https://www.postgresql.org/ftp/source/');
-	if (!res.ok) throw new Error('Failed to fetch PostgreSQL download page');
+	const res = await fetch('https://www.postgresql.org/versions.json');
 
-	const html = await res.text();
-	const regex = />v(\d+\.\d+\.\d+)\//g;
-	const seen = new Set<string>();
+	if (!res.ok) {
+		throw new Error('Failed to fetch PostgreSQL versions');
+	}
 
+	const data = await res.json();
+	const latestByEra: Record<string, string> = {};
 	const releases: Release[] = [];
 
-	let match: RegExpExecArray | null;
-	while ((match = regex.exec(html))) {
-		const version = match[1];
-		if (seen.has(version)) continue;
-		seen.add(version);
-
-		const [major] = version.split('.').map(Number);
+	for (const version of data) {
+		const versionStr = version.toString();
+		const [major] = versionStr.split('.').map(Number);
 		const era = `${major}`;
+		if (!latestByEra[era] || versionStr.localeCompare(latestByEra[era], undefined, { numeric: true }) > 0) {
+			latestByEra[era] = versionStr;
+		}
+	}
 
+	for (const era in latestByEra) {
+		const versionStr = latestByEra[era];
 		releases.push({
+			id: `postgresql-${era}`,
 			name: `PostgreSQL Server`,
-			version,
+			version: versionStr,
 			era,
+			endoflife: null,
 			platforms: [
 				{
 					target: PlatformTarget.linux_amd64,
-					url: `https://ftp.postgresql.org/pub/source/v${version}/postgresql-${version}.tar.gz`
+					url: `https://ftp.postgresql.org/pub/source/v${versionStr}/postgresql-${versionStr}.tar.gz`
+				},
+				{
+					target: PlatformTarget.linux_arm64,
+					url: `https://ftp.postgresql.org/pub/source/v${versionStr}/postgresql-${versionStr}.tar.gz`
 				},
 				{
 					target: PlatformTarget.macos_amd64,
-					url: `https://ftp.postgresql.org/pub/source/v${version}/postgresql-${version}.tar.gz`
+					url: `https://ftp.postgresql.org/pub/source/v${versionStr}/postgresql-${versionStr}.tar.gz`
 				},
 				{
 					target: PlatformTarget.macos_arm64,
-					url: `https://ftp.postgresql.org/pub/source/v${version}/postgresql-${version}.tar.gz`
-				},
-				{
-					target: PlatformTarget.windows_amd64,
-					url: `https://get.enterprisedb.com/postgresql/postgresql-${version}-windows-x64-binaries.zip`
+					url: `https://ftp.postgresql.org/pub/source/v${versionStr}/postgresql-${versionStr}.tar.gz`
 				}
 			]
 		});
+	}
 
+	if (!releases) {
+		throw new Error('Failed to fetch PostgreSQL releases');
 	}
 
 	releases.sort((a, b) => b.version.localeCompare(a.version, undefined, { numeric: true }));

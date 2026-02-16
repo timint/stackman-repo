@@ -1,61 +1,63 @@
 import { Release, PlatformTarget } from '../types/release';
 
-// Fetches available MySQL versions from the official MySQL download page
 export async function getReleases(): Promise<Release[]> {
-
-	// Use the MySQL archive index for real, downloadable versions
-	const res = await fetch('https://downloads.mysql.com/archives/community/');
-	if (!res.ok) throw new Error('Failed to fetch MySQL archive page');
+	const res = await fetch('https://dev.mysql.com/downloads/mysql/');
+	if (!res.ok) throw new Error('Failed to fetch MySQL download page');
 	const html = await res.text();
-	// Find all version numbers in the archive dropdown
-	const versionRegex = /option value="([\d.]+)"/g;
-	const seen = new Set<string>();
-	const releases: Release[] = [];
+
+	const versionRegex = /MySQL Community Server\s+([0-9]+\.[0-9]+\.[0-9]+)/g;
+	const versionSet = new Set<string>();
 	let match: RegExpExecArray | null;
 	while ((match = versionRegex.exec(html))) {
 		const version = match[1];
-
-		if (seen.has(version)) continue;
-
-		seen.add(version);
-
-		// Only allow major versions >= 5
-		const major = Number(version.split('.')[0]);
-		if (major < 5) continue;
-
-		const versionParts = version.split('.').map(Number);
-		const majorNum = versionParts[0];
-		const minor = versionParts[1] !== undefined ? versionParts[1] : 0;
-		const era = `${majorNum}.${minor}`;
-
-		const platforms = [];
-
-		if (version === '9.6.0') { // Skip 9.6.0 for Linux (no archive exists)
-			platforms.push({
-				target: PlatformTarget.linux_amd64,
-				url: `https://downloads.mysql.com/archives/get/p/${version}/file/mysql-${version}-linux-glibc2.12-x86_64.tar.xz`
-			});
+		if (/^\d+\.\d+\.\d+$/.test(version)) {
+			const major = Number(version.split('.')[0]);
+			if (major >= 5) {
+				versionSet.add(version);
+			}
 		}
-		platforms.push({
-			target: PlatformTarget.windows_amd64,
-			url: `https://downloads.mysql.com/archives/get/p/${version}/file/mysql-${version}-winx64.zip`
-		});
-		platforms.push({
-			target: PlatformTarget.macos_amd64,
-			url: `https://downloads.mysql.com/archives/get/p/${version}/file/mysql-${version}-macos13-x86_64.tar.gz`
-		});
-		platforms.push({
-			target: PlatformTarget.macos_arm64,
-			url: `https://downloads.mysql.com/archives/get/p/${version}/file/mysql-${version}-macos13-arm64.tar.gz`
-		});
+	}
+
+	const latestByEra: Record<string, string> = {};
+	for (const version of versionSet) {
+		if (/preview|rc|alpha|beta|nightly/i.test(version)) continue;
+		const [major, minor] = version.split('.').map(Number);
+		const era = `${major}.${minor}`;
+		if (!latestByEra[era] || version.localeCompare(latestByEra[era], undefined, { numeric: true }) > 0) {
+			latestByEra[era] = version;
+		}
+	}
+	const releases: Release[] = [];
+	for (const era in latestByEra) {
+		const version = latestByEra[era];
+		const [major, minor] = version.split('.').map(Number);
+		const platforms: { target: PlatformTarget; url: string }[] = [
+			{
+				target: PlatformTarget.windows_amd64,
+				url: `https://dev.mysql.com/get/Downloads/MySQL-${major}.${minor}/mysql-${version}-winx64.zip`
+			},
+			{
+				target: PlatformTarget.linux_amd64,
+				url: `https://dev.mysql.com/get/Downloads/MySQL-${major}.${minor}/mysql-${version}-linux-glibc2.28-x86_64.tar.xz`
+			},
+			{
+				target: PlatformTarget.linux_arm64,
+				url: `https://dev.mysql.com/get/Downloads/MySQL-${major}.${minor}/mysql-${version}-linux-glibc2.28-aarch64.tar.xz`
+			}
+		];
 		releases.push({
-			name: 'MySQL Server (Community Edition)',
+			id: `mysql-${era}`,
+			name: 'MySQL Community Server',
 			version,
 			era,
+			endoflife: null,
 			platforms
 		});
 	}
 
-	releases.sort((a, b) => b.version.localeCompare(a.version, undefined, { numeric: true }));
+	if (!releases) {
+		throw new Error('Failed to fetch MySQL releases');
+	}
+
 	return releases;
 }

@@ -4,6 +4,7 @@ import { Release, PlatformTarget } from '../types/release';
 export async function getReleases(): Promise<Release[]> {
 	const releases: Release[] = [];
 	const seen = new Set<string>();
+	const latestByEra: Record<string, string> = {};
 
 	const response = await fetch('https://github.com/dlang/dmd/releases');
 	const html = await response.text();
@@ -13,19 +14,23 @@ export async function getReleases(): Promise<Release[]> {
 
 	while ((match = versionRegex.exec(html)) !== null) {
 		const version = match[1];
-
-		if (seen.has(version)) {
-			continue;
-		}
+		if (/preview|rc|alpha|beta|nightly/i.test(version)) continue;
+		if (seen.has(version)) continue;
 		seen.add(version);
-
 		const [major, minor] = version.split('.').map(Number);
 		const era = `${major}.${minor}`;
-
+		if (!latestByEra[era] || version.localeCompare(latestByEra[era], undefined, { numeric: true }) > 0) {
+			latestByEra[era] = version;
+		}
+	}
+	for (const era in latestByEra) {
+		const version = latestByEra[era];
 		releases.push({
+			id: `dlang-${era}`,
 			name: `D`,
 			version,
 			era,
+			endoflife: null,
 			platforms: [
 				{
 					target: PlatformTarget.linux_amd64,
@@ -46,6 +51,12 @@ export async function getReleases(): Promise<Release[]> {
 			]
 		});
 	}
+
+	if (!releases) {
+		throw new Error('Failed to fetch DLang releases');
+	}
+
+	releases.sort((a, b) => b.version.localeCompare(a.version, undefined, { numeric: true }));
 
 	return releases;
 }

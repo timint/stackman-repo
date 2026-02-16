@@ -5,144 +5,63 @@ export async function getReleases(): Promise<Release[]> {
 
 	// Download the Apache HTTPD directory listing
 	const res = await fetch('https://downloads.apache.org/httpd/');
-	if (!res.ok) throw new Error('Failed to fetch Apache download page');
+
+	if (!res.ok) {
+		throw new Error('Failed to fetch Apache download page');
+	}
 
 	const html = await res.text();
-	const regex = /httpd-([\d.]+)\.tar\.gz/g;
+	const regex = /(\d+\.\d+\.\d+)/g;
 	const seen = new Set<string>();
-
-	// Fetch Apache Lounge page for Windows binaries
-	let loungeHtml = '';
-	const loungeRes = await fetch('https://www.apachelounge.com/download/');
-	if (loungeRes.ok) {
-		loungeHtml = await loungeRes.text();
-	}
-
-	// Also fetch archive for older versions
-	let archiveHtml = '';
-	const archiveRes = await fetch('https://archive.apache.org/dist/httpd/');
-	if (archiveRes.ok) {
-		archiveHtml = await archiveRes.text();
-	}
-
 	const releases: Release[] = [];
+
+	const winMatch = /href="([^"]+win64\.zip)"/.exec(html);
 
 	let match: RegExpExecArray | null;
 	while ((match = regex.exec(html))) {
 		const version = match[1];
+		if (/preview|rc|alpha|beta|nightly/i.test(version)) continue;
 		if (seen.has(version)) continue;
 		seen.add(version);
 
 		const [major, minor] = version.split('.').map(Number);
 		const era = `${major}.${minor}`;
 
-		let linuxUrl = `https://downloads.apache.org/httpd/httpd-${version}.tar.gz`;
-		let linuxRes = await fetch(linuxUrl, { method: 'HEAD' });
-
-		if (!linuxRes.ok && archiveHtml) {
-			const archiveRegex = new RegExp(`httpd-${version.replace(/\./g, '\\\\.')}\\.tar\\.gz`);
-			if (archiveRegex.test(archiveHtml)) {
-				linuxUrl = `https://archive.apache.org/dist/httpd/httpd-${version}.tar.gz`;
-				linuxRes = await fetch(linuxUrl, { method: 'HEAD' });
-			}
-		}
-
-		if (!linuxRes.ok) continue;
-
-		const platforms = [
-			{
-				target: PlatformTarget.linux_amd64,
-				url: linuxUrl
-			},
-			{
-				target: PlatformTarget.macos_amd64,
-				url: linuxUrl
-			},
-			{
-				target: PlatformTarget.macos_arm64,
-				url: linuxUrl
-			}
-		];
-
-		// Try to find a Windows binary for this version from Apache Lounge
-		if (loungeHtml) {
-
-			// Look for a link like: href="/download/VS17/binaries/httpd-2.4.66-win64-VS17.zip"
-			const winRegex = new RegExp(`href=\"(/download/[^\"]*httpd-${version.replace(/\./g, '\\.')}-win64-[^\"]*\\.zip)\"`, 'i');
-			const winMatch = loungeHtml.match(winRegex);
-
-			if (winMatch) {
-				platforms.push({
-					target: PlatformTarget.windows_amd64,
-					url: `https://www.apachelounge.com${winMatch[1]}`
-				});
-			}
-		}
-
 		releases.push({
+			id: `apache-${era}`,
 			name: `Apache HTTP Server`,
 			version,
 			era,
-			platforms
-		});
-	}
-
-	// Also parse archive for older versions not found on main download page
-	if (archiveHtml) {
-
-		const archiveRegex = /httpd-([\d.]+)\.tar\.gz/g;
-		let archiveMatch: RegExpExecArray | null;
-
-		while ((archiveMatch = archiveRegex.exec(archiveHtml))) {
-
-			const version = archiveMatch[1];
-			if (seen.has(version)) continue;
-			seen.add(version);
-
-			const [major, minor] = version.split('.').map(Number);
-			const era = `${major}.${minor}`;
-
-			const linuxUrl = `https://archive.apache.org/dist/httpd/httpd-${version}.tar.gz`;
-			const linuxRes = await fetch(linuxUrl, { method: 'HEAD' });
-			if (!linuxRes.ok) continue;
-
-			const platforms = [
+			endoflife: null,
+			platforms: [
 				{
-					target: PlatformTarget.linux_amd64,
-					url: linuxUrl
+					target: PlatformTarget.linux_arm64,
+					url: `https://archive.apache.org/dist/httpd/httpd-${version}.tar.gz`
 				},
 				{
-					target: PlatformTarget.macos_amd64,
-					url: linuxUrl
+					target: PlatformTarget.linux_amd64,
+					url: `https://archive.apache.org/dist/httpd/httpd-${version}.tar.gz`
 				},
 				{
 					target: PlatformTarget.macos_arm64,
-					url: linuxUrl
-				}
-			];
-
-			// Try to find a Windows binary for this version from Apache Lounge
-			if (loungeHtml) {
-				const winRegex = new RegExp(`href=\"(/download/[^\"]*httpd-${version.replace(/\./g, '\\.')}-win64-[^\"]*\\.zip)\"`, 'i');
-				const winMatch = loungeHtml.match(winRegex);
-				if (winMatch) {
-					platforms.push({
-						target: PlatformTarget.windows_amd64,
-						url: `https://www.apachelounge.com${winMatch[1]}`
-					});
-				}
-			}
-
-			releases.push({
-				name: `Apache HTTP Server`,
-				version,
-				era,
-				platforms
-			});
-		}
+					url: `https://archive.apache.org/dist/httpd/httpd-${version}.tar.gz`
+				},
+				{
+					target: PlatformTarget.macos_amd64,
+					url: `https://archive.apache.org/dist/httpd/httpd-${version}.tar.gz`
+				},
+				{
+					target: PlatformTarget.windows_amd64,
+					url: winMatch ? `https://www.apachelounge.com${winMatch[1]}` : ''
+				},
+			]
+		});
 	}
 
-	// Sort by version descending for convenience
+	if (!releases) {
+		throw new Error('Failed to fetch Apache releases');
+	}
+
 	releases.sort((a, b) => b.version.localeCompare(a.version, undefined, { numeric: true }));
 
 	return releases;

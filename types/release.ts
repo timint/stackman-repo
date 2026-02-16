@@ -7,9 +7,11 @@ export enum PlatformTarget {
 }
 
 export interface Release {
+	id: string
 	name: string
 	version: string
 	era: string
+	endoflife: string|null
 	platforms: Array<{
 		target: PlatformTarget
 		url: string

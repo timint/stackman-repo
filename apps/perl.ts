@@ -4,7 +4,10 @@ import { Release, PlatformTarget } from '../types/release';
 export async function getReleases(): Promise<Release[]> {
 
 	const res = await fetch('https://www.cpan.org/src/5.0/');
-	if (!res.ok) throw new Error('Failed to fetch Perl download page');
+
+	if (!res.ok) {
+		throw new Error('Failed to fetch Perl download page');
+	}
 
 	const html = await res.text();
 	const regex = /perl-(\d+\.\d+\.\d+)\.(tar\.gz|tar\.bz2)/g;
@@ -21,26 +24,40 @@ export async function getReleases(): Promise<Release[]> {
 	}
 
 	const releases: Release[] = [];
+	const latestByEra: Record<string, { version: string; format: string }> = {};
 
 	for (const [version, format] of formatMap) {
-		if (seen.has(version)) continue;
-		seen.add(version);
-
 		const [major, minor] = version.split('.').map(Number);
 		const era = `${major}.${minor}`;
+		if (!latestByEra[era] || version.localeCompare(latestByEra[era].version, undefined, { numeric: true }) > 0) {
+			latestByEra[era] = { version, format };
+		}
+	}
 
+	for (const era in latestByEra) {
+		const { version, format } = latestByEra[era];
 		const url = `https://www.cpan.org/src/5.0/perl-${version}.${format}`;
 
 		const checkRes = await fetch(url, { method: 'HEAD' });
 		if (!checkRes.ok) continue;
 
 		releases.push({
+			id: `perl-${era}`,
 			name: `Perl`,
 			version,
 			era,
+			endoflife: null,
 			platforms: [
 				{
 					target: PlatformTarget.linux_amd64,
+					url
+				},
+				{
+					target: PlatformTarget.linux_arm64,
+					url
+				},
+				{
+					target: PlatformTarget.windows_amd64,
 					url
 				},
 				{
@@ -53,6 +70,10 @@ export async function getReleases(): Promise<Release[]> {
 				}
 			]
 		});
+	}
+
+	if (!releases) {
+		throw new Error('Failed to fetch Perl releases');
 	}
 
 	releases.sort((a, b) => b.version.localeCompare(a.version, undefined, { numeric: true }));
