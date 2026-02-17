@@ -3,15 +3,17 @@ import { Release, PlatformTarget } from '../types/release';
 // Fetches available Perl versions from official Perl download page
 export async function getReleases(): Promise<Release[]> {
 
-	const res = await fetch('https://www.cpan.org/src/5.0/');
+	// Fetch Perl download page
+	const response = await fetch('https://www.cpan.org/src/5.0/');
 
-	if (!res.ok) {
+	if (!response.ok) {
 		throw new Error('Failed to fetch Perl download page');
 	}
 
-	const html = await res.text();
+	const html = await response.text();
 	const regex = /perl-(\d+\.\d+\.\d+)\.(tar\.gz|tar\.bz2)/g;
-	const seen = new Set<string>();
+
+	// Map to keep the best format for each version
 	const formatMap = new Map<string, string>();
 
 	let match: RegExpExecArray | null;
@@ -23,60 +25,53 @@ export async function getReleases(): Promise<Release[]> {
 		}
 	}
 
-	const releases: Release[] = [];
-	const latestByEra: Record<string, { version: string; format: string }> = {};
+	// Use era as array key for deduplication
+	const releases: Record<string, Release> = {};
 
 	for (const [version, format] of formatMap) {
 		const [major, minor] = version.split('.').map(Number);
 		const era = `${major}.${minor}`;
-		if (!latestByEra[era] || version.localeCompare(latestByEra[era].version, undefined, { numeric: true }) > 0) {
-			latestByEra[era] = { version, format };
-		}
-	}
-
-	for (const era in latestByEra) {
-		const { version, format } = latestByEra[era];
 		const url = `https://www.cpan.org/src/5.0/perl-${version}.${format}`;
 
+		// Check if the file exists
 		const checkRes = await fetch(url, { method: 'HEAD' });
 		if (!checkRes.ok) continue;
 
-		releases.push({
-			id: `perl-${era}`,
-			name: `Perl`,
-			version,
-			era,
-			endoflife: null,
-			platforms: [
-				{
-					target: PlatformTarget.linux_amd64,
-					url
-				},
-				{
-					target: PlatformTarget.linux_arm64,
-					url
-				},
-				{
-					target: PlatformTarget.windows_amd64,
-					url
-				},
-				{
-					target: PlatformTarget.macos_amd64,
-					url
-				},
-				{
-					target: PlatformTarget.macos_arm64,
-					url
-				}
-			]
-		});
+		// Overwrite if version is newer for this era
+		if (!releases[era] || version.localeCompare(releases[era].version, undefined, { numeric: true }) > 0) {
+			releases[era] = {
+				id: `perl-${era}`,
+				name: 'Perl',
+				version,
+				era,
+				endoflife: null,
+				platforms: [
+					{
+						target: PlatformTarget.linux_amd64,
+						url: url
+					},
+					{
+						target: PlatformTarget.linux_arm64,
+						url: url
+					},
+					{
+						target: PlatformTarget.windows_amd64,
+						url: url
+					},
+					{
+						target: PlatformTarget.macos_amd64,
+						url: url
+					}
+				]
+			};
+		}
 	}
 
 	if (!releases) {
 		throw new Error('Failed to fetch Perl releases');
 	}
 
-	releases.sort((a, b) => b.version.localeCompare(a.version, undefined, { numeric: true }));
+	const sortedReleases = Object.values(releases).sort((a, b) => b.era.localeCompare(a.era, undefined, { numeric: true }));
 
-	return releases;
+	return sortedReleases;
 }

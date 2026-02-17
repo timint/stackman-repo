@@ -3,18 +3,19 @@ import { Release, PlatformTarget } from '../types/release';
 // Fetches available Python versions from official Python download page
 export async function getReleases(): Promise<Release[]> {
 
-	const res = await fetch('https://www.python.org/ftp/python/');
+	// Fetch Python download page
+	const response = await fetch('https://www.python.org/ftp/python/');
 
-	if (!res.ok) {
+	if (!response.ok) {
 		throw new Error('Failed to fetch Python download page');
 	}
 
-	const html = await res.text();
+	const html = await response.text();
 	const regex = /href="(\d+\.\d+\.\d+)\//g;
-	const seen = new Set<string>();
 
-	const releases: Release[] = [];
-	const latestByEra: Record<string, string> = {};
+	const seen = new Set<string>();
+	// Use era as array key for deduplication
+	const releases: Record<string, Release> = {};
 
 	let match: RegExpExecArray | null;
 	while ((match = regex.exec(html))) {
@@ -42,49 +43,42 @@ export async function getReleases(): Promise<Release[]> {
 
 		if (major < 3 || (major === 3 && minor < 8)) continue;
 
-		if (!latestByEra[era] || version.localeCompare(latestByEra[era], undefined, { numeric: true }) > 0) {
-			latestByEra[era] = version;
+		// Overwrite if version is newer for this era
+		if (!releases[era] || version.localeCompare(releases[era].version, undefined, { numeric: true }) > 0) {
+			releases[era] = {
+				id: `python-${era}`,
+				name: 'Python',
+				version,
+				era,
+				endoflife: null,
+				platforms: [
+					{
+						target: PlatformTarget.linux_amd64,
+						url: `https://www.python.org/ftp/python/${version}/Python-${version}.tgz`
+					},
+					{
+						target: PlatformTarget.linux_arm64,
+						url: `https://www.python.org/ftp/python/${version}/Python-${version}.tgz`
+					},
+					{
+						target: PlatformTarget.macos_amd64,
+						url: `https://www.python.org/ftp/python/${version}/Python-${version}.tgz`
+					},
+					{
+						target: PlatformTarget.macos_arm64,
+						url: `https://www.python.org/ftp/python/${version}/Python-${version}.tgz`
+					},
+					{
+						target: PlatformTarget.windows_amd64,
+						url: `https://www.python.org/ftp/python/${version}/python-${version}-embed-amd64.zip`
+					}
+				]
+			};
 		}
 	}
 
-	for (const era in latestByEra) {
-		const version = latestByEra[era];
-		releases.push({
-			id: `python-${era}`,
-			name: `Python`,
-			version,
-			era,
-			endoflife: null,
-			platforms: [
-				{
-					target: PlatformTarget.linux_amd64,
-					url: `https://www.python.org/ftp/python/${version}/Python-${version}.tgz`
-				},
-				{
-					target: PlatformTarget.linux_arm64,
-					url: `https://www.python.org/ftp/python/${version}/Python-${version}.tgz`
-				},
-				{
-					target: PlatformTarget.macos_amd64,
-					url: `https://www.python.org/ftp/python/${version}/Python-${version}.tgz`
-				},
-				{
-					target: PlatformTarget.macos_arm64,
-					url: `https://www.python.org/ftp/python/${version}/Python-${version}.tgz`
-				},
-				{
-					target: PlatformTarget.windows_amd64,
-					url: `https://www.python.org/ftp/python/${version}/python-${version}-embed-amd64.zip`
-				}
-			]
-		});
-	}
+	// Convert releases object to array and sort by era (descending)
+	const sortedReleases = Object.values(releases).sort((a, b) => b.era.localeCompare(a.era, undefined, { numeric: true }));
 
-	if (!releases) {
-		throw new Error('Failed to fetch Python releases');
-	}
-
-	releases.sort((a, b) => b.version.localeCompare(a.version, undefined, { numeric: true }));
-
-	return releases;
+	return sortedReleases;
 }

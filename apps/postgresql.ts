@@ -1,59 +1,55 @@
 import { Release, PlatformTarget } from '../types/release';
 
 export async function getReleases(): Promise<Release[]> {
-	const res = await fetch('https://www.postgresql.org/versions.json');
+	// Fetch PostgreSQL versions from official API
+	const response = await fetch('https://www.postgresql.org/versions.json');
 
-	if (!res.ok) {
+	if (!response.ok) {
 		throw new Error('Failed to fetch PostgreSQL versions');
 	}
 
-	const data = await res.json();
-	const latestByEra: Record<string, string> = {};
-	const releases: Release[] = [];
+	const data = await response.json();
+
+	// Use era as array key for deduplication
+	const releases: Record<string, Release> = {};
 
 	for (const version of data) {
 		const versionStr = version.toString();
 		const [major] = versionStr.split('.').map(Number);
 		const era = `${major}`;
-		if (!latestByEra[era] || versionStr.localeCompare(latestByEra[era], undefined, { numeric: true }) > 0) {
-			latestByEra[era] = versionStr;
+
+		// Overwrite if version is newer for this era
+		if (!releases[era] || versionStr.localeCompare(releases[era].version, undefined, { numeric: true }) > 0) {
+			releases[era] = {
+				id: `postgresql-${era}`,
+				name: 'PostgreSQL Server',
+				version: versionStr,
+				era,
+				endoflife: null,
+				platforms: [
+					{
+						target: PlatformTarget.linux_amd64,
+						url: `https://ftp.postgresql.org/pub/source/v${versionStr}/postgresql-${versionStr}.tar.gz`
+					},
+					{
+						target: PlatformTarget.linux_arm64,
+						url: `https://ftp.postgresql.org/pub/source/v${versionStr}/postgresql-${versionStr}.tar.gz`
+					},
+					{
+						target: PlatformTarget.macos_amd64,
+						url: `https://ftp.postgresql.org/pub/source/v${versionStr}/postgresql-${versionStr}.tar.gz`
+					},
+					{
+						target: PlatformTarget.macos_arm64,
+						url: `https://ftp.postgresql.org/pub/source/v${versionStr}/postgresql-${versionStr}.tar.gz`
+					}
+				]
+			};
 		}
 	}
 
-	for (const era in latestByEra) {
-		const versionStr = latestByEra[era];
-		releases.push({
-			id: `postgresql-${era}`,
-			name: `PostgreSQL Server`,
-			version: versionStr,
-			era,
-			endoflife: null,
-			platforms: [
-				{
-					target: PlatformTarget.linux_amd64,
-					url: `https://ftp.postgresql.org/pub/source/v${versionStr}/postgresql-${versionStr}.tar.gz`
-				},
-				{
-					target: PlatformTarget.linux_arm64,
-					url: `https://ftp.postgresql.org/pub/source/v${versionStr}/postgresql-${versionStr}.tar.gz`
-				},
-				{
-					target: PlatformTarget.macos_amd64,
-					url: `https://ftp.postgresql.org/pub/source/v${versionStr}/postgresql-${versionStr}.tar.gz`
-				},
-				{
-					target: PlatformTarget.macos_arm64,
-					url: `https://ftp.postgresql.org/pub/source/v${versionStr}/postgresql-${versionStr}.tar.gz`
-				}
-			]
-		});
-	}
+	// Convert releases object to array and sort by era (descending)
+	const sortedReleases = Object.values(releases).sort((a, b) => b.era.localeCompare(a.era, undefined, { numeric: true }));
 
-	if (!releases) {
-		throw new Error('Failed to fetch PostgreSQL releases');
-	}
-
-	releases.sort((a, b) => b.version.localeCompare(a.version, undefined, { numeric: true }));
-
-	return releases;
+	return sortedReleases;
 }

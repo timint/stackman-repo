@@ -2,18 +2,18 @@ import { Release, PlatformTarget } from '../types/release';
 
 // Fetches available Apache versions from the official Apache HTTPD download page
 export async function getReleases(): Promise<Release[]> {
-
 	// Download the Apache HTTPD directory listing
-	const res = await fetch('https://downloads.apache.org/httpd/');
+	const response = await fetch('https://downloads.apache.org/httpd/');
 
-	if (!res.ok) {
+	if (!response.ok) {
 		throw new Error('Failed to fetch Apache download page');
 	}
 
-	const html = await res.text();
+	const html = await response.text();
 	const regex = /(\d+\.\d+\.\d+)/g;
 	const seen = new Set<string>();
-	const releases: Release[] = [];
+	// Use era as array key for deduplication
+	const releases: Record<string, Release> = {};
 
 	const winMatch = /href="([^"]+win64\.zip)"/.exec(html);
 
@@ -27,42 +27,42 @@ export async function getReleases(): Promise<Release[]> {
 		const [major, minor] = version.split('.').map(Number);
 		const era = `${major}.${minor}`;
 
-		releases.push({
-			id: `apache-${era}`,
-			name: `Apache HTTP Server`,
-			version,
-			era,
-			endoflife: null,
-			platforms: [
-				{
-					target: PlatformTarget.linux_arm64,
-					url: `https://archive.apache.org/dist/httpd/httpd-${version}.tar.gz`
-				},
-				{
-					target: PlatformTarget.linux_amd64,
-					url: `https://archive.apache.org/dist/httpd/httpd-${version}.tar.gz`
-				},
-				{
-					target: PlatformTarget.macos_arm64,
-					url: `https://archive.apache.org/dist/httpd/httpd-${version}.tar.gz`
-				},
-				{
-					target: PlatformTarget.macos_amd64,
-					url: `https://archive.apache.org/dist/httpd/httpd-${version}.tar.gz`
-				},
-				{
-					target: PlatformTarget.windows_amd64,
-					url: winMatch ? `https://www.apachelounge.com${winMatch[1]}` : ''
-				},
-			]
-		});
+		// Overwrite if version is newer for this era
+		if (!releases[era] || version.localeCompare(releases[era].version, undefined, { numeric: true }) > 0) {
+			releases[era] = {
+				id: `apache-${era}`,
+				name: 'Apache HTTP Server',
+				version,
+				era,
+				endoflife: null,
+				platforms: [
+					{
+						target: PlatformTarget.linux_arm64,
+						url: `https://archive.apache.org/dist/httpd/httpd-${version}.tar.gz`
+					},
+					{
+						target: PlatformTarget.linux_amd64,
+						url: `https://archive.apache.org/dist/httpd/httpd-${version}.tar.gz`
+					},
+					{
+						target: PlatformTarget.macos_arm64,
+						url: `https://archive.apache.org/dist/httpd/httpd-${version}.tar.gz`
+					},
+					{
+						target: PlatformTarget.macos_amd64,
+						url: `https://archive.apache.org/dist/httpd/httpd-${version}.tar.gz`
+					},
+					{
+						target: PlatformTarget.windows_amd64,
+						url: winMatch ? `https://www.apachelounge.com${winMatch[1]}` : ''
+					},
+				]
+			};
+		}
 	}
 
-	if (!releases) {
-		throw new Error('Failed to fetch Apache releases');
-	}
+	// Convert releases object to array and sort by era (descending)
+	const sortedReleases = Object.values(releases).sort((a, b) => b.era.localeCompare(a.era, undefined, { numeric: true }));
 
-	releases.sort((a, b) => b.version.localeCompare(a.version, undefined, { numeric: true }));
-
-	return releases;
+	return sortedReleases;
 }
