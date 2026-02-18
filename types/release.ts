@@ -11,9 +11,7 @@ export interface Release {
 	name: string
 	version: string
 	era: string
-	endoflife: string|null
-	platforms: Array<{
-		target: PlatformTarget
-		url: string
-	}>
+	supported: boolean|null
+	url: string
+	target: PlatformTarget
 }

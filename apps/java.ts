@@ -27,7 +27,7 @@ export async function getReleases(): Promise<Release[]> {
 				name: 'OpenJDK',
 				version,
 				era,
-				endoflife: null,
+				supported: true,
 				platforms: [
 					{
 						target: PlatformTarget.windows_amd64,

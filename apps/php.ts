@@ -37,7 +37,7 @@ export async function getReleases(): Promise<Release[]> {
 				name: 'PHP',
 				version,
 				era,
-				endoflife: null,
+				supported: true,
 				platforms: [
 					{
 						target: PlatformTarget.linux_amd64,

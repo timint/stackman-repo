@@ -25,7 +25,7 @@ export async function getReleases(): Promise<Release[]> {
 				name: 'PostgreSQL Server',
 				version: versionStr,
 				era,
-				endoflife: null,
+				supported: true,
 				platforms: [
 					{
 						target: PlatformTarget.linux_amd64,

@@ -40,7 +40,7 @@ export async function getReleases(): Promise<Release[]> {
 					name: 'MariaDB Server',
 					version: numericVersion,
 					era,
-					endoflife: null,
+					supported: true,
 					platforms: [
 						{
 							target: PlatformTarget.linux_amd64,

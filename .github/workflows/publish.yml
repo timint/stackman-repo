@@ -7,9 +7,21 @@ on:
 
 jobs:
 
+  # Test job
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: 'latest'
+      - run: bun install
+      - run: bun test
+
   # Build job
   build:
     runs-on: ubuntu-latest
+    needs: test
     permissions:
       contents: read
       pages: write

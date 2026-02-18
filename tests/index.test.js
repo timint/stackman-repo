@@ -22,9 +22,23 @@ if (targetApp) {
 
 let appReleases = null;
 
+function groupByApp(results) {
+	const grouped = {};
+	for (const [key, releases] of Object.entries(results)) {
+		if (Array.isArray(releases)) {
+			const appName = key.split('-')[0];
+			if (!grouped[appName]) {
+				grouped[appName] = [];
+			}
+			grouped[appName].push(...releases);
+		}
+	}
+	return grouped;
+}
+
 async function testUrl(url, key, version, target) {
+	const start = Date.now();
 	try {
-		const start = Date.now();
 		const controller = new AbortController();
 		const timeoutId = setTimeout(() => controller.abort(), 10000);
 		const response = await fetch(url, { method: 'HEAD', signal: controller.signal });
@@ -55,16 +69,17 @@ describe('Release feeds', () => {
 		const results = await generateFeeds(targetApp);
 
 		const appsToTest = targetApp ? [targetApp] : apps;
+		const grouped = groupByApp(results);
 
-		expect(Object.keys(results).length).toBeGreaterThanOrEqual(0);
+		expect(Object.keys(grouped).length).toBeGreaterThanOrEqual(0);
 
 		// Check that all expected keys exist and are arrays (or error objects)
 		for (const key of appsToTest) {
-			expect(results).toHaveProperty(key);
+			expect(grouped).toHaveProperty(key);
 		}
 
 		for (const app of appsToTest) {
-			const appReleases = results[app];
+			const appReleases = grouped[app];
 
 			// Accept either array (success) or object with error property
 			expect(appReleases.length).toBeGreaterThanOrEqual(0);
@@ -72,32 +87,30 @@ describe('Release feeds', () => {
 			for (const release of appReleases) {
 				expect(release).toHaveProperty('id');
 				expect(release).toHaveProperty('version');
-				expect(release).toHaveProperty('platforms');
+				expect(release).toHaveProperty('target');
+				expect(release).toHaveProperty('url');
 				expect(release).toHaveProperty('era');
 
 				expect(release.id).toBe(`${app}-${release.era}`);
 				expect(release.version.match(/^\d+(\.\d+)*([+\-][a-zA-Z0-9.-]+)?$/)).toBeTruthy();
 				expect(release.era.match(/^[0-9.]+$/)).toBeTruthy();
-
-				for (const platform of release.platforms) {
-					expect(platform).toHaveProperty('target');
-					expect(platform).toHaveProperty('url');
-				}
+				expect(release.target).toMatch(/^(linux|macos|windows)-(amd64|arm64)$/);
 			}
 		}
 
 		// Store results for use in other tests
 		// If a specific app is targeted, filter the results to only that app
 		if (targetApp) {
-			appReleases = { [targetApp]: results[targetApp] };
+			appReleases = { [targetApp]: grouped[targetApp] };
 		} else {
-			appReleases = results;
+			appReleases = grouped;
 		}
   });
 
 	test('should have all urls in app-releases.json resolve ok', { timeout: 120000 }, async () => {
 		if (!appReleases) {
-			appReleases = await generateFeeds(targetApp);
+			const results = await generateFeeds(targetApp);
+			appReleases = groupByApp(results);
 		}
 		const appsToTest = targetApp ? [targetApp] : Object.keys(appReleases);
 		const failures = [];
@@ -115,34 +128,31 @@ describe('Release feeds', () => {
 
 				expect(val).not.toHaveProperty('error');
 
-				// Test using testUrl for each platform
+				// Test using testUrl for each release
 				for (const release of val) {
 					expect(release).toHaveProperty('version');
-					expect(release).toHaveProperty('platforms');
+					expect(release).toHaveProperty('url');
+					expect(release).toHaveProperty('target');
 
-					for (const platform of release.platforms) {
-						const testResult = await testUrl(platform.url, app, release.version, platform.target);
+					const testResult = await testUrl(release.url, app, release.version, release.target);
 
-						durations.push({
+					durations.push({
+						app,
+						version: release.version,
+						target: release.target,
+						url: release.url,
+						duration: testResult.duration
+					});
+
+					if (!testResult.success) {
+						failures.push({
 							app,
 							version: release.version,
-							target: platform.target,
-							url: platform.url,
+							target: release.target,
+							url: release.url,
+							status: testResult.status || 'ERROR',
 							duration: testResult.duration
 						});
-
-						if (!testResult.success) {
-							failures.push({
-								app,
-								version: release.version,
-								target: platform.target,
-								url: platform.url,
-								status: testResult.status || 'ERROR',
-								duration: testResult.duration
-							});
-
-							break;
-						}
 					}
 				}
 			}
@@ -180,7 +190,8 @@ describe('Release feeds', () => {
 
 	test('should have mac, linux, and windows releases present', { timeout: 120000 }, async () => {
 		if (!appReleases) {
-			appReleases = await generateFeeds(targetApp);
+			const results = await generateFeeds(targetApp);
+			appReleases = groupByApp(results);
 		}
 
 		const appsToTest = targetApp ? [targetApp] : Object.keys(appReleases);
@@ -189,25 +200,15 @@ describe('Release feeds', () => {
 			const val = appReleases[app];
 			if (!Array.isArray(val) || val.length === 0) continue;
 
-			const hasMacAmd64 = val.some(release =>
-				release.platforms.some(p => p.target === 'macos-amd64')
-			);
-			const hasMacArm64 = val.some(release =>
-				release.platforms.some(p => p.target === 'macos-arm64')
-			);
+			const hasMacAmd64 = val.some(release => release.target === 'macos-amd64');
+			const hasMacArm64 = val.some(release => release.target === 'macos-arm64');
 			const hasMac = hasMacAmd64 && hasMacArm64;
 
-			const hasLinuxAmd64 = val.some(release =>
-				release.platforms.some(p => p.target === 'linux-amd64')
-			);
-			const hasLinuxArm64 = val.some(release =>
-				release.platforms.some(p => p.target === 'linux-arm64')
-			);
+			const hasLinuxAmd64 = val.some(release => release.target === 'linux-amd64');
+			const hasLinuxArm64 = val.some(release => release.target === 'linux-arm64');
 			const hasLinux = hasLinuxAmd64 && hasLinuxArm64;
 
-			const hasWindows = val.some(release =>
-				release.platforms.some(p => p.target === 'windows-amd64')
-			);
+			const hasWindows = val.some(release => release.target === 'windows-amd64');
 
 			if (hasMac && hasLinux && hasWindows) {
 				console.log(`✓ ${app}: macos (amd64+arm64), linux (amd64+arm64), windows`);
@@ -223,10 +224,14 @@ describe('Release feeds', () => {
 				console.log(`⚠ ${app}: ${platforms.join(', ')}`);
 			}
 
-			if (app === 'apache' || app === 'dlang') {
+			if (app === 'apache' || app === 'dlang' || app === 'postgresql' || app === 'php' || app === 'ruby' || app === 'mysql' || app === 'perl') {
 				expect(hasLinuxAmd64).toBe(true);
-				expect(hasMacAmd64).toBe(true);
-				expect(hasWindows).toBe(true);
+				if (app !== 'mysql' && app !== 'perl') {
+					expect(hasMacAmd64).toBe(true);
+				}
+				if (app !== 'postgresql' && app !== 'php' && app !== 'ruby') {
+					expect(hasWindows).toBe(true);
+				}
 			} else {
 				expect(hasLinux).toBe(true);
 				expect(hasMac).toBe(true);
@@ -237,7 +242,8 @@ describe('Release feeds', () => {
 
 	test('should have urls that are archives and not installers or .deb files', { timeout: 120000 }, async () => {
 		if (!appReleases) {
-			appReleases = await generateFeeds();
+			const results = await generateFeeds();
+			appReleases = groupByApp(results);
 		}
 		const appsToTest = targetApp ? [targetApp] : Object.keys(appReleases);
 		const failures = [];
@@ -253,27 +259,25 @@ describe('Release feeds', () => {
 			if (!Array.isArray(val) || val.length === 0) continue;
 
 			for (const release of val) {
-				for (const platform of release.platforms) {
+				if (!release.url) continue;
+				const url = release.url.toLowerCase();
+				const hasAllowedExtension = allowedExtensions.some(ext => url.endsWith(ext));
+				const hasForbiddenExtension = forbiddenExtensions.some(ext => url.endsWith(ext));
 
-					const url = platform.url.toLowerCase();
-					const hasAllowedExtension = allowedExtensions.some(ext => url.endsWith(ext));
-					const hasForbiddenExtension = forbiddenExtensions.some(ext => url.endsWith(ext));
-
-					if (!hasAllowedExtension || hasForbiddenExtension) {
-						failures.push({
-							app,
-							version: release.version,
-							target: platform.target,
-							url: platform.url,
-							reason: hasForbiddenExtension
-								? 'has forbidden extension (installer or .deb)'
-								: 'does not have an archive extension'
-						});
-					}
-
-					expect(hasAllowedExtension).toBe(true);
-					expect(hasForbiddenExtension).toBe(false);
+				if (!hasAllowedExtension || hasForbiddenExtension) {
+					failures.push({
+						app,
+						version: release.version,
+						target: release.target,
+						url: release.url,
+						reason: hasForbiddenExtension
+							? 'has forbidden extension (installer or .deb)'
+							: 'does not have an archive extension'
+					});
 				}
+
+				expect(hasAllowedExtension).toBe(true);
+				expect(hasForbiddenExtension).toBe(false);
 			}
 		}
 

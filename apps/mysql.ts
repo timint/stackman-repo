@@ -35,7 +35,7 @@ export async function getReleases(): Promise<Release[]> {
 				name: 'MySQL Community Server',
 				version,
 				era,
-				endoflife: null,
+				supported: true,
 				platforms: [
 					{
 						target: PlatformTarget.windows_amd64,

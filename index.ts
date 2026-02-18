@@ -1,13 +1,16 @@
-/// <reference types="bun" />
-
-import { readdir } from 'fs/promises';
+import { readdir, readFile } from 'fs/promises';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
-import { PlatformTarget } from './types/release';
+
+const PLATFORMS = ['linux-amd64', 'linux-arm64', 'macos-amd64', 'macos-arm64', 'windows-amd64'] as const;
+type Platform = typeof PLATFORMS[number];
 
 type ReleaseFetcher = () => Promise<any[]>;
+type Release = { url?: string; target?: string; id: string; name: string };
 
 const appsDir = join(dirname(fileURLToPath(import.meta.url)), 'apps');
+
+export const releaseFetchers: Record<string, ReleaseFetcher> = {};
 
 export function compareVersions(a: string, b: string): number {
 	const cleanA = a.replace(/^v/, '');
@@ -44,152 +47,145 @@ export function compareVersions(a: string, b: string): number {
 	return 0;
 }
 
-export const releaseFetchers: Record<string, ReleaseFetcher> = {};
-
-await (async function loadReleaseFetchers() {
-	const files = await readdir(appsDir);
-	const tsFiles = files.filter(file => file.endsWith('.ts') && file !== 'index.ts');
-
-	console.log(`\n📦 Loading ${tsFiles.length} release fetchers from apps/ directory...\n`);
-
-	for (const file of tsFiles) {
-		const moduleName = file.replace('.ts', '');
-		const modulePath = `./apps/${moduleName}`;
-		const module = await import(modulePath);
-		if (module.getReleases) {
-			releaseFetchers[moduleName] = module.getReleases;
-		}
-	}
-
-	console.log(`✓ Loaded ${Object.keys(releaseFetchers).length} release fetchers: ${Object.keys(releaseFetchers).join(', ')}\n`);
-})();
-
-// Example: fetch all
-export async function generateFeeds(targetApp?: string) {
-	const results: Record<string, any> = {};
-	const successCount: Record<string, number> = {};
-	const errorCount: Record<string, number> = {};
-
-	const fetchersToUse = targetApp
-		? [[targetApp, releaseFetchers[targetApp]] as const].filter(([, fn]) => fn)
-		: Object.entries(releaseFetchers);
-
-	console.log(`🔄 Fetching releases from ${targetApp ? targetApp : 'all sources'}...\n`);
-
-	await Promise.all(
-		fetchersToUse.map(async ([name, fn]) => {
-			const start = Date.now();
-			try {
-				results[name] = await fn();
-				const duration = Date.now() - start;
-				successCount[name] = 1;
-				process.stdout.write(`✅ ${name} [${duration.toLocaleString()} ms] ${results[name].length} release(s)\n`);
-			} catch (e) {
-				const duration = Date.now() - start;
-				results[name] = [];
-				errorCount[name] = 1;
-				process.stdout.write(`❌ ${name} [${duration.toLocaleString()} ms] Error: ${(e as Error).message}\n`);
-			}
-		})
-	);
-
-	console.log('\n');
-
-	console.log(`📊 Fetch Summary:`);
-	console.log(`  ✓ Success: ${Object.keys(successCount).length} apps`);
-	console.log(`  ✗ Errors: ${Object.keys(errorCount).length} apps\n`);
-
-	// Sort results by key (module name) ascending
-	console.log('📱Sorting results...\n');
-	const sortedResults: Record<string, any> = {};
-	Object.keys(results).sort().forEach(key => {
-		sortedResults[key] = results[key];
-		if (Array.isArray(sortedResults[key])) {
-			sortedResults[key].sort((a: any, b: any) => a.name.localeCompare(b.name));
-		}
-	});
-
-	// Filter to only target app if specified
-	const finalResults = targetApp
-		? { [targetApp]: sortedResults[targetApp] }
-		: sortedResults;
-
-	// Test targets for every release
-	for (const [key, value] of Object.entries(finalResults)) {
-		if (Array.isArray(value)) {
-			for (const release of value) {
-				if (!release.platforms || release.platforms.length === 0) {
-					console.warn(`⚠️ Release ${release.id} has no platforms!`);
-					continue;
-				}
-				// Check if all targets are present
-				const allTargets = [
-					PlatformTarget.linux_amd64,
-					PlatformTarget.linux_arm64,
-					PlatformTarget.macos_amd64,
-					PlatformTarget.macos_arm64,
-					PlatformTarget.windows_amd64,
-				];
-				const presentTargets = release.platforms.map(platform => platform.target);
-				const missingTargets = allTargets.filter(target => !presentTargets.includes(target));
-				if (missingTargets.length > 0) {
-					console.warn(`⚠️ Release ${release.id} is missing targets: ${missingTargets.join(', ')}!`);
-					continue;
-				}
-				// Check if all targets have a valid url
-				for (const platform of release.platforms) {
-					if (!platform.url) {
-						console.warn(`⚠️ Release ${release.id} has no url for target ${platform.target}!`);
-						continue;
-					}
-					// Test if url is reachable with HEAD
-					try {
-						const res = await fetch(platform.url, { method: 'HEAD' });
-						if (!res.ok) {
-							console.warn(`⚠️ Release ${release.id} has unreachable target ${platform.target} with url ${platform.url} (${res.status} ${res.statusText})!`);
-							continue;
-						}
-					} catch (e) {
-						console.warn(`⚠️ Release ${release.id} has unreachable target ${platform.target} with url ${platform.url} (${(e as Error).message})!`);
-						continue;
-					}
-					console.log(`✅ Release ${release.id} has reachable target ${platform.target} with url ${platform.url}!`);
-				}
-			}
-		}
-	}
-
-	// Print summary
-	console.log('\n📋 Final Summary:');
-	let totalReleases = 0;
-	for (const [key, value] of Object.entries(finalResults)) {
-		if (Array.isArray(value)) {
-			totalReleases += value.length;
-		}
-	}
-	console.log(`\n  Total releases: ${totalReleases}\n`);
-
-	return finalResults;
+function matchesWildcard(pattern: string, text: string): boolean {
+	return new RegExp(`.*${pattern.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}.*`, 'i').test(text);
 }
 
-// Execute the feed generation when run directly
-// Run only if this is the main entry (works for Bun and Node.js, including after bun build)
-const isMain = (() => {
-	// Bun: process.argv[1] is the entry file, import.meta.path is the file path
-	// Node: import.meta.url is file://... and process.argv[1] is the entry file
-	const entry = process.argv[1] ? fileURLToPath(`file://${process.argv[1]}`) : '';
-	const current = fileURLToPath(import.meta.url);
-	return entry && current && entry === current;
+function getFilterPattern(): string | null {
+	const args = process.argv.slice(2);
+	return args.length ? args[args.length - 1] : null;
+}
+
+function getPlatform(key: string): Platform | null {
+	return PLATFORMS.find(p => key.endsWith(p)) ?? null;
+}
+
+function mapToPlatformFeeds(results: Record<string, any>): Record<Platform, Record<string, any>> {
+	const feeds: Record<Platform, Record<string, any>> = {} as any;
+	PLATFORMS.forEach(p => feeds[p] = {});
+
+	for (const [key, value] of Object.entries(results)) {
+		if (Array.isArray(value)) {
+			const platform = getPlatform(key);
+			if (platform) {
+				feeds[platform][key.split('-')[0]] = value.sort((a: Release, b: Release) => a.name.localeCompare(b.name));
+			}
+		}
+	}
+
+	return feeds;
+}
+
+async function loadFeeds(feedsDir: string): Record<Platform, Record<string, any>> {
+	const feeds: Record<Platform, Record<string, any>> = {} as any;
+
+	await Promise.all(PLATFORMS.map(async platform => {
+		try {
+			feeds[platform] = JSON.parse(await readFile(join(feedsDir, `${platform}.json`), 'utf-8'));
+		} catch {
+			feeds[platform] = {};
+		}
+	}));
+
+	return feeds;
+}
+
+async function validateUrls(results: Record<string, any>): Promise<void> {
+	for (const [key, releases] of Object.entries(results)) {
+		for (const release of releases ?? []) {
+			if (!release.url || !release.target) {
+				console.warn(`⚠️  ${release.id}: missing url or target`);
+				continue;
+			}
+
+			try {
+				const res = await fetch(release.url, { method: 'HEAD' });
+				if (!res.ok) {
+					console.warn(`⚠️  ${release.id} (${release.target}): ${res.status} ${res.statusText}`);
+				}
+			} catch (e) {
+				console.warn(`⚠️  ${release.id} (${release.target}): ${(e as Error).message}`);
+			}
+		}
+	}
+}
+
+await (async function loadFetchers() {
+	const appDirs = await readdir(appsDir, { withFileTypes: true });
+	const appNames = appDirs.filter(d => d.isDirectory()).map(d => d.name);
+
+	for (const appName of appNames) {
+		const platformFiles = await readdir(join(appsDir, appName));
+		for (const file of platformFiles.filter(f => f.endsWith('.ts'))) {
+			const module = await import(`./apps/${appName}/${file}`);
+			if (module.getReleases) {
+				const platform = file.replace('.ts', '').replace(`${appName}-`, '');
+				releaseFetchers[`${appName}-${platform}`] = module.getReleases;
+			}
+		}
+	}
+
+	console.log(`✓ Loaded ${Object.keys(releaseFetchers).length} release fetchers\n`);
 })();
 
+export async function generateFeeds(filterPattern?: string): Promise<Record<string, any>> {
+	const filtered = Object.entries(releaseFetchers).filter(([key]) => !filterPattern || matchesWildcard(filterPattern, key));
+
+	if (!filtered.length) {
+		console.log(`❌ No fetchers matching: ${filterPattern}`);
+		return {};
+	}
+
+	console.log(`🔄 Fetching from ${filtered.length} fetchers...\n`);
+
+	const results: Record<string, any> = {};
+	let success = 0;
+
+	await Promise.all(filtered.map(async ([name, fn]) => {
+		const start = Date.now();
+		try {
+			results[name] = await fn();
+			success++;
+			console.log(`✅ ${name} [${Date.now() - start}ms] ${results[name].length} releases`);
+		} catch (e) {
+			results[name] = [];
+			console.log(`❌ ${name} [${Date.now() - start}ms] ${(e as Error).message}`);
+		}
+	}));
+
+	console.log(`\n📊 Success: ${success} | Errors: ${filtered.length - success}\n`);
+
+	console.log(`🔍 Validating ${filterPattern ? 'fetched' : 'all'} URLs...\n`);
+	await validateUrls(results);
+
+	const total = Object.values(results).flat().length;
+	console.log(`\n📋 Total releases: ${total}\n`);
+
+	return results;
+}
+
+const isMain = process.argv[1] ? fileURLToPath(`file://${process.argv[1]}`) === fileURLToPath(import.meta.url) : false;
+
 if (isMain) {
-	generateFeeds().then((results) => {
-		// Write results to JSON file
-		const feedPath = join(appsDir, '..', 'public', 'app-releases.json');
-		Bun.write(feedPath, JSON.stringify(results, null, '\t'));
-		console.log('Feed generated successfully at public/app-releases.json');
-	}).catch((error) => {
-		console.error('Error generating feed:', error);
+	const filter = getFilterPattern();
+	const feedsDir = join(appsDir, '..', 'public', 'app-releases');
+
+	generateFeeds(filter).then(async results => {
+		let platformFeeds = mapToPlatformFeeds(results);
+
+		if (filter) {
+			console.log('📖 Merging with existing feeds...\n');
+			const existing = await loadFeeds(feedsDir);
+			platformFeeds = { ...existing, ...platformFeeds } as Record<Platform, Record<string, any>>;
+		}
+
+		await Promise.all(PLATFORMS.map(platform =>
+			Bun.write(join(feedsDir, `${platform}.json`), JSON.stringify(platformFeeds[platform], null, '\t'))
+		));
+
+		console.log('\n✓ Feeds written to public/app-releases/');
+	}).catch(e => {
+		console.error('Error:', e);
 		process.exit(1);
 	});
 }

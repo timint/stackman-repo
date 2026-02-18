@@ -39,7 +39,7 @@ export async function getReleases(): Promise<Release[]> {
 				name: 'Zig',
 				version,
 				era,
-				endoflife: null,
+				supported: true,
 				platforms: []
 			};
 		}

@@ -2,8 +2,8 @@ import { Release, PlatformTarget } from '../types/release';
 
 // Fetches available Apache versions from the official Apache HTTPD download page
 export async function getReleases(): Promise<Release[]> {
-	// Download the Apache HTTPD directory listing
-	const response = await fetch('https://downloads.apache.org/httpd/');
+	// Download the Apache HTTPD directory listing from archive
+	const response = await fetch('https://archive.apache.org/dist/httpd/');
 
 	if (!response.ok) {
 		throw new Error('Failed to fetch Apache download page');
@@ -34,7 +34,7 @@ export async function getReleases(): Promise<Release[]> {
 				name: 'Apache HTTP Server',
 				version,
 				era,
-				endoflife: null,
+				supported: true,
 				platforms: [
 					{
 						target: PlatformTarget.linux_arm64,

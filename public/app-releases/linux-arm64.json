@@ -1,0 +1,67 @@
+{
+	"scala": [
+		{
+			"id": "scala-3.7",
+			"name": "Scala 3.7.0",
+			"version": "3.7.0",
+			"era": "3.7",
+			"supported": true,
+			"url": "https://github.com/scala/scala3/releases/download/3.7.0/scala3-3.7.0-aarch64-pc-linux.tar.gz",
+			"target": "linux-arm64"
+		},
+		{
+			"id": "scala-3.7",
+			"name": "Scala 3.7.1",
+			"version": "3.7.1",
+			"era": "3.7",
+			"supported": true,
+			"url": "https://github.com/scala/scala3/releases/download/3.7.1/scala3-3.7.1-aarch64-pc-linux.tar.gz",
+			"target": "linux-arm64"
+		},
+		{
+			"id": "scala-3.7",
+			"name": "Scala 3.7.2",
+			"version": "3.7.2",
+			"era": "3.7",
+			"supported": true,
+			"url": "https://github.com/scala/scala3/releases/download/3.7.2/scala3-3.7.2-aarch64-pc-linux.tar.gz",
+			"target": "linux-arm64"
+		},
+		{
+			"id": "scala-3.7",
+			"name": "Scala 3.7.3",
+			"version": "3.7.3",
+			"era": "3.7",
+			"supported": true,
+			"url": "https://github.com/scala/scala3/releases/download/3.7.3/scala3-3.7.3-aarch64-pc-linux.tar.gz",
+			"target": "linux-arm64"
+		},
+		{
+			"id": "scala-3.7",
+			"name": "Scala 3.7.4",
+			"version": "3.7.4",
+			"era": "3.7",
+			"supported": true,
+			"url": "https://github.com/scala/scala3/releases/download/3.7.4/scala3-3.7.4-aarch64-pc-linux.tar.gz",
+			"target": "linux-arm64"
+		},
+		{
+			"id": "scala-3.8",
+			"name": "Scala 3.8.0",
+			"version": "3.8.0",
+			"era": "3.8",
+			"supported": true,
+			"url": "https://github.com/scala/scala3/releases/download/3.8.0/scala3-3.8.0-aarch64-pc-linux.tar.gz",
+			"target": "linux-arm64"
+		},
+		{
+			"id": "scala-3.8",
+			"name": "Scala 3.8.1",
+			"version": "3.8.1",
+			"era": "3.8",
+			"supported": true,
+			"url": "https://github.com/scala/scala3/releases/download/3.8.1/scala3-3.8.1-aarch64-pc-linux.tar.gz",
+			"target": "linux-arm64"
+		}
+	]
+}

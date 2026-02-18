@@ -23,7 +23,7 @@ export async function getReleases(): Promise<Release[]> {
 					name: 'MongoDB Community Server',
 					version,
 					era,
-					endoflife: null,
+					supported: true,
 					platforms: [
 						{
 							target: PlatformTarget.windows_amd64,

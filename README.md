@@ -51,15 +51,24 @@ bun install
 ### Generate the Feed
 
 ```bash
-# Build and generate the releases feed
+# Generate feeds (all apps and platforms)
 bun run build
+
+# Generate Apache only (all platforms)
+bun run build apache
+
+# Generate Linux apps only
+bun run build linux
+
+# Generate Linux ARM64 apps only (all apps)
+bun run build linux-arm64
 ```
 
 This will:
 1. Load all fetcher modules from the `apps/` directory
 2. Fetch release data from all supported applications in parallel
 3. Sort results alphabetically
-4. Write the consolidated feed to `public/releases.json`
+4. Write the consolidated feed to `public/app-releases/*.json`
 
 ### Development Mode
 
@@ -79,23 +88,27 @@ bun test
 
 ```
 stackman-repo/
-├── apps/                    # Individual fetcher modules
-│   ├── apache.ts            # Apache HTTP Server fetcher
-│   ├── bun.ts               # Bun runtime fetcher
-│   ├── php.ts               # PHP fetcher
-│   └── ...                  # Other application fetchers
-├── public/                  # Generated output
-│   └── app-releases.json    # Unified releases feed
-├── tests/                   # Test files
-│   └── index.test.js        # Integration tests
-├── types/                   # TypeScript type definitions
-│   └── release.ts           # Release interface and enums
+├── apps/                               # Individual fetcher modules
+│   ├── apache/                         # Apache HTTP Server fetchers
+│   │   ├── apache-linux-amd64.ts       # Platform-specific fetcher
+│   │   ├── apache-windows-amd64.ts     # Platform-specific fetcher
+│   │   └── ...
+│   └── ...                             # Other applications
+├── public/                             # Generated output
+│   └── app-releases/                   # Unified releases feed
+│   │   ├── linux-arm64.json            # Unified releases feed for all apps on ARM64
+│   │   ├── windows-amd64.json          # Unified releases feed for all apps on Windows AMD64
+│   │   └── ...
+├── tests/                              # Test files
+│   └── index.test.js                   # Integration tests
+├── types/                              # TypeScript type definitions
+│   └── release.ts                      # Release interface and enums
 ├── .github/
 │   └── workflows/
-│       └── releases.yml    # CI/CD workflow
-├── index.ts                # Main entry point and feed generator
-├── package.json            # Project configuration
-└── tsconfig.json           # TypeScript configuration
+│       └── releases.yml                # CI/CD workflow
+├── index.ts                            # Main entry point and feed generator
+├── package.json                        # Project configuration
+└── tsconfig.json                       # TypeScript configuration
 ```
 
 ## Output Format
@@ -109,16 +122,15 @@ The generated `public/app-releases.json` file contains a JSON object with applic
       "name": "Apache 2.4",
       "version": "2.4.66",
       "era": "2.4",
-      "platforms": [
-        {
-          "target": "linux-amd64",
-          "url": "https://downloads.apache.org/httpd/httpd-2.4.66.tar.gz",
-        }
-      ]
-    }
+      "supported": true,
+      "url": "https://downloads.apache.org/httpd/httpd-2.4.66.tar.gz",
+      "target": "linux-amd64",
+    },
+    ...
   ],
   "bun": [...],
-  "php": [...]
+  "php": [...],
+  ...
 }
 ```
 
@@ -129,20 +141,16 @@ Each release object contains:
 - `name`: Full name of the release (e.g., "Apache 2.4.66")
 - `version`: Version string (e.g., "2.4.66")
 - `era`: Major/minor version (e.g., "2.4")
-- `platforms`: Array of platform-specific download information
-
-### Platform Object Structure
-
-- `target`: Operating system and architecture (linux-arm64, linux-amd64, windows-amd64, macos-amd64)
 - `url`: Download URL for the release
+- `target`: Operating system and architecture (linux-arm64, linux-amd64, windows-amd64, macos-amd64)
 
 ## Adding a New Fetcher
 
 To add support for a new application:
 
-1. Create a new TypeScript file in the `apps/` directory (e.g., `newapp.ts`)
+1. Create a new TypeScript file in the `apps/:appname/` directory. The file name should be the lowercase version of the application name.
 2. Export a `getReleases()` function that returns `Promise<Release[]>`
-3. Import the `Release` type from `../types/release`
+3. Import the `Release` type from `../types/release.ts`
 
 Example:
 
@@ -157,13 +165,9 @@ export async function getReleases(): Promise<Release[]> {
     name: 'App Name',
     version: release.version,
     era: release.version.split('.').slice(0, 2).join('.'),
-    description: 'NewApp Description',
-    platforms: [
-      {
-        target: 'linux-arm64',
-        url: release.download_url,
-      }
-    ]
+    supported: true,
+    url: release.download_url,
+    target: 'linux-arm64',
   }));
 }
 ```
