@@ -3,11 +3,12 @@
 A unified feed generator that aggregates release information from multiple software projects into a single JSON file. Built with Bun and TypeScript for high performance and type safety.
 
 The feed is being updated daily by Github Actions, available here:
-https://timint.github.io/stackman-repo/apps/linux-amd64.json
-https://timint.github.io/stackman-repo/apps/linux-arm64.json
-https://timint.github.io/stackman-repo/apps/macos-amd64.json
-https://timint.github.io/stackman-repo/apps/macos-arm64.json
-https://timint.github.io/stackman-repo/apps/windows-amd64.json
+
+* https://timint.github.io/stackman-repo/apps/linux-amd64.json
+* https://timint.github.io/stackman-repo/apps/linux-arm64.json
+* https://timint.github.io/stackman-repo/apps/macos-amd64.json
+* https://timint.github.io/stackman-repo/apps/macos-arm64.json
+* https://timint.github.io/stackman-repo/apps/windows-amd64.json
 
 ## Overview
 
@@ -66,6 +67,12 @@ bun run build linux
 
 # Generate Linux ARM64 apps only (all apps)
 bun run build linux-arm64
+
+# Generate Apache Linux releases (all architectures)
+bun run build apache-linux
+
+# Generate Apache Linux releases (ARM64 only)
+bun run build apache-linux-arm64
 ```
 
 This will:
