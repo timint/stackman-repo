@@ -8,7 +8,7 @@ type Platform = typeof PLATFORMS[number];
 type ReleaseFetcher = () => Promise<any[]>;
 type Release = { url?: string; target?: string; id: string; name: string };
 
-const appsDir = join(dirname(fileURLToPath(import.meta.url)), 'apps');
+const appsDir = join(dirname(fileURLToPath(import.meta.url)), 'fetchers', 'apps');
 
 export const releaseFetchers: Record<string, ReleaseFetcher> = {};
 
@@ -93,16 +93,24 @@ async function loadFeeds(feedsDir: string): Record<Platform, Record<string, any>
 async function validateUrls(results: Record<string, any>): Promise<void> {
 	for (const [key, releases] of Object.entries(results)) {
 		for (const release of releases ?? []) {
-			if (!release.url || !release.target) {
-				console.warn(`⚠️  ${release.id}: missing url or target`);
-				continue;
+			try {
+
+				if (!release.url || !release.target) {
+					throw new Error(`Missing url or target`);
+				}
+
+				const res = await fetch(release.url, { method: 'HEAD' });
+
+				if (!res.ok) {
+					throw new Error(`${release.url}: ${res.status} ${res.statusText}`);
+				}
+
+				if (!release.url.match(/\.(7z|tar(\.gz|\.xz)?|tgz|zip)$/)) {
+				throw new Error(`Package is not an archive: ${release.url}`);
 			}
 
-			try {
-				const res = await fetch(release.url, { method: 'HEAD' });
-				if (!res.ok) {
-					console.warn(`⚠️  ${release.id} (${release.target}): ${res.status} ${res.statusText}`);
-				}
+				console.log(`✅  ${release.id} (${release.target}): OK`);
+
 			} catch (e) {
 				console.warn(`⚠️  ${release.id} (${release.target}): ${(e as Error).message}`);
 			}
@@ -117,7 +125,7 @@ await (async function loadFetchers() {
 	for (const appName of appNames) {
 		const platformFiles = await readdir(join(appsDir, appName));
 		for (const file of platformFiles.filter(f => f.endsWith('.ts'))) {
-			const module = await import(`./apps/${appName}/${file}`);
+			const module = await import(`./fetchers/apps/${appName}/${file}`);
 			if (module.getReleases) {
 				const platform = file.replace('.ts', '').replace(`${appName}-`, '');
 				releaseFetchers[`${appName}-${platform}`] = module.getReleases;
@@ -168,7 +176,7 @@ const isMain = process.argv[1] ? fileURLToPath(`file://${process.argv[1]}`) === 
 
 if (isMain) {
 	const filter = getFilterPattern();
-	const feedsDir = join(appsDir, '..', 'public', 'app-releases');
+	const feedsDir = join(dirname(fileURLToPath(import.meta.url)), 'public', 'apps');
 
 	generateFeeds(filter).then(async results => {
 		let platformFeeds = mapToPlatformFeeds(results);
@@ -176,14 +184,25 @@ if (isMain) {
 		if (filter) {
 			console.log('📖 Merging with existing feeds...\n');
 			const existing = await loadFeeds(feedsDir);
-			platformFeeds = { ...existing, ...platformFeeds } as Record<Platform, Record<string, any>>;
+			for (const platform of PLATFORMS) {
+				platformFeeds[platform] = { ...existing[platform], ...platformFeeds[platform] };
+			}
+		}
+
+		for (const platform of PLATFORMS) {
+			// Sort keys ascending
+			platformFeeds[platform] = Object.fromEntries(Object.entries(platformFeeds[platform]).sort(([a], [b]) => a.localeCompare(b)));
+
+			for (const app of Object.keys(platformFeeds[platform])) {
+				platformFeeds[platform][app].sort((a: Release, b: Release) => a.name.localeCompare(b.name, undefined, { sensitivity: 'base', numeric: true }));
+			}
 		}
 
 		await Promise.all(PLATFORMS.map(platform =>
 			Bun.write(join(feedsDir, `${platform}.json`), JSON.stringify(platformFeeds[platform], null, '\t'))
 		));
 
-		console.log('\n✓ Feeds written to public/app-releases/');
+		console.log('\n✓ Feeds written to public/apps/');
 	}).catch(e => {
 		console.error('Error:', e);
 		process.exit(1);

@@ -3,7 +3,11 @@
 A unified feed generator that aggregates release information from multiple software projects into a single JSON file. Built with Bun and TypeScript for high performance and type safety.
 
 The feed is being updated daily by Github Actions, available here:
-https://timint.github.io/stackman-repo/app-releases.json
+https://timint.github.io/stackman-repo/apps/linux-amd64.json
+https://timint.github.io/stackman-repo/apps/linux-arm64.json
+https://timint.github.io/stackman-repo/apps/macos-amd64.json
+https://timint.github.io/stackman-repo/apps/macos-arm64.json
+https://timint.github.io/stackman-repo/apps/windows-amd64.json
 
 ## Overview
 
@@ -65,10 +69,10 @@ bun run build linux-arm64
 ```
 
 This will:
-1. Load all fetcher modules from the `apps/` directory
+1. Load all fetcher modules from the `fetchers/apps/` directory
 2. Fetch release data from all supported applications in parallel
 3. Sort results alphabetically
-4. Write the consolidated feed to `public/app-releases/*.json`
+4. Write the consolidated feed to `public/apps/*.json`
 
 ### Development Mode
 
@@ -88,24 +92,25 @@ bun test
 
 ```
 stackman-repo/
-├── apps/                               # Individual fetcher modules
-│   ├── apache/                         # Apache HTTP Server fetchers
-│   │   ├── apache-linux-amd64.ts       # Platform-specific fetcher
-│   │   ├── apache-windows-amd64.ts     # Platform-specific fetcher
-│   │   └── ...
-│   └── ...                             # Other applications
+├── fetchers/                           # Fetcher modules
+│   └── apps/                           # Individual application fetchers
+│       ├── apache/                     # Apache HTTP Server fetchers
+│       │   ├── apache-linux-amd64.ts   # Platform-specific fetcher
+│       │   ├── apache-windows-amd64.ts # Platform-specific fetcher
+│       │   └── ...
+│       └── ...                         # Other applications
 ├── public/                             # Generated output
-│   └── app-releases/                   # Unified releases feed
-│   │   ├── linux-arm64.json            # Unified releases feed for all apps on ARM64
-│   │   ├── windows-amd64.json          # Unified releases feed for all apps on Windows AMD64
-│   │   └── ...
+│   └── apps/                           # Unified releases feed
+│       ├── linux-arm64.json            # Unified releases feed for all apps on ARM64
+│       ├── windows-amd64.json          # Unified releases feed for all apps on Windows AMD64
+│       └── ...
 ├── tests/                              # Test files
 │   └── index.test.js                   # Integration tests
 ├── types/                              # TypeScript type definitions
 │   └── release.ts                      # Release interface and enums
 ├── .github/
 │   └── workflows/
-│       └── releases.yml                # CI/CD workflow
+│       └── publish.yml                # CI/CD workflow
 ├── index.ts                            # Main entry point and feed generator
 ├── package.json                        # Project configuration
 └── tsconfig.json                       # TypeScript configuration
@@ -113,7 +118,7 @@ stackman-repo/
 
 ## Output Format
 
-The generated `public/app-releases.json` file contains a JSON object with application names as keys:
+The generated `public/apps/*.json` files contains a JSON object with application names as keys:
 
 ```json
 {
@@ -148,14 +153,14 @@ Each release object contains:
 
 To add support for a new application:
 
-1. Create a new TypeScript file in the `apps/:appname/` directory. The file name should be the lowercase version of the application name.
+1. Create a new TypeScript file in the `fetchers/apps/:appname/` directory. The file name should be the lowercase version of the application name.
 2. Export a `getReleases()` function that returns `Promise<Release[]>`
-3. Import the `Release` type from `../types/release.ts`
+3. Import the `Release` type from `../../types/release.ts`
 
 Example:
 
 ```typescript
-import { Release } from '../types/release';
+import { Release } from '../../types/release';
 
 export async function getReleases(): Promise<Release[]> {
   const res = await fetch('https://api.example.com/releases');

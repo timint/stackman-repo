@@ -1,0 +1,1271 @@
+{
+	"apache": [
+		{
+			"id": "apache-2.4",
+			"name": "Apache HTTP Server",
+			"version": "2.4.66",
+			"era": "2.4",
+			"supported": null,
+			"url": "https://archive.apache.org/dist/httpd/httpd-2.4.66.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "apache-2.3",
+			"name": "Apache HTTP Server",
+			"version": "2.3.8",
+			"era": "2.3",
+			"supported": null,
+			"url": "https://archive.apache.org/dist/httpd/httpd-2.3.8.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "apache-2.2",
+			"name": "Apache HTTP Server",
+			"version": "2.2.34",
+			"era": "2.2",
+			"supported": null,
+			"url": "https://archive.apache.org/dist/httpd/httpd-2.2.34.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "apache-2.0",
+			"name": "Apache HTTP Server",
+			"version": "2.0.65",
+			"era": "2.0",
+			"supported": null,
+			"url": "https://archive.apache.org/dist/httpd/httpd-2.0.65.tar.gz",
+			"target": "macos-arm64"
+		}
+	],
+	"bun": [
+		{
+			"id": "bun-1",
+			"name": "Bun",
+			"version": "1.3.9",
+			"era": "1",
+			"supported": null,
+			"url": "https://github.com/oven-sh/bun/releases/download/bun-v1.3.9/bun-darwin-aarch64.zip",
+			"target": "macos-arm64"
+		}
+	],
+	"caddy": [
+		{
+			"id": "caddy-2",
+			"name": "Caddy",
+			"version": "2.10.2",
+			"era": "2",
+			"supported": null,
+			"url": "https://github.com/caddyserver/caddy/releases/download/v2.10.2/caddy_2.10.2_mac_arm64.tar.gz",
+			"target": "macos-arm64"
+		}
+	],
+	"dlang": [],
+	"go": [
+		{
+			"id": "go-1.26",
+			"name": "Go",
+			"version": "1.26.0",
+			"era": "1.26",
+			"supported": null,
+			"url": "https://go.dev/dl/go1.26.0.darwin-arm64.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "go-1.25",
+			"name": "Go",
+			"version": "1.25.7",
+			"era": "1.25",
+			"supported": null,
+			"url": "https://go.dev/dl/go1.25.7.darwin-arm64.tar.gz",
+			"target": "macos-arm64"
+		}
+	],
+	"java": [
+		{
+			"id": "java-25",
+			"name": "OpenJDK",
+			"version": "25.0.2+10-LTS",
+			"era": "25",
+			"supported": null,
+			"url": "https://github.com/adoptium/temurin25-binaries/releases/download/jdk-25.0.2%2B10/OpenJDK25U-jdk_aarch64_mac_hotspot_25.0.2_10.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "java-24",
+			"name": "OpenJDK",
+			"version": "24.0.2+12",
+			"era": "24",
+			"supported": null,
+			"url": "https://github.com/adoptium/temurin24-binaries/releases/download/jdk-24.0.2%2B12/OpenJDK24U-jdk_aarch64_mac_hotspot_24.0.2_12.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "java-23",
+			"name": "OpenJDK",
+			"version": "23.0.2+7",
+			"era": "23",
+			"supported": null,
+			"url": "https://github.com/adoptium/temurin23-binaries/releases/download/jdk-23.0.2%2B7/OpenJDK23U-jdk_aarch64_mac_hotspot_23.0.2_7.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "java-22",
+			"name": "OpenJDK",
+			"version": "22.0.2+9",
+			"era": "22",
+			"supported": null,
+			"url": "https://github.com/adoptium/temurin22-binaries/releases/download/jdk-22.0.2%2B9/OpenJDK22U-jdk_aarch64_mac_hotspot_22.0.2_9.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "java-21",
+			"name": "OpenJDK",
+			"version": "21.0.10+7-LTS",
+			"era": "21",
+			"supported": null,
+			"url": "https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.10%2B7/OpenJDK21U-jdk_aarch64_mac_hotspot_21.0.10_7.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "java-20",
+			"name": "OpenJDK",
+			"version": "20.0.2+9",
+			"era": "20",
+			"supported": null,
+			"url": "https://github.com/adoptium/temurin20-binaries/releases/download/jdk-20.0.2%2B9/OpenJDK20U-jdk_aarch64_mac_hotspot_20.0.2_9.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "java-19",
+			"name": "OpenJDK",
+			"version": "19.0.2+7",
+			"era": "19",
+			"supported": null,
+			"url": "https://github.com/adoptium/temurin19-binaries/releases/download/jdk-19.0.2%2B7/OpenJDK19U-jdk_aarch64_mac_hotspot_19.0.2_7.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "java-18",
+			"name": "OpenJDK",
+			"version": "18.0.2.1+1",
+			"era": "18",
+			"supported": null,
+			"url": "https://github.com/adoptium/temurin18-binaries/releases/download/jdk-18.0.2.1%2B1/OpenJDK18U-jdk_aarch64_mac_hotspot_18.0.2.1_1.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "java-17",
+			"name": "OpenJDK",
+			"version": "17.0.18+8",
+			"era": "17",
+			"supported": null,
+			"url": "https://github.com/adoptium/temurin17-binaries/releases/download/jdk-17.0.18%2B8/OpenJDK17U-jdk_aarch64_mac_hotspot_17.0.18_8.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "java-11",
+			"name": "OpenJDK",
+			"version": "11.0.30+7",
+			"era": "11",
+			"supported": null,
+			"url": "https://github.com/adoptium/temurin11-binaries/releases/download/jdk-11.0.30%2B7/OpenJDK11U-jdk_aarch64_mac_hotspot_11.0.30_7.tar.gz",
+			"target": "macos-arm64"
+		}
+	],
+	"kotlin": [
+		{
+			"id": "kotlin-2.3",
+			"name": "Kotlin",
+			"version": "2.3.10",
+			"era": "2.3",
+			"supported": null,
+			"url": "https://github.com/JetBrains/kotlin/releases/download/v2.3.10/kotlin-compiler-2.3.10.zip",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "kotlin-2.2",
+			"name": "Kotlin",
+			"version": "2.2.21",
+			"era": "2.2",
+			"supported": null,
+			"url": "https://github.com/JetBrains/kotlin/releases/download/v2.2.21/kotlin-compiler-2.2.21.zip",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "kotlin-2.1",
+			"name": "Kotlin",
+			"version": "2.1.21",
+			"era": "2.1",
+			"supported": null,
+			"url": "https://github.com/JetBrains/kotlin/releases/download/v2.1.21/kotlin-compiler-2.1.21.zip",
+			"target": "macos-arm64"
+		}
+	],
+	"mariadb": [
+		{
+			"id": "mariadb-12.2",
+			"name": "MariaDB Server",
+			"version": "12.2.2",
+			"era": "12.2",
+			"supported": null,
+			"url": "https://downloads.mariadb.org/f/mariadb-12.2.2/macos-system-arm64/mariadb-12.2.2-macos13-arm64.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "mariadb-11.8",
+			"name": "MariaDB Server",
+			"version": "11.8.6",
+			"era": "11.8",
+			"supported": null,
+			"url": "https://downloads.mariadb.org/f/mariadb-11.8.6/macos-system-arm64/mariadb-11.8.6-macos13-arm64.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "mariadb-11.4",
+			"name": "MariaDB Server",
+			"version": "11.4.10",
+			"era": "11.4",
+			"supported": null,
+			"url": "https://downloads.mariadb.org/f/mariadb-11.4.10/macos-system-arm64/mariadb-11.4.10-macos13-arm64.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "mariadb-10.11",
+			"name": "MariaDB Server",
+			"version": "10.11.16",
+			"era": "10.11",
+			"supported": null,
+			"url": "https://downloads.mariadb.org/f/mariadb-10.11.16/macos-system-arm64/mariadb-10.11.16-macos13-arm64.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "mariadb-10.6",
+			"name": "MariaDB Server",
+			"version": "10.6.25",
+			"era": "10.6",
+			"supported": null,
+			"url": "https://downloads.mariadb.org/f/mariadb-10.6.25/macos-system-arm64/mariadb-10.6.25-macos13-arm64.tar.gz",
+			"target": "macos-arm64"
+		}
+	],
+	"mongodb": [
+		{
+			"id": "mongodb-8.2",
+			"name": "MongoDB Community Server",
+			"version": "8.2.5",
+			"era": "8.2",
+			"supported": null,
+			"url": "https://fastdl.mongodb.org/osx/mongodb-macos-arm64-8.2.5.tgz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "mongodb-8.0",
+			"name": "MongoDB Community Server",
+			"version": "8.0.19",
+			"era": "8.0",
+			"supported": null,
+			"url": "https://fastdl.mongodb.org/osx/mongodb-macos-arm64-8.0.19.tgz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "mongodb-7.0",
+			"name": "MongoDB Community Server",
+			"version": "7.0.30",
+			"era": "7.0",
+			"supported": null,
+			"url": "https://fastdl.mongodb.org/osx/mongodb-macos-arm64-7.0.30.tgz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "mongodb-6.0",
+			"name": "MongoDB Community Server",
+			"version": "6.0.27",
+			"era": "6.0",
+			"supported": null,
+			"url": "https://fastdl.mongodb.org/osx/mongodb-macos-arm64-6.0.27.tgz",
+			"target": "macos-arm64"
+		}
+	],
+	"mysql": [],
+	"nginx": [
+		{
+			"id": "nginx-1.29",
+			"name": "Nginx",
+			"version": "1.29.5",
+			"era": "1.29",
+			"supported": null,
+			"url": "https://github.com/nginx/nginx/releases/download/release-1.29.5/nginx-1.29.5.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "nginx-1.28",
+			"name": "Nginx",
+			"version": "1.28.2",
+			"era": "1.28",
+			"supported": null,
+			"url": "https://github.com/nginx/nginx/releases/download/release-1.28.2/nginx-1.28.2.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "nginx-1.27",
+			"name": "Nginx",
+			"version": "1.27.5",
+			"era": "1.27",
+			"supported": null,
+			"url": "https://github.com/nginx/nginx/releases/download/release-1.27.5/nginx-1.27.5.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "nginx-1.26",
+			"name": "Nginx",
+			"version": "1.26.3",
+			"era": "1.26",
+			"supported": null,
+			"url": "https://github.com/nginx/nginx/releases/download/release-1.26.3/nginx-1.26.3.tar.gz",
+			"target": "macos-arm64"
+		}
+	],
+	"nodejs": [
+		{
+			"id": "nodejs-16",
+			"name": "Node.js 16.20.2",
+			"version": "16.20.2",
+			"era": "16",
+			"supported": null,
+			"url": "https://nodejs.org/dist/v16.20.2/node-v16.20.2-darwin-arm64.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "nodejs-17",
+			"name": "Node.js 17.9.1",
+			"version": "17.9.1",
+			"era": "17",
+			"supported": null,
+			"url": "https://nodejs.org/dist/v17.9.1/node-v17.9.1-darwin-arm64.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "nodejs-18",
+			"name": "Node.js 18.20.8",
+			"version": "18.20.8",
+			"era": "18",
+			"supported": null,
+			"url": "https://nodejs.org/dist/v18.20.8/node-v18.20.8-darwin-arm64.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "nodejs-19",
+			"name": "Node.js 19.9.0",
+			"version": "19.9.0",
+			"era": "19",
+			"supported": null,
+			"url": "https://nodejs.org/dist/v19.9.0/node-v19.9.0-darwin-arm64.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "nodejs-20",
+			"name": "Node.js 20.20.0",
+			"version": "20.20.0",
+			"era": "20",
+			"supported": null,
+			"url": "https://nodejs.org/dist/v20.20.0/node-v20.20.0-darwin-arm64.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "nodejs-21",
+			"name": "Node.js 21.7.3",
+			"version": "21.7.3",
+			"era": "21",
+			"supported": null,
+			"url": "https://nodejs.org/dist/v21.7.3/node-v21.7.3-darwin-arm64.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "nodejs-22",
+			"name": "Node.js 22.22.0",
+			"version": "22.22.0",
+			"era": "22",
+			"supported": null,
+			"url": "https://nodejs.org/dist/v22.22.0/node-v22.22.0-darwin-arm64.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "nodejs-23",
+			"name": "Node.js 23.11.1",
+			"version": "23.11.1",
+			"era": "23",
+			"supported": null,
+			"url": "https://nodejs.org/dist/v23.11.1/node-v23.11.1-darwin-arm64.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "nodejs-24",
+			"name": "Node.js 24.13.1",
+			"version": "24.13.1",
+			"era": "24",
+			"supported": null,
+			"url": "https://nodejs.org/dist/v24.13.1/node-v24.13.1-darwin-arm64.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "nodejs-25",
+			"name": "Node.js 25.6.1",
+			"version": "25.6.1",
+			"era": "25",
+			"supported": null,
+			"url": "https://nodejs.org/dist/v25.6.1/node-v25.6.1-darwin-arm64.tar.gz",
+			"target": "macos-arm64"
+		}
+	],
+	"perl": [
+		{
+			"id": "perl-5.43",
+			"name": "Perl",
+			"version": "5.43.7",
+			"era": "5.43",
+			"supported": null,
+			"url": "https://www.cpan.org/src/5.0/perl-5.43.7.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "perl-5.42",
+			"name": "Perl",
+			"version": "5.42.0",
+			"era": "5.42",
+			"supported": null,
+			"url": "https://www.cpan.org/src/5.0/perl-5.42.0.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "perl-5.41",
+			"name": "Perl",
+			"version": "5.41.13",
+			"era": "5.41",
+			"supported": null,
+			"url": "https://www.cpan.org/src/5.0/perl-5.41.13.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "perl-5.40",
+			"name": "Perl",
+			"version": "5.40.3",
+			"era": "5.40",
+			"supported": null,
+			"url": "https://www.cpan.org/src/5.0/perl-5.40.3.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "perl-5.39",
+			"name": "Perl",
+			"version": "5.39.10",
+			"era": "5.39",
+			"supported": null,
+			"url": "https://www.cpan.org/src/5.0/perl-5.39.10.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "perl-5.38",
+			"name": "Perl",
+			"version": "5.38.5",
+			"era": "5.38",
+			"supported": null,
+			"url": "https://www.cpan.org/src/5.0/perl-5.38.5.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "perl-5.37",
+			"name": "Perl",
+			"version": "5.37.11",
+			"era": "5.37",
+			"supported": null,
+			"url": "https://www.cpan.org/src/5.0/perl-5.37.11.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "perl-5.36",
+			"name": "Perl",
+			"version": "5.36.3",
+			"era": "5.36",
+			"supported": null,
+			"url": "https://www.cpan.org/src/5.0/perl-5.36.3.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "perl-5.35",
+			"name": "Perl",
+			"version": "5.35.11",
+			"era": "5.35",
+			"supported": null,
+			"url": "https://www.cpan.org/src/5.0/perl-5.35.11.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "perl-5.34",
+			"name": "Perl",
+			"version": "5.34.3",
+			"era": "5.34",
+			"supported": null,
+			"url": "https://www.cpan.org/src/5.0/perl-5.34.3.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "perl-5.33",
+			"name": "Perl",
+			"version": "5.33.9",
+			"era": "5.33",
+			"supported": null,
+			"url": "https://www.cpan.org/src/5.0/perl-5.33.9.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "perl-5.32",
+			"name": "Perl",
+			"version": "5.32.1",
+			"era": "5.32",
+			"supported": null,
+			"url": "https://www.cpan.org/src/5.0/perl-5.32.1.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "perl-5.31",
+			"name": "Perl",
+			"version": "5.31.11",
+			"era": "5.31",
+			"supported": null,
+			"url": "https://www.cpan.org/src/5.0/perl-5.31.11.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "perl-5.30",
+			"name": "Perl",
+			"version": "5.30.3",
+			"era": "5.30",
+			"supported": null,
+			"url": "https://www.cpan.org/src/5.0/perl-5.30.3.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "perl-5.29",
+			"name": "Perl",
+			"version": "5.29.10",
+			"era": "5.29",
+			"supported": null,
+			"url": "https://www.cpan.org/src/5.0/perl-5.29.10.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "perl-5.28",
+			"name": "Perl",
+			"version": "5.28.3",
+			"era": "5.28",
+			"supported": null,
+			"url": "https://www.cpan.org/src/5.0/perl-5.28.3.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "perl-5.27",
+			"name": "Perl",
+			"version": "5.27.11",
+			"era": "5.27",
+			"supported": null,
+			"url": "https://www.cpan.org/src/5.0/perl-5.27.11.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "perl-5.26",
+			"name": "Perl",
+			"version": "5.26.3",
+			"era": "5.26",
+			"supported": null,
+			"url": "https://www.cpan.org/src/5.0/perl-5.26.3.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "perl-5.25",
+			"name": "Perl",
+			"version": "5.25.10",
+			"era": "5.25",
+			"supported": null,
+			"url": "https://www.cpan.org/src/5.0/perl-5.25.10.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "perl-5.24",
+			"name": "Perl",
+			"version": "5.24.4",
+			"era": "5.24",
+			"supported": null,
+			"url": "https://www.cpan.org/src/5.0/perl-5.24.4.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "perl-5.23",
+			"name": "Perl",
+			"version": "5.23.9",
+			"era": "5.23",
+			"supported": null,
+			"url": "https://www.cpan.org/src/5.0/perl-5.23.9.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "perl-5.22",
+			"name": "Perl",
+			"version": "5.22.4",
+			"era": "5.22",
+			"supported": null,
+			"url": "https://www.cpan.org/src/5.0/perl-5.22.4.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "perl-5.21",
+			"name": "Perl",
+			"version": "5.21.11",
+			"era": "5.21",
+			"supported": null,
+			"url": "https://www.cpan.org/src/5.0/perl-5.21.11.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "perl-5.20",
+			"name": "Perl",
+			"version": "5.20.3",
+			"era": "5.20",
+			"supported": null,
+			"url": "https://www.cpan.org/src/5.0/perl-5.20.3.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "perl-5.19",
+			"name": "Perl",
+			"version": "5.19.11",
+			"era": "5.19",
+			"supported": null,
+			"url": "https://www.cpan.org/src/5.0/perl-5.19.11.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "perl-5.18",
+			"name": "Perl",
+			"version": "5.18.4",
+			"era": "5.18",
+			"supported": null,
+			"url": "https://www.cpan.org/src/5.0/perl-5.18.4.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "perl-5.17",
+			"name": "Perl",
+			"version": "5.17.9",
+			"era": "5.17",
+			"supported": null,
+			"url": "https://www.cpan.org/src/5.0/perl-5.17.9.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "perl-5.16",
+			"name": "Perl",
+			"version": "5.16.3",
+			"era": "5.16",
+			"supported": null,
+			"url": "https://www.cpan.org/src/5.0/perl-5.16.3.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "perl-5.15",
+			"name": "Perl",
+			"version": "5.15.9",
+			"era": "5.15",
+			"supported": null,
+			"url": "https://www.cpan.org/src/5.0/perl-5.15.9.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "perl-5.14",
+			"name": "Perl",
+			"version": "5.14.4",
+			"era": "5.14",
+			"supported": null,
+			"url": "https://www.cpan.org/src/5.0/perl-5.14.4.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "perl-5.13",
+			"name": "Perl",
+			"version": "5.13.11",
+			"era": "5.13",
+			"supported": null,
+			"url": "https://www.cpan.org/src/5.0/perl-5.13.11.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "perl-5.12",
+			"name": "Perl",
+			"version": "5.12.5",
+			"era": "5.12",
+			"supported": null,
+			"url": "https://www.cpan.org/src/5.0/perl-5.12.5.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "perl-5.11",
+			"name": "Perl",
+			"version": "5.11.5",
+			"era": "5.11",
+			"supported": null,
+			"url": "https://www.cpan.org/src/5.0/perl-5.11.5.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "perl-5.10",
+			"name": "Perl",
+			"version": "5.10.1",
+			"era": "5.10",
+			"supported": null,
+			"url": "https://www.cpan.org/src/5.0/perl-5.10.1.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "perl-5.9",
+			"name": "Perl",
+			"version": "5.9.5",
+			"era": "5.9",
+			"supported": null,
+			"url": "https://www.cpan.org/src/5.0/perl-5.9.5.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "perl-5.8",
+			"name": "Perl",
+			"version": "5.8.9",
+			"era": "5.8",
+			"supported": null,
+			"url": "https://www.cpan.org/src/5.0/perl-5.8.9.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "perl-5.7",
+			"name": "Perl",
+			"version": "5.7.3",
+			"era": "5.7",
+			"supported": null,
+			"url": "https://www.cpan.org/src/5.0/perl-5.7.3.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "perl-5.6",
+			"name": "Perl",
+			"version": "5.6.2",
+			"era": "5.6",
+			"supported": null,
+			"url": "https://www.cpan.org/src/5.0/perl-5.6.2.tar.gz",
+			"target": "macos-arm64"
+		}
+	],
+	"php": [
+		{
+			"id": "php-8.5",
+			"name": "PHP",
+			"version": "8.5.3",
+			"era": "8.5",
+			"supported": null,
+			"url": "https://www.php.net/distributions/php-8.5.3.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "php-7.4",
+			"name": "PHP",
+			"version": "7.4.33",
+			"era": "7.4",
+			"supported": null,
+			"url": "https://www.php.net/distributions/php-7.4.33.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "php-5.6",
+			"name": "PHP",
+			"version": "5.6.40",
+			"era": "5.6",
+			"supported": null,
+			"url": "https://www.php.net/distributions/php-5.6.40.tar.gz",
+			"target": "macos-arm64"
+		}
+	],
+	"postgresql": [
+		{
+			"id": "postgresql-18",
+			"name": "PostgreSQL Server",
+			"version": "18.0.0",
+			"era": "18",
+			"supported": true,
+			"url": "https://ftp.postgresql.org/pub/source/v18.0/postgresql-18.0.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "postgresql-17",
+			"name": "PostgreSQL Server",
+			"version": "17.0.0",
+			"era": "17",
+			"supported": true,
+			"url": "https://ftp.postgresql.org/pub/source/v17.0/postgresql-17.0.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "postgresql-16",
+			"name": "PostgreSQL Server",
+			"version": "16.0.0",
+			"era": "16",
+			"supported": true,
+			"url": "https://ftp.postgresql.org/pub/source/v16.0/postgresql-16.0.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "postgresql-15",
+			"name": "PostgreSQL Server",
+			"version": "15.0.0",
+			"era": "15",
+			"supported": true,
+			"url": "https://ftp.postgresql.org/pub/source/v15.0/postgresql-15.0.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "postgresql-14",
+			"name": "PostgreSQL Server",
+			"version": "14.0.0",
+			"era": "14",
+			"supported": true,
+			"url": "https://ftp.postgresql.org/pub/source/v14.0/postgresql-14.0.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "postgresql-13",
+			"name": "PostgreSQL Server",
+			"version": "13.0.0",
+			"era": "13",
+			"supported": null,
+			"url": "https://ftp.postgresql.org/pub/source/v13.0/postgresql-13.0.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "postgresql-12",
+			"name": "PostgreSQL Server",
+			"version": "12.0.0",
+			"era": "12",
+			"supported": null,
+			"url": "https://ftp.postgresql.org/pub/source/v12.0/postgresql-12.0.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "postgresql-11",
+			"name": "PostgreSQL Server",
+			"version": "11.0.0",
+			"era": "11",
+			"supported": null,
+			"url": "https://ftp.postgresql.org/pub/source/v11.0/postgresql-11.0.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "postgresql-10",
+			"name": "PostgreSQL Server",
+			"version": "10.0.0",
+			"era": "10",
+			"supported": null,
+			"url": "https://ftp.postgresql.org/pub/source/v10.0/postgresql-10.0.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "postgresql-9.6",
+			"name": "PostgreSQL Server",
+			"version": "9.6.0.0",
+			"era": "9.6",
+			"supported": null,
+			"url": "https://ftp.postgresql.org/pub/source/v9.6.0/postgresql-9.6.0.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "postgresql-9.5",
+			"name": "PostgreSQL Server",
+			"version": "9.5.0.0",
+			"era": "9.5",
+			"supported": null,
+			"url": "https://ftp.postgresql.org/pub/source/v9.5.0/postgresql-9.5.0.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "postgresql-9.4",
+			"name": "PostgreSQL Server",
+			"version": "9.4.0.0",
+			"era": "9.4",
+			"supported": null,
+			"url": "https://ftp.postgresql.org/pub/source/v9.4.0/postgresql-9.4.0.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "postgresql-9.3",
+			"name": "PostgreSQL Server",
+			"version": "9.3.0.0",
+			"era": "9.3",
+			"supported": null,
+			"url": "https://ftp.postgresql.org/pub/source/v9.3.0/postgresql-9.3.0.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "postgresql-9.2",
+			"name": "PostgreSQL Server",
+			"version": "9.2.0.0",
+			"era": "9.2",
+			"supported": null,
+			"url": "https://ftp.postgresql.org/pub/source/v9.2.0/postgresql-9.2.0.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "postgresql-9.1",
+			"name": "PostgreSQL Server",
+			"version": "9.1.0.0",
+			"era": "9.1",
+			"supported": null,
+			"url": "https://ftp.postgresql.org/pub/source/v9.1.0/postgresql-9.1.0.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "postgresql-9.0",
+			"name": "PostgreSQL Server",
+			"version": "9.0.0.0",
+			"era": "9.0",
+			"supported": null,
+			"url": "https://ftp.postgresql.org/pub/source/v9.0.0/postgresql-9.0.0.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "postgresql-8.4",
+			"name": "PostgreSQL Server",
+			"version": "8.4.0.0",
+			"era": "8.4",
+			"supported": null,
+			"url": "https://ftp.postgresql.org/pub/source/v8.4.0/postgresql-8.4.0.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "postgresql-8.3",
+			"name": "PostgreSQL Server",
+			"version": "8.3.0.0",
+			"era": "8.3",
+			"supported": null,
+			"url": "https://ftp.postgresql.org/pub/source/v8.3.0/postgresql-8.3.0.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "postgresql-8.2",
+			"name": "PostgreSQL Server",
+			"version": "8.2.0.0",
+			"era": "8.2",
+			"supported": null,
+			"url": "https://ftp.postgresql.org/pub/source/v8.2.0/postgresql-8.2.0.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "postgresql-8.1",
+			"name": "PostgreSQL Server",
+			"version": "8.1.0.0",
+			"era": "8.1",
+			"supported": null,
+			"url": "https://ftp.postgresql.org/pub/source/v8.1.0/postgresql-8.1.0.tar.gz",
+			"target": "macos-arm64"
+		}
+	],
+	"python": [
+		{
+			"id": "python-3.14",
+			"name": "Python",
+			"version": "3.14.3",
+			"era": "3.14",
+			"supported": null,
+			"url": "https://www.python.org/ftp/python/3.14.3/Python-3.14.3.tgz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "python-3.13",
+			"name": "Python",
+			"version": "3.13.12",
+			"era": "3.13",
+			"supported": null,
+			"url": "https://www.python.org/ftp/python/3.13.12/Python-3.13.12.tgz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "python-3.12",
+			"name": "Python",
+			"version": "3.12.12",
+			"era": "3.12",
+			"supported": null,
+			"url": "https://www.python.org/ftp/python/3.12.12/Python-3.12.12.tgz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "python-3.11",
+			"name": "Python",
+			"version": "3.11.14",
+			"era": "3.11",
+			"supported": null,
+			"url": "https://www.python.org/ftp/python/3.11.14/Python-3.11.14.tgz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "python-3.10",
+			"name": "Python",
+			"version": "3.10.19",
+			"era": "3.10",
+			"supported": null,
+			"url": "https://www.python.org/ftp/python/3.10.19/Python-3.10.19.tgz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "python-3.9",
+			"name": "Python",
+			"version": "3.9.25",
+			"era": "3.9",
+			"supported": null,
+			"url": "https://www.python.org/ftp/python/3.9.25/Python-3.9.25.tgz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "python-3.8",
+			"name": "Python",
+			"version": "3.8.20",
+			"era": "3.8",
+			"supported": null,
+			"url": "https://www.python.org/ftp/python/3.8.20/Python-3.8.20.tgz",
+			"target": "macos-arm64"
+		}
+	],
+	"ruby": [
+		{
+			"id": "ruby-4.0",
+			"name": "Ruby",
+			"version": "4.0.1",
+			"era": "4.0",
+			"supported": null,
+			"url": "https://cache.ruby-lang.org/pub/ruby/4.0/ruby-4.0.1.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "ruby-3.4",
+			"name": "Ruby",
+			"version": "3.4.8",
+			"era": "3.4",
+			"supported": null,
+			"url": "https://cache.ruby-lang.org/pub/ruby/3.4/ruby-3.4.8.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "ruby-3.3",
+			"name": "Ruby",
+			"version": "3.3.10",
+			"era": "3.3",
+			"supported": null,
+			"url": "https://cache.ruby-lang.org/pub/ruby/3.3/ruby-3.3.10.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "ruby-3.2",
+			"name": "Ruby",
+			"version": "3.2.10",
+			"era": "3.2",
+			"supported": null,
+			"url": "https://cache.ruby-lang.org/pub/ruby/3.2/ruby-3.2.10.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "ruby-3.1",
+			"name": "Ruby",
+			"version": "3.1.7",
+			"era": "3.1",
+			"supported": null,
+			"url": "https://cache.ruby-lang.org/pub/ruby/3.1/ruby-3.1.7.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "ruby-3.0",
+			"name": "Ruby",
+			"version": "3.0.7",
+			"era": "3.0",
+			"supported": null,
+			"url": "https://cache.ruby-lang.org/pub/ruby/3.0/ruby-3.0.7.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "ruby-2.7",
+			"name": "Ruby",
+			"version": "2.7.8",
+			"era": "2.7",
+			"supported": null,
+			"url": "https://cache.ruby-lang.org/pub/ruby/2.7/ruby-2.7.8.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "ruby-2.6",
+			"name": "Ruby",
+			"version": "2.6.10",
+			"era": "2.6",
+			"supported": null,
+			"url": "https://cache.ruby-lang.org/pub/ruby/2.6/ruby-2.6.10.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "ruby-2.5",
+			"name": "Ruby",
+			"version": "2.5.9",
+			"era": "2.5",
+			"supported": null,
+			"url": "https://cache.ruby-lang.org/pub/ruby/2.5/ruby-2.5.9.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "ruby-2.4",
+			"name": "Ruby",
+			"version": "2.4.10",
+			"era": "2.4",
+			"supported": null,
+			"url": "https://cache.ruby-lang.org/pub/ruby/2.4/ruby-2.4.10.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "ruby-2.3",
+			"name": "Ruby",
+			"version": "2.3.8",
+			"era": "2.3",
+			"supported": null,
+			"url": "https://cache.ruby-lang.org/pub/ruby/2.3/ruby-2.3.8.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "ruby-2.2",
+			"name": "Ruby",
+			"version": "2.2.10",
+			"era": "2.2",
+			"supported": null,
+			"url": "https://cache.ruby-lang.org/pub/ruby/2.2/ruby-2.2.10.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "ruby-2.1",
+			"name": "Ruby",
+			"version": "2.1.10",
+			"era": "2.1",
+			"supported": null,
+			"url": "https://cache.ruby-lang.org/pub/ruby/2.1/ruby-2.1.10.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "ruby-2.0",
+			"name": "Ruby",
+			"version": "2.0.0",
+			"era": "2.0",
+			"supported": null,
+			"url": "https://cache.ruby-lang.org/pub/ruby/2.0/ruby-2.0.0.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "ruby-1.9",
+			"name": "Ruby",
+			"version": "1.9.3",
+			"era": "1.9",
+			"supported": null,
+			"url": "https://cache.ruby-lang.org/pub/ruby/1.9/ruby-1.9.3.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "ruby-1.8",
+			"name": "Ruby",
+			"version": "1.8.7",
+			"era": "1.8",
+			"supported": null,
+			"url": "https://cache.ruby-lang.org/pub/ruby/1.8/ruby-1.8.7.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "ruby-1.6",
+			"name": "Ruby",
+			"version": "1.6.7",
+			"era": "1.6",
+			"supported": null,
+			"url": "https://cache.ruby-lang.org/pub/ruby/1.6/ruby-1.6.7.tar.gz",
+			"target": "macos-arm64"
+		}
+	],
+	"scala": [
+		{
+			"id": "scala-3.7",
+			"name": "Scala 3.7.0",
+			"version": "3.7.0",
+			"era": "3.7",
+			"supported": null,
+			"url": "https://github.com/scala/scala3/releases/download/3.7.0/scala3-3.7.0-aarch64-apple-darwin.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "scala-3.7",
+			"name": "Scala 3.7.1",
+			"version": "3.7.1",
+			"era": "3.7",
+			"supported": null,
+			"url": "https://github.com/scala/scala3/releases/download/3.7.1/scala3-3.7.1-aarch64-apple-darwin.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "scala-3.7",
+			"name": "Scala 3.7.2",
+			"version": "3.7.2",
+			"era": "3.7",
+			"supported": null,
+			"url": "https://github.com/scala/scala3/releases/download/3.7.2/scala3-3.7.2-aarch64-apple-darwin.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "scala-3.7",
+			"name": "Scala 3.7.3",
+			"version": "3.7.3",
+			"era": "3.7",
+			"supported": null,
+			"url": "https://github.com/scala/scala3/releases/download/3.7.3/scala3-3.7.3-aarch64-apple-darwin.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "scala-3.7",
+			"name": "Scala 3.7.4",
+			"version": "3.7.4",
+			"era": "3.7",
+			"supported": null,
+			"url": "https://github.com/scala/scala3/releases/download/3.7.4/scala3-3.7.4-aarch64-apple-darwin.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "scala-3.8",
+			"name": "Scala 3.8.0",
+			"version": "3.8.0",
+			"era": "3.8",
+			"supported": null,
+			"url": "https://github.com/scala/scala3/releases/download/3.8.0/scala3-3.8.0-aarch64-apple-darwin.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "scala-3.8",
+			"name": "Scala 3.8.1",
+			"version": "3.8.1",
+			"era": "3.8",
+			"supported": null,
+			"url": "https://github.com/scala/scala3/releases/download/3.8.1/scala3-3.8.1-aarch64-apple-darwin.tar.gz",
+			"target": "macos-arm64"
+		}
+	],
+	"zig": [
+		{
+			"id": "zig-1",
+			"name": "Zig",
+			"version": "0.16.0-dev.2623+27eec9bd6",
+			"era": "1",
+			"supported": null,
+			"url": "https://ziglang.org/builds/zig-aarch64-macos-0.16.0-dev.2623+27eec9bd6.tar.xz",
+			"target": "macos-arm64"
+		}
+	]
+}

@@ -1,15 +1,13 @@
 {
   "name": "stackman-repo",
   "version": "1.0.0",
-  "description": "Generates a unified feed (app-releases.json) of available versions for apache, php, etc.",
+  "description": "Generates platform specific feeds (apps/*.json) of available versions for apache, php, etc.",
   "main": "index.ts",
   "engines": {
     "bun": ">=1.3.0"
   },
   "scripts": {
-    "build": "bun run index.ts",
-    "dev": "bun run --watch index.ts",
-    "test": "bun test"
+    "build": "bun run index.ts"
   },
   "dependencies": {},
   "devDependencies": {
