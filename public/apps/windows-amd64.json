@@ -822,6 +822,7 @@
 			"version": "0.16.0-dev.2623+27eec9bd6",
 			"era": "1",
 			"supported": null,
+			"url": "https://ziglang.org/builds/zig-x86_64-windows-0.16.0-dev.2623+27eec9bd6.zip",
 			"target": "windows-amd64"
 		}
 	]

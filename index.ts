@@ -1,12 +1,12 @@
 import { readdir, readFile } from 'fs/promises';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
+import { Release } from './types/release';
 
 const PLATFORMS = ['linux-amd64', 'linux-arm64', 'macos-amd64', 'macos-arm64', 'windows-amd64'] as const;
 type Platform = typeof PLATFORMS[number];
 
-type ReleaseFetcher = () => Promise<any[]>;
-type Release = { url?: string; target?: string; id: string; name: string };
+type ReleaseFetcher = () => Promise<Release[]>;
 
 const appsDir = join(dirname(fileURLToPath(import.meta.url)), 'fetchers', 'apps');
 

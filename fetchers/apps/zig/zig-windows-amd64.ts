@@ -33,7 +33,7 @@ export async function getReleases(): Promise<Release[]> {
 				version,
 				era,
 				supported: null,
-				url: data[key]['x86_64-windows'].zip,
+				url: data[key]['x86_64-windows'].tarball,
 				target: PlatformTarget.windows_amd64
 			};
 		}
