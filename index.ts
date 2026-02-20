@@ -105,9 +105,16 @@ async function validateUrls(results: Record<string, any>): Promise<void> {
 					throw new Error(`${release.url}: ${res.status} ${res.statusText}`);
 				}
 
-				if (!release.url.match(/\.(7z|tar(\.gz|\.xz)?|tgz|zip)$/)) {
-				throw new Error(`Package is not an archive: ${release.url}`);
-			}
+				// If status is not 200 OK
+				if (res.status !== 200) {
+					throw new Error(`${release.url}: ${res.status} ${res.statusText}`);
+				}
+
+				// If content type is not an archive
+				const contentType = res.headers.get('content-type');
+				if (!contentType || !contentType.match(/^application\/(x-7z-compressed|x-bzip2|x-gzip|x-lzip|x-tar|x-xz|zip)$/)) {
+					throw new Error(`Package is not an archive: ${release.url}`);
+				}
 
 				console.log(`✅  ${release.id} (${release.target}): OK`);
 
