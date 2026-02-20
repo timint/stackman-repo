@@ -6,7 +6,7 @@ on:
     - cron: '0 0 * * *' # daily
   push:
     branches:
-      - main
+      - master
 
 jobs:
 
