@@ -7,7 +7,7 @@ export async function getReleases(): Promise<Release[]> {
 	}
 
 	const html = await response.text();
-	const regex = /httpd-(\d+\.\d+\.\d+)-(\d+)-Win64-VS18\.zip/g;
+	const regex = /httpd-(\d+\.\d+\.\d+)-(\d+)-Win64-VS\d\d\.zip/g;
 	const seen = new Set<string>();
 	const releases: Record<string, Release> = {};
 

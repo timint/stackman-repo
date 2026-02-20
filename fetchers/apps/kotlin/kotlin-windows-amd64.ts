@@ -1,7 +1,7 @@
 import { Release, PlatformTarget } from '../../../types/release';
 
 export async function getReleases(): Promise<Release[]> {
-	const response = await fetch('https://api.github.com/repos/JetBrains/kotlin/releases');
+	const response = await fetch('https://api.github.com/repos/JetBrains/kotlin/releases?per_page=100');
 	if (!response.ok) throw new Error('Failed to fetch Kotlin releases');
 
 	const data = await response.json();

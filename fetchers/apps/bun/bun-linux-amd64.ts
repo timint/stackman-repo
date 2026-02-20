@@ -1,7 +1,7 @@
 import { Release, PlatformTarget } from '../../../types/release';
 
 export async function getReleases(): Promise<Release[]> {
-	const response = await fetch('https://api.github.com/repos/oven-sh/bun/releases');
+	const response = await fetch('https://api.github.com/repos/oven-sh/bun/releases?per_page=100');
 
 	if (!response.ok) {
 		throw new Error('Failed to fetch Bun releases');
@@ -16,7 +16,7 @@ export async function getReleases(): Promise<Release[]> {
 
 		if (/preview|rc|alpha|beta|nightly/i.test(version)) continue;
 
-		const era = version.split('.')[0];
+		const era = version.split('.').slice(0, 2).join('.');
 
 		if (!releases[era] || version.localeCompare(releases[era].version, undefined, { numeric: true }) > 0) {
 			releases[era] = {

@@ -1,7 +1,7 @@
 import { Release, PlatformTarget } from '../../../types/release';
 
 export async function getReleases(): Promise<Release[]> {
-	const response = await fetch('https://api.github.com/repos/dlang/dmd/releases');
+	const response = await fetch('https://api.github.com/repos/dlang/dmd/releases?per_page=100');
 	if (!response.ok) throw new Error('Failed to fetch DLang releases from GitHub');
 
 	const data = await response.json() as Array<{ tag_name: string; prerelease: boolean; assets: Array<{ name: string; browser_download_url: string }> }>;
