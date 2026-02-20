@@ -1,7 +1,7 @@
 import { Release, PlatformTarget } from '../../../types/release';
 
 export async function getReleases(): Promise<Release[]> {
-	const response = await fetch('https://api.github.com/repos/scala/scala3/releases');
+	const response = await fetch('https://api.github.com/repos/scala/scala3/releases?per_page=100');
 
 	if (!response.ok) {
 		throw new Error('Failed to fetch Scala 3 releases from GitHub');
