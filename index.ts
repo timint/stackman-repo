@@ -99,7 +99,7 @@ async function validateUrls(results: Record<string, any>): Promise<void> {
 					throw new Error(`Missing url or target`);
 				}
 
-				const res = await fetch(release.url, { method: 'HEAD' });
+				const res = await fetch(release.url, { method: 'HEAD', redirect: 'follow' });
 
 				if (!res.ok) {
 					throw new Error(`${release.url}: ${res.status} ${res.statusText}`);
@@ -112,7 +112,7 @@ async function validateUrls(results: Record<string, any>): Promise<void> {
 
 				// If content type is not an archive
 				const contentType = res.headers.get('content-type');
-				if (!contentType || !contentType.match(/^application\/(x-7z-compressed|x-bzip2|x-gzip|x-lzip|x-tar|x-xz|zip)$/)) {
+				if (!contentType || !contentType.match(/^application\/(x-7z-compressed|x-bzip2|x-gzip|x-lzip|x-tar|x-xz|zip|octet-stream)$/)) {
 					throw new Error(`Package is not an archive: ${release.url}`);
 				}
 

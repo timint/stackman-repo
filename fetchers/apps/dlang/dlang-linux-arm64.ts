@@ -21,9 +21,6 @@ export async function getReleases(): Promise<Release[]> {
 
     const era = match[1];
 
-    const asset = release.assets.find((asset: any) => asset.name.includes('linux-aarch64') && asset.name.endsWith('.tar.xz'));
-    if (!asset) continue;
-
     if (!releasesByEra[era] || version.localeCompare(releasesByEra[era].version, undefined, { numeric: true }) > 0) {
       releasesByEra[era] = {
         id: `dlang-${era}`,
@@ -31,7 +28,7 @@ export async function getReleases(): Promise<Release[]> {
         version,
         era,
         supported: null,
-        url: asset.browser_download_url,
+        url: `https://github.com/dlang/dmd/releases/download/v${version}/ldc2-aarch64-linux.tar.xz`,
         target: PlatformTarget.linux_arm64
       };
     }

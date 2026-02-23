@@ -14,9 +14,6 @@ export async function getReleases(): Promise<Release[]> {
 		const [major, minor] = version.split('.').map(Number);
 		const era = `${major}.${minor}`;
 
-		const asset = release.assets.find(a => a.name === `dmd.stable.osx.tar.xz`);
-		if (!asset) continue;
-
 		if (!releases[era] || version.localeCompare(releases[era].version, undefined, { numeric: true }) > 0) {
 			releases[era] = {
 				id: `dlang-${era}`,
@@ -24,7 +21,7 @@ export async function getReleases(): Promise<Release[]> {
 				version,
 				era,
 				supported: null,
-				url: asset.browser_download_url,
+				url: release.assets.find((asset: any) => asset.name === 'dmd.stable.osx.tar.xz')?.browser_download_url || '',
 				target: PlatformTarget.macos_arm64
 			};
 		}

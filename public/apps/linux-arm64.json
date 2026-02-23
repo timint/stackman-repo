@@ -84,6 +84,143 @@
 			"supported": null,
 			"url": "https://github.com/caddyserver/caddy/releases/download/v2.10.2/caddy_2.10.2_linux_arm64.tar.gz",
 			"target": "linux-arm64"
+		},
+		{
+			"id": "caddy-1",
+			"name": "Caddy",
+			"version": "1.0.4",
+			"era": "1",
+			"supported": null,
+			"url": "https://github.com/caddyserver/caddy/releases/download/v1.0.4/caddy_1.0.4_linux_arm64.tar.gz",
+			"target": "linux-arm64"
+		},
+		{
+			"id": "caddy-0",
+			"name": "Caddy",
+			"version": "0.11.5",
+			"era": "0",
+			"supported": null,
+			"url": "https://github.com/caddyserver/caddy/releases/download/v0.11.5/caddy_0.11.5_linux_arm64.tar.gz",
+			"target": "linux-arm64"
+		}
+	],
+	"deno": [
+		{
+			"id": "deno-2.6",
+			"name": "Deno",
+			"version": "2.6.10",
+			"era": "2.6",
+			"supported": null,
+			"url": "https://github.com/denoland/deno/releases/download/v2.6.10/deno-aarch64-unknown-linux-gnu.zip",
+			"target": "linux-arm64"
+		},
+		{
+			"id": "deno-2.5",
+			"name": "Deno",
+			"version": "2.5.7",
+			"era": "2.5",
+			"supported": null,
+			"url": "https://github.com/denoland/deno/releases/download/v2.5.7/deno-aarch64-unknown-linux-gnu.zip",
+			"target": "linux-arm64"
+		},
+		{
+			"id": "deno-2.4",
+			"name": "Deno",
+			"version": "2.4.5",
+			"era": "2.4",
+			"supported": null,
+			"url": "https://github.com/denoland/deno/releases/download/v2.4.5/deno-aarch64-unknown-linux-gnu.zip",
+			"target": "linux-arm64"
+		},
+		{
+			"id": "deno-2.3",
+			"name": "Deno",
+			"version": "2.3.7",
+			"era": "2.3",
+			"supported": null,
+			"url": "https://github.com/denoland/deno/releases/download/v2.3.7/deno-aarch64-unknown-linux-gnu.zip",
+			"target": "linux-arm64"
+		},
+		{
+			"id": "deno-2.2",
+			"name": "Deno",
+			"version": "2.2.15",
+			"era": "2.2",
+			"supported": null,
+			"url": "https://github.com/denoland/deno/releases/download/v2.2.15/deno-aarch64-unknown-linux-gnu.zip",
+			"target": "linux-arm64"
+		},
+		{
+			"id": "deno-2.1",
+			"name": "Deno",
+			"version": "2.1.14",
+			"era": "2.1",
+			"supported": null,
+			"url": "https://github.com/denoland/deno/releases/download/v2.1.14/deno-aarch64-unknown-linux-gnu.zip",
+			"target": "linux-arm64"
+		},
+		{
+			"id": "deno-2.0",
+			"name": "Deno",
+			"version": "2.0.6",
+			"era": "2.0",
+			"supported": null,
+			"url": "https://github.com/denoland/deno/releases/download/v2.0.6/deno-aarch64-unknown-linux-gnu.zip",
+			"target": "linux-arm64"
+		},
+		{
+			"id": "deno-1.46",
+			"name": "Deno",
+			"version": "1.46.3",
+			"era": "1.46",
+			"supported": null,
+			"url": "https://github.com/denoland/deno/releases/download/v1.46.3/deno-aarch64-unknown-linux-gnu.zip",
+			"target": "linux-arm64"
+		},
+		{
+			"id": "deno-1.45",
+			"name": "Deno",
+			"version": "1.45.5",
+			"era": "1.45",
+			"supported": null,
+			"url": "https://github.com/denoland/deno/releases/download/v1.45.5/deno-aarch64-unknown-linux-gnu.zip",
+			"target": "linux-arm64"
+		},
+		{
+			"id": "deno-1.44",
+			"name": "Deno",
+			"version": "1.44.4",
+			"era": "1.44",
+			"supported": null,
+			"url": "https://github.com/denoland/deno/releases/download/v1.44.4/deno-aarch64-unknown-linux-gnu.zip",
+			"target": "linux-arm64"
+		},
+		{
+			"id": "deno-1.43",
+			"name": "Deno",
+			"version": "1.43.6",
+			"era": "1.43",
+			"supported": null,
+			"url": "https://github.com/denoland/deno/releases/download/v1.43.6/deno-aarch64-unknown-linux-gnu.zip",
+			"target": "linux-arm64"
+		},
+		{
+			"id": "deno-1.42",
+			"name": "Deno",
+			"version": "1.42.4",
+			"era": "1.42",
+			"supported": null,
+			"url": "https://github.com/denoland/deno/releases/download/v1.42.4/deno-aarch64-unknown-linux-gnu.zip",
+			"target": "linux-arm64"
+		},
+		{
+			"id": "deno-1.41",
+			"name": "Deno",
+			"version": "1.41.3",
+			"era": "1.41",
+			"supported": null,
+			"url": "https://github.com/denoland/deno/releases/download/v1.41.3/deno-aarch64-unknown-linux-gnu.zip",
+			"target": "linux-arm64"
 		}
 	],
 	"dlang": [],
@@ -244,6 +381,42 @@
 			"supported": null,
 			"url": "https://github.com/JetBrains/kotlin/releases/download/v2.1.21/kotlin-compiler-2.1.21.zip",
 			"target": "linux-arm64"
+		},
+		{
+			"id": "kotlin-2.0",
+			"name": "Kotlin",
+			"version": "2.0.21",
+			"era": "2.0",
+			"supported": null,
+			"url": "https://github.com/JetBrains/kotlin/releases/download/v2.0.21/kotlin-compiler-2.0.21.zip",
+			"target": "linux-arm64"
+		},
+		{
+			"id": "kotlin-1.9",
+			"name": "Kotlin",
+			"version": "1.9.25",
+			"era": "1.9",
+			"supported": null,
+			"url": "https://github.com/JetBrains/kotlin/releases/download/v1.9.25/kotlin-compiler-1.9.25.zip",
+			"target": "linux-arm64"
+		},
+		{
+			"id": "kotlin-1.8",
+			"name": "Kotlin",
+			"version": "1.8.22",
+			"era": "1.8",
+			"supported": null,
+			"url": "https://github.com/JetBrains/kotlin/releases/download/v1.8.22/kotlin-compiler-1.8.22.zip",
+			"target": "linux-arm64"
+		},
+		{
+			"id": "kotlin-1.7",
+			"name": "Kotlin",
+			"version": "1.7.22",
+			"era": "1.7",
+			"supported": null,
+			"url": "https://github.com/JetBrains/kotlin/releases/download/v1.7.22/kotlin-compiler-1.7.22.zip",
+			"target": "linux-arm64"
 		}
 	],
 	"mariadb": [
@@ -297,28 +470,28 @@
 		{
 			"id": "mongodb-8.2",
 			"name": "MongoDB Community Server",
-			"version": "8.2.5",
+			"version": "8.2.6",
 			"era": "8.2",
 			"supported": null,
-			"url": "https://fastdl.mongodb.org/linux/mongodb-linux-aarch64-ubuntu2204-8.2.5.tgz",
+			"url": "https://fastdl.mongodb.org/linux/mongodb-linux-aarch64-ubuntu2204-8.2.6.tgz",
 			"target": "linux-arm64"
 		},
 		{
 			"id": "mongodb-8.0",
 			"name": "MongoDB Community Server",
-			"version": "8.0.19",
+			"version": "8.0.20",
 			"era": "8.0",
 			"supported": null,
-			"url": "https://fastdl.mongodb.org/linux/mongodb-linux-aarch64-ubuntu2204-8.0.19.tgz",
+			"url": "https://fastdl.mongodb.org/linux/mongodb-linux-aarch64-ubuntu2204-8.0.20.tgz",
 			"target": "linux-arm64"
 		},
 		{
 			"id": "mongodb-7.0",
 			"name": "MongoDB Community Server",
-			"version": "7.0.30",
+			"version": "7.0.31",
 			"era": "7.0",
 			"supported": null,
-			"url": "https://fastdl.mongodb.org/linux/mongodb-linux-aarch64-ubuntu2204-7.0.30.tgz",
+			"url": "https://fastdl.mongodb.org/linux/mongodb-linux-aarch64-ubuntu2204-7.0.31.tgz",
 			"target": "linux-arm64"
 		},
 		{
@@ -466,10 +639,10 @@
 		{
 			"id": "perl-5.43",
 			"name": "Perl",
-			"version": "5.43.7",
+			"version": "5.43.8",
 			"era": "5.43",
 			"supported": null,
-			"url": "https://www.cpan.org/src/5.0/perl-5.43.7.tar.gz",
+			"url": "https://www.cpan.org/src/5.0/perl-5.43.8.tar.gz",
 			"target": "linux-arm64"
 		},
 		{
@@ -1239,6 +1412,60 @@
 	],
 	"scala": [
 		{
+			"id": "scala-3.5",
+			"name": "Scala 3.5.0",
+			"version": "3.5.0",
+			"era": "3.5",
+			"supported": null,
+			"url": "https://github.com/scala/scala3/releases/download/3.5.0/scala3-3.5.0-aarch64-pc-linux.tar.gz",
+			"target": "linux-arm64"
+		},
+		{
+			"id": "scala-3.5",
+			"name": "Scala 3.5.1",
+			"version": "3.5.1",
+			"era": "3.5",
+			"supported": null,
+			"url": "https://github.com/scala/scala3/releases/download/3.5.1/scala3-3.5.1-aarch64-pc-linux.tar.gz",
+			"target": "linux-arm64"
+		},
+		{
+			"id": "scala-3.5",
+			"name": "Scala 3.5.2",
+			"version": "3.5.2",
+			"era": "3.5",
+			"supported": null,
+			"url": "https://github.com/scala/scala3/releases/download/3.5.2/scala3-3.5.2-aarch64-pc-linux.tar.gz",
+			"target": "linux-arm64"
+		},
+		{
+			"id": "scala-3.6",
+			"name": "Scala 3.6.2",
+			"version": "3.6.2",
+			"era": "3.6",
+			"supported": null,
+			"url": "https://github.com/scala/scala3/releases/download/3.6.2/scala3-3.6.2-aarch64-pc-linux.tar.gz",
+			"target": "linux-arm64"
+		},
+		{
+			"id": "scala-3.6",
+			"name": "Scala 3.6.3",
+			"version": "3.6.3",
+			"era": "3.6",
+			"supported": null,
+			"url": "https://github.com/scala/scala3/releases/download/3.6.3/scala3-3.6.3-aarch64-pc-linux.tar.gz",
+			"target": "linux-arm64"
+		},
+		{
+			"id": "scala-3.6",
+			"name": "Scala 3.6.4",
+			"version": "3.6.4",
+			"era": "3.6",
+			"supported": null,
+			"url": "https://github.com/scala/scala3/releases/download/3.6.4/scala3-3.6.4-aarch64-pc-linux.tar.gz",
+			"target": "linux-arm64"
+		},
+		{
 			"id": "scala-3.7",
 			"name": "Scala 3.7.0",
 			"version": "3.7.0",
@@ -1306,10 +1533,10 @@
 		{
 			"id": "zig-1",
 			"name": "Zig",
-			"version": "0.16.0-dev.2623+27eec9bd6",
+			"version": "0.16.0-dev.2637+6a9510c0e",
 			"era": "1",
 			"supported": null,
-			"url": "https://ziglang.org/builds/zig-aarch64-linux-0.16.0-dev.2623+27eec9bd6.tar.xz",
+			"url": "https://ziglang.org/builds/zig-aarch64-linux-0.16.0-dev.2637+6a9510c0e.tar.xz",
 			"target": "linux-arm64"
 		}
 	]
