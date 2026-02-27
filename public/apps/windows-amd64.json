@@ -79,6 +79,15 @@
 	],
 	"deno": [
 		{
+			"id": "deno-2.7",
+			"name": "Deno",
+			"version": "2.7.1",
+			"era": "2.7",
+			"supported": null,
+			"url": "https://github.com/denoland/deno/releases/download/v2.7.1/deno-x86_64-pc-windows-msvc.zip",
+			"target": "windows-amd64"
+		},
+		{
 			"id": "deno-2.6",
 			"name": "Deno",
 			"version": "2.6.10",
@@ -184,15 +193,6 @@
 			"era": "1.42",
 			"supported": null,
 			"url": "https://github.com/denoland/deno/releases/download/v1.42.4/deno-x86_64-pc-windows-msvc.zip",
-			"target": "windows-amd64"
-		},
-		{
-			"id": "deno-1.41",
-			"name": "Deno",
-			"version": "1.41.3",
-			"era": "1.41",
-			"supported": null,
-			"url": "https://github.com/denoland/deno/releases/download/v1.41.3/deno-x86_64-pc-windows-msvc.zip",
 			"target": "windows-amd64"
 		}
 	],
@@ -649,10 +649,55 @@
 		{
 			"id": "php-8.5",
 			"name": "PHP",
-			"version": "8.5.3",
+			"version": "8.5.0",
 			"era": "8.5",
 			"supported": null,
-			"url": "https://windows.php.net/downloads/releases/php-8.5.3-Win32-vs17-x64.zip",
+			"url": "https://windows.php.net/downloads/releases/archives/php-8.5.0-Win32-vs17-x64.zip",
+			"target": "windows-amd64"
+		},
+		{
+			"id": "php-8.4",
+			"name": "PHP",
+			"version": "8.4.15",
+			"era": "8.4",
+			"supported": null,
+			"url": "https://windows.php.net/downloads/releases/archives/php-8.4.15-Win32-vs17-x64.zip",
+			"target": "windows-amd64"
+		},
+		{
+			"id": "php-8.3",
+			"name": "PHP",
+			"version": "8.3.28",
+			"era": "8.3",
+			"supported": null,
+			"url": "https://windows.php.net/downloads/releases/archives/php-8.3.28-Win32-vs16-x64.zip",
+			"target": "windows-amd64"
+		},
+		{
+			"id": "php-8.2",
+			"name": "PHP",
+			"version": "8.2.29",
+			"era": "8.2",
+			"supported": null,
+			"url": "https://windows.php.net/downloads/releases/archives/php-8.2.29-Win32-vs16-x64.zip",
+			"target": "windows-amd64"
+		},
+		{
+			"id": "php-8.1",
+			"name": "PHP",
+			"version": "8.1.33",
+			"era": "8.1",
+			"supported": null,
+			"url": "https://windows.php.net/downloads/releases/archives/php-8.1.33-Win32-vs16-x64.zip",
+			"target": "windows-amd64"
+		},
+		{
+			"id": "php-8.0",
+			"name": "PHP",
+			"version": "8.0.30",
+			"era": "8.0",
+			"supported": null,
+			"url": "https://windows.php.net/downloads/releases/archives/php-8.0.30-Win32-vs16-x64.zip",
 			"target": "windows-amd64"
 		},
 		{
@@ -661,7 +706,43 @@
 			"version": "7.4.33",
 			"era": "7.4",
 			"supported": null,
-			"url": "https://windows.php.net/downloads/releases/php-7.4.33-Win32-vc15-x64.zip",
+			"url": "https://windows.php.net/downloads/releases/archives/php-7.4.33-Win32-vc15-x64.zip",
+			"target": "windows-amd64"
+		},
+		{
+			"id": "php-7.3",
+			"name": "PHP",
+			"version": "7.3.33",
+			"era": "7.3",
+			"supported": null,
+			"url": "https://windows.php.net/downloads/releases/archives/php-7.3.33-Win32-VC15-x64.zip",
+			"target": "windows-amd64"
+		},
+		{
+			"id": "php-7.2",
+			"name": "PHP",
+			"version": "7.2.34",
+			"era": "7.2",
+			"supported": null,
+			"url": "https://windows.php.net/downloads/releases/archives/php-7.2.34-Win32-VC15-x64.zip",
+			"target": "windows-amd64"
+		},
+		{
+			"id": "php-7.1",
+			"name": "PHP",
+			"version": "7.1.33",
+			"era": "7.1",
+			"supported": null,
+			"url": "https://windows.php.net/downloads/releases/archives/php-7.1.33-Win32-VC14-x64.zip",
+			"target": "windows-amd64"
+		},
+		{
+			"id": "php-7.0",
+			"name": "PHP",
+			"version": "7.0.33",
+			"era": "7.0",
+			"supported": null,
+			"url": "https://windows.php.net/downloads/releases/archives/php-7.0.33-Win32-VC14-x64.zip",
 			"target": "windows-amd64"
 		},
 		{
@@ -670,7 +751,7 @@
 			"version": "5.6.40",
 			"era": "5.6",
 			"supported": null,
-			"url": "https://windows.php.net/downloads/releases/php-5.6.40-Win32-vs16-x64.zip",
+			"url": "https://windows.php.net/downloads/releases/archives/php-5.6.40-Win32-VC11-x64.zip",
 			"target": "windows-amd64"
 		}
 	],

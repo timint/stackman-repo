@@ -106,6 +106,15 @@
 	],
 	"deno": [
 		{
+			"id": "deno-2.7",
+			"name": "Deno",
+			"version": "2.7.1",
+			"era": "2.7",
+			"supported": null,
+			"url": "https://github.com/denoland/deno/releases/download/v2.7.1/deno-aarch64-apple-darwin.zip",
+			"target": "macos-arm64"
+		},
+		{
 			"id": "deno-2.6",
 			"name": "Deno",
 			"version": "2.6.10",
@@ -211,15 +220,6 @@
 			"era": "1.42",
 			"supported": null,
 			"url": "https://github.com/denoland/deno/releases/download/v1.42.4/deno-aarch64-apple-darwin.zip",
-			"target": "macos-arm64"
-		},
-		{
-			"id": "deno-1.41",
-			"name": "Deno",
-			"version": "1.41.3",
-			"era": "1.41",
-			"supported": null,
-			"url": "https://github.com/denoland/deno/releases/download/v1.41.3/deno-aarch64-apple-darwin.zip",
 			"target": "macos-arm64"
 		}
 	],
@@ -965,10 +965,55 @@
 		{
 			"id": "php-8.5",
 			"name": "PHP",
-			"version": "8.5.3",
+			"version": "8.5.0",
 			"era": "8.5",
 			"supported": null,
-			"url": "https://www.php.net/distributions/php-8.5.3.tar.gz",
+			"url": "https://www.php.net/distributions/php-8.5.0.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "php-8.4",
+			"name": "PHP",
+			"version": "8.4.15",
+			"era": "8.4",
+			"supported": null,
+			"url": "https://www.php.net/distributions/php-8.4.15.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "php-8.3",
+			"name": "PHP",
+			"version": "8.3.28",
+			"era": "8.3",
+			"supported": null,
+			"url": "https://www.php.net/distributions/php-8.3.28.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "php-8.2",
+			"name": "PHP",
+			"version": "8.2.29",
+			"era": "8.2",
+			"supported": null,
+			"url": "https://www.php.net/distributions/php-8.2.29.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "php-8.1",
+			"name": "PHP",
+			"version": "8.1.33",
+			"era": "8.1",
+			"supported": null,
+			"url": "https://www.php.net/distributions/php-8.1.33.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "php-8.0",
+			"name": "PHP",
+			"version": "8.0.30",
+			"era": "8.0",
+			"supported": null,
+			"url": "https://www.php.net/distributions/php-8.0.30.tar.gz",
 			"target": "macos-arm64"
 		},
 		{
@@ -978,6 +1023,42 @@
 			"era": "7.4",
 			"supported": null,
 			"url": "https://www.php.net/distributions/php-7.4.33.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "php-7.3",
+			"name": "PHP",
+			"version": "7.3.33",
+			"era": "7.3",
+			"supported": null,
+			"url": "https://www.php.net/distributions/php-7.3.33.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "php-7.2",
+			"name": "PHP",
+			"version": "7.2.34",
+			"era": "7.2",
+			"supported": null,
+			"url": "https://www.php.net/distributions/php-7.2.34.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "php-7.1",
+			"name": "PHP",
+			"version": "7.1.33",
+			"era": "7.1",
+			"supported": null,
+			"url": "https://www.php.net/distributions/php-7.1.33.tar.gz",
+			"target": "macos-arm64"
+		},
+		{
+			"id": "php-7.0",
+			"name": "PHP",
+			"version": "7.0.33",
+			"era": "7.0",
+			"supported": null,
+			"url": "https://www.php.net/distributions/php-7.0.33.tar.gz",
 			"target": "macos-arm64"
 		},
 		{

@@ -1,35 +1,45 @@
 import { Release, PlatformTarget } from '../../../types/release';
 
+const PHP_VERSION = /php-(\d+\.\d+\.\d+)-Win32-[^-]+-x64\.zip/gi;
+
 export async function getReleases(): Promise<Release[]> {
-	const response = await fetch('https://www.php.net/releases/index.php?json');
-	if (!response.ok) throw new Error('Failed to fetch PHP releases');
+	const byEra = new Map<string, { version: string; url: string }>();
+	const base = 'https://windows.php.net/downloads/releases/archives/';
+	const res = await fetch(base);
+	if (!res.ok) throw new Error('Failed to fetch PHP Windows archives');
+	const body = await res.text();
 
-	const data = await response.json();
-	const releases: Record<string, Release> = {};
+	PHP_VERSION.lastIndex = 0;
+	let m: RegExpExecArray | null;
+	while ((m = PHP_VERSION.exec(body)) !== null) {
+		const version = m[1];
+		const [major, minor] = version.split('.');
+		if (!major || minor === undefined) continue;
 
-	for (const majorVersion in data) {
-		const releaseData = data[majorVersion];
-		const version = releaseData.version;
+		const majorNum = parseInt(major, 10);
+		const minorNum = parseInt(minor, 10);
+		if (Number.isNaN(majorNum) || Number.isNaN(minorNum)) continue;
 
-		if (version < '5.6') continue;
-		if (version.match(/(alpha|beta|rc|dev|snapshot|a\d+|b\d+|rc\d+)/i)) continue;
+		if (majorNum < 5 || (majorNum === 5 && minorNum < 6)) continue;
 
-		const era = `${version.split('.')[0]}.${version.split('.')[1]}`;
+		const era = `${majorNum}.${minorNum}`;
+		const url = `https://www.php.net/distributions/php-${version}.tar.gz`;
 
-		if (!releases[era] || version.localeCompare(releases[era].version, undefined, { numeric: true }) > 0) {
-			releases[era] = {
-				id: `php-${era}`,
-				name: 'PHP',
-				version,
-				era,
-				supported: null,
-				url: `https://www.php.net/distributions/php-${version}.tar.gz`,
-				target: PlatformTarget.linux_arm64
-			};
+		const existing = byEra.get(era);
+		if (!existing || version.localeCompare(existing.version, undefined, { numeric: true }) > 0) {
+			byEra.set(era, { version, url });
 		}
 	}
 
-	const sortedReleases = Object.values(releases).sort((a, b) => b.era.localeCompare(a.era, undefined, { numeric: true }));
-
-	return sortedReleases;
+	return Array.from(byEra.entries())
+		.map(([era, { version, url }]) => ({
+			id: `php-${era}`,
+			name: 'PHP',
+			version,
+			era,
+			supported: null,
+			url,
+			target: PlatformTarget.linux_arm64
+		} as Release))
+		.sort((a, b) => b.era.localeCompare(a.era, undefined, { numeric: true }));
 }
