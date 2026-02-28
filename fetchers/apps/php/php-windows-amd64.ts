@@ -8,9 +8,9 @@ const TS_X64_FILE = /php-(\d+\.\d+\.\d+)-Win32-[^-]+-x64\.zip/gi;
 
 export async function getReleases(): Promise<Release[]> {
 	const byEra = new Map<string, { version: string; url: string }>();
-	const base = 'https://windows.php.net/downloads/releases/archives/';
+	const base = 'https://downloads.php.net/~windows/releases/archives/';
 	const res = await fetch(base);
-	if (!res.ok) throw new Error('Failed to fetch PHP Windows archives');
+	if (!res.ok) throw new Error('Failed to fetch PHP Windows releases');
 	const body = await res.text();
 
 	TS_X64_FILE.lastIndex = 0;
