@@ -24,7 +24,8 @@ export async function getReleases(): Promise<Release[]> {
 				era,
 				supported: null,
 				url: `https://nodejs.org/dist/v${version}/node-v${version}-linux-arm64.tar.xz`,
-				target: PlatformTarget.linux_arm64
+				target: PlatformTarget.linux_arm64,
+				size: null
 			};
 		}
 	}

@@ -22,7 +22,8 @@ export async function getReleases(): Promise<Release[]> {
 					era,
 					supported: null,
 					url: `https://fastdl.mongodb.org/osx/mongodb-macos-x86_64-${version}.tgz`,
-					target: PlatformTarget.macos_amd64
+					target: PlatformTarget.macos_amd64,
+				size: null
 				};
 			}
 		}

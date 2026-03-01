@@ -38,7 +38,8 @@ export async function getReleases(): Promise<Release[]> {
 					era,
 					supported: null,
 					url: `https://downloads.mariadb.org/f/mariadb-${numericVersion}/macos-system-x86_64/mariadb-${numericVersion}-macos10.14-x86_64.tar.gz`,
-					target: PlatformTarget.macos_amd64
+					target: PlatformTarget.macos_amd64,
+				size: null
 				};
 			}
 		}

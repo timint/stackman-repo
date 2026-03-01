@@ -22,7 +22,8 @@ export async function getReleases(): Promise<Release[]> {
 					era,
 					supported: null,
 					url: `https://fastdl.mongodb.org/windows/mongodb-windows-x86_64-${version}.zip`,
-					target: PlatformTarget.windows_amd64
+					target: PlatformTarget.windows_amd64,
+				size: null
 				};
 			}
 		}

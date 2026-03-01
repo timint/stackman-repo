@@ -24,7 +24,8 @@ export async function getReleases(): Promise<Release[]> {
 				era,
 				supported: null,
 				url: `https://github.com/caddyserver/caddy/releases/download/v${version}/caddy_${version}_linux_amd64.tar.gz`,
-				target: PlatformTarget.linux_amd64
+				target: PlatformTarget.linux_amd64,
+				size: null
 			};
 		}
 	}

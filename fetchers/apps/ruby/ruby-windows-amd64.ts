@@ -30,7 +30,8 @@ export async function getReleases(): Promise<Release[]> {
 				era,
 				supported: null,
 				url: `https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-${version}-1/rubyinstaller-devkit-${version}-1-x64.zip`,
-				target: PlatformTarget.windows_amd64
+				target: PlatformTarget.windows_amd64,
+				size: null
 			};
 		}
 	}

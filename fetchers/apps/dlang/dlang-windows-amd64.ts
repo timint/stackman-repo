@@ -22,7 +22,8 @@ export async function getReleases(): Promise<Release[]> {
 				era,
 				supported: null,
 				url: `https://github.com/dlang/dmd/releases/download/v${version}/dmd.stable.windows.7z`,
-				target: PlatformTarget.windows_amd64
+				target: PlatformTarget.windows_amd64,
+				size: null
 			};
 		}
 	}

@@ -32,7 +32,8 @@ export async function getReleases(): Promise<Release[]> {
 				era,
 				supported: null,
 				url: `https://dev.mysql.com/get/Downloads/MySQL-${major}.${minor}/mysql-${version}-linux-glibc2.28-x86_64.tar.xz`,
-				target: PlatformTarget.linux_amd64
+				target: PlatformTarget.linux_amd64,
+				size: null
 			};
 		}
 	}

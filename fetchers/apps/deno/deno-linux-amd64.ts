@@ -26,7 +26,8 @@ export async function getReleases(): Promise<Release[]> {
 				era,
 				supported: null,
 				url: release.assets.find((asset: any) => asset.name === 'deno-x86_64-unknown-linux-gnu.zip')?.browser_download_url || '',
-				target: PlatformTarget.linux_amd64
+				target: PlatformTarget.linux_amd64,
+				size: null
 			};
 		}
 	}

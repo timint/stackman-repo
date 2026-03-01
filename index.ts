@@ -92,7 +92,7 @@ async function loadFeeds(feedsDir: string): Record<Platform, Record<string, any>
 
 async function validateUrls(results: Record<string, any>): Promise<void> {
 	for (const [key, releases] of Object.entries(results)) {
-		for (const release of releases ?? []) {
+		for (const [key2, release] of Object.entries(releases) ?? []) {
 			try {
 
 				if (!release.url || !release.target) {
@@ -108,6 +108,15 @@ async function validateUrls(results: Record<string, any>): Promise<void> {
 				// If status is not 200 OK
 				if (res.status !== 200) {
 					throw new Error(`${release.url}: ${res.status} ${res.statusText}`);
+				}
+
+				if (!release.size || release.size <= 0) {
+					const contentLength = res.headers.get('content-length');
+					if (contentLength) {
+						release.size = parseInt(contentLength, 10);
+					} else {
+						console.warn(`⚠️  ${release.id} (${release.target}): No content-length header`);
+					}
 				}
 
 				// If content type is not an archive
@@ -161,7 +170,11 @@ export async function generateFeeds(filterPattern?: string): Promise<Record<stri
 		try {
 			results[name] = await fn();
 			success++;
-			console.log(`✅ ${name} [${Date.now() - start}ms] ${results[name].length} releases`);
+			if (results[name].length) {
+				console.log(`✅ ${name} [${Date.now() - start}ms] ${results[name].length} releases`);
+			} else {
+				console.log(`⚠️ ${name} [${Date.now() - start}ms] No releases found`);
+			}
 		} catch (e) {
 			results[name] = [];
 			console.log(`❌ ${name} [${Date.now() - start}ms] ${(e as Error).message}`);

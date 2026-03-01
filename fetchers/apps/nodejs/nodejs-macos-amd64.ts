@@ -24,7 +24,8 @@ export async function getReleases(): Promise<Release[]> {
 				era,
 				supported: null,
 				url: `https://nodejs.org/dist/v${version}/node-v${version}-darwin-x64.tar.gz`,
-				target: PlatformTarget.macos_amd64
+				target: PlatformTarget.macos_amd64,
+				size: null
 			};
 		}
 	}

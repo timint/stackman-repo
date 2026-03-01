@@ -24,7 +24,8 @@ export async function getReleases(): Promise<Release[]> {
 				era,
 				supported: null,
 				url: linuxAmd64 ? `https://go.dev/dl/${linuxAmd64}` : '',
-				target: PlatformTarget.linux_amd64
+				target: PlatformTarget.linux_amd64,
+				size: null
 			};
 		}
 	}

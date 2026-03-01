@@ -25,7 +25,8 @@ export async function getReleases(): Promise<Release[]> {
 				era,
 				supported: null,
 				url: `https://github.com/JetBrains/kotlin/releases/download/v${version}/kotlin-compiler-${version}.zip`,
-				target: PlatformTarget.windows_amd64
+				target: PlatformTarget.windows_amd64,
+				size: null
 			};
 		}
 	}

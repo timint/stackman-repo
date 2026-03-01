@@ -39,7 +39,8 @@ export async function getReleases(): Promise<Release[]> {
 				era,
 				supported: null,
 				url: url,
-				target: PlatformTarget.linux_amd64
+				target: PlatformTarget.linux_amd64,
+				size: null
 			};
 		}
 	}

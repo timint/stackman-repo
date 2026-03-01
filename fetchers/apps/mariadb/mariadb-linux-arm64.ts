@@ -38,7 +38,8 @@ export async function getReleases(): Promise<Release[]> {
 					era,
 					supported: null,
 					url: `https://downloads.mariadb.org/f/mariadb-${numericVersion}/bintar-linux-systemd-aarch64/mariadb-${numericVersion}-linux-systemd-aarch64.tar.gz`,
-					target: PlatformTarget.linux_arm64
+					target: PlatformTarget.linux_arm64,
+				size: null
 				};
 			}
 		}

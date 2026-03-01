@@ -14,4 +14,5 @@ export interface Release {
 	supported: boolean|null
 	url: string
 	target: PlatformTarget
+	size: number|null
 }

@@ -26,7 +26,8 @@ export async function getReleases(): Promise<Release[]> {
 				era,
 				supported: null,
 				url: release.assets.find((asset: any) => asset.name === 'bun-linux-aarch64.zip')?.browser_download_url || '',
-				target: PlatformTarget.linux_arm64
+				target: PlatformTarget.linux_arm64,
+				size: null
 			};
 		}
 	}

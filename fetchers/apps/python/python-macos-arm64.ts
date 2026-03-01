@@ -46,7 +46,8 @@ export async function getReleases(): Promise<Release[]> {
 				era,
 				supported: null,
 				url: tgzUrl,
-				target: PlatformTarget.macos_arm64
+				target: PlatformTarget.macos_arm64,
+				size: null
 			};
 		}
 	}

@@ -81,20 +81,6 @@ This will:
 3. Sort results alphabetically
 4. Write the consolidated feed to `public/apps/*.json`
 
-### Development Mode
-
-```bash
-# Watch mode for development
-bun run dev
-```
-
-### Run Tests
-
-```bash
-# Run the test suite
-bun test
-```
-
 ## Project Structure
 
 ```
@@ -103,13 +89,15 @@ stackman-repo/
 │   └── apps/                           # Individual application fetchers
 │       ├── apache/                     # Apache HTTP Server fetchers
 │       │   ├── apache-linux-amd64.ts   # Platform-specific fetcher
+│       │   ├── apache-macos-arm64.ts   # Platform-specific fetcher
 │       │   ├── apache-windows-amd64.ts # Platform-specific fetcher
 │       │   └── ...
 │       └── ...                         # Other applications
 ├── public/                             # Generated output
-│   └── apps/                           # Unified releases feed
-│       ├── linux-arm64.json            # Unified releases feed for all apps on ARM64
-│       ├── windows-amd64.json          # Unified releases feed for all apps on Windows AMD64
+│   └── apps/                           # Generated releases feeds
+│       ├── linux-arm64.json            # Generated releases for all apps on Linux ARM64
+│       ├── macos-arm64.json            # Generated releases for all apps on macOS ARM64
+│       ├── windows-amd64.json          # Generated releases for all apps on Windows AMD64
 │       └── ...
 ├── tests/                              # Test files
 │   └── index.test.js                   # Integration tests

@@ -38,7 +38,8 @@ export async function getReleases(): Promise<Release[]> {
 					era,
 					supported: null,
 					url: `https://downloads.mariadb.org/f/mariadb-${numericVersion}/winx64-packages/mariadb-${numericVersion}-winx64.zip`,
-					target: PlatformTarget.windows_amd64
+					target: PlatformTarget.windows_amd64,
+				size: null
 				};
 			}
 		}

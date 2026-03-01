@@ -26,7 +26,8 @@ export async function getReleases(): Promise<Release[]> {
 				era,
 				supported: null,
 				url: release.assets.find((asset: any) => asset.name === 'bun-darwin-x64.zip')?.browser_download_url || '',
-				target: PlatformTarget.macos_amd64
+				target: PlatformTarget.macos_amd64,
+				size: null
 			};
 		}
 	}

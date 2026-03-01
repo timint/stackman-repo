@@ -1,21 +1,19 @@
 import { Release, PlatformTarget } from '../../../types/release';
 
 export async function getReleases(): Promise<Release[]> {
-	const response = await fetch('https://api.github.com/repos/nginx/nginx/releases?per_page=100');
-	if (!response.ok) throw new Error('Failed to fetch Nginx releases from GitHub');
+	const response = await fetch('https://nginx.org/download/');
+	if (!response.ok) throw new Error('Failed to fetch Nginx releases from nginx.org');
 
-	const data = await response.json() as Array<{ tag_name: string; prerelease: boolean; assets: Array<{ name: string; browser_download_url: string }> }>;
+	const html = await response.text();
 	const releases: Record<string, Release> = {};
+	// Match nginx-x.y.z.tar.gz
+	const regex = /<a href="nginx-(\d+\.\d+\.\d+)\.tar\.gz">/g;
 
-	for (const release of data) {
-		const version = release.tag_name.replace(/^release-/, '');
-		if (release.prerelease || /preview|rc|alpha|beta|nightly/i.test(version)) continue;
-
+	let match;
+	while ((match = regex.exec(html)) !== null) {
+		const version = match[1];
 		const [major, minor] = version.split('.').map(Number);
 		const era = `${major}.${minor}`;
-
-		const asset = release.assets.find(a => a.name === `nginx-${version}.tar.gz`);
-		if (!asset) continue;
 
 		if (!releases[era] || version.localeCompare(releases[era].version, undefined, { numeric: true }) > 0) {
 			releases[era] = {
@@ -24,13 +22,12 @@ export async function getReleases(): Promise<Release[]> {
 				version,
 				era,
 				supported: null,
-				url: asset.browser_download_url,
-				target: PlatformTarget.linux_amd64
+				url: `https://nginx.org/download/nginx-${version}.tar.gz`,
+				target: PlatformTarget.linux_amd64,
+				size: null,
 			};
 		}
 	}
 
-	const sortedReleases = Object.values(releases).sort((a, b) => b.era.localeCompare(a.era, undefined, { numeric: true }));
-
-	return sortedReleases;
+	return Object.values(releases).sort((a, b) => b.era.localeCompare(a.era, undefined, { numeric: true }));
 }

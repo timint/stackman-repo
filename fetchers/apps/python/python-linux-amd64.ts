@@ -46,7 +46,8 @@ export async function getReleases(): Promise<Release[]> {
 				era,
 				supported: null,
 				url: tgzUrl,
-				target: PlatformTarget.linux_amd64
+				target: PlatformTarget.linux_amd64,
+				size: null
 			};
 		}
 	}

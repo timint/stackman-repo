@@ -22,7 +22,8 @@ export async function getReleases(): Promise<Release[]> {
 					era,
 					supported: null,
 					url: `https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-ubuntu2204-${version}.tgz`,
-					target: PlatformTarget.linux_amd64
+					target: PlatformTarget.linux_amd64,
+				size: null
 				};
 			}
 		}

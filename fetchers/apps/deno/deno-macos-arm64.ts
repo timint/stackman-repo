@@ -26,7 +26,8 @@ export async function getReleases(): Promise<Release[]> {
 				era,
 				supported: null,
 				url: release.assets.find((asset: any) => asset.name === 'deno-aarch64-apple-darwin.zip')?.browser_download_url || '',
-				target: PlatformTarget.macos_arm64
+				target: PlatformTarget.macos_arm64,
+				size: null
 			};
 		}
 	}

@@ -24,7 +24,8 @@ export async function getReleases(): Promise<Release[]> {
 				era,
 				supported: null,
 				url: macAmd64 ? `https://go.dev/dl/${macAmd64}` : '',
-				target: PlatformTarget.macos_amd64
+				target: PlatformTarget.macos_amd64,
+				size: null
 			};
 		}
 	}

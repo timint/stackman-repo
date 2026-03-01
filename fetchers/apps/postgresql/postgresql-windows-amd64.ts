@@ -21,7 +21,8 @@ export async function getReleases(): Promise<Release[]> {
 				era,
 				supported: entry.supported || null,
 				url: `https://get.enterprisedb.com/postgresql/postgresql-${major}-windows-x64-binaries.zip`,
-				target: PlatformTarget.windows_amd64
+				target: PlatformTarget.windows_amd64,
+				size: null
 			};
 		}
 	}

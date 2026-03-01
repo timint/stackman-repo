@@ -29,7 +29,8 @@ export async function getReleases(): Promise<Release[]> {
         era,
         supported: null,
         url: `https://github.com/dlang/dmd/releases/download/v${version}/ldc2-aarch64-linux.tar.xz`,
-        target: PlatformTarget.linux_arm64
+        target: PlatformTarget.linux_arm64,
+				size: null
       };
     }
   }

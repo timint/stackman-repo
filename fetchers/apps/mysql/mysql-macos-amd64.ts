@@ -32,7 +32,8 @@ export async function getReleases(): Promise<Release[]> {
 				era,
 				supported: null,
 				url: `https://dev.mysql.com/get/Downloads/MySQL-${major}.${minor}/mysql-${version}-macos13-x86_64.tar.gz`,
-				target: PlatformTarget.macos_amd64
+				target: PlatformTarget.macos_amd64,
+				size: null
 			};
 		}
 	}

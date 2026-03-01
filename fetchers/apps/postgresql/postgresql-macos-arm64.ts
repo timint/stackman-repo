@@ -23,7 +23,8 @@ export async function getReleases(): Promise<Release[]> {
 				era,
 				supported: entry.supported || null,
 				url: `https://ftp.postgresql.org/pub/source/v${major}.0/postgresql-${major}.0.tar.gz`,
-				target: PlatformTarget.macos_arm64
+				target: PlatformTarget.macos_arm64,
+				size: null
 			};
 		}
 	}
