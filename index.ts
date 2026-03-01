@@ -112,7 +112,7 @@ async function validateUrls(results: Record<string, any>): Promise<void> {
 
 				// If content type is not an archive
 				const contentType = res.headers.get('content-type');
-				if (!contentType || !contentType.match(/^application\/(x-(7z|zip)-compressed|x-bzip2|x-gzip|x-lzip|x-tar|x-xz|zip|octet-stream)$/)) {
+				if (!contentType || !contentType.match(/^application\/(x-(7z|zip)-compressed|x-bzip2|x-gzip|x-lzip|x-tar|x-xz|g?zip|octet-stream)$/)) {
 					throw new Error(`Package is not an archive: ${release.url}: (Content-Type: ${contentType})`);
 				}
 

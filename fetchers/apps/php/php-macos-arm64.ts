@@ -1,18 +1,32 @@
 import { Release, PlatformTarget } from '../../../types/release';
 
-const PHP_VERSION = /php-(\d+\.\d+\.\d+)-Win32-[^-]+-x64\.zip/gi;
+interface StaticPHPFile {
+	full_path: string;
+	name: string;
+	size: string;
+	last_modified: string;
+	download_count: number;
+	is_dir: boolean;
+	is_parent: boolean;
+}
+
+const PHP_MACOS_ARM64_FILE = /^php-(\d+\.\d+\.\d+)-cli-macos-aarch64\.tar\.gz$/;
 
 export async function getReleases(): Promise<Release[]> {
 	const byEra = new Map<string, { version: string; url: string }>();
-	const base = 'https://windows.php.net/downloads/releases/archives/';
-	const res = await fetch(base);
-	if (!res.ok) throw new Error('Failed to fetch PHP Windows archives');
-	const body = await res.text();
+	const apiUrl = 'https://dl.static-php.dev/static-php-cli/common/?format=json';
+	const res = await fetch(apiUrl);
+	if (!res.ok) throw new Error('Failed to fetch static-php-cli releases');
 
-	PHP_VERSION.lastIndex = 0;
-	let m: RegExpExecArray | null;
-	while ((m = PHP_VERSION.exec(body)) !== null) {
-		const version = m[1];
+	const files: StaticPHPFile[] = await res.json();
+
+	for (const file of files) {
+		if (file.is_dir || file.is_parent) continue;
+
+		const match = file.name.match(PHP_MACOS_ARM64_FILE);
+		if (!match) continue;
+
+		const version = match[1];
 		const [major, minor] = version.split('.');
 		if (!major || minor === undefined) continue;
 
@@ -20,10 +34,10 @@ export async function getReleases(): Promise<Release[]> {
 		const minorNum = parseInt(minor, 10);
 		if (Number.isNaN(majorNum) || Number.isNaN(minorNum)) continue;
 
-		if (majorNum < 5 || (majorNum === 5 && minorNum < 6)) continue;
+		if (majorNum < 8) continue;
 
 		const era = `${majorNum}.${minorNum}`;
-		const url = `https://www.php.net/distributions/php-${version}.tar.gz`;
+		const url = `https://dl.static-php.dev${file.full_path}`;
 
 		const existing = byEra.get(era);
 		if (!existing || version.localeCompare(existing.version, undefined, { numeric: true }) > 0) {
