@@ -190,6 +190,18 @@
 		}
 	],
 	"kotlin": [],
+	"lua": [
+		{
+			"id": "lua-5.2",
+			"name": "Lua",
+			"version": "5.2.4",
+			"era": "5.2",
+			"supported": null,
+			"url": "https://sourceforge.net/projects/luabinaries/files/5.2.4/Tools Executables/lua-5.2.4_MacOS1011_bin.tar.gz/download",
+			"target": "macos-amd64",
+			"size": 161645
+		}
+	],
 	"mariadb": [
 		{
 			"id": "mariadb-12.2",
@@ -1700,6 +1712,88 @@
 			"url": "https://cache.ruby-lang.org/pub/ruby/1.6/ruby-1.6.7.tar.gz",
 			"target": "macos-amd64",
 			"size": 998151
+		}
+	],
+	"rust": [
+		{
+			"id": "rust-1.94",
+			"name": "Rust",
+			"version": "1.94.0",
+			"era": "1.94",
+			"supported": null,
+			"url": "https://static.rust-lang.org/dist/rust-1.94.0-x86_64-apple-darwin.tar.gz",
+			"target": "macos-amd64",
+			"size": 334558567
+		},
+		{
+			"id": "rust-1.93",
+			"name": "Rust",
+			"version": "1.93.1",
+			"era": "1.93",
+			"supported": null,
+			"url": "https://static.rust-lang.org/dist/rust-1.93.1-x86_64-apple-darwin.tar.gz",
+			"target": "macos-amd64",
+			"size": 335166016
+		},
+		{
+			"id": "rust-1.92",
+			"name": "Rust",
+			"version": "1.92.0",
+			"era": "1.92",
+			"supported": null,
+			"url": "https://static.rust-lang.org/dist/rust-1.92.0-x86_64-apple-darwin.tar.gz",
+			"target": "macos-amd64",
+			"size": 335062354
+		},
+		{
+			"id": "rust-1.91",
+			"name": "Rust",
+			"version": "1.91.1",
+			"era": "1.91",
+			"supported": null,
+			"url": "https://static.rust-lang.org/dist/rust-1.91.1-x86_64-apple-darwin.tar.gz",
+			"target": "macos-amd64",
+			"size": 333403912
+		},
+		{
+			"id": "rust-1.90",
+			"name": "Rust",
+			"version": "1.90.0",
+			"era": "1.90",
+			"supported": null,
+			"url": "https://static.rust-lang.org/dist/rust-1.90.0-x86_64-apple-darwin.tar.gz",
+			"target": "macos-amd64",
+			"size": 323309238
+		},
+		{
+			"id": "rust-1.89",
+			"name": "Rust",
+			"version": "1.89.0",
+			"era": "1.89",
+			"supported": null,
+			"url": "https://static.rust-lang.org/dist/rust-1.89.0-x86_64-apple-darwin.tar.gz",
+			"target": "macos-amd64",
+			"size": 385880921
+		},
+		{
+			"id": "rust-1.88",
+			"name": "Rust",
+			"version": "1.88.0",
+			"era": "1.88",
+			"supported": null,
+			"url": "https://static.rust-lang.org/dist/rust-1.88.0-x86_64-apple-darwin.tar.gz",
+			"target": "macos-amd64",
+			"size": 384165895
+		},
+		{
+			"id": "rust-1.87",
+			"name": "Rust",
+			"version": "1.87.0",
+			"era": "1.87",
+			"supported": null,
+			"url": "https://static.rust-lang.org/dist/rust-1.87.0-x86_64-apple-darwin.tar.gz",
+			"target": "macos-amd64",
+			"size": 386517789
 		}
 	],
 	"scala": [],

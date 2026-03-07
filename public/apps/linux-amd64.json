@@ -190,6 +190,48 @@
 		}
 	],
 	"kotlin": [],
+	"lua": [
+		{
+			"id": "lua-5.5",
+			"name": "Lua",
+			"version": "5.5.0",
+			"era": "5.5",
+			"supported": null,
+			"url": "https://sourceforge.net/projects/luabinaries/files/5.5.0/Tools Executables/lua-5.5.0_Linux54_64_bin.tar.gz/download",
+			"target": "linux-amd64",
+			"size": null
+		},
+		{
+			"id": "lua-5.4",
+			"name": "Lua",
+			"version": "5.4.8",
+			"era": "5.4",
+			"supported": null,
+			"url": "https://sourceforge.net/projects/luabinaries/files/5.4.8/Tools Executables/lua-5.4.8_Linux54_64_bin.tar.gz/download",
+			"target": "linux-amd64",
+			"size": null
+		},
+		{
+			"id": "lua-5.3",
+			"name": "Lua",
+			"version": "5.3.6",
+			"era": "5.3",
+			"supported": null,
+			"url": "https://sourceforge.net/projects/luabinaries/files/5.3.6/Tools Executables/lua-5.3.6_Linux319_64_bin.tar.gz/download",
+			"target": "linux-amd64",
+			"size": 197894
+		},
+		{
+			"id": "lua-5.2",
+			"name": "Lua",
+			"version": "5.2.4",
+			"era": "5.2",
+			"supported": null,
+			"url": "https://sourceforge.net/projects/luabinaries/files/5.2.4/Tools Executables/lua-5.2.4_Linux319_64_bin.tar.gz/download",
+			"target": "linux-amd64",
+			"size": 177538
+		}
+	],
 	"mariadb": [
 		{
 			"id": "mariadb-12.2",
@@ -1700,6 +1742,88 @@
 			"url": "https://cache.ruby-lang.org/pub/ruby/1.6/ruby-1.6.7.tar.gz",
 			"target": "linux-amd64",
 			"size": 998151
+		}
+	],
+	"rust": [
+		{
+			"id": "rust-1.94",
+			"name": "Rust",
+			"version": "1.94.0",
+			"era": "1.94",
+			"supported": null,
+			"url": "https://static.rust-lang.org/dist/rust-1.94.0-x86_64-unknown-linux-gnu.tar.gz",
+			"target": "linux-amd64",
+			"size": 369098149
+		},
+		{
+			"id": "rust-1.93",
+			"name": "Rust",
+			"version": "1.93.1",
+			"era": "1.93",
+			"supported": null,
+			"url": "https://static.rust-lang.org/dist/rust-1.93.1-x86_64-unknown-linux-gnu.tar.gz",
+			"target": "linux-amd64",
+			"size": 374862018
+		},
+		{
+			"id": "rust-1.92",
+			"name": "Rust",
+			"version": "1.92.0",
+			"era": "1.92",
+			"supported": null,
+			"url": "https://static.rust-lang.org/dist/rust-1.92.0-x86_64-unknown-linux-gnu.tar.gz",
+			"target": "linux-amd64",
+			"size": 371265260
+		},
+		{
+			"id": "rust-1.91",
+			"name": "Rust",
+			"version": "1.91.1",
+			"era": "1.91",
+			"supported": null,
+			"url": "https://static.rust-lang.org/dist/rust-1.91.1-x86_64-unknown-linux-gnu.tar.gz",
+			"target": "linux-amd64",
+			"size": 371298415
+		},
+		{
+			"id": "rust-1.90",
+			"name": "Rust",
+			"version": "1.90.0",
+			"era": "1.90",
+			"supported": null,
+			"url": "https://static.rust-lang.org/dist/rust-1.90.0-x86_64-unknown-linux-gnu.tar.gz",
+			"target": "linux-amd64",
+			"size": 365533255
+		},
+		{
+			"id": "rust-1.89",
+			"name": "Rust",
+			"version": "1.89.0",
+			"era": "1.89",
+			"supported": null,
+			"url": "https://static.rust-lang.org/dist/rust-1.89.0-x86_64-unknown-linux-gnu.tar.gz",
+			"target": "linux-amd64",
+			"size": 362760913
+		},
+		{
+			"id": "rust-1.88",
+			"name": "Rust",
+			"version": "1.88.0",
+			"era": "1.88",
+			"supported": null,
+			"url": "https://static.rust-lang.org/dist/rust-1.88.0-x86_64-unknown-linux-gnu.tar.gz",
+			"target": "linux-amd64",
+			"size": 355692289
+		},
+		{
+			"id": "rust-1.87",
+			"name": "Rust",
+			"version": "1.87.0",
+			"era": "1.87",
+			"supported": null,
+			"url": "https://static.rust-lang.org/dist/rust-1.87.0-x86_64-unknown-linux-gnu.tar.gz",
+			"target": "linux-amd64",
+			"size": 359529223
 		}
 	],
 	"scala": [],

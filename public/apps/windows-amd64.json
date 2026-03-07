@@ -160,6 +160,48 @@
 		}
 	],
 	"kotlin": [],
+	"lua": [
+		{
+			"id": "lua-5.5",
+			"name": "Lua",
+			"version": "5.5.0",
+			"era": "5.5",
+			"supported": null,
+			"url": "https://sourceforge.net/projects/luabinaries/files/5.5.0/Tools Executables/lua-5.5.0_Win64_bin.zip/download",
+			"target": "windows-amd64",
+			"size": 391146
+		},
+		{
+			"id": "lua-5.4",
+			"name": "Lua",
+			"version": "5.4.8",
+			"era": "5.4",
+			"supported": null,
+			"url": "https://sourceforge.net/projects/luabinaries/files/5.4.8/Tools Executables/lua-5.4.8_Win64_bin.zip/download",
+			"target": "windows-amd64",
+			"size": 377674
+		},
+		{
+			"id": "lua-5.3",
+			"name": "Lua",
+			"version": "5.3.6",
+			"era": "5.3",
+			"supported": null,
+			"url": "https://sourceforge.net/projects/luabinaries/files/5.3.6/Tools Executables/lua-5.3.6_Win64_bin.zip/download",
+			"target": "windows-amd64",
+			"size": 347700
+		},
+		{
+			"id": "lua-5.2",
+			"name": "Lua",
+			"version": "5.2.4",
+			"era": "5.2",
+			"supported": null,
+			"url": "https://sourceforge.net/projects/luabinaries/files/5.2.4/Tools Executables/lua-5.2.4_Win64_bin.zip/download",
+			"target": "windows-amd64",
+			"size": 267781
+		}
+	],
 	"mariadb": [
 		{
 			"id": "mariadb-12.2",
@@ -1116,6 +1158,88 @@
 			"supported": null,
 			"url": "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-1.6.7-1/rubyinstaller-devkit-1.6.7-1-x64.zip",
 			"target": "windows-amd64"
+		}
+	],
+	"rust": [
+		{
+			"id": "rust-1.94",
+			"name": "Rust",
+			"version": "1.94.0",
+			"era": "1.94",
+			"supported": null,
+			"url": "https://static.rust-lang.org/dist/rust-1.94.0-x86_64-pc-windows-msvc.tar.gz",
+			"target": "windows-amd64",
+			"size": 385275601
+		},
+		{
+			"id": "rust-1.93",
+			"name": "Rust",
+			"version": "1.93.1",
+			"era": "1.93",
+			"supported": null,
+			"url": "https://static.rust-lang.org/dist/rust-1.93.1-x86_64-pc-windows-msvc.tar.gz",
+			"target": "windows-amd64",
+			"size": 395038527
+		},
+		{
+			"id": "rust-1.92",
+			"name": "Rust",
+			"version": "1.92.0",
+			"era": "1.92",
+			"supported": null,
+			"url": "https://static.rust-lang.org/dist/rust-1.92.0-x86_64-pc-windows-msvc.tar.gz",
+			"target": "windows-amd64",
+			"size": 393450842
+		},
+		{
+			"id": "rust-1.91",
+			"name": "Rust",
+			"version": "1.91.1",
+			"era": "1.91",
+			"supported": null,
+			"url": "https://static.rust-lang.org/dist/rust-1.91.1-x86_64-pc-windows-msvc.tar.gz",
+			"target": "windows-amd64",
+			"size": 393044548
+		},
+		{
+			"id": "rust-1.90",
+			"name": "Rust",
+			"version": "1.90.0",
+			"era": "1.90",
+			"supported": null,
+			"url": "https://static.rust-lang.org/dist/rust-1.90.0-x86_64-pc-windows-msvc.tar.gz",
+			"target": "windows-amd64",
+			"size": 385662646
+		},
+		{
+			"id": "rust-1.89",
+			"name": "Rust",
+			"version": "1.89.0",
+			"era": "1.89",
+			"supported": null,
+			"url": "https://static.rust-lang.org/dist/rust-1.89.0-x86_64-pc-windows-msvc.tar.gz",
+			"target": "windows-amd64",
+			"size": 382991238
+		},
+		{
+			"id": "rust-1.88",
+			"name": "Rust",
+			"version": "1.88.0",
+			"era": "1.88",
+			"supported": null,
+			"url": "https://static.rust-lang.org/dist/rust-1.88.0-x86_64-pc-windows-msvc.tar.gz",
+			"target": "windows-amd64",
+			"size": 382037470
+		},
+		{
+			"id": "rust-1.87",
+			"name": "Rust",
+			"version": "1.87.0",
+			"era": "1.87",
+			"supported": null,
+			"url": "https://static.rust-lang.org/dist/rust-1.87.0-x86_64-pc-windows-msvc.tar.gz",
+			"target": "windows-amd64",
+			"size": 379063379
 		}
 	],
 	"scala": [],

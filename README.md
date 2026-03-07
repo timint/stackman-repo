@@ -168,6 +168,7 @@ export async function getReleases(): Promise<Release[]> {
     supported: true,
     url: release.download_url,
     target: 'linux-arm64',
+    size: 1234567
   }));
 }
 ```

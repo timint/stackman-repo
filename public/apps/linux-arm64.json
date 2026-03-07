@@ -190,6 +190,7 @@
 		}
 	],
 	"kotlin": [],
+	"lua": [],
 	"mariadb": [
 		{
 			"id": "mariadb-12.2",
@@ -1660,6 +1661,88 @@
 			"url": "https://cache.ruby-lang.org/pub/ruby/1.6/ruby-1.6.7.tar.gz",
 			"target": "linux-arm64",
 			"size": 998151
+		}
+	],
+	"rust": [
+		{
+			"id": "rust-1.94",
+			"name": "Rust",
+			"version": "1.94.0",
+			"era": "1.94",
+			"supported": null,
+			"url": "https://static.rust-lang.org/dist/rust-1.94.0-aarch64-unknown-linux-gnu.tar.gz",
+			"target": "linux-arm64",
+			"size": 318862763
+		},
+		{
+			"id": "rust-1.93",
+			"name": "Rust",
+			"version": "1.93.1",
+			"era": "1.93",
+			"supported": null,
+			"url": "https://static.rust-lang.org/dist/rust-1.93.1-aarch64-unknown-linux-gnu.tar.gz",
+			"target": "linux-arm64",
+			"size": 325195152
+		},
+		{
+			"id": "rust-1.92",
+			"name": "Rust",
+			"version": "1.92.0",
+			"era": "1.92",
+			"supported": null,
+			"url": "https://static.rust-lang.org/dist/rust-1.92.0-aarch64-unknown-linux-gnu.tar.gz",
+			"target": "linux-arm64",
+			"size": 323227370
+		},
+		{
+			"id": "rust-1.91",
+			"name": "Rust",
+			"version": "1.91.1",
+			"era": "1.91",
+			"supported": null,
+			"url": "https://static.rust-lang.org/dist/rust-1.91.1-aarch64-unknown-linux-gnu.tar.gz",
+			"target": "linux-arm64",
+			"size": 322697438
+		},
+		{
+			"id": "rust-1.90",
+			"name": "Rust",
+			"version": "1.90.0",
+			"era": "1.90",
+			"supported": null,
+			"url": "https://static.rust-lang.org/dist/rust-1.90.0-aarch64-unknown-linux-gnu.tar.gz",
+			"target": "linux-arm64",
+			"size": 317560788
+		},
+		{
+			"id": "rust-1.89",
+			"name": "Rust",
+			"version": "1.89.0",
+			"era": "1.89",
+			"supported": null,
+			"url": "https://static.rust-lang.org/dist/rust-1.89.0-aarch64-unknown-linux-gnu.tar.gz",
+			"target": "linux-arm64",
+			"size": 314865943
+		},
+		{
+			"id": "rust-1.88",
+			"name": "Rust",
+			"version": "1.88.0",
+			"era": "1.88",
+			"supported": null,
+			"url": "https://static.rust-lang.org/dist/rust-1.88.0-aarch64-unknown-linux-gnu.tar.gz",
+			"target": "linux-arm64",
+			"size": 311065166
+		},
+		{
+			"id": "rust-1.87",
+			"name": "Rust",
+			"version": "1.87.0",
+			"era": "1.87",
+			"supported": null,
+			"url": "https://static.rust-lang.org/dist/rust-1.87.0-aarch64-unknown-linux-gnu.tar.gz",
+			"target": "linux-arm64",
+			"size": 314521673
 		}
 	],
 	"scala": [],
