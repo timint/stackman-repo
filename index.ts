@@ -1,11 +1,30 @@
+import pkg from './package.json';
+import { Release } from './types/release';
 import { readdir, readFile } from 'fs/promises';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
-import { Release } from './types/release';
 
-const PLATFORMS = ['linux-amd64', 'linux-arm64', 'macos-amd64', 'macos-arm64', 'windows-amd64'] as const;
+const originalFetch = globalThis.fetch;
+globalThis.fetch = Object.assign(
+	async (input, init) => {
+		const headers = new Headers(init?.headers);
+		if (!headers.has('User-Agent')) {
+			headers.set('User-Agent', `StackManBot/${pkg.version} (+${pkg.repository.url})`);
+		}
+		return originalFetch(input, { ...init, headers });
+	},
+	{ preconnect: originalFetch.preconnect }
+);
+
+const PLATFORMS = [
+	'linux-amd64',
+	'linux-arm64',
+	'macos-amd64',
+	'macos-arm64',
+	'windows-amd64'
+] as const;
+
 type Platform = typeof PLATFORMS[number];
-
 type ReleaseFetcher = () => Promise<Release[]>;
 
 const appsDir = join(dirname(fileURLToPath(import.meta.url)), 'fetchers', 'apps');
@@ -51,9 +70,9 @@ function matchesWildcard(pattern: string, text: string): boolean {
 	return new RegExp(`.*${pattern.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}.*`, 'i').test(text);
 }
 
-function getFilterPattern(): string | null {
+function getFilterPattern(): string | undefined {
 	const args = process.argv.slice(2);
-	return args.length ? args[args.length - 1] : null;
+	return args.length ? args[args.length - 1] : undefined;
 }
 
 function getPlatform(key: string): Platform | null {
@@ -76,7 +95,7 @@ function mapToPlatformFeeds(results: Record<string, any>): Record<Platform, Reco
 	return feeds;
 }
 
-async function loadFeeds(feedsDir: string): Record<Platform, Record<string, any>> {
+async function loadFeeds(feedsDir: string): Promise<Record<Platform, Record<string, any>>> {
 	const feeds: Record<Platform, Record<string, any>> = {} as any;
 
 	await Promise.all(PLATFORMS.map(async platform => {
@@ -92,7 +111,7 @@ async function loadFeeds(feedsDir: string): Record<Platform, Record<string, any>
 
 async function validateUrls(results: Record<string, any>): Promise<void> {
 	for (const [key, releases] of Object.entries(results)) {
-		for (const [key2, release] of Object.entries(releases) ?? []) {
+		for (const release of (releases as Release[]) ?? []) {
 			try {
 
 				if (!release.url || !release.target) {
@@ -141,7 +160,7 @@ await (async function loadFetchers() {
 	for (const appName of appNames) {
 		const platformFiles = await readdir(join(appsDir, appName));
 		for (const file of platformFiles.filter(f => f.endsWith('.ts'))) {
-			const module = await import(`./fetchers/apps/${appName}/${file}`);
+			const module = await import(join(appsDir, appName, file));
 			if (module.getReleases) {
 				const platform = file.replace('.ts', '').replace(`${appName}-`, '');
 				releaseFetchers[`${appName}-${platform}`] = module.getReleases;

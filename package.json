@@ -1,7 +1,12 @@
 {
   "name": "stackman-repo",
+	"productName": "StackMan Repository",
   "version": "1.0.0",
   "description": "Generates platform specific feeds (apps/*.json) of available versions for apache, php, etc.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/timint/stackman-repo"
+  },
   "main": "index.ts",
   "engines": {
     "bun": ">=1.3.0"
