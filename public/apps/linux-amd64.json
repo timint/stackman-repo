@@ -41,42 +41,277 @@
 			"size": 6473287
 		}
 	],
-	"bun": [],
-	"caddy": [],
-	"deno": [],
+	"bun": [
+		{
+			"id": "bun-1.3",
+			"name": "Bun",
+			"version": "1.3.13",
+			"era": "1.3",
+			"supported": null,
+			"url": "https://github.com/oven-sh/bun/releases/download/bun-v1.3.13/bun-linux-x64.zip",
+			"target": "linux-amd64",
+			"size": 39125828
+		},
+		{
+			"id": "bun-1.2",
+			"name": "Bun",
+			"version": "1.2.23",
+			"era": "1.2",
+			"supported": null,
+			"url": "https://github.com/oven-sh/bun/releases/download/bun-v1.2.23/bun-linux-x64.zip",
+			"target": "linux-amd64",
+			"size": 39551242
+		},
+		{
+			"id": "bun-1.1",
+			"name": "Bun",
+			"version": "1.1.45",
+			"era": "1.1",
+			"supported": null,
+			"url": "https://github.com/oven-sh/bun/releases/download/bun-v1.1.45/bun-linux-x64.zip",
+			"target": "linux-amd64",
+			"size": 37330346
+		},
+		{
+			"id": "bun-1.0",
+			"name": "Bun",
+			"version": "1.0.36",
+			"era": "1.0",
+			"supported": null,
+			"url": "https://github.com/oven-sh/bun/releases/download/bun-v1.0.36/bun-linux-x64.zip",
+			"target": "linux-amd64",
+			"size": 35361826
+		}
+	],
+	"caddy": [
+		{
+			"id": "caddy-2",
+			"name": "Caddy",
+			"version": "2.11.2",
+			"era": "2",
+			"supported": null,
+			"url": "https://github.com/caddyserver/caddy/releases/download/v2.11.2/caddy_2.11.2_linux_amd64.tar.gz",
+			"target": "linux-amd64",
+			"size": 16945661
+		},
+		{
+			"id": "caddy-1",
+			"name": "Caddy",
+			"version": "1.0.4",
+			"era": "1",
+			"supported": null,
+			"url": "https://github.com/caddyserver/caddy/releases/download/v1.0.4/caddy_1.0.4_linux_amd64.tar.gz",
+			"target": "linux-amd64",
+			"size": null
+		},
+		{
+			"id": "caddy-0",
+			"name": "Caddy",
+			"version": "0.11.5",
+			"era": "0",
+			"supported": null,
+			"url": "https://github.com/caddyserver/caddy/releases/download/v0.11.5/caddy_0.11.5_linux_amd64.tar.gz",
+			"target": "linux-amd64",
+			"size": null
+		}
+	],
+	"deno": [
+		{
+			"id": "deno-2.7",
+			"name": "Deno",
+			"version": "2.7.13",
+			"era": "2.7",
+			"supported": null,
+			"url": "https://github.com/denoland/deno/releases/download/v2.7.13/deno-x86_64-unknown-linux-gnu.zip",
+			"target": "linux-amd64",
+			"size": 50156222
+		},
+		{
+			"id": "deno-2.6",
+			"name": "Deno",
+			"version": "2.6.10",
+			"era": "2.6",
+			"supported": null,
+			"url": "https://github.com/denoland/deno/releases/download/v2.6.10/deno-x86_64-unknown-linux-gnu.zip",
+			"target": "linux-amd64",
+			"size": 47750650
+		},
+		{
+			"id": "deno-2.5",
+			"name": "Deno",
+			"version": "2.5.7",
+			"era": "2.5",
+			"supported": null,
+			"url": "https://github.com/denoland/deno/releases/download/v2.5.7/deno-x86_64-unknown-linux-gnu.zip",
+			"target": "linux-amd64",
+			"size": 45631559
+		},
+		{
+			"id": "deno-2.4",
+			"name": "Deno",
+			"version": "2.4.5",
+			"era": "2.4",
+			"supported": null,
+			"url": "https://github.com/denoland/deno/releases/download/v2.4.5/deno-x86_64-unknown-linux-gnu.zip",
+			"target": "linux-amd64",
+			"size": 44354222
+		},
+		{
+			"id": "deno-2.3",
+			"name": "Deno",
+			"version": "2.3.7",
+			"era": "2.3",
+			"supported": null,
+			"url": "https://github.com/denoland/deno/releases/download/v2.3.7/deno-x86_64-unknown-linux-gnu.zip",
+			"target": "linux-amd64",
+			"size": 43093643
+		},
+		{
+			"id": "deno-2.2",
+			"name": "Deno",
+			"version": "2.2.15",
+			"era": "2.2",
+			"supported": null,
+			"url": "https://github.com/denoland/deno/releases/download/v2.2.15/deno-x86_64-unknown-linux-gnu.zip",
+			"target": "linux-amd64",
+			"size": 41863383
+		},
+		{
+			"id": "deno-2.1",
+			"name": "Deno",
+			"version": "2.1.14",
+			"era": "2.1",
+			"supported": null,
+			"url": "https://github.com/denoland/deno/releases/download/v2.1.14/deno-x86_64-unknown-linux-gnu.zip",
+			"target": "linux-amd64",
+			"size": 45583436
+		},
+		{
+			"id": "deno-2.0",
+			"name": "Deno",
+			"version": "2.0.6",
+			"era": "2.0",
+			"supported": null,
+			"url": "https://github.com/denoland/deno/releases/download/v2.0.6/deno-x86_64-unknown-linux-gnu.zip",
+			"target": "linux-amd64",
+			"size": 49233957
+		},
+		{
+			"id": "deno-1.46",
+			"name": "Deno",
+			"version": "1.46.3",
+			"era": "1.46",
+			"supported": null,
+			"url": "https://github.com/denoland/deno/releases/download/v1.46.3/deno-x86_64-unknown-linux-gnu.zip",
+			"target": "linux-amd64",
+			"size": 49337647
+		},
+		{
+			"id": "deno-1.45",
+			"name": "Deno",
+			"version": "1.45.5",
+			"era": "1.45",
+			"supported": null,
+			"url": "https://github.com/denoland/deno/releases/download/v1.45.5/deno-x86_64-unknown-linux-gnu.zip",
+			"target": "linux-amd64",
+			"size": 47447197
+		},
+		{
+			"id": "deno-1.44",
+			"name": "Deno",
+			"version": "1.44.4",
+			"era": "1.44",
+			"supported": null,
+			"url": "https://github.com/denoland/deno/releases/download/v1.44.4/deno-x86_64-unknown-linux-gnu.zip",
+			"target": "linux-amd64",
+			"size": 47076327
+		}
+	],
 	"dlang": [],
 	"go": [
 		{
 			"id": "go-1.26",
 			"name": "Go",
-			"version": "1.26.0",
+			"version": "1.26.2",
 			"era": "1.26",
 			"supported": null,
-			"url": "https://go.dev/dl/go1.26.0.linux-amd64.tar.gz",
+			"url": "https://go.dev/dl/go1.26.2.linux-amd64.tar.gz",
 			"target": "linux-amd64",
-			"size": 66768540
+			"size": 66798306
 		},
 		{
 			"id": "go-1.25",
 			"name": "Go",
-			"version": "1.25.7",
+			"version": "1.25.9",
 			"era": "1.25",
 			"supported": null,
-			"url": "https://go.dev/dl/go1.25.7.linux-amd64.tar.gz",
+			"url": "https://go.dev/dl/go1.25.9.linux-amd64.tar.gz",
 			"target": "linux-amd64",
-			"size": 59768749
+			"size": 59795542
+		}
+	],
+	"groovy": [
+		{
+			"id": "groovy-5.0",
+			"name": "Groovy",
+			"version": "5.0.5",
+			"era": "5.0",
+			"supported": null,
+			"url": "https://downloads.apache.org/groovy/5.0.5/distribution/apache-groovy-binary-5.0.5.zip",
+			"target": "linux-amd64",
+			"size": 34584616
+		},
+		{
+			"id": "groovy-4.0",
+			"name": "Groovy",
+			"version": "4.0.31",
+			"era": "4.0",
+			"supported": null,
+			"url": "https://downloads.apache.org/groovy/4.0.31/distribution/apache-groovy-binary-4.0.31.zip",
+			"target": "linux-amd64",
+			"size": 30345282
+		},
+		{
+			"id": "groovy-3.0",
+			"name": "Groovy",
+			"version": "3.0.25",
+			"era": "3.0",
+			"supported": null,
+			"url": "https://downloads.apache.org/groovy/3.0.25/distribution/apache-groovy-binary-3.0.25.zip",
+			"target": "linux-amd64",
+			"size": 45048268
+		},
+		{
+			"id": "groovy-2.5",
+			"name": "Groovy",
+			"version": "2.5.23",
+			"era": "2.5",
+			"supported": null,
+			"url": "https://downloads.apache.org/groovy/2.5.23/distribution/apache-groovy-binary-2.5.23.zip",
+			"target": "linux-amd64",
+			"size": 31025690
 		}
 	],
 	"java": [
 		{
+			"id": "java-26",
+			"name": "OpenJDK",
+			"version": "26+35",
+			"era": "26",
+			"supported": null,
+			"url": "https://github.com/adoptium/temurin26-binaries/releases/download/jdk-26%2B35/OpenJDK26U-jdk_x64_linux_hotspot_26_35.tar.gz",
+			"target": "linux-amd64",
+			"size": 144338986
+		},
+		{
 			"id": "java-25",
 			"name": "OpenJDK",
-			"version": "25.0.2+10-LTS",
+			"version": "25.0.3+9-LTS",
 			"era": "25",
 			"supported": null,
-			"url": "https://github.com/adoptium/temurin25-binaries/releases/download/jdk-25.0.2%2B10/OpenJDK25U-jdk_x64_linux_hotspot_25.0.2_10.tar.gz",
+			"url": "https://github.com/adoptium/temurin25-binaries/releases/download/jdk-25.0.3%2B9/OpenJDK25U-jdk_x64_linux_hotspot_25.0.3_9.tar.gz",
 			"target": "linux-amd64",
-			"size": 140949044
+			"size": 141282180
 		},
 		{
 			"id": "java-24",
@@ -111,12 +346,12 @@
 		{
 			"id": "java-21",
 			"name": "OpenJDK",
-			"version": "21.0.10+7-LTS",
+			"version": "21.0.11+10-LTS",
 			"era": "21",
 			"supported": null,
-			"url": "https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.10%2B7/OpenJDK21U-jdk_x64_linux_hotspot_21.0.10_7.tar.gz",
+			"url": "https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.11%2B10/OpenJDK21U-jdk_x64_linux_hotspot_21.0.11_10.tar.gz",
 			"target": "linux-amd64",
-			"size": 207216881
+			"size": 207513939
 		},
 		{
 			"id": "java-20",
@@ -151,12 +386,12 @@
 		{
 			"id": "java-17",
 			"name": "OpenJDK",
-			"version": "17.0.18+8",
+			"version": "17.0.19+10",
 			"era": "17",
 			"supported": null,
-			"url": "https://github.com/adoptium/temurin17-binaries/releases/download/jdk-17.0.18%2B8/OpenJDK17U-jdk_x64_linux_hotspot_17.0.18_8.tar.gz",
+			"url": "https://github.com/adoptium/temurin17-binaries/releases/download/jdk-17.0.19%2B10/OpenJDK17U-jdk_x64_linux_hotspot_17.0.19_10.tar.gz",
 			"target": "linux-amd64",
-			"size": 193062224
+			"size": 193335385
 		},
 		{
 			"id": "java-16",
@@ -189,7 +424,78 @@
 			"size": 103525252
 		}
 	],
-	"kotlin": [],
+	"kotlin": [
+		{
+			"id": "kotlin-2.3",
+			"name": "Kotlin",
+			"version": "2.3.21",
+			"era": "2.3",
+			"supported": null,
+			"url": "https://github.com/JetBrains/kotlin/releases/download/v2.3.21/kotlin-compiler-2.3.21.zip",
+			"target": "linux-amd64",
+			"size": 83084350
+		},
+		{
+			"id": "kotlin-2.2",
+			"name": "Kotlin",
+			"version": "2.2.21",
+			"era": "2.2",
+			"supported": null,
+			"url": "https://github.com/JetBrains/kotlin/releases/download/v2.2.21/kotlin-compiler-2.2.21.zip",
+			"target": "linux-amd64",
+			"size": 78710880
+		},
+		{
+			"id": "kotlin-2.1",
+			"name": "Kotlin",
+			"version": "2.1.21",
+			"era": "2.1",
+			"supported": null,
+			"url": "https://github.com/JetBrains/kotlin/releases/download/v2.1.21/kotlin-compiler-2.1.21.zip",
+			"target": "linux-amd64",
+			"size": 86162444
+		},
+		{
+			"id": "kotlin-2.0",
+			"name": "Kotlin",
+			"version": "2.0.21",
+			"era": "2.0",
+			"supported": null,
+			"url": "https://github.com/JetBrains/kotlin/releases/download/v2.0.21/kotlin-compiler-2.0.21.zip",
+			"target": "linux-amd64",
+			"size": 85822011
+		},
+		{
+			"id": "kotlin-1.9",
+			"name": "Kotlin",
+			"version": "1.9.25",
+			"era": "1.9",
+			"supported": null,
+			"url": "https://github.com/JetBrains/kotlin/releases/download/v1.9.25/kotlin-compiler-1.9.25.zip",
+			"target": "linux-amd64",
+			"size": 91056496
+		},
+		{
+			"id": "kotlin-1.8",
+			"name": "Kotlin",
+			"version": "1.8.22",
+			"era": "1.8",
+			"supported": null,
+			"url": "https://github.com/JetBrains/kotlin/releases/download/v1.8.22/kotlin-compiler-1.8.22.zip",
+			"target": "linux-amd64",
+			"size": 76338547
+		},
+		{
+			"id": "kotlin-1.7",
+			"name": "Kotlin",
+			"version": "1.7.22",
+			"era": "1.7",
+			"supported": null,
+			"url": "https://github.com/JetBrains/kotlin/releases/download/v1.7.22/kotlin-compiler-1.7.22.zip",
+			"target": "linux-amd64",
+			"size": 78964839
+		}
+	],
 	"lua": [
 		{
 			"id": "lua-5.5",
@@ -234,13 +540,34 @@
 	],
 	"mariadb": [
 		{
+			"id": "mariadb-13.0",
+			"name": "MariaDB Server",
+			"version": "13.0.0",
+			"era": "13.0",
+			"supported": null,
+			"url": "https://downloads.mariadb.org/rest-api/mariadb/13.0.0/mariadb-13.0.0-linux-systemd-x86_64.tar.gz",
+			"target": "linux-amd64",
+			"size": 469548319
+		},
+		{
+			"id": "mariadb-12.3",
+			"name": "MariaDB Server",
+			"version": "12.3.1",
+			"era": "12.3",
+			"supported": null,
+			"url": "https://downloads.mariadb.org/rest-api/mariadb/12.3.1/mariadb-12.3.1-linux-systemd-x86_64.tar.gz",
+			"target": "linux-amd64",
+			"size": 456566647
+		},
+		{
 			"id": "mariadb-12.2",
 			"name": "MariaDB Server",
 			"version": "12.2.2",
 			"era": "12.2",
 			"supported": null,
-			"url": "https://downloads.mariadb.org/f/mariadb-12.2.2/bintar-linux-systemd-x86_64/mariadb-12.2.2-linux-systemd-x86_64.tar.gz",
-			"target": "linux-amd64"
+			"url": "https://downloads.mariadb.org/rest-api/mariadb/12.2.2/mariadb-12.2.2-linux-systemd-x86_64.tar.gz",
+			"target": "linux-amd64",
+			"size": 441157251
 		},
 		{
 			"id": "mariadb-11.8",
@@ -248,8 +575,9 @@
 			"version": "11.8.6",
 			"era": "11.8",
 			"supported": null,
-			"url": "https://downloads.mariadb.org/f/mariadb-11.8.6/bintar-linux-systemd-x86_64/mariadb-11.8.6-linux-systemd-x86_64.tar.gz",
-			"target": "linux-amd64"
+			"url": "https://downloads.mariadb.org/rest-api/mariadb/11.8.6/mariadb-11.8.6-linux-systemd-x86_64.tar.gz",
+			"target": "linux-amd64",
+			"size": 433584725
 		},
 		{
 			"id": "mariadb-11.4",
@@ -257,8 +585,9 @@
 			"version": "11.4.10",
 			"era": "11.4",
 			"supported": null,
-			"url": "https://downloads.mariadb.org/f/mariadb-11.4.10/bintar-linux-systemd-x86_64/mariadb-11.4.10-linux-systemd-x86_64.tar.gz",
-			"target": "linux-amd64"
+			"url": "https://downloads.mariadb.org/rest-api/mariadb/11.4.10/mariadb-11.4.10-linux-systemd-x86_64.tar.gz",
+			"target": "linux-amd64",
+			"size": 381327707
 		},
 		{
 			"id": "mariadb-10.11",
@@ -266,8 +595,9 @@
 			"version": "10.11.16",
 			"era": "10.11",
 			"supported": null,
-			"url": "https://downloads.mariadb.org/f/mariadb-10.11.16/bintar-linux-systemd-x86_64/mariadb-10.11.16-linux-systemd-x86_64.tar.gz",
-			"target": "linux-amd64"
+			"url": "https://downloads.mariadb.org/rest-api/mariadb/10.11.16/mariadb-10.11.16-linux-systemd-x86_64.tar.gz",
+			"target": "linux-amd64",
+			"size": 379524544
 		},
 		{
 			"id": "mariadb-10.6",
@@ -275,73 +605,84 @@
 			"version": "10.6.25",
 			"era": "10.6",
 			"supported": null,
-			"url": "https://downloads.mariadb.org/f/mariadb-10.6.25/bintar-linux-systemd-x86_64/mariadb-10.6.25-linux-systemd-x86_64.tar.gz",
-			"target": "linux-amd64"
+			"url": "https://downloads.mariadb.org/rest-api/mariadb/10.6.25/mariadb-10.6.25-linux-systemd-x86_64.tar.gz",
+			"target": "linux-amd64",
+			"size": 345253938
 		}
 	],
 	"mongodb": [
 		{
+			"id": "mongodb-8.3",
+			"name": "MongoDB Community Server",
+			"version": "8.3.0",
+			"era": "8.3",
+			"supported": null,
+			"url": "https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-ubuntu2204-8.3.0.tgz",
+			"target": "linux-amd64",
+			"size": 90711060
+		},
+		{
 			"id": "mongodb-8.2",
 			"name": "MongoDB Community Server",
-			"version": "8.2.6",
+			"version": "8.2.7",
 			"era": "8.2",
 			"supported": null,
-			"url": "https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-ubuntu2204-8.2.6.tgz",
+			"url": "https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-ubuntu2204-8.2.7.tgz",
 			"target": "linux-amd64",
-			"size": 128546607
+			"size": 128554998
 		},
 		{
 			"id": "mongodb-8.0",
 			"name": "MongoDB Community Server",
-			"version": "8.0.20",
+			"version": "8.0.21",
 			"era": "8.0",
 			"supported": null,
-			"url": "https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-ubuntu2204-8.0.20.tgz",
+			"url": "https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-ubuntu2204-8.0.21.tgz",
 			"target": "linux-amd64",
-			"size": 104108193
+			"size": 105053506
 		},
 		{
 			"id": "mongodb-7.0",
 			"name": "MongoDB Community Server",
-			"version": "7.0.31",
+			"version": "7.0.32",
 			"era": "7.0",
 			"supported": null,
-			"url": "https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-ubuntu2204-7.0.31.tgz",
+			"url": "https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-ubuntu2204-7.0.32.tgz",
 			"target": "linux-amd64",
-			"size": 86111106
-		},
-		{
-			"id": "mongodb-6.0",
-			"name": "MongoDB Community Server",
-			"version": "6.0.27",
-			"era": "6.0",
-			"supported": null,
-			"url": "https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-ubuntu2204-6.0.27.tgz",
-			"target": "linux-amd64",
-			"size": 73134302
+			"size": 86975624
 		}
 	],
 	"mysql": [],
 	"nginx": [
 		{
+			"id": "nginx-1.30",
+			"name": "Nginx",
+			"version": "1.30.0",
+			"era": "1.30",
+			"supported": null,
+			"url": "https://nginx.org/download/nginx-1.30.0.tar.gz",
+			"target": "linux-amd64",
+			"size": 1324188
+		},
+		{
 			"id": "nginx-1.29",
 			"name": "Nginx",
-			"version": "1.29.5",
+			"version": "1.29.8",
 			"era": "1.29",
 			"supported": null,
-			"url": "https://nginx.org/download/nginx-1.29.5.tar.gz",
+			"url": "https://nginx.org/download/nginx-1.29.8.tar.gz",
 			"target": "linux-amd64",
-			"size": 1310203
+			"size": 1324131
 		},
 		{
 			"id": "nginx-1.28",
 			"name": "Nginx",
-			"version": "1.28.2",
+			"version": "1.28.3",
 			"era": "1.28",
 			"supported": null,
-			"url": "https://nginx.org/download/nginx-1.28.2.tar.gz",
+			"url": "https://nginx.org/download/nginx-1.28.3.tar.gz",
 			"target": "linux-amd64",
-			"size": 1282351
+			"size": 1284562
 		},
 		{
 			"id": "nginx-1.27",
@@ -797,13 +1138,13 @@
 		},
 		{
 			"id": "nodejs-20",
-			"name": "Node.js 20.20.0",
-			"version": "20.20.0",
+			"name": "Node.js 20.20.2",
+			"version": "20.20.2",
 			"era": "20",
 			"supported": null,
-			"url": "https://nodejs.org/dist/v20.20.0/node-v20.20.0-linux-x64.tar.xz",
+			"url": "https://nodejs.org/dist/v20.20.2/node-v20.20.2-linux-x64.tar.xz",
 			"target": "linux-amd64",
-			"size": 25861020
+			"size": 26169540
 		},
 		{
 			"id": "nodejs-21",
@@ -817,13 +1158,13 @@
 		},
 		{
 			"id": "nodejs-22",
-			"name": "Node.js 22.22.0",
-			"version": "22.22.0",
+			"name": "Node.js 22.22.2",
+			"version": "22.22.2",
 			"era": "22",
 			"supported": null,
-			"url": "https://nodejs.org/dist/v22.22.0/node-v22.22.0-linux-x64.tar.xz",
+			"url": "https://nodejs.org/dist/v22.22.2/node-v22.22.2-linux-x64.tar.xz",
 			"target": "linux-amd64",
-			"size": 30779824
+			"size": 31065656
 		},
 		{
 			"id": "nodejs-23",
@@ -837,45 +1178,45 @@
 		},
 		{
 			"id": "nodejs-24",
-			"name": "Node.js 24.14.0",
-			"version": "24.14.0",
+			"name": "Node.js 24.15.0",
+			"version": "24.15.0",
 			"era": "24",
 			"supported": null,
-			"url": "https://nodejs.org/dist/v24.14.0/node-v24.14.0-linux-x64.tar.xz",
+			"url": "https://nodejs.org/dist/v24.15.0/node-v24.15.0-linux-x64.tar.xz",
 			"target": "linux-amd64",
-			"size": 31039304
+			"size": 31164460
 		},
 		{
 			"id": "nodejs-25",
-			"name": "Node.js 25.7.0",
-			"version": "25.7.0",
+			"name": "Node.js 25.9.0",
+			"version": "25.9.0",
 			"era": "25",
 			"supported": null,
-			"url": "https://nodejs.org/dist/v25.7.0/node-v25.7.0-linux-x64.tar.xz",
+			"url": "https://nodejs.org/dist/v25.9.0/node-v25.9.0-linux-x64.tar.xz",
 			"target": "linux-amd64",
-			"size": 29807940
+			"size": 29901920
 		}
 	],
 	"perl": [
 		{
 			"id": "perl-5.43",
 			"name": "Perl",
-			"version": "5.43.8",
+			"version": "5.43.10",
 			"era": "5.43",
 			"supported": null,
-			"url": "https://www.cpan.org/src/5.0/perl-5.43.8.tar.gz",
+			"url": "https://www.cpan.org/src/5.0/perl-5.43.10.tar.gz",
 			"target": "linux-amd64",
-			"size": 22868942
+			"size": 21296545
 		},
 		{
 			"id": "perl-5.42",
 			"name": "Perl",
-			"version": "5.42.0",
+			"version": "5.42.2",
 			"era": "5.42",
 			"supported": null,
-			"url": "https://www.cpan.org/src/5.0/perl-5.42.0.tar.gz",
+			"url": "https://www.cpan.org/src/5.0/perl-5.42.2.tar.gz",
 			"target": "linux-amd64",
-			"size": 20846166
+			"size": 20609653
 		},
 		{
 			"id": "perl-5.41",
@@ -890,12 +1231,12 @@
 		{
 			"id": "perl-5.40",
 			"name": "Perl",
-			"version": "5.40.3",
+			"version": "5.40.4",
 			"era": "5.40",
 			"supported": null,
-			"url": "https://www.cpan.org/src/5.0/perl-5.40.3.tar.gz",
+			"url": "https://www.cpan.org/src/5.0/perl-5.40.4.tar.gz",
 			"target": "linux-amd64",
-			"size": 19790652
+			"size": 19803510
 		},
 		{
 			"id": "perl-5.39",
@@ -1242,22 +1583,22 @@
 		{
 			"id": "php-8.5",
 			"name": "PHP",
-			"version": "8.5.3",
+			"version": "8.5.5",
 			"era": "8.5",
 			"supported": null,
-			"url": "https://dl.static-php.dev/static-php-cli/common/php-8.5.3-cli-linux-x86_64.tar.gz",
+			"url": "https://dl.static-php.dev/static-php-cli/common/php-8.5.5-cli-linux-x86_64.tar.gz",
 			"target": "linux-amd64",
-			"size": 11145412
+			"size": 12899356
 		},
 		{
 			"id": "php-8.4",
 			"name": "PHP",
-			"version": "8.4.18",
+			"version": "8.4.20",
 			"era": "8.4",
 			"supported": null,
-			"url": "https://dl.static-php.dev/static-php-cli/common/php-8.4.18-cli-linux-x86_64.tar.gz",
+			"url": "https://dl.static-php.dev/static-php-cli/common/php-8.4.20-cli-linux-x86_64.tar.gz",
 			"target": "linux-amd64",
-			"size": 10425796
+			"size": 12345694
 		},
 		{
 			"id": "php-8.3",
@@ -1267,7 +1608,7 @@
 			"supported": null,
 			"url": "https://dl.static-php.dev/static-php-cli/common/php-8.3.30-cli-linux-x86_64.tar.gz",
 			"target": "linux-amd64",
-			"size": 9834062
+			"size": 11748036
 		},
 		{
 			"id": "php-8.2",
@@ -1277,7 +1618,7 @@
 			"supported": null,
 			"url": "https://dl.static-php.dev/static-php-cli/common/php-8.2.30-cli-linux-x86_64.tar.gz",
 			"target": "linux-amd64",
-			"size": 9755501
+			"size": 11671404
 		},
 		{
 			"id": "php-8.1",
@@ -1287,7 +1628,7 @@
 			"supported": null,
 			"url": "https://dl.static-php.dev/static-php-cli/common/php-8.1.34-cli-linux-x86_64.tar.gz",
 			"target": "linux-amd64",
-			"size": 9669525
+			"size": 11594685
 		},
 		{
 			"id": "php-8.0",
@@ -1506,52 +1847,52 @@
 		{
 			"id": "python-3.14",
 			"name": "Python",
-			"version": "3.14.3",
+			"version": "3.14.4",
 			"era": "3.14",
 			"supported": null,
-			"url": "https://www.python.org/ftp/python/3.14.3/Python-3.14.3.tgz",
+			"url": "https://www.python.org/ftp/python/3.14.4/Python-3.14.4.tgz",
 			"target": "linux-amd64",
-			"size": 31051745
+			"size": 31148035
 		},
 		{
 			"id": "python-3.13",
 			"name": "Python",
-			"version": "3.13.12",
+			"version": "3.13.13",
 			"era": "3.13",
 			"supported": null,
-			"url": "https://www.python.org/ftp/python/3.13.12/Python-3.13.12.tgz",
+			"url": "https://www.python.org/ftp/python/3.13.13/Python-3.13.13.tgz",
 			"target": "linux-amd64",
-			"size": 29803459
+			"size": 29842908
 		},
 		{
 			"id": "python-3.12",
 			"name": "Python",
-			"version": "3.12.12",
+			"version": "3.12.13",
 			"era": "3.12",
 			"supported": null,
-			"url": "https://www.python.org/ftp/python/3.12.12/Python-3.12.12.tgz",
+			"url": "https://www.python.org/ftp/python/3.12.13/Python-3.12.13.tgz",
 			"target": "linux-amd64",
-			"size": 27255645
+			"size": 27262093
 		},
 		{
 			"id": "python-3.11",
 			"name": "Python",
-			"version": "3.11.14",
+			"version": "3.11.15",
 			"era": "3.11",
 			"supported": null,
-			"url": "https://www.python.org/ftp/python/3.11.14/Python-3.11.14.tgz",
+			"url": "https://www.python.org/ftp/python/3.11.15/Python-3.11.15.tgz",
 			"target": "linux-amd64",
-			"size": 26561042
+			"size": 26568965
 		},
 		{
 			"id": "python-3.10",
 			"name": "Python",
-			"version": "3.10.19",
+			"version": "3.10.20",
 			"era": "3.10",
 			"supported": null,
-			"url": "https://www.python.org/ftp/python/3.10.19/Python-3.10.19.tgz",
+			"url": "https://www.python.org/ftp/python/3.10.20/Python-3.10.20.tgz",
 			"target": "linux-amd64",
-			"size": 25919659
+			"size": 25932181
 		},
 		{
 			"id": "python-3.9",
@@ -1578,42 +1919,42 @@
 		{
 			"id": "ruby-4.0",
 			"name": "Ruby",
-			"version": "4.0.1",
+			"version": "4.0.3",
 			"era": "4.0",
 			"supported": null,
-			"url": "https://cache.ruby-lang.org/pub/ruby/4.0/ruby-4.0.1.tar.gz",
+			"url": "https://cache.ruby-lang.org/pub/ruby/4.0/ruby-4.0.3.tar.gz",
 			"target": "linux-amd64",
-			"size": 23807304
+			"size": 23806898
 		},
 		{
 			"id": "ruby-3.4",
 			"name": "Ruby",
-			"version": "3.4.8",
+			"version": "3.4.9",
 			"era": "3.4",
 			"supported": null,
-			"url": "https://cache.ruby-lang.org/pub/ruby/3.4/ruby-3.4.8.tar.gz",
+			"url": "https://cache.ruby-lang.org/pub/ruby/3.4/ruby-3.4.9.tar.gz",
 			"target": "linux-amd64",
-			"size": 23288284
+			"size": 22456968
 		},
 		{
 			"id": "ruby-3.3",
 			"name": "Ruby",
-			"version": "3.3.10",
+			"version": "3.3.11",
 			"era": "3.3",
 			"supported": null,
-			"url": "https://cache.ruby-lang.org/pub/ruby/3.3/ruby-3.3.10.tar.gz",
+			"url": "https://cache.ruby-lang.org/pub/ruby/3.3/ruby-3.3.11.tar.gz",
 			"target": "linux-amd64",
-			"size": 22233705
+			"size": 21483089
 		},
 		{
 			"id": "ruby-3.2",
 			"name": "Ruby",
-			"version": "3.2.10",
+			"version": "3.2.11",
 			"era": "3.2",
 			"supported": null,
-			"url": "https://cache.ruby-lang.org/pub/ruby/3.2/ruby-3.2.10.tar.gz",
+			"url": "https://cache.ruby-lang.org/pub/ruby/3.2/ruby-3.2.11.tar.gz",
 			"target": "linux-amd64",
-			"size": 19983731
+			"size": 19984344
 		},
 		{
 			"id": "ruby-3.1",
@@ -1712,7 +2053,8 @@
 			"era": "2.0",
 			"supported": null,
 			"url": "https://cache.ruby-lang.org/pub/ruby/2.0/ruby-2.0.0.tar.gz",
-			"target": "linux-amd64"
+			"target": "linux-amd64",
+			"size": null
 		},
 		{
 			"id": "ruby-1.9",
@@ -1721,7 +2063,8 @@
 			"era": "1.9",
 			"supported": null,
 			"url": "https://cache.ruby-lang.org/pub/ruby/1.9/ruby-1.9.3.tar.gz",
-			"target": "linux-amd64"
+			"target": "linux-amd64",
+			"size": null
 		},
 		{
 			"id": "ruby-1.8",
@@ -1746,14 +2089,24 @@
 	],
 	"rust": [
 		{
+			"id": "rust-1.95",
+			"name": "Rust",
+			"version": "1.95.0",
+			"era": "1.95",
+			"supported": null,
+			"url": "https://static.rust-lang.org/dist/rust-1.95.0-x86_64-unknown-linux-gnu.tar.gz",
+			"target": "linux-amd64",
+			"size": 376272008
+		},
+		{
 			"id": "rust-1.94",
 			"name": "Rust",
-			"version": "1.94.0",
+			"version": "1.94.1",
 			"era": "1.94",
 			"supported": null,
-			"url": "https://static.rust-lang.org/dist/rust-1.94.0-x86_64-unknown-linux-gnu.tar.gz",
+			"url": "https://static.rust-lang.org/dist/rust-1.94.1-x86_64-unknown-linux-gnu.tar.gz",
 			"target": "linux-amd64",
-			"size": 369098149
+			"size": 369040858
 		},
 		{
 			"id": "rust-1.93",
@@ -1804,39 +2157,170 @@
 			"url": "https://static.rust-lang.org/dist/rust-1.89.0-x86_64-unknown-linux-gnu.tar.gz",
 			"target": "linux-amd64",
 			"size": 362760913
-		},
-		{
-			"id": "rust-1.88",
-			"name": "Rust",
-			"version": "1.88.0",
-			"era": "1.88",
-			"supported": null,
-			"url": "https://static.rust-lang.org/dist/rust-1.88.0-x86_64-unknown-linux-gnu.tar.gz",
-			"target": "linux-amd64",
-			"size": 355692289
-		},
-		{
-			"id": "rust-1.87",
-			"name": "Rust",
-			"version": "1.87.0",
-			"era": "1.87",
-			"supported": null,
-			"url": "https://static.rust-lang.org/dist/rust-1.87.0-x86_64-unknown-linux-gnu.tar.gz",
-			"target": "linux-amd64",
-			"size": 359529223
 		}
 	],
-	"scala": [],
+	"scala": [
+		{
+			"id": "scala-3.5",
+			"name": "Scala 3.5.0",
+			"version": "3.5.0",
+			"era": "3.5",
+			"supported": null,
+			"url": "https://github.com/scala/scala3/releases/download/3.5.0/scala3-3.5.0-x86_64-pc-linux.tar.gz",
+			"target": "linux-amd64",
+			"size": 73694710
+		},
+		{
+			"id": "scala-3.5",
+			"name": "Scala 3.5.1",
+			"version": "3.5.1",
+			"era": "3.5",
+			"supported": null,
+			"url": "https://github.com/scala/scala3/releases/download/3.5.1/scala3-3.5.1-x86_64-pc-linux.tar.gz",
+			"target": "linux-amd64",
+			"size": 74009424
+		},
+		{
+			"id": "scala-3.5",
+			"name": "Scala 3.5.2",
+			"version": "3.5.2",
+			"era": "3.5",
+			"supported": null,
+			"url": "https://github.com/scala/scala3/releases/download/3.5.2/scala3-3.5.2-x86_64-pc-linux.tar.gz",
+			"target": "linux-amd64",
+			"size": 74043281
+		},
+		{
+			"id": "scala-3.6",
+			"name": "Scala 3.6.2",
+			"version": "3.6.2",
+			"era": "3.6",
+			"supported": null,
+			"url": "https://github.com/scala/scala3/releases/download/3.6.2/scala3-3.6.2-x86_64-pc-linux.tar.gz",
+			"target": "linux-amd64",
+			"size": 74216295
+		},
+		{
+			"id": "scala-3.6",
+			"name": "Scala 3.6.3",
+			"version": "3.6.3",
+			"era": "3.6",
+			"supported": null,
+			"url": "https://github.com/scala/scala3/releases/download/3.6.3/scala3-3.6.3-x86_64-pc-linux.tar.gz",
+			"target": "linux-amd64",
+			"size": 72356610
+		},
+		{
+			"id": "scala-3.6",
+			"name": "Scala 3.6.4",
+			"version": "3.6.4",
+			"era": "3.6",
+			"supported": null,
+			"url": "https://github.com/scala/scala3/releases/download/3.6.4/scala3-3.6.4-x86_64-pc-linux.tar.gz",
+			"target": "linux-amd64",
+			"size": 72411884
+		},
+		{
+			"id": "scala-3.7",
+			"name": "Scala 3.7.0",
+			"version": "3.7.0",
+			"era": "3.7",
+			"supported": null,
+			"url": "https://github.com/scala/scala3/releases/download/3.7.0/scala3-3.7.0-x86_64-pc-linux.tar.gz",
+			"target": "linux-amd64",
+			"size": 78030753
+		},
+		{
+			"id": "scala-3.7",
+			"name": "Scala 3.7.1",
+			"version": "3.7.1",
+			"era": "3.7",
+			"supported": null,
+			"url": "https://github.com/scala/scala3/releases/download/3.7.1/scala3-3.7.1-x86_64-pc-linux.tar.gz",
+			"target": "linux-amd64",
+			"size": 78512371
+		},
+		{
+			"id": "scala-3.7",
+			"name": "Scala 3.7.2",
+			"version": "3.7.2",
+			"era": "3.7",
+			"supported": null,
+			"url": "https://github.com/scala/scala3/releases/download/3.7.2/scala3-3.7.2-x86_64-pc-linux.tar.gz",
+			"target": "linux-amd64",
+			"size": 78814112
+		},
+		{
+			"id": "scala-3.7",
+			"name": "Scala 3.7.3",
+			"version": "3.7.3",
+			"era": "3.7",
+			"supported": null,
+			"url": "https://github.com/scala/scala3/releases/download/3.7.3/scala3-3.7.3-x86_64-pc-linux.tar.gz",
+			"target": "linux-amd64",
+			"size": 79140835
+		},
+		{
+			"id": "scala-3.7",
+			"name": "Scala 3.7.4",
+			"version": "3.7.4",
+			"era": "3.7",
+			"supported": null,
+			"url": "https://github.com/scala/scala3/releases/download/3.7.4/scala3-3.7.4-x86_64-pc-linux.tar.gz",
+			"target": "linux-amd64",
+			"size": 79288481
+		},
+		{
+			"id": "scala-3.8",
+			"name": "Scala 3.8.0",
+			"version": "3.8.0",
+			"era": "3.8",
+			"supported": null,
+			"url": "https://github.com/scala/scala3/releases/download/3.8.0/scala3-3.8.0-x86_64-pc-linux.tar.gz",
+			"target": "linux-amd64",
+			"size": 82182702
+		},
+		{
+			"id": "scala-3.8",
+			"name": "Scala 3.8.1",
+			"version": "3.8.1",
+			"era": "3.8",
+			"supported": null,
+			"url": "https://github.com/scala/scala3/releases/download/3.8.1/scala3-3.8.1-x86_64-pc-linux.tar.gz",
+			"target": "linux-amd64",
+			"size": 82192619
+		},
+		{
+			"id": "scala-3.8",
+			"name": "Scala 3.8.2",
+			"version": "3.8.2",
+			"era": "3.8",
+			"supported": null,
+			"url": "https://github.com/scala/scala3/releases/download/3.8.2/scala3-3.8.2-x86_64-pc-linux.tar.gz",
+			"target": "linux-amd64",
+			"size": 96156776
+		},
+		{
+			"id": "scala-3.8",
+			"name": "Scala 3.8.3",
+			"version": "3.8.3",
+			"era": "3.8",
+			"supported": null,
+			"url": "https://github.com/scala/scala3/releases/download/3.8.3/scala3-3.8.3-x86_64-pc-linux.tar.gz",
+			"target": "linux-amd64",
+			"size": 98254011
+		}
+	],
 	"zig": [
 		{
 			"id": "zig-1",
 			"name": "Zig",
-			"version": "0.16.0-dev.2682+02142a54d",
+			"version": "0.17.0-dev.131+73c51c142",
 			"era": "1",
 			"supported": null,
-			"url": "https://ziglang.org/builds/zig-x86_64-linux-0.16.0-dev.2682+02142a54d.tar.xz",
+			"url": "https://ziglang.org/builds/zig-x86_64-linux-0.17.0-dev.131+73c51c142.tar.xz",
 			"target": "linux-amd64",
-			"size": 55502764
+			"size": 55442528
 		}
 	]
 }

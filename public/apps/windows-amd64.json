@@ -11,33 +11,268 @@
 			"size": 12390388
 		}
 	],
-	"bun": [],
-	"caddy": [],
-	"deno": [],
+	"bun": [
+		{
+			"id": "bun-1.3",
+			"name": "Bun",
+			"version": "1.3.13",
+			"era": "1.3",
+			"supported": null,
+			"url": "https://github.com/oven-sh/bun/releases/download/bun-v1.3.13/bun-windows-x64.zip",
+			"target": "windows-amd64",
+			"size": 42078521
+		},
+		{
+			"id": "bun-1.2",
+			"name": "Bun",
+			"version": "1.2.23",
+			"era": "1.2",
+			"supported": null,
+			"url": "https://github.com/oven-sh/bun/releases/download/bun-v1.2.23/bun-windows-x64.zip",
+			"target": "windows-amd64",
+			"size": 41793050
+		},
+		{
+			"id": "bun-1.1",
+			"name": "Bun",
+			"version": "1.1.45",
+			"era": "1.1",
+			"supported": null,
+			"url": "https://github.com/oven-sh/bun/releases/download/bun-v1.1.45/bun-windows-x64.zip",
+			"target": "windows-amd64",
+			"size": 38687690
+		},
+		{
+			"id": "bun-1.0",
+			"name": "Bun",
+			"version": "1.0.36",
+			"era": "1.0",
+			"supported": null,
+			"url": "",
+			"target": "windows-amd64",
+			"size": null
+		}
+	],
+	"caddy": [
+		{
+			"id": "caddy-2",
+			"name": "Caddy",
+			"version": "2.11.2",
+			"era": "2",
+			"supported": null,
+			"url": "https://github.com/caddyserver/caddy/releases/download/v2.11.2/caddy_2.11.2_windows_amd64.zip",
+			"target": "windows-amd64",
+			"size": 17258333
+		},
+		{
+			"id": "caddy-1",
+			"name": "Caddy",
+			"version": "1.0.4",
+			"era": "1",
+			"supported": null,
+			"url": "https://github.com/caddyserver/caddy/releases/download/v1.0.4/caddy_1.0.4_windows_amd64.zip",
+			"target": "windows-amd64",
+			"size": null
+		},
+		{
+			"id": "caddy-0",
+			"name": "Caddy",
+			"version": "0.11.5",
+			"era": "0",
+			"supported": null,
+			"url": "https://github.com/caddyserver/caddy/releases/download/v0.11.5/caddy_0.11.5_windows_amd64.zip",
+			"target": "windows-amd64",
+			"size": null
+		}
+	],
+	"deno": [
+		{
+			"id": "deno-2.7",
+			"name": "Deno",
+			"version": "2.7.13",
+			"era": "2.7",
+			"supported": null,
+			"url": "https://github.com/denoland/deno/releases/download/v2.7.13/deno-x86_64-pc-windows-msvc.zip",
+			"target": "windows-amd64",
+			"size": 49164145
+		},
+		{
+			"id": "deno-2.6",
+			"name": "Deno",
+			"version": "2.6.10",
+			"era": "2.6",
+			"supported": null,
+			"url": "https://github.com/denoland/deno/releases/download/v2.6.10/deno-x86_64-pc-windows-msvc.zip",
+			"target": "windows-amd64",
+			"size": 47170543
+		},
+		{
+			"id": "deno-2.5",
+			"name": "Deno",
+			"version": "2.5.7",
+			"era": "2.5",
+			"supported": null,
+			"url": "https://github.com/denoland/deno/releases/download/v2.5.7/deno-x86_64-pc-windows-msvc.zip",
+			"target": "windows-amd64",
+			"size": 44665920
+		},
+		{
+			"id": "deno-2.4",
+			"name": "Deno",
+			"version": "2.4.5",
+			"era": "2.4",
+			"supported": null,
+			"url": "https://github.com/denoland/deno/releases/download/v2.4.5/deno-x86_64-pc-windows-msvc.zip",
+			"target": "windows-amd64",
+			"size": 44097757
+		},
+		{
+			"id": "deno-2.3",
+			"name": "Deno",
+			"version": "2.3.7",
+			"era": "2.3",
+			"supported": null,
+			"url": "https://github.com/denoland/deno/releases/download/v2.3.7/deno-x86_64-pc-windows-msvc.zip",
+			"target": "windows-amd64",
+			"size": 43249158
+		},
+		{
+			"id": "deno-2.2",
+			"name": "Deno",
+			"version": "2.2.15",
+			"era": "2.2",
+			"supported": null,
+			"url": "https://github.com/denoland/deno/releases/download/v2.2.15/deno-x86_64-pc-windows-msvc.zip",
+			"target": "windows-amd64",
+			"size": 41862986
+		},
+		{
+			"id": "deno-2.1",
+			"name": "Deno",
+			"version": "2.1.14",
+			"era": "2.1",
+			"supported": null,
+			"url": "https://github.com/denoland/deno/releases/download/v2.1.14/deno-x86_64-pc-windows-msvc.zip",
+			"target": "windows-amd64",
+			"size": 41486215
+		},
+		{
+			"id": "deno-2.0",
+			"name": "Deno",
+			"version": "2.0.6",
+			"era": "2.0",
+			"supported": null,
+			"url": "https://github.com/denoland/deno/releases/download/v2.0.6/deno-x86_64-pc-windows-msvc.zip",
+			"target": "windows-amd64",
+			"size": 42536111
+		},
+		{
+			"id": "deno-1.46",
+			"name": "Deno",
+			"version": "1.46.3",
+			"era": "1.46",
+			"supported": null,
+			"url": "https://github.com/denoland/deno/releases/download/v1.46.3/deno-x86_64-pc-windows-msvc.zip",
+			"target": "windows-amd64",
+			"size": 42072300
+		},
+		{
+			"id": "deno-1.45",
+			"name": "Deno",
+			"version": "1.45.5",
+			"era": "1.45",
+			"supported": null,
+			"url": "https://github.com/denoland/deno/releases/download/v1.45.5/deno-x86_64-pc-windows-msvc.zip",
+			"target": "windows-amd64",
+			"size": 40212512
+		},
+		{
+			"id": "deno-1.44",
+			"name": "Deno",
+			"version": "1.44.4",
+			"era": "1.44",
+			"supported": null,
+			"url": "https://github.com/denoland/deno/releases/download/v1.44.4/deno-x86_64-pc-windows-msvc.zip",
+			"target": "windows-amd64",
+			"size": 39601680
+		}
+	],
 	"dlang": [],
 	"go": [
 		{
 			"id": "go-1.26",
 			"name": "Go",
-			"version": "1.26.0",
+			"version": "1.26.2",
 			"era": "1.26",
 			"supported": null,
-			"url": "https://go.dev/dl/go1.26.0.windows-amd64.zip",
+			"url": "https://go.dev/dl/go1.26.2.windows-amd64.zip",
 			"target": "windows-amd64",
-			"size": 71691024
+			"size": 71717804
 		},
 		{
 			"id": "go-1.25",
 			"name": "Go",
-			"version": "1.25.7",
+			"version": "1.25.9",
 			"era": "1.25",
 			"supported": null,
-			"url": "https://go.dev/dl/go1.25.7.windows-amd64.zip",
+			"url": "https://go.dev/dl/go1.25.9.windows-amd64.zip",
 			"target": "windows-amd64",
-			"size": 64470086
+			"size": 64489258
+		}
+	],
+	"groovy": [
+		{
+			"id": "groovy-5.0",
+			"name": "Groovy",
+			"version": "5.0.5",
+			"era": "5.0",
+			"supported": null,
+			"url": "https://downloads.apache.org/groovy/5.0.5/distribution/apache-groovy-binary-5.0.5.zip",
+			"target": "windows-amd64",
+			"size": 34584616
+		},
+		{
+			"id": "groovy-4.0",
+			"name": "Groovy",
+			"version": "4.0.31",
+			"era": "4.0",
+			"supported": null,
+			"url": "https://downloads.apache.org/groovy/4.0.31/distribution/apache-groovy-binary-4.0.31.zip",
+			"target": "windows-amd64",
+			"size": 30345282
+		},
+		{
+			"id": "groovy-3.0",
+			"name": "Groovy",
+			"version": "3.0.25",
+			"era": "3.0",
+			"supported": null,
+			"url": "https://downloads.apache.org/groovy/3.0.25/distribution/apache-groovy-binary-3.0.25.zip",
+			"target": "windows-amd64",
+			"size": 45048268
+		},
+		{
+			"id": "groovy-2.5",
+			"name": "Groovy",
+			"version": "2.5.23",
+			"era": "2.5",
+			"supported": null,
+			"url": "https://downloads.apache.org/groovy/2.5.23/distribution/apache-groovy-binary-2.5.23.zip",
+			"target": "windows-amd64",
+			"size": 31025690
 		}
 	],
 	"java": [
+		{
+			"id": "java-26",
+			"name": "OpenJDK",
+			"version": "26+35",
+			"era": "26",
+			"supported": null,
+			"url": "https://github.com/adoptium/temurin26-binaries/releases/download/jdk-26%2B35/OpenJDK26U-jdk_x64_windows_hotspot_26_35.zip",
+			"target": "windows-amd64",
+			"size": 144388762
+		},
 		{
 			"id": "java-25",
 			"name": "OpenJDK",
@@ -146,7 +381,7 @@
 			"supported": null,
 			"url": "https://github.com/adoptium/temurin11-binaries/releases/download/jdk-11.0.30%2B7/OpenJDK11U-jdk_x64_windows_hotspot_11.0.30_7.zip",
 			"target": "windows-amd64",
-			"size": 199408909
+			"size": null
 		},
 		{
 			"id": "java-8",
@@ -159,7 +394,78 @@
 			"size": 106448448
 		}
 	],
-	"kotlin": [],
+	"kotlin": [
+		{
+			"id": "kotlin-2.3",
+			"name": "Kotlin",
+			"version": "2.3.21",
+			"era": "2.3",
+			"supported": null,
+			"url": "https://github.com/JetBrains/kotlin/releases/download/v2.3.21/kotlin-compiler-2.3.21.zip",
+			"target": "windows-amd64",
+			"size": 83084350
+		},
+		{
+			"id": "kotlin-2.2",
+			"name": "Kotlin",
+			"version": "2.2.21",
+			"era": "2.2",
+			"supported": null,
+			"url": "https://github.com/JetBrains/kotlin/releases/download/v2.2.21/kotlin-compiler-2.2.21.zip",
+			"target": "windows-amd64",
+			"size": 78710880
+		},
+		{
+			"id": "kotlin-2.1",
+			"name": "Kotlin",
+			"version": "2.1.21",
+			"era": "2.1",
+			"supported": null,
+			"url": "https://github.com/JetBrains/kotlin/releases/download/v2.1.21/kotlin-compiler-2.1.21.zip",
+			"target": "windows-amd64",
+			"size": 86162444
+		},
+		{
+			"id": "kotlin-2.0",
+			"name": "Kotlin",
+			"version": "2.0.21",
+			"era": "2.0",
+			"supported": null,
+			"url": "https://github.com/JetBrains/kotlin/releases/download/v2.0.21/kotlin-compiler-2.0.21.zip",
+			"target": "windows-amd64",
+			"size": 85822011
+		},
+		{
+			"id": "kotlin-1.9",
+			"name": "Kotlin",
+			"version": "1.9.25",
+			"era": "1.9",
+			"supported": null,
+			"url": "https://github.com/JetBrains/kotlin/releases/download/v1.9.25/kotlin-compiler-1.9.25.zip",
+			"target": "windows-amd64",
+			"size": 91056496
+		},
+		{
+			"id": "kotlin-1.8",
+			"name": "Kotlin",
+			"version": "1.8.22",
+			"era": "1.8",
+			"supported": null,
+			"url": "https://github.com/JetBrains/kotlin/releases/download/v1.8.22/kotlin-compiler-1.8.22.zip",
+			"target": "windows-amd64",
+			"size": 76338547
+		},
+		{
+			"id": "kotlin-1.7",
+			"name": "Kotlin",
+			"version": "1.7.22",
+			"era": "1.7",
+			"supported": null,
+			"url": "https://github.com/JetBrains/kotlin/releases/download/v1.7.22/kotlin-compiler-1.7.22.zip",
+			"target": "windows-amd64",
+			"size": 78964839
+		}
+	],
 	"lua": [
 		{
 			"id": "lua-5.5",
@@ -204,13 +510,24 @@
 	],
 	"mariadb": [
 		{
+			"id": "mariadb-12.3",
+			"name": "MariaDB Server",
+			"version": "12.3.1",
+			"era": "12.3",
+			"supported": null,
+			"url": "https://downloads.mariadb.org/rest-api/mariadb/12.3.1/mariadb-12.3.1-winx64.zip",
+			"target": "windows-amd64",
+			"size": 103473748
+		},
+		{
 			"id": "mariadb-12.2",
 			"name": "MariaDB Server",
 			"version": "12.2.2",
 			"era": "12.2",
 			"supported": null,
-			"url": "https://downloads.mariadb.org/f/mariadb-12.2.2/winx64-packages/mariadb-12.2.2-winx64.zip",
-			"target": "windows-amd64"
+			"url": "https://downloads.mariadb.org/rest-api/mariadb/12.2.2/mariadb-12.2.2-winx64.zip",
+			"target": "windows-amd64",
+			"size": 98412434
 		},
 		{
 			"id": "mariadb-11.8",
@@ -218,8 +535,9 @@
 			"version": "11.8.6",
 			"era": "11.8",
 			"supported": null,
-			"url": "https://downloads.mariadb.org/f/mariadb-11.8.6/winx64-packages/mariadb-11.8.6-winx64.zip",
-			"target": "windows-amd64"
+			"url": "https://downloads.mariadb.org/rest-api/mariadb/11.8.6/mariadb-11.8.6-winx64.zip",
+			"target": "windows-amd64",
+			"size": 96628849
 		},
 		{
 			"id": "mariadb-11.4",
@@ -227,8 +545,9 @@
 			"version": "11.4.10",
 			"era": "11.4",
 			"supported": null,
-			"url": "https://downloads.mariadb.org/f/mariadb-11.4.10/winx64-packages/mariadb-11.4.10-winx64.zip",
-			"target": "windows-amd64"
+			"url": "https://downloads.mariadb.org/rest-api/mariadb/11.4.10/mariadb-11.4.10-winx64.zip",
+			"target": "windows-amd64",
+			"size": 94970049
 		},
 		{
 			"id": "mariadb-10.11",
@@ -236,8 +555,9 @@
 			"version": "10.11.16",
 			"era": "10.11",
 			"supported": null,
-			"url": "https://downloads.mariadb.org/f/mariadb-10.11.16/winx64-packages/mariadb-10.11.16-winx64.zip",
-			"target": "windows-amd64"
+			"url": "https://downloads.mariadb.org/rest-api/mariadb/10.11.16/mariadb-10.11.16-winx64.zip",
+			"target": "windows-amd64",
+			"size": 93370590
 		},
 		{
 			"id": "mariadb-10.6",
@@ -245,73 +565,84 @@
 			"version": "10.6.25",
 			"era": "10.6",
 			"supported": null,
-			"url": "https://downloads.mariadb.org/f/mariadb-10.6.25/winx64-packages/mariadb-10.6.25-winx64.zip",
-			"target": "windows-amd64"
+			"url": "https://downloads.mariadb.org/rest-api/mariadb/10.6.25/mariadb-10.6.25-winx64.zip",
+			"target": "windows-amd64",
+			"size": 87771878
 		}
 	],
 	"mongodb": [
 		{
+			"id": "mongodb-8.3",
+			"name": "MongoDB Community Server",
+			"version": "8.3.0",
+			"era": "8.3",
+			"supported": null,
+			"url": "https://fastdl.mongodb.org/windows/mongodb-windows-x86_64-8.3.0.zip",
+			"target": "windows-amd64",
+			"size": 919636665
+		},
+		{
 			"id": "mongodb-8.2",
 			"name": "MongoDB Community Server",
-			"version": "8.2.6",
+			"version": "8.2.7",
 			"era": "8.2",
 			"supported": null,
-			"url": "https://fastdl.mongodb.org/windows/mongodb-windows-x86_64-8.2.6.zip",
+			"url": "https://fastdl.mongodb.org/windows/mongodb-windows-x86_64-8.2.7.zip",
 			"target": "windows-amd64",
-			"size": 819033833
+			"size": 819735068
 		},
 		{
 			"id": "mongodb-8.0",
 			"name": "MongoDB Community Server",
-			"version": "8.0.20",
+			"version": "8.0.21",
 			"era": "8.0",
 			"supported": null,
-			"url": "https://fastdl.mongodb.org/windows/mongodb-windows-x86_64-8.0.20.zip",
+			"url": "https://fastdl.mongodb.org/windows/mongodb-windows-x86_64-8.0.21.zip",
 			"target": "windows-amd64",
-			"size": 797962326
+			"size": 802858804
 		},
 		{
 			"id": "mongodb-7.0",
 			"name": "MongoDB Community Server",
-			"version": "7.0.31",
+			"version": "7.0.32",
 			"era": "7.0",
 			"supported": null,
-			"url": "https://fastdl.mongodb.org/windows/mongodb-windows-x86_64-7.0.31.zip",
+			"url": "https://fastdl.mongodb.org/windows/mongodb-windows-x86_64-7.0.32.zip",
 			"target": "windows-amd64",
-			"size": 629261630
-		},
-		{
-			"id": "mongodb-6.0",
-			"name": "MongoDB Community Server",
-			"version": "6.0.27",
-			"era": "6.0",
-			"supported": null,
-			"url": "https://fastdl.mongodb.org/windows/mongodb-windows-x86_64-6.0.27.zip",
-			"target": "windows-amd64",
-			"size": 539493517
+			"size": 634519788
 		}
 	],
 	"mysql": [],
 	"nginx": [
 		{
+			"id": "nginx-1.30",
+			"name": "Nginx",
+			"version": "1.30.0",
+			"era": "1.30",
+			"supported": null,
+			"url": "https://nginx.org/download/nginx-1.30.0.zip",
+			"target": "windows-amd64",
+			"size": 2768936
+		},
+		{
 			"id": "nginx-1.29",
 			"name": "Nginx",
-			"version": "1.29.5",
+			"version": "1.29.8",
 			"era": "1.29",
 			"supported": null,
-			"url": "https://nginx.org/download/nginx-1.29.5.zip",
+			"url": "https://nginx.org/download/nginx-1.29.8.zip",
 			"target": "windows-amd64",
-			"size": 2758853
+			"size": 2768163
 		},
 		{
 			"id": "nginx-1.28",
 			"name": "Nginx",
-			"version": "1.28.2",
+			"version": "1.28.3",
 			"era": "1.28",
 			"supported": null,
-			"url": "https://nginx.org/download/nginx-1.28.2.zip",
+			"url": "https://nginx.org/download/nginx-1.28.3.zip",
 			"target": "windows-amd64",
-			"size": 2738590
+			"size": 2743427
 		},
 		{
 			"id": "nginx-1.27",
@@ -707,13 +1038,13 @@
 		},
 		{
 			"id": "nodejs-20",
-			"name": "Node.js 20.20.0",
-			"version": "20.20.0",
+			"name": "Node.js 20.20.2",
+			"version": "20.20.2",
 			"era": "20",
 			"supported": null,
-			"url": "https://nodejs.org/dist/v20.20.0/node-v20.20.0-win-x64.zip",
+			"url": "https://nodejs.org/dist/v20.20.2/node-v20.20.2-win-x64.zip",
 			"target": "windows-amd64",
-			"size": 29902899
+			"size": 30283903
 		},
 		{
 			"id": "nodejs-21",
@@ -727,13 +1058,13 @@
 		},
 		{
 			"id": "nodejs-22",
-			"name": "Node.js 22.22.0",
-			"version": "22.22.0",
+			"name": "Node.js 22.22.2",
+			"version": "22.22.2",
 			"era": "22",
 			"supported": null,
-			"url": "https://nodejs.org/dist/v22.22.0/node-v22.22.0-win-x64.zip",
+			"url": "https://nodejs.org/dist/v22.22.2/node-v22.22.2-win-x64.zip",
 			"target": "windows-amd64",
-			"size": 35556852
+			"size": 35656052
 		},
 		{
 			"id": "nodejs-23",
@@ -747,23 +1078,23 @@
 		},
 		{
 			"id": "nodejs-24",
-			"name": "Node.js 24.14.0",
-			"version": "24.14.0",
+			"name": "Node.js 24.15.0",
+			"version": "24.15.0",
 			"era": "24",
 			"supported": null,
-			"url": "https://nodejs.org/dist/v24.14.0/node-v24.14.0-win-x64.zip",
+			"url": "https://nodejs.org/dist/v24.15.0/node-v24.15.0-win-x64.zip",
 			"target": "windows-amd64",
-			"size": 36217529
+			"size": 36465163
 		},
 		{
 			"id": "nodejs-25",
-			"name": "Node.js 25.7.0",
-			"version": "25.7.0",
+			"name": "Node.js 25.9.0",
+			"version": "25.9.0",
 			"era": "25",
 			"supported": null,
-			"url": "https://nodejs.org/dist/v25.7.0/node-v25.7.0-win-x64.zip",
+			"url": "https://nodejs.org/dist/v25.9.0/node-v25.9.0-win-x64.zip",
 			"target": "windows-amd64",
-			"size": 37451651
+			"size": 37531403
 		}
 	],
 	"perl": [],
@@ -771,20 +1102,22 @@
 		{
 			"id": "php-8.5",
 			"name": "PHP",
-			"version": "8.5.3",
+			"version": "8.5.5",
 			"era": "8.5",
 			"supported": null,
-			"url": "https://downloads.php.net/~windows/releases/archives/php-8.5.3-Win32-vs17-x64.zip",
-			"target": "windows-amd64"
+			"url": "https://downloads.php.net/~windows/releases/archives/php-8.5.5-Win32-vs17-x64.zip",
+			"target": "windows-amd64",
+			"size": null
 		},
 		{
 			"id": "php-8.4",
 			"name": "PHP",
-			"version": "8.4.18",
+			"version": "8.4.20",
 			"era": "8.4",
 			"supported": null,
-			"url": "https://downloads.php.net/~windows/releases/archives/php-8.4.18-Win32-vs17-x64.zip",
-			"target": "windows-amd64"
+			"url": "https://downloads.php.net/~windows/releases/archives/php-8.4.20-Win32-vs17-x64.zip",
+			"target": "windows-amd64",
+			"size": null
 		},
 		{
 			"id": "php-8.3",
@@ -793,7 +1126,8 @@
 			"era": "8.3",
 			"supported": null,
 			"url": "https://downloads.php.net/~windows/releases/archives/php-8.3.30-Win32-vs16-x64.zip",
-			"target": "windows-amd64"
+			"target": "windows-amd64",
+			"size": null
 		},
 		{
 			"id": "php-8.2",
@@ -802,7 +1136,8 @@
 			"era": "8.2",
 			"supported": null,
 			"url": "https://downloads.php.net/~windows/releases/archives/php-8.2.30-Win32-vs16-x64.zip",
-			"target": "windows-amd64"
+			"target": "windows-amd64",
+			"size": null
 		},
 		{
 			"id": "php-8.1",
@@ -811,7 +1146,8 @@
 			"era": "8.1",
 			"supported": null,
 			"url": "https://downloads.php.net/~windows/releases/archives/php-8.1.34-Win32-vs16-x64.zip",
-			"target": "windows-amd64"
+			"target": "windows-amd64",
+			"size": null
 		},
 		{
 			"id": "php-8.0",
@@ -820,7 +1156,8 @@
 			"era": "8.0",
 			"supported": null,
 			"url": "https://downloads.php.net/~windows/releases/archives/php-8.0.30-Win32-vs16-x64.zip",
-			"target": "windows-amd64"
+			"target": "windows-amd64",
+			"size": null
 		},
 		{
 			"id": "php-7.4",
@@ -829,7 +1166,8 @@
 			"era": "7.4",
 			"supported": null,
 			"url": "https://downloads.php.net/~windows/releases/archives/php-7.4.33-Win32-vc15-x64.zip",
-			"target": "windows-amd64"
+			"target": "windows-amd64",
+			"size": null
 		},
 		{
 			"id": "php-7.3",
@@ -838,7 +1176,8 @@
 			"era": "7.3",
 			"supported": null,
 			"url": "https://downloads.php.net/~windows/releases/archives/php-7.3.33-Win32-VC15-x64.zip",
-			"target": "windows-amd64"
+			"target": "windows-amd64",
+			"size": null
 		},
 		{
 			"id": "php-7.2",
@@ -847,7 +1186,8 @@
 			"era": "7.2",
 			"supported": null,
 			"url": "https://downloads.php.net/~windows/releases/archives/php-7.2.34-Win32-VC15-x64.zip",
-			"target": "windows-amd64"
+			"target": "windows-amd64",
+			"size": null
 		},
 		{
 			"id": "php-7.1",
@@ -856,7 +1196,8 @@
 			"era": "7.1",
 			"supported": null,
 			"url": "https://downloads.php.net/~windows/releases/archives/php-7.1.33-Win32-VC14-x64.zip",
-			"target": "windows-amd64"
+			"target": "windows-amd64",
+			"size": null
 		},
 		{
 			"id": "php-7.0",
@@ -865,7 +1206,8 @@
 			"era": "7.0",
 			"supported": null,
 			"url": "https://downloads.php.net/~windows/releases/archives/php-7.0.33-Win32-VC14-x64.zip",
-			"target": "windows-amd64"
+			"target": "windows-amd64",
+			"size": null
 		},
 		{
 			"id": "php-5.6",
@@ -874,7 +1216,8 @@
 			"era": "5.6",
 			"supported": null,
 			"url": "https://downloads.php.net/~windows/releases/archives/php-5.6.40-Win32-VC11-x64.zip",
-			"target": "windows-amd64"
+			"target": "windows-amd64",
+			"size": null
 		}
 	],
 	"postgresql": [
@@ -885,7 +1228,8 @@
 			"era": "18",
 			"supported": true,
 			"url": "https://get.enterprisedb.com/postgresql/postgresql-18-windows-x64-binaries.zip",
-			"target": "windows-amd64"
+			"target": "windows-amd64",
+			"size": null
 		},
 		{
 			"id": "postgresql-17",
@@ -894,7 +1238,8 @@
 			"era": "17",
 			"supported": true,
 			"url": "https://get.enterprisedb.com/postgresql/postgresql-17-windows-x64-binaries.zip",
-			"target": "windows-amd64"
+			"target": "windows-amd64",
+			"size": null
 		},
 		{
 			"id": "postgresql-16",
@@ -903,7 +1248,8 @@
 			"era": "16",
 			"supported": true,
 			"url": "https://get.enterprisedb.com/postgresql/postgresql-16-windows-x64-binaries.zip",
-			"target": "windows-amd64"
+			"target": "windows-amd64",
+			"size": null
 		},
 		{
 			"id": "postgresql-15",
@@ -912,7 +1258,8 @@
 			"era": "15",
 			"supported": true,
 			"url": "https://get.enterprisedb.com/postgresql/postgresql-15-windows-x64-binaries.zip",
-			"target": "windows-amd64"
+			"target": "windows-amd64",
+			"size": null
 		},
 		{
 			"id": "postgresql-14",
@@ -921,7 +1268,8 @@
 			"era": "14",
 			"supported": true,
 			"url": "https://get.enterprisedb.com/postgresql/postgresql-14-windows-x64-binaries.zip",
-			"target": "windows-amd64"
+			"target": "windows-amd64",
+			"size": null
 		},
 		{
 			"id": "postgresql-13",
@@ -930,29 +1278,30 @@
 			"era": "13",
 			"supported": null,
 			"url": "https://get.enterprisedb.com/postgresql/postgresql-13-windows-x64-binaries.zip",
-			"target": "windows-amd64"
+			"target": "windows-amd64",
+			"size": null
 		}
 	],
 	"python": [
 		{
 			"id": "python-3.14",
 			"name": "Python",
-			"version": "3.14.3",
+			"version": "3.14.4",
 			"era": "3.14",
 			"supported": null,
-			"url": "https://www.python.org/ftp/python/3.14.3/python-3.14.3-embed-amd64.zip",
+			"url": "https://www.python.org/ftp/python/3.14.4/python-3.14.4-embed-amd64.zip",
 			"target": "windows-amd64",
-			"size": 12023245
+			"size": 12034740
 		},
 		{
 			"id": "python-3.13",
 			"name": "Python",
-			"version": "3.13.12",
+			"version": "3.13.13",
 			"era": "3.13",
 			"supported": null,
-			"url": "https://www.python.org/ftp/python/3.13.12/python-3.13.12-embed-amd64.zip",
+			"url": "https://www.python.org/ftp/python/3.13.13/python-3.13.13-embed-amd64.zip",
 			"target": "windows-amd64",
-			"size": 10941233
+			"size": 10950201
 		},
 		{
 			"id": "python-3.12",
@@ -1009,38 +1358,42 @@
 		{
 			"id": "ruby-4.0",
 			"name": "Ruby",
-			"version": "4.0.1",
+			"version": "4.0.3",
 			"era": "4.0",
 			"supported": null,
-			"url": "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-4.0.1-1/rubyinstaller-devkit-4.0.1-1-x64.zip",
-			"target": "windows-amd64"
+			"url": "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-4.0.3-1/rubyinstaller-devkit-4.0.3-1-x64.zip",
+			"target": "windows-amd64",
+			"size": null
 		},
 		{
 			"id": "ruby-3.4",
 			"name": "Ruby",
-			"version": "3.4.8",
+			"version": "3.4.9",
 			"era": "3.4",
 			"supported": null,
-			"url": "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.4.8-1/rubyinstaller-devkit-3.4.8-1-x64.zip",
-			"target": "windows-amd64"
+			"url": "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.4.9-1/rubyinstaller-devkit-3.4.9-1-x64.zip",
+			"target": "windows-amd64",
+			"size": null
 		},
 		{
 			"id": "ruby-3.3",
 			"name": "Ruby",
-			"version": "3.3.10",
+			"version": "3.3.11",
 			"era": "3.3",
 			"supported": null,
-			"url": "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.3.10-1/rubyinstaller-devkit-3.3.10-1-x64.zip",
-			"target": "windows-amd64"
+			"url": "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.3.11-1/rubyinstaller-devkit-3.3.11-1-x64.zip",
+			"target": "windows-amd64",
+			"size": null
 		},
 		{
 			"id": "ruby-3.2",
 			"name": "Ruby",
-			"version": "3.2.10",
+			"version": "3.2.11",
 			"era": "3.2",
 			"supported": null,
-			"url": "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.2.10-1/rubyinstaller-devkit-3.2.10-1-x64.zip",
-			"target": "windows-amd64"
+			"url": "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.2.11-1/rubyinstaller-devkit-3.2.11-1-x64.zip",
+			"target": "windows-amd64",
+			"size": null
 		},
 		{
 			"id": "ruby-3.1",
@@ -1049,7 +1402,8 @@
 			"era": "3.1",
 			"supported": null,
 			"url": "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.1.7-1/rubyinstaller-devkit-3.1.7-1-x64.zip",
-			"target": "windows-amd64"
+			"target": "windows-amd64",
+			"size": null
 		},
 		{
 			"id": "ruby-3.0",
@@ -1058,7 +1412,8 @@
 			"era": "3.0",
 			"supported": null,
 			"url": "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.0.7-1/rubyinstaller-devkit-3.0.7-1-x64.zip",
-			"target": "windows-amd64"
+			"target": "windows-amd64",
+			"size": null
 		},
 		{
 			"id": "ruby-2.7",
@@ -1067,7 +1422,8 @@
 			"era": "2.7",
 			"supported": null,
 			"url": "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.7.8-1/rubyinstaller-devkit-2.7.8-1-x64.zip",
-			"target": "windows-amd64"
+			"target": "windows-amd64",
+			"size": null
 		},
 		{
 			"id": "ruby-2.6",
@@ -1076,7 +1432,8 @@
 			"era": "2.6",
 			"supported": null,
 			"url": "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.6.10-1/rubyinstaller-devkit-2.6.10-1-x64.zip",
-			"target": "windows-amd64"
+			"target": "windows-amd64",
+			"size": null
 		},
 		{
 			"id": "ruby-2.5",
@@ -1085,7 +1442,8 @@
 			"era": "2.5",
 			"supported": null,
 			"url": "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.5.9-1/rubyinstaller-devkit-2.5.9-1-x64.zip",
-			"target": "windows-amd64"
+			"target": "windows-amd64",
+			"size": null
 		},
 		{
 			"id": "ruby-2.4",
@@ -1094,7 +1452,8 @@
 			"era": "2.4",
 			"supported": null,
 			"url": "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.4.10-1/rubyinstaller-devkit-2.4.10-1-x64.zip",
-			"target": "windows-amd64"
+			"target": "windows-amd64",
+			"size": null
 		},
 		{
 			"id": "ruby-2.3",
@@ -1103,7 +1462,8 @@
 			"era": "2.3",
 			"supported": null,
 			"url": "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.3.8-1/rubyinstaller-devkit-2.3.8-1-x64.zip",
-			"target": "windows-amd64"
+			"target": "windows-amd64",
+			"size": null
 		},
 		{
 			"id": "ruby-2.2",
@@ -1112,7 +1472,8 @@
 			"era": "2.2",
 			"supported": null,
 			"url": "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.2.10-1/rubyinstaller-devkit-2.2.10-1-x64.zip",
-			"target": "windows-amd64"
+			"target": "windows-amd64",
+			"size": null
 		},
 		{
 			"id": "ruby-2.1",
@@ -1121,7 +1482,8 @@
 			"era": "2.1",
 			"supported": null,
 			"url": "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.1.10-1/rubyinstaller-devkit-2.1.10-1-x64.zip",
-			"target": "windows-amd64"
+			"target": "windows-amd64",
+			"size": null
 		},
 		{
 			"id": "ruby-2.0",
@@ -1130,7 +1492,8 @@
 			"era": "2.0",
 			"supported": null,
 			"url": "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.0.0-1/rubyinstaller-devkit-2.0.0-1-x64.zip",
-			"target": "windows-amd64"
+			"target": "windows-amd64",
+			"size": null
 		},
 		{
 			"id": "ruby-1.9",
@@ -1139,7 +1502,8 @@
 			"era": "1.9",
 			"supported": null,
 			"url": "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-1.9.3-1/rubyinstaller-devkit-1.9.3-1-x64.zip",
-			"target": "windows-amd64"
+			"target": "windows-amd64",
+			"size": null
 		},
 		{
 			"id": "ruby-1.8",
@@ -1148,7 +1512,8 @@
 			"era": "1.8",
 			"supported": null,
 			"url": "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-1.8.7-1/rubyinstaller-devkit-1.8.7-1-x64.zip",
-			"target": "windows-amd64"
+			"target": "windows-amd64",
+			"size": null
 		},
 		{
 			"id": "ruby-1.6",
@@ -1157,19 +1522,30 @@
 			"era": "1.6",
 			"supported": null,
 			"url": "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-1.6.7-1/rubyinstaller-devkit-1.6.7-1-x64.zip",
-			"target": "windows-amd64"
+			"target": "windows-amd64",
+			"size": null
 		}
 	],
 	"rust": [
 		{
+			"id": "rust-1.95",
+			"name": "Rust",
+			"version": "1.95.0",
+			"era": "1.95",
+			"supported": null,
+			"url": "https://static.rust-lang.org/dist/rust-1.95.0-x86_64-pc-windows-msvc.tar.gz",
+			"target": "windows-amd64",
+			"size": 395784742
+		},
+		{
 			"id": "rust-1.94",
 			"name": "Rust",
-			"version": "1.94.0",
+			"version": "1.94.1",
 			"era": "1.94",
 			"supported": null,
-			"url": "https://static.rust-lang.org/dist/rust-1.94.0-x86_64-pc-windows-msvc.tar.gz",
+			"url": "https://static.rust-lang.org/dist/rust-1.94.1-x86_64-pc-windows-msvc.tar.gz",
 			"target": "windows-amd64",
-			"size": 385275601
+			"size": 385297826
 		},
 		{
 			"id": "rust-1.93",
@@ -1220,39 +1596,170 @@
 			"url": "https://static.rust-lang.org/dist/rust-1.89.0-x86_64-pc-windows-msvc.tar.gz",
 			"target": "windows-amd64",
 			"size": 382991238
-		},
-		{
-			"id": "rust-1.88",
-			"name": "Rust",
-			"version": "1.88.0",
-			"era": "1.88",
-			"supported": null,
-			"url": "https://static.rust-lang.org/dist/rust-1.88.0-x86_64-pc-windows-msvc.tar.gz",
-			"target": "windows-amd64",
-			"size": 382037470
-		},
-		{
-			"id": "rust-1.87",
-			"name": "Rust",
-			"version": "1.87.0",
-			"era": "1.87",
-			"supported": null,
-			"url": "https://static.rust-lang.org/dist/rust-1.87.0-x86_64-pc-windows-msvc.tar.gz",
-			"target": "windows-amd64",
-			"size": 379063379
 		}
 	],
-	"scala": [],
+	"scala": [
+		{
+			"id": "scala-3.5",
+			"name": "Scala 3.5.0",
+			"version": "3.5.0",
+			"era": "3.5",
+			"supported": null,
+			"url": "https://github.com/scala/scala3/releases/download/3.5.0/scala3-3.5.0-x86_64-pc-win32.zip",
+			"target": "windows-amd64",
+			"size": 72761497
+		},
+		{
+			"id": "scala-3.5",
+			"name": "Scala 3.5.1",
+			"version": "3.5.1",
+			"era": "3.5",
+			"supported": null,
+			"url": "https://github.com/scala/scala3/releases/download/3.5.1/scala3-3.5.1-x86_64-pc-win32.zip",
+			"target": "windows-amd64",
+			"size": 73072755
+		},
+		{
+			"id": "scala-3.5",
+			"name": "Scala 3.5.2",
+			"version": "3.5.2",
+			"era": "3.5",
+			"supported": null,
+			"url": "https://github.com/scala/scala3/releases/download/3.5.2/scala3-3.5.2-x86_64-pc-win32.zip",
+			"target": "windows-amd64",
+			"size": 73109267
+		},
+		{
+			"id": "scala-3.6",
+			"name": "Scala 3.6.2",
+			"version": "3.6.2",
+			"era": "3.6",
+			"supported": null,
+			"url": "https://github.com/scala/scala3/releases/download/3.6.2/scala3-3.6.2-x86_64-pc-win32.zip",
+			"target": "windows-amd64",
+			"size": 73308816
+		},
+		{
+			"id": "scala-3.6",
+			"name": "Scala 3.6.3",
+			"version": "3.6.3",
+			"era": "3.6",
+			"supported": null,
+			"url": "https://github.com/scala/scala3/releases/download/3.6.3/scala3-3.6.3-x86_64-pc-win32.zip",
+			"target": "windows-amd64",
+			"size": 71443880
+		},
+		{
+			"id": "scala-3.6",
+			"name": "Scala 3.6.4",
+			"version": "3.6.4",
+			"era": "3.6",
+			"supported": null,
+			"url": "https://github.com/scala/scala3/releases/download/3.6.4/scala3-3.6.4-x86_64-pc-win32.zip",
+			"target": "windows-amd64",
+			"size": 71503511
+		},
+		{
+			"id": "scala-3.7",
+			"name": "Scala 3.7.0",
+			"version": "3.7.0",
+			"era": "3.7",
+			"supported": null,
+			"url": "https://github.com/scala/scala3/releases/download/3.7.0/scala3-3.7.0-x86_64-pc-win32.zip",
+			"target": "windows-amd64",
+			"size": 76448906
+		},
+		{
+			"id": "scala-3.7",
+			"name": "Scala 3.7.1",
+			"version": "3.7.1",
+			"era": "3.7",
+			"supported": null,
+			"url": "https://github.com/scala/scala3/releases/download/3.7.1/scala3-3.7.1-x86_64-pc-win32.zip",
+			"target": "windows-amd64",
+			"size": 76891527
+		},
+		{
+			"id": "scala-3.7",
+			"name": "Scala 3.7.2",
+			"version": "3.7.2",
+			"era": "3.7",
+			"supported": null,
+			"url": "https://github.com/scala/scala3/releases/download/3.7.2/scala3-3.7.2-x86_64-pc-win32.zip",
+			"target": "windows-amd64",
+			"size": 77189460
+		},
+		{
+			"id": "scala-3.7",
+			"name": "Scala 3.7.3",
+			"version": "3.7.3",
+			"era": "3.7",
+			"supported": null,
+			"url": "https://github.com/scala/scala3/releases/download/3.7.3/scala3-3.7.3-x86_64-pc-win32.zip",
+			"target": "windows-amd64",
+			"size": 77519017
+		},
+		{
+			"id": "scala-3.7",
+			"name": "Scala 3.7.4",
+			"version": "3.7.4",
+			"era": "3.7",
+			"supported": null,
+			"url": "https://github.com/scala/scala3/releases/download/3.7.4/scala3-3.7.4-x86_64-pc-win32.zip",
+			"target": "windows-amd64",
+			"size": 77672746
+		},
+		{
+			"id": "scala-3.8",
+			"name": "Scala 3.8.0",
+			"version": "3.8.0",
+			"era": "3.8",
+			"supported": null,
+			"url": "https://github.com/scala/scala3/releases/download/3.8.0/scala3-3.8.0-x86_64-pc-win32.zip",
+			"target": "windows-amd64",
+			"size": 80971939
+		},
+		{
+			"id": "scala-3.8",
+			"name": "Scala 3.8.1",
+			"version": "3.8.1",
+			"era": "3.8",
+			"supported": null,
+			"url": "https://github.com/scala/scala3/releases/download/3.8.1/scala3-3.8.1-x86_64-pc-win32.zip",
+			"target": "windows-amd64",
+			"size": 80974703
+		},
+		{
+			"id": "scala-3.8",
+			"name": "Scala 3.8.2",
+			"version": "3.8.2",
+			"era": "3.8",
+			"supported": null,
+			"url": "https://github.com/scala/scala3/releases/download/3.8.2/scala3-3.8.2-x86_64-pc-win32.zip",
+			"target": "windows-amd64",
+			"size": 94968006
+		},
+		{
+			"id": "scala-3.8",
+			"name": "Scala 3.8.3",
+			"version": "3.8.3",
+			"era": "3.8",
+			"supported": null,
+			"url": "https://github.com/scala/scala3/releases/download/3.8.3/scala3-3.8.3-x86_64-pc-win32.zip",
+			"target": "windows-amd64",
+			"size": 97023603
+		}
+	],
 	"zig": [
 		{
 			"id": "zig-1",
 			"name": "Zig",
-			"version": "0.16.0-dev.2682+02142a54d",
+			"version": "0.17.0-dev.131+73c51c142",
 			"era": "1",
 			"supported": null,
-			"url": "https://ziglang.org/builds/zig-x86_64-windows-0.16.0-dev.2682+02142a54d.zip",
+			"url": "https://ziglang.org/builds/zig-x86_64-windows-0.17.0-dev.131+73c51c142.zip",
 			"target": "windows-amd64",
-			"size": 98127024
+			"size": 97890098
 		}
 	]
 }
