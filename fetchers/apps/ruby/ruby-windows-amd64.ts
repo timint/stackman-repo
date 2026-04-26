@@ -29,7 +29,7 @@ export async function getReleases(): Promise<Release[]> {
 				version,
 				era,
 				supported: null,
-				url: `https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-${version}-1/rubyinstaller-devkit-${version}-1-x64.zip`,
+				url: `https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-${version}-1/rubyinstaller-${version}-1-x64.7z`,
 				target: PlatformTarget.windows_amd64,
 				size: null
 			};

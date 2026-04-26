@@ -1361,9 +1361,9 @@
 			"version": "4.0.3",
 			"era": "4.0",
 			"supported": null,
-			"url": "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-4.0.3-1/rubyinstaller-devkit-4.0.3-1-x64.zip",
+			"url": "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-4.0.3-1/rubyinstaller-4.0.3-1-x64.7z",
 			"target": "windows-amd64",
-			"size": null
+			"size": 17709313
 		},
 		{
 			"id": "ruby-3.4",
@@ -1371,9 +1371,9 @@
 			"version": "3.4.9",
 			"era": "3.4",
 			"supported": null,
-			"url": "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.4.9-1/rubyinstaller-devkit-3.4.9-1-x64.zip",
+			"url": "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.4.9-1/rubyinstaller-3.4.9-1-x64.7z",
 			"target": "windows-amd64",
-			"size": null
+			"size": 16143639
 		},
 		{
 			"id": "ruby-3.3",
@@ -1381,9 +1381,9 @@
 			"version": "3.3.11",
 			"era": "3.3",
 			"supported": null,
-			"url": "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.3.11-1/rubyinstaller-devkit-3.3.11-1-x64.zip",
+			"url": "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.3.11-1/rubyinstaller-3.3.11-1-x64.7z",
 			"target": "windows-amd64",
-			"size": null
+			"size": 15012449
 		},
 		{
 			"id": "ruby-3.2",
@@ -1391,9 +1391,9 @@
 			"version": "3.2.11",
 			"era": "3.2",
 			"supported": null,
-			"url": "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.2.11-1/rubyinstaller-devkit-3.2.11-1-x64.zip",
+			"url": "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.2.11-1/rubyinstaller-3.2.11-1-x64.7z",
 			"target": "windows-amd64",
-			"size": null
+			"size": 13834226
 		},
 		{
 			"id": "ruby-3.1",
@@ -1401,9 +1401,9 @@
 			"version": "3.1.7",
 			"era": "3.1",
 			"supported": null,
-			"url": "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.1.7-1/rubyinstaller-devkit-3.1.7-1-x64.zip",
+			"url": "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.1.7-1/rubyinstaller-3.1.7-1-x64.7z",
 			"target": "windows-amd64",
-			"size": null
+			"size": 13208751
 		},
 		{
 			"id": "ruby-3.0",
@@ -1411,9 +1411,9 @@
 			"version": "3.0.7",
 			"era": "3.0",
 			"supported": null,
-			"url": "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.0.7-1/rubyinstaller-devkit-3.0.7-1-x64.zip",
+			"url": "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.0.7-1/rubyinstaller-3.0.7-1-x64.7z",
 			"target": "windows-amd64",
-			"size": null
+			"size": 13787152
 		},
 		{
 			"id": "ruby-2.7",
@@ -1421,9 +1421,9 @@
 			"version": "2.7.8",
 			"era": "2.7",
 			"supported": null,
-			"url": "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.7.8-1/rubyinstaller-devkit-2.7.8-1-x64.zip",
+			"url": "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.7.8-1/rubyinstaller-2.7.8-1-x64.7z",
 			"target": "windows-amd64",
-			"size": null
+			"size": 12767296
 		},
 		{
 			"id": "ruby-2.6",
@@ -1431,9 +1431,9 @@
 			"version": "2.6.10",
 			"era": "2.6",
 			"supported": null,
-			"url": "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.6.10-1/rubyinstaller-devkit-2.6.10-1-x64.zip",
+			"url": "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.6.10-1/rubyinstaller-2.6.10-1-x64.7z",
 			"target": "windows-amd64",
-			"size": null
+			"size": 12354309
 		},
 		{
 			"id": "ruby-2.5",
@@ -1441,9 +1441,9 @@
 			"version": "2.5.9",
 			"era": "2.5",
 			"supported": null,
-			"url": "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.5.9-1/rubyinstaller-devkit-2.5.9-1-x64.zip",
+			"url": "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.5.9-1/rubyinstaller-2.5.9-1-x64.7z",
 			"target": "windows-amd64",
-			"size": null
+			"size": 10740740
 		},
 		{
 			"id": "ruby-2.4",
@@ -1451,9 +1451,9 @@
 			"version": "2.4.10",
 			"era": "2.4",
 			"supported": null,
-			"url": "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.4.10-1/rubyinstaller-devkit-2.4.10-1-x64.zip",
+			"url": "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.4.10-1/rubyinstaller-2.4.10-1-x64.7z",
 			"target": "windows-amd64",
-			"size": null
+			"size": 9096027
 		},
 		{
 			"id": "ruby-2.3",
@@ -1461,7 +1461,7 @@
 			"version": "2.3.8",
 			"era": "2.3",
 			"supported": null,
-			"url": "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.3.8-1/rubyinstaller-devkit-2.3.8-1-x64.zip",
+			"url": "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.3.8-1/rubyinstaller-2.3.8-1-x64.7z",
 			"target": "windows-amd64",
 			"size": null
 		},
@@ -1471,7 +1471,7 @@
 			"version": "2.2.10",
 			"era": "2.2",
 			"supported": null,
-			"url": "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.2.10-1/rubyinstaller-devkit-2.2.10-1-x64.zip",
+			"url": "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.2.10-1/rubyinstaller-2.2.10-1-x64.7z",
 			"target": "windows-amd64",
 			"size": null
 		},
@@ -1481,7 +1481,7 @@
 			"version": "2.1.10",
 			"era": "2.1",
 			"supported": null,
-			"url": "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.1.10-1/rubyinstaller-devkit-2.1.10-1-x64.zip",
+			"url": "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.1.10-1/rubyinstaller-2.1.10-1-x64.7z",
 			"target": "windows-amd64",
 			"size": null
 		},
@@ -1491,7 +1491,7 @@
 			"version": "2.0.0",
 			"era": "2.0",
 			"supported": null,
-			"url": "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.0.0-1/rubyinstaller-devkit-2.0.0-1-x64.zip",
+			"url": "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.0.0-1/rubyinstaller-2.0.0-1-x64.7z",
 			"target": "windows-amd64",
 			"size": null
 		},
@@ -1501,7 +1501,7 @@
 			"version": "1.9.3",
 			"era": "1.9",
 			"supported": null,
-			"url": "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-1.9.3-1/rubyinstaller-devkit-1.9.3-1-x64.zip",
+			"url": "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-1.9.3-1/rubyinstaller-1.9.3-1-x64.7z",
 			"target": "windows-amd64",
 			"size": null
 		},
@@ -1511,7 +1511,7 @@
 			"version": "1.8.7",
 			"era": "1.8",
 			"supported": null,
-			"url": "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-1.8.7-1/rubyinstaller-devkit-1.8.7-1-x64.zip",
+			"url": "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-1.8.7-1/rubyinstaller-1.8.7-1-x64.7z",
 			"target": "windows-amd64",
 			"size": null
 		},
@@ -1521,7 +1521,7 @@
 			"version": "1.6.7",
 			"era": "1.6",
 			"supported": null,
-			"url": "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-1.6.7-1/rubyinstaller-devkit-1.6.7-1-x64.zip",
+			"url": "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-1.6.7-1/rubyinstaller-1.6.7-1-x64.7z",
 			"target": "windows-amd64",
 			"size": null
 		}
