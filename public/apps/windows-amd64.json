@@ -85,6 +85,318 @@
 			"size": null
 		}
 	],
+	"dart": [
+		{
+			"id": "dart-3.11",
+			"name": "Dart",
+			"version": "3.11.6",
+			"era": "3.11",
+			"supported": null,
+			"url": "https://storage.googleapis.com/dart-archive/channels/stable/release/3.11.6/sdk/dartsdk-windows-x64-release.zip",
+			"target": "windows-amd64",
+			"size": 209609599
+		},
+		{
+			"id": "dart-3.10",
+			"name": "Dart",
+			"version": "3.10.9",
+			"era": "3.10",
+			"supported": null,
+			"url": "https://storage.googleapis.com/dart-archive/channels/stable/release/3.10.9/sdk/dartsdk-windows-x64-release.zip",
+			"target": "windows-amd64",
+			"size": 205404231
+		},
+		{
+			"id": "dart-3.9",
+			"name": "Dart",
+			"version": "3.9.4",
+			"era": "3.9",
+			"supported": null,
+			"url": "https://storage.googleapis.com/dart-archive/channels/stable/release/3.9.4/sdk/dartsdk-windows-x64-release.zip",
+			"target": "windows-amd64",
+			"size": 212786397
+		},
+		{
+			"id": "dart-3.8",
+			"name": "Dart",
+			"version": "3.8.3",
+			"era": "3.8",
+			"supported": null,
+			"url": "https://storage.googleapis.com/dart-archive/channels/stable/release/3.8.3/sdk/dartsdk-windows-x64-release.zip",
+			"target": "windows-amd64",
+			"size": 197233889
+		},
+		{
+			"id": "dart-3.7",
+			"name": "Dart",
+			"version": "3.7.3",
+			"era": "3.7",
+			"supported": null,
+			"url": "https://storage.googleapis.com/dart-archive/channels/stable/release/3.7.3/sdk/dartsdk-windows-x64-release.zip",
+			"target": "windows-amd64",
+			"size": 216125492
+		},
+		{
+			"id": "dart-3.6",
+			"name": "Dart",
+			"version": "3.6.2",
+			"era": "3.6",
+			"supported": null,
+			"url": "https://storage.googleapis.com/dart-archive/channels/stable/release/3.6.2/sdk/dartsdk-windows-x64-release.zip",
+			"target": "windows-amd64",
+			"size": 222667616
+		},
+		{
+			"id": "dart-3.5",
+			"name": "Dart",
+			"version": "3.5.4",
+			"era": "3.5",
+			"supported": null,
+			"url": "https://storage.googleapis.com/dart-archive/channels/stable/release/3.5.4/sdk/dartsdk-windows-x64-release.zip",
+			"target": "windows-amd64",
+			"size": 212553988
+		},
+		{
+			"id": "dart-3.4",
+			"name": "Dart",
+			"version": "3.4.4",
+			"era": "3.4",
+			"supported": null,
+			"url": "https://storage.googleapis.com/dart-archive/channels/stable/release/3.4.4/sdk/dartsdk-windows-x64-release.zip",
+			"target": "windows-amd64",
+			"size": 231209946
+		},
+		{
+			"id": "dart-3.3",
+			"name": "Dart",
+			"version": "3.3.4",
+			"era": "3.3",
+			"supported": null,
+			"url": "https://storage.googleapis.com/dart-archive/channels/stable/release/3.3.4/sdk/dartsdk-windows-x64-release.zip",
+			"target": "windows-amd64",
+			"size": 223323525
+		},
+		{
+			"id": "dart-3.2",
+			"name": "Dart",
+			"version": "3.2.6",
+			"era": "3.2",
+			"supported": null,
+			"url": "https://storage.googleapis.com/dart-archive/channels/stable/release/3.2.6/sdk/dartsdk-windows-x64-release.zip",
+			"target": "windows-amd64",
+			"size": 217887083
+		},
+		{
+			"id": "dart-3.1",
+			"name": "Dart",
+			"version": "3.1.5",
+			"era": "3.1",
+			"supported": null,
+			"url": "https://storage.googleapis.com/dart-archive/channels/stable/release/3.1.5/sdk/dartsdk-windows-x64-release.zip",
+			"target": "windows-amd64",
+			"size": 205728998
+		},
+		{
+			"id": "dart-3.0",
+			"name": "Dart",
+			"version": "3.0.7",
+			"era": "3.0",
+			"supported": null,
+			"url": "https://storage.googleapis.com/dart-archive/channels/stable/release/3.0.7/sdk/dartsdk-windows-x64-release.zip",
+			"target": "windows-amd64",
+			"size": 210948180
+		},
+		{
+			"id": "dart-2.19",
+			"name": "Dart",
+			"version": "2.19.6",
+			"era": "2.19",
+			"supported": null,
+			"url": "https://storage.googleapis.com/dart-archive/channels/stable/release/2.19.6/sdk/dartsdk-windows-x64-release.zip",
+			"target": "windows-amd64",
+			"size": 214918920
+		},
+		{
+			"id": "dart-2.18",
+			"name": "Dart",
+			"version": "2.18.7",
+			"era": "2.18",
+			"supported": null,
+			"url": "https://storage.googleapis.com/dart-archive/channels/stable/release/2.18.7/sdk/dartsdk-windows-x64-release.zip",
+			"target": "windows-amd64",
+			"size": 187071981
+		},
+		{
+			"id": "dart-2.17",
+			"name": "Dart",
+			"version": "2.17.7",
+			"era": "2.17",
+			"supported": null,
+			"url": "https://storage.googleapis.com/dart-archive/channels/stable/release/2.17.7/sdk/dartsdk-windows-x64-release.zip",
+			"target": "windows-amd64",
+			"size": 190972853
+		},
+		{
+			"id": "dart-2.16",
+			"name": "Dart",
+			"version": "2.16.2",
+			"era": "2.16",
+			"supported": null,
+			"url": "https://storage.googleapis.com/dart-archive/channels/stable/release/2.16.2/sdk/dartsdk-windows-x64-release.zip",
+			"target": "windows-amd64",
+			"size": 194712058
+		},
+		{
+			"id": "dart-2.15",
+			"name": "Dart",
+			"version": "2.15.1",
+			"era": "2.15",
+			"supported": null,
+			"url": "https://storage.googleapis.com/dart-archive/channels/stable/release/2.15.1/sdk/dartsdk-windows-x64-release.zip",
+			"target": "windows-amd64",
+			"size": 191034563
+		},
+		{
+			"id": "dart-2.14",
+			"name": "Dart",
+			"version": "2.14.4",
+			"era": "2.14",
+			"supported": null,
+			"url": "https://storage.googleapis.com/dart-archive/channels/stable/release/2.14.4/sdk/dartsdk-windows-x64-release.zip",
+			"target": "windows-amd64",
+			"size": 203552848
+		},
+		{
+			"id": "dart-2.13",
+			"name": "Dart",
+			"version": "2.13.4",
+			"era": "2.13",
+			"supported": null,
+			"url": "https://storage.googleapis.com/dart-archive/channels/stable/release/2.13.4/sdk/dartsdk-windows-x64-release.zip",
+			"target": "windows-amd64",
+			"size": 182076275
+		},
+		{
+			"id": "dart-2.12",
+			"name": "Dart",
+			"version": "2.12.4",
+			"era": "2.12",
+			"supported": null,
+			"url": "https://storage.googleapis.com/dart-archive/channels/stable/release/2.12.4/sdk/dartsdk-windows-x64-release.zip",
+			"target": "windows-amd64",
+			"size": 176856352
+		},
+		{
+			"id": "dart-2.10",
+			"name": "Dart",
+			"version": "2.10.5",
+			"era": "2.10",
+			"supported": null,
+			"url": "https://storage.googleapis.com/dart-archive/channels/stable/release/2.10.5/sdk/dartsdk-windows-x64-release.zip",
+			"target": "windows-amd64",
+			"size": 157342040
+		},
+		{
+			"id": "dart-2.9",
+			"name": "Dart",
+			"version": "2.9.3",
+			"era": "2.9",
+			"supported": null,
+			"url": "https://storage.googleapis.com/dart-archive/channels/stable/release/2.9.3/sdk/dartsdk-windows-x64-release.zip",
+			"target": "windows-amd64",
+			"size": 232161029
+		},
+		{
+			"id": "dart-2.8",
+			"name": "Dart",
+			"version": "2.8.4",
+			"era": "2.8",
+			"supported": null,
+			"url": "https://storage.googleapis.com/dart-archive/channels/stable/release/2.8.4/sdk/dartsdk-windows-x64-release.zip",
+			"target": "windows-amd64",
+			"size": 219395322
+		},
+		{
+			"id": "dart-2.7",
+			"name": "Dart",
+			"version": "2.7.2",
+			"era": "2.7",
+			"supported": null,
+			"url": "https://storage.googleapis.com/dart-archive/channels/stable/release/2.7.2/sdk/dartsdk-windows-x64-release.zip",
+			"target": "windows-amd64",
+			"size": 206872620
+		},
+		{
+			"id": "dart-2.6",
+			"name": "Dart",
+			"version": "2.6.1",
+			"era": "2.6",
+			"supported": null,
+			"url": "https://storage.googleapis.com/dart-archive/channels/stable/release/2.6.1/sdk/dartsdk-windows-x64-release.zip",
+			"target": "windows-amd64",
+			"size": 211371694
+		},
+		{
+			"id": "dart-2.5",
+			"name": "Dart",
+			"version": "2.5.2",
+			"era": "2.5",
+			"supported": null,
+			"url": "https://storage.googleapis.com/dart-archive/channels/stable/release/2.5.2/sdk/dartsdk-windows-x64-release.zip",
+			"target": "windows-amd64",
+			"size": 260944790
+		},
+		{
+			"id": "dart-2.4",
+			"name": "Dart",
+			"version": "2.4.1",
+			"era": "2.4",
+			"supported": null,
+			"url": "https://storage.googleapis.com/dart-archive/channels/stable/release/2.4.1/sdk/dartsdk-windows-x64-release.zip",
+			"target": "windows-amd64",
+			"size": 122083173
+		},
+		{
+			"id": "dart-2.3",
+			"name": "Dart",
+			"version": "2.3.2",
+			"era": "2.3",
+			"supported": null,
+			"url": "https://storage.googleapis.com/dart-archive/channels/stable/release/2.3.2/sdk/dartsdk-windows-x64-release.zip",
+			"target": "windows-amd64",
+			"size": 146297771
+		},
+		{
+			"id": "dart-2.2",
+			"name": "Dart",
+			"version": "2.2.0",
+			"era": "2.2",
+			"supported": null,
+			"url": "https://storage.googleapis.com/dart-archive/channels/stable/release/2.2.0/sdk/dartsdk-windows-x64-release.zip",
+			"target": "windows-amd64",
+			"size": 97218060
+		},
+		{
+			"id": "dart-2.1",
+			"name": "Dart",
+			"version": "2.1.1",
+			"era": "2.1",
+			"supported": null,
+			"url": "https://storage.googleapis.com/dart-archive/channels/stable/release/2.1.1/sdk/dartsdk-windows-x64-release.zip",
+			"target": "windows-amd64",
+			"size": 95861657
+		},
+		{
+			"id": "dart-2.0",
+			"name": "Dart",
+			"version": "2.0.0",
+			"era": "2.0",
+			"supported": null,
+			"url": "https://storage.googleapis.com/dart-archive/channels/stable/release/2.0.0/sdk/dartsdk-windows-x64-release.zip",
+			"target": "windows-amd64",
+			"size": 123134661
+		}
+	],
 	"deno": [
 		{
 			"id": "deno-2.7",

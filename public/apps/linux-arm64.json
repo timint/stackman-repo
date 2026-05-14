@@ -115,6 +115,318 @@
 			"size": null
 		}
 	],
+	"dart": [
+		{
+			"id": "dart-3.11",
+			"name": "Dart",
+			"version": "3.11.6",
+			"era": "3.11",
+			"supported": null,
+			"url": "https://storage.googleapis.com/dart-archive/channels/stable/release/3.11.6/sdk/dartsdk-linux-arm64-release.zip",
+			"target": "linux-arm64",
+			"size": 226636611
+		},
+		{
+			"id": "dart-3.10",
+			"name": "Dart",
+			"version": "3.10.9",
+			"era": "3.10",
+			"supported": null,
+			"url": "https://storage.googleapis.com/dart-archive/channels/stable/release/3.10.9/sdk/dartsdk-linux-arm64-release.zip",
+			"target": "linux-arm64",
+			"size": 208316882
+		},
+		{
+			"id": "dart-3.9",
+			"name": "Dart",
+			"version": "3.9.4",
+			"era": "3.9",
+			"supported": null,
+			"url": "https://storage.googleapis.com/dart-archive/channels/stable/release/3.9.4/sdk/dartsdk-linux-arm64-release.zip",
+			"target": "linux-arm64",
+			"size": 216399680
+		},
+		{
+			"id": "dart-3.8",
+			"name": "Dart",
+			"version": "3.8.3",
+			"era": "3.8",
+			"supported": null,
+			"url": "https://storage.googleapis.com/dart-archive/channels/stable/release/3.8.3/sdk/dartsdk-linux-arm64-release.zip",
+			"target": "linux-arm64",
+			"size": 196386371
+		},
+		{
+			"id": "dart-3.7",
+			"name": "Dart",
+			"version": "3.7.3",
+			"era": "3.7",
+			"supported": null,
+			"url": "https://storage.googleapis.com/dart-archive/channels/stable/release/3.7.3/sdk/dartsdk-linux-arm64-release.zip",
+			"target": "linux-arm64",
+			"size": 215308610
+		},
+		{
+			"id": "dart-3.6",
+			"name": "Dart",
+			"version": "3.6.2",
+			"era": "3.6",
+			"supported": null,
+			"url": "https://storage.googleapis.com/dart-archive/channels/stable/release/3.6.2/sdk/dartsdk-linux-arm64-release.zip",
+			"target": "linux-arm64",
+			"size": 221886934
+		},
+		{
+			"id": "dart-3.5",
+			"name": "Dart",
+			"version": "3.5.4",
+			"era": "3.5",
+			"supported": null,
+			"url": "https://storage.googleapis.com/dart-archive/channels/stable/release/3.5.4/sdk/dartsdk-linux-arm64-release.zip",
+			"target": "linux-arm64",
+			"size": 212097512
+		},
+		{
+			"id": "dart-3.4",
+			"name": "Dart",
+			"version": "3.4.4",
+			"era": "3.4",
+			"supported": null,
+			"url": "https://storage.googleapis.com/dart-archive/channels/stable/release/3.4.4/sdk/dartsdk-linux-arm64-release.zip",
+			"target": "linux-arm64",
+			"size": 230887120
+		},
+		{
+			"id": "dart-3.3",
+			"name": "Dart",
+			"version": "3.3.4",
+			"era": "3.3",
+			"supported": null,
+			"url": "https://storage.googleapis.com/dart-archive/channels/stable/release/3.3.4/sdk/dartsdk-linux-arm64-release.zip",
+			"target": "linux-arm64",
+			"size": 222985236
+		},
+		{
+			"id": "dart-3.2",
+			"name": "Dart",
+			"version": "3.2.6",
+			"era": "3.2",
+			"supported": null,
+			"url": "https://storage.googleapis.com/dart-archive/channels/stable/release/3.2.6/sdk/dartsdk-linux-arm64-release.zip",
+			"target": "linux-arm64",
+			"size": 217572883
+		},
+		{
+			"id": "dart-3.1",
+			"name": "Dart",
+			"version": "3.1.5",
+			"era": "3.1",
+			"supported": null,
+			"url": "https://storage.googleapis.com/dart-archive/channels/stable/release/3.1.5/sdk/dartsdk-linux-arm64-release.zip",
+			"target": "linux-arm64",
+			"size": 205287258
+		},
+		{
+			"id": "dart-3.0",
+			"name": "Dart",
+			"version": "3.0.7",
+			"era": "3.0",
+			"supported": null,
+			"url": "https://storage.googleapis.com/dart-archive/channels/stable/release/3.0.7/sdk/dartsdk-linux-arm64-release.zip",
+			"target": "linux-arm64",
+			"size": 121362316
+		},
+		{
+			"id": "dart-2.19",
+			"name": "Dart",
+			"version": "2.19.6",
+			"era": "2.19",
+			"supported": null,
+			"url": "https://storage.googleapis.com/dart-archive/channels/stable/release/2.19.6/sdk/dartsdk-linux-arm64-release.zip",
+			"target": "linux-arm64",
+			"size": 127101650
+		},
+		{
+			"id": "dart-2.18",
+			"name": "Dart",
+			"version": "2.18.7",
+			"era": "2.18",
+			"supported": null,
+			"url": "https://storage.googleapis.com/dart-archive/channels/stable/release/2.18.7/sdk/dartsdk-linux-arm64-release.zip",
+			"target": "linux-arm64",
+			"size": 110734953
+		},
+		{
+			"id": "dart-2.17",
+			"name": "Dart",
+			"version": "2.17.7",
+			"era": "2.17",
+			"supported": null,
+			"url": "https://storage.googleapis.com/dart-archive/channels/stable/release/2.17.7/sdk/dartsdk-linux-arm64-release.zip",
+			"target": "linux-arm64",
+			"size": 114487767
+		},
+		{
+			"id": "dart-2.16",
+			"name": "Dart",
+			"version": "2.16.2",
+			"era": "2.16",
+			"supported": null,
+			"url": "https://storage.googleapis.com/dart-archive/channels/stable/release/2.16.2/sdk/dartsdk-linux-arm64-release.zip",
+			"target": "linux-arm64",
+			"size": 117356801
+		},
+		{
+			"id": "dart-2.15",
+			"name": "Dart",
+			"version": "2.15.1",
+			"era": "2.15",
+			"supported": null,
+			"url": "https://storage.googleapis.com/dart-archive/channels/stable/release/2.15.1/sdk/dartsdk-linux-arm64-release.zip",
+			"target": "linux-arm64",
+			"size": 114297961
+		},
+		{
+			"id": "dart-2.14",
+			"name": "Dart",
+			"version": "2.14.4",
+			"era": "2.14",
+			"supported": null,
+			"url": "https://storage.googleapis.com/dart-archive/channels/stable/release/2.14.4/sdk/dartsdk-linux-arm64-release.zip",
+			"target": "linux-arm64",
+			"size": 120501610
+		},
+		{
+			"id": "dart-2.13",
+			"name": "Dart",
+			"version": "2.13.4",
+			"era": "2.13",
+			"supported": null,
+			"url": "https://storage.googleapis.com/dart-archive/channels/stable/release/2.13.4/sdk/dartsdk-linux-arm64-release.zip",
+			"target": "linux-arm64",
+			"size": 105161650
+		},
+		{
+			"id": "dart-2.12",
+			"name": "Dart",
+			"version": "2.12.4",
+			"era": "2.12",
+			"supported": null,
+			"url": "https://storage.googleapis.com/dart-archive/channels/stable/release/2.12.4/sdk/dartsdk-linux-arm64-release.zip",
+			"target": "linux-arm64",
+			"size": 103952469
+		},
+		{
+			"id": "dart-2.10",
+			"name": "Dart",
+			"version": "2.10.5",
+			"era": "2.10",
+			"supported": null,
+			"url": "https://storage.googleapis.com/dart-archive/channels/stable/release/2.10.5/sdk/dartsdk-linux-arm64-release.zip",
+			"target": "linux-arm64",
+			"size": 55127370
+		},
+		{
+			"id": "dart-2.9",
+			"name": "Dart",
+			"version": "2.9.3",
+			"era": "2.9",
+			"supported": null,
+			"url": "https://storage.googleapis.com/dart-archive/channels/stable/release/2.9.3/sdk/dartsdk-linux-arm64-release.zip",
+			"target": "linux-arm64",
+			"size": 54174538
+		},
+		{
+			"id": "dart-2.8",
+			"name": "Dart",
+			"version": "2.8.4",
+			"era": "2.8",
+			"supported": null,
+			"url": "https://storage.googleapis.com/dart-archive/channels/stable/release/2.8.4/sdk/dartsdk-linux-arm64-release.zip",
+			"target": "linux-arm64",
+			"size": 58379563
+		},
+		{
+			"id": "dart-2.7",
+			"name": "Dart",
+			"version": "2.7.2",
+			"era": "2.7",
+			"supported": null,
+			"url": "https://storage.googleapis.com/dart-archive/channels/stable/release/2.7.2/sdk/dartsdk-linux-arm64-release.zip",
+			"target": "linux-arm64",
+			"size": 54726464
+		},
+		{
+			"id": "dart-2.6",
+			"name": "Dart",
+			"version": "2.6.1",
+			"era": "2.6",
+			"supported": null,
+			"url": "https://storage.googleapis.com/dart-archive/channels/stable/release/2.6.1/sdk/dartsdk-linux-arm64-release.zip",
+			"target": "linux-arm64",
+			"size": 58732243
+		},
+		{
+			"id": "dart-2.5",
+			"name": "Dart",
+			"version": "2.5.2",
+			"era": "2.5",
+			"supported": null,
+			"url": "https://storage.googleapis.com/dart-archive/channels/stable/release/2.5.2/sdk/dartsdk-linux-arm64-release.zip",
+			"target": "linux-arm64",
+			"size": 65386960
+		},
+		{
+			"id": "dart-2.4",
+			"name": "Dart",
+			"version": "2.4.1",
+			"era": "2.4",
+			"supported": null,
+			"url": "https://storage.googleapis.com/dart-archive/channels/stable/release/2.4.1/sdk/dartsdk-linux-arm64-release.zip",
+			"target": "linux-arm64",
+			"size": 59674884
+		},
+		{
+			"id": "dart-2.3",
+			"name": "Dart",
+			"version": "2.3.2",
+			"era": "2.3",
+			"supported": null,
+			"url": "https://storage.googleapis.com/dart-archive/channels/stable/release/2.3.2/sdk/dartsdk-linux-arm64-release.zip",
+			"target": "linux-arm64",
+			"size": 82413968
+		},
+		{
+			"id": "dart-2.2",
+			"name": "Dart",
+			"version": "2.2.0",
+			"era": "2.2",
+			"supported": null,
+			"url": "https://storage.googleapis.com/dart-archive/channels/stable/release/2.2.0/sdk/dartsdk-linux-arm64-release.zip",
+			"target": "linux-arm64",
+			"size": 46887755
+		},
+		{
+			"id": "dart-2.1",
+			"name": "Dart",
+			"version": "2.1.1",
+			"era": "2.1",
+			"supported": null,
+			"url": "https://storage.googleapis.com/dart-archive/channels/stable/release/2.1.1/sdk/dartsdk-linux-arm64-release.zip",
+			"target": "linux-arm64",
+			"size": 45799420
+		},
+		{
+			"id": "dart-2.0",
+			"name": "Dart",
+			"version": "2.0.0",
+			"era": "2.0",
+			"supported": null,
+			"url": "https://storage.googleapis.com/dart-archive/channels/stable/release/2.0.0/sdk/dartsdk-linux-arm64-release.zip",
+			"target": "linux-arm64",
+			"size": 60870426
+		}
+	],
 	"deno": [
 		{
 			"id": "deno-2.7",

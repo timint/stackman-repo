@@ -10,19 +10,19 @@ The feed is being updated daily by Github Actions, available here:
 * https://timint.github.io/stackman-repo/apps/macos-arm64.json
 * https://timint.github.io/stackman-repo/apps/windows-amd64.json
 
+
 ## Overview
 
 This project automatically fetches the latest version information from various software projects and generates a consolidated feed (`public/*.json`) that can be consumed by applications, dashboards, or other systems that need up-to-date release data.
 
+
 ## Supported Applications
 
+The generator currently supports 22 applications:
 
-
-The generator currently supports 19 applications:
-
-- **Web Servers**: Apache HTTP Server, Nginx, Caddy
-- **Runtimes & Languages**: Bun, Node.js, Python, PHP, Ruby, Go, Java, Kotlin, Scala, Zig, DLang, Perl
-- **Databases**: MariaDB, MySQL, PostgreSQL, MongoDB
+- **Web Servers**: Apache HTTP Server, Caddy, Nginx
+- **Runtimes & Languages**: Bun, DLang, Go, Java, Kotlin, Node.js, Perl, PHP, Python, Ruby, Scala, Zig
+- **Databases**: MariaDB, MongoDB, MySQL, PostgreSQL
 
 
 ## Features
@@ -35,10 +35,12 @@ The generator currently supports 19 applications:
 - **Sorted output**: Results are sorted alphabetically by application name
 - **Comprehensive testing**: Includes test suite to verify all fetchers work correctly
 
+
 ## Prerequisites
 
 - **Bun** >= 1.3.x
 - **Node.js** (optional, for running Node-based scripts)
+
 
 ## Installation
 
@@ -134,6 +136,7 @@ The generated `public/apps/*.json` files contains a JSON object with application
 }
 ```
 
+
 ### Release Object Structure
 
 Each release object contains:
@@ -143,6 +146,7 @@ Each release object contains:
 - `era`: Major/minor version (e.g., "2.4")
 - `url`: Download URL for the release
 - `target`: Operating system and architecture (linux-arm64, linux-amd64, windows-amd64, macos-amd64)
+
 
 ## Adding a New Fetcher
 
@@ -175,6 +179,7 @@ export async function getReleases(): Promise<Release[]> {
 
 The new fetcher will be automatically discovered and included in the feed.
 
+
 ## API Error Handling
 
 If a fetcher encounters an error, it will return an error object instead of an array:
@@ -187,9 +192,11 @@ If a fetcher encounters an error, it will return an error object instead of an a
 }
 ```
 
+
 ## CI/CD
 
 The project includes a GitHub Actions workflow (`.github/workflows/releases.yml`) that can be configured to automatically build and deploy the releases feed.
+
 
 ## Contributing
 
@@ -201,6 +208,7 @@ Contributions are welcome! Please:
 4. Ensure all tests pass (`bun test`)
 5. Submit a pull request
 
+
 ## Performance
 
 The generator is optimized for speed:
@@ -208,6 +216,7 @@ The generator is optimized for speed:
 - Bun's native performance optimizations
 - Minimal dependencies
 - Efficient data processing
+
 
 ## Troubleshooting
 
@@ -218,12 +227,14 @@ If the build fails, ensure:
 - You have internet access (fetchers need to reach external APIs)
 - All fetchers in `apps/` are valid TypeScript files
 
+
 ### Empty Feed
 
 If the feed is empty or contains errors:
 - Check individual fetcher modules for API changes
 - Verify external APIs are accessible
 - Review the error messages in the feed output
+
 
 ## Future Enhancements
 
